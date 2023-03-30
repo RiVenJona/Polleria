@@ -1,0 +1,61 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+h1 {
+    font-size: 3.5em;
+}
+
+h2 {
+    font-size: 2.7em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+p {
+    font-size: 1.25em;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    font-size: 1.25em;
+}
+.logoimg {
+    width:100px;
+    border-radius:50%;
+    border:.5px solid black;
+    margin-left:15px;
+    margin-top:5px;
+}
+a {
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease 0s;
+
+}
+
+    a:hover {
+        color: rgb(86, 86, 86);
+        transform: scale(1.05);
+    }
+   .CerrarSesion:hover {
+        color: darkred;
+        transform: scale(1.05);
+    }
+    nav{
+        margin-right:30px;
+    }
+.rolInput{
+    margin-right:10px
+}

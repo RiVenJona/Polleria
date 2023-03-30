@@ -1,0 +1,48 @@
+C:\Users\PC\source\repos\Proyecto_Polleria\BE_\bin\Debug\BE_.dll
+C:\Users\PC\source\repos\Proyecto_Polleria\BE_\bin\Debug\BE_.pdb
+C:\Users\PC\source\repos\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\Proyecto_Polleria\BE_\obj\Debug\BE_.dll
+C:\Users\PC\source\repos\Proyecto_Polleria\BE_\obj\Debug\BE_.pdb
+C:\Users\de_or\Desktop\Proyecto_Polleria\BE_\bin\Debug\BE_.dll
+C:\Users\de_or\Desktop\Proyecto_Polleria\BE_\bin\Debug\BE_.pdb
+C:\Users\de_or\Desktop\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+C:\Users\de_or\Desktop\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+C:\Users\de_or\Desktop\Proyecto_Polleria\BE_\obj\Debug\BE_.dll
+C:\Users\de_or\Desktop\Proyecto_Polleria\BE_\obj\Debug\BE_.pdb
+C:\Users\María\Documents\ProyectoPolleria\Proyecto_Polleria\BE_\bin\Debug\BE_.dll
+C:\Users\María\Documents\ProyectoPolleria\Proyecto_Polleria\BE_\bin\Debug\BE_.pdb
+C:\Users\María\Documents\ProyectoPolleria\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+C:\Users\María\Documents\ProyectoPolleria\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+C:\Users\María\Documents\ProyectoPolleria\Proyecto_Polleria\BE_\obj\Debug\BE_.dll
+C:\Users\María\Documents\ProyectoPolleria\Proyecto_Polleria\BE_\obj\Debug\BE_.pdb
+C:\Users\PC\Desktop\Proyecto_Polleria\BE_\bin\Debug\BE_.dll
+C:\Users\PC\Desktop\Proyecto_Polleria\BE_\bin\Debug\BE_.pdb
+C:\Users\PC\Desktop\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+C:\Users\PC\Desktop\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\Proyecto_Polleria\BE_\obj\Debug\BE_.dll
+C:\Users\PC\Desktop\Proyecto_Polleria\BE_\obj\Debug\BE_.pdb
+C:\Users\eduardo\Source\Repos\Proyecto_Polleria\BE_\bin\Debug\BE_.dll
+C:\Users\eduardo\Source\Repos\Proyecto_Polleria\BE_\bin\Debug\BE_.pdb
+C:\Users\eduardo\Source\Repos\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+C:\Users\eduardo\Source\Repos\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+C:\Users\eduardo\Source\Repos\Proyecto_Polleria\BE_\obj\Debug\BE_.dll
+C:\Users\eduardo\Source\Repos\Proyecto_Polleria\BE_\obj\Debug\BE_.pdb
+C:\Users\PC\Videos\Proyecto_Polleria\BE_\bin\Debug\BE_.dll
+C:\Users\PC\Videos\Proyecto_Polleria\BE_\bin\Debug\BE_.pdb
+C:\Users\PC\Videos\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+C:\Users\PC\Videos\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+C:\Users\PC\Videos\Proyecto_Polleria\BE_\obj\Debug\BE_.dll
+C:\Users\PC\Videos\Proyecto_Polleria\BE_\obj\Debug\BE_.pdb
+C:\Users\de_or\Desktop\kge de risa\Proyecto_Polleria\BE_\bin\Debug\BE_.dll
+C:\Users\de_or\Desktop\kge de risa\Proyecto_Polleria\BE_\bin\Debug\BE_.pdb
+C:\Users\de_or\Desktop\kge de risa\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+C:\Users\de_or\Desktop\kge de risa\Proyecto_Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+C:\Users\de_or\Desktop\kge de risa\Proyecto_Polleria\BE_\obj\Debug\BE_.dll
+C:\Users\de_or\Desktop\kge de risa\Proyecto_Polleria\BE_\obj\Debug\BE_.pdb
+C:\Users\eduardo\Downloads\Proyecto_Polleria-main\Proyecto_Polleria-main\BE_\bin\Debug\BE_.dll
+C:\Users\eduardo\Downloads\Proyecto_Polleria-main\Proyecto_Polleria-main\BE_\bin\Debug\BE_.pdb
+C:\Users\eduardo\Downloads\Proyecto_Polleria-main\Proyecto_Polleria-main\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+C:\Users\eduardo\Downloads\Proyecto_Polleria-main\Proyecto_Polleria-main\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+C:\Users\eduardo\Downloads\Proyecto_Polleria-main\Proyecto_Polleria-main\BE_\obj\Debug\BE_.dll
+C:\Users\eduardo\Downloads\Proyecto_Polleria-main\Proyecto_Polleria-main\BE_\obj\Debug\BE_.pdb

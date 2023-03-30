@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebPolleria.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="/estilos/Master.css" />
+    <%--<style type="text/css">
+        .auto-style1 {
+            width: 290px;
+        }
+    </style>--%>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container" style="display:flex; justify-content:space-between; align-content:center;align-items:center; flex-direction:row; background: #F7971E;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFD200, #F7971E);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFD200, #F7971E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+border-radius:15px;" >
+            <div>
+            <img class="logoimg" src="/Imagenes/Logo.jpg" alt="logo-empresa">
+        </div>
+            <div>
+            <nav>
+                <a href="~/RegReserva.aspx" id="aRegistrar" runat="server">Registrar Reserva</a>
+                <a href="~/AnularReserva.aspx" id="aAnular" runat="server">Anular Reserva</a>
+                <a href="~/GenOrdenInsumo.aspx" id="aGenOrden" runat="server">Generar O. Insumo</a>
+                <a href="CambiarPass.aspx" id="aCambiar" runat="server">Cambiar Password</a>
+                <asp:Button ID="Button1" runat="server" Text="Cerrar Session" BorderStyle="None" CssClass="CerrarSesion" OnClick="Button1_Click"/>
+                <style>
+                    .CerrarSesion{
+                        border:none;
+                        background:none;
+                        color:white;
+                        font-weight:bold;
+                        font-size:20px;
+                        transition: all 0.3s ease 0s;
+                    }
+                </style>
+            </nav>
+                </div>
+            <div>
+                <p>Rol:
+                <input class="rolInput" type="text" id="txtRol" placeholder="RolAsignado" disabled="disabled" runat="server"/></p>
+            </div>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer>
+            <p class="footerText">&copy; <%: DateTime.Now.Year %> Panchos - Polleria El Buen Sabor</p>
+        </footer>
+    </form>
+</body>
+</html>
+ 
