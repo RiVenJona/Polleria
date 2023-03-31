@@ -27,5 +27,9 @@ namespace BL_
         {
             return dA_Insumo.NumActualOrdenInsumo();
         }
+        public bool RegistrarOrdenInsumo(int i, int o, int c, int t)
+        {
+            return dA_Insumo.RegistrarOrdenInsumo(i, o, c, t);
+        }
     }
 }

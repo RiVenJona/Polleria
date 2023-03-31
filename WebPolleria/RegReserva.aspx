@@ -42,7 +42,7 @@
         <br />
         <br />
         <asp:Button ID="BtnSalir" runat="server" Text="Salir" />
-        <asp:Button ID="BtnRegistrar" runat="server" Text="Registrar" style="margin-left: 177px" Width="122px" OnClick="BtnRegistrar_Click" />
+        <asp:Button ID="BtnRegistrar" runat="server" Text="Registrar" style="margin-left: 177px" Width="122px" OnClick="BtnRegistrar_Click" Height="26px" />
         <br />
         <br />
 </asp:Content>

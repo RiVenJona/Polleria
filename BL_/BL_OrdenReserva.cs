@@ -23,7 +23,7 @@ namespace BL_
         {
             return dA_Orden.RegistrarReserva(mesa, fecha, hora, tra, dni);
         }
-        public List<BE_Mesa> BL_Disponibilidad(DateTime Fechad,int Horad)
+        public List<string> BL_Disponibilidad(DateTime Fechad,int Horad)
         {
             return dA_Orden.Disponibilidad(Fechad, Horad);
         }

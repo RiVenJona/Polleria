@@ -88,6 +88,12 @@ namespace WebPolleria
         {
 
         }
+
+        protected void btnReiniciar_Click(object sender, EventArgs e)
+        {
+            TxtNro.Text = "";
+            TxtNro.Enabled = true;
+        }
     }
     
 }

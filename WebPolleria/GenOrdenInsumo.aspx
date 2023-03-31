@@ -83,7 +83,7 @@
     <div>
         <br />
         <asp:Button style="position:absolute; float: left; margin-left: 50px" ID="btnSalir" runat="server" Width="60px" Text="Salir" />
-        <asp:Button style="position:relative; float: right; margin-right: 50px" ID="btnGenerar" runat="server" Width="60px" Text="Generar" />
+        <asp:Button style="position:relative; float: right; margin-right: 50px; top: 0px; left: 0px;" ID="btnGenerar" runat="server" Width="60px" Text="Generar"/>
         <br />
     </div>
     </div>

@@ -72,7 +72,7 @@ namespace DA_
                 return false;
             }
         }
-        public List<BE_Mesa> Disponibilidad(DateTime FechaProgra,int IdHorario)
+        public List<string> Disponibilidad(DateTime FechaProgra,int IdHorario)
         {
             try
             {
@@ -88,16 +88,11 @@ namespace DA_
                     sc.CommandTimeout = 0;
                     sc.CommandType = CommandType.StoredProcedure;
                     rd = sc.ExecuteReader();
-                    BE_Mesa ListaReserva;
-                    List<BE_Mesa> Dispo = new List<BE_Mesa>();
-                    ListaReserva = new BE_Mesa();
-                    ListaReserva.IdMesa= "Seleccionar";
-                    Dispo.Add(ListaReserva);
+                    List<string> Dispo = new List<string>();
+                    Dispo.Add( "Seleccionar");
                     while (rd.Read())
                     {
-                        ListaReserva = new BE_Mesa();
-                        ListaReserva.IdMesa = rd["IdMesa"].ToString();
-                        Dispo.Add(ListaReserva);
+                        Dispo.Add(rd["IdMesa"].ToString());
                     }
                     return Dispo;
                 }

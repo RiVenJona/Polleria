@@ -18,17 +18,17 @@ namespace WebPolleria
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //if (Session["RolUser"] != null)
-            //{
-            //    Response.Redirect("login.aspx", true);
-            //}
+            if (Session["RolUser"].ToString() == "")
+            {
+                Response.Redirect("login.aspx", true);
+            }
 
         }
 
         protected void btnCambiarPass_Click(object sender, EventArgs e)
         {
-            HttpCookie cookie = Request.Cookies["MisDatos"];
-            string user = cookie["usuario"];
+            bluser = new BL_Usuario();
+            string user = Session["usuario"].ToString();
             string nuevapass = Request.Form["txtNuevapass"];
             bool contieneMayusculas = Regex.IsMatch(nuevapass, "[A-Z]");
             bool contieneNumeros = Regex.IsMatch(nuevapass, @"\d");

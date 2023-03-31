@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BCrypt.Net;
 using System.Text;
+using System.Web.SessionState;
 using bc = BCrypt.Net.BCrypt;
 
 namespace WebPolleria
@@ -39,12 +40,11 @@ namespace WebPolleria
                 }
                 else
                 {
-                    HttpCookie cookie = new HttpCookie("MisDatos");
-                    cookie["usuario"] = txtUser.Text;
-                    Response.Cookies.Add(cookie);
+                    Session["usuario"] = txtUser.Text;
+                    
                     Session["RolUser"] = us.GetRol(usuario, txtPass.Text);
-                    Response.Redirect("MainMenu.aspx",true);
-                    //Response.Redirect("PreSeguridad.aspx",true);
+                    //Response.Redirect("MainMenu.aspx", true);
+                    Response.Redirect("PreSeguridad.aspx", true);
                 }
             }
             else

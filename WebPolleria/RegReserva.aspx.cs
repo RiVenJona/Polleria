@@ -133,7 +133,12 @@ namespace WebPolleria
 
         protected void DpDown2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int mesa1 = int.Parse(this.DpDown2.SelectedValue);
+            int mesa1;
+            if (this.DpDown2.SelectedItem.ToString() == "Seleccionar")
+            {
+                mesa1 = 0;
+            }
+            else { mesa1 = int.Parse(this.DpDown2.SelectedItem.ToString()); }
             SeleccionMesas(mesa1);
         }
 
@@ -165,7 +170,7 @@ namespace WebPolleria
             this.RegCliente.Visible = false;
             this.BtnRegistrar.Visible = true;
             TxtBDni.Text = TxtDni.Text;
-            TxtBDni.Enabled = false;
+            TxtBDni.Enabled = true;
         }
 
         protected void BtnRegistrar_Click(object sender, EventArgs e)
@@ -174,7 +179,7 @@ namespace WebPolleria
             int mesa = int.Parse(this.DpDown2.SelectedValue);
             DateTime fecha = DateTime.Parse(this.TxtFecha.Text);
             int hora = int.Parse(this.DpDown1.SelectedValue);
-            int tra = 1;
+            int tra = 3;
             int dni = int.Parse(this.TxtBDni.Text);
             if (RE.BL_RegistrarReserva(mesa, fecha, hora, tra, dni))
             {
@@ -182,6 +187,7 @@ namespace WebPolleria
                 DpDown1.Items.Clear();
                 DpDown2.Items.Clear();
                 Limpiar();
+                LlenarListaHorarios();
             }
         }
 
@@ -189,7 +195,7 @@ namespace WebPolleria
         {
             BL_OrdenReserva DI = new BL_OrdenReserva();
             DateTime Fechad = DateTime.Parse(this.TxtFecha.Text);
-            int Horad = int.Parse(this.DpDown1.SelectedValue);
+            int Horad = int.Parse(this.DpDown1.SelectedValue.ToString());
             DpDown2.DataSource= DI.BL_Disponibilidad(Fechad, Horad);
             DpDown2.DataBind();
         }

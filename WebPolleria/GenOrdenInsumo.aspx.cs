@@ -183,5 +183,25 @@ namespace WebPolleria
             }
         }
 
+        //protected void btnGenerar_Click(object sender, EventArgs e)
+        //{
+        //    GridViewRow row = GvOrden.SelectedRow;
+        //    NI.NumInsumo = row.Cells[0].Text;
+
+        //    int mesa = int.Parse(this.DpDown2.SelectedValue);
+        //    DateTime fecha = DateTime.Parse(this.TxtFecha.Text);
+        //    int hora = int.Parse(this.DpDown1.SelectedValue);
+        //    int tra = 3;
+        //    int dni = int.Parse(this.TxtBDni.Text);
+        //    if (IN.BL_(mesa, fecha, hora, tra, dni))
+        //    {
+        //        Message("Se registro la reserva correctamente");
+        //        DpDown1.Items.Clear();
+        //        DpDown2.Items.Clear();
+        //        Limpiar();
+        //        LlenarListaHorarios();
+        //    }
+
+        //}
     }
 }

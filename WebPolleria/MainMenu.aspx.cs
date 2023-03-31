@@ -12,9 +12,11 @@ namespace WebPolleria
         protected void Page_Load(object sender, EventArgs e)
         {
             rolBi.InnerHtml = Session["RolUser"].ToString().ToUpper();
-        //    if (Session["RolUser"] != null) { 
-        //    Response.Redirect("Login.aspx", true);
-        //} 
+            string a = Session["RolUser"].ToString();
+            if (a == "")
+            {
+                Response.Redirect("Login.aspx", true);
+            }
         }
     }
 }
