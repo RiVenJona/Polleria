@@ -7,20 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Web.SessionState;
 using System.Web.UI.WebControls;
+using System.Net;
 
 namespace WebPolleria
 {
     public partial class GenOrdenInsumo : System.Web.UI.Page
     {
+
+        
         BL_Insumo IN;
+        BL_Trabajador TR;
         List<BE_Insumo> listaFilas = new List<BE_Insumo>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            IN = new BL_Insumo();
+            TxtNroIns.Text = IN.NumActualOrdenInsumo();
             if (!Page.IsPostBack)
             {
-                IN = new BL_Insumo();
-                TxtNroIns.Text = IN.NumActualOrdenInsumo();
+                TR = new BL_Trabajador();
+
+                TxtJefe.Text = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
                 TxtJefe.Enabled = false;
                 CargarTabla();
 
@@ -36,6 +44,12 @@ namespace WebPolleria
                 listaFilas = (List<BE_Insumo>)ViewState["listaFilas"];
             }
 
+        }
+
+        protected string ObtenerUsuario()
+        {
+            string LogedUser = Session["usuario"].ToString();
+            return LogedUser;
         }
         protected void CargarTabla()
         {
@@ -183,25 +197,40 @@ namespace WebPolleria
             }
         }
 
-        //protected void btnGenerar_Click(object sender, EventArgs e)
-        //{
-        //    GridViewRow row = GvOrden.SelectedRow;
-        //    NI.NumInsumo = row.Cells[0].Text;
+        protected void btnGenerar_Click(object sender, EventArgs e)
+        {
+            BL_Insumo IN = new BL_Insumo();
+            BL_Trabajador TR = new BL_Trabajador();
 
-        //    int mesa = int.Parse(this.DpDown2.SelectedValue);
-        //    DateTime fecha = DateTime.Parse(this.TxtFecha.Text);
-        //    int hora = int.Parse(this.DpDown1.SelectedValue);
-        //    int tra = 3;
-        //    int dni = int.Parse(this.TxtBDni.Text);
-        //    if (IN.BL_(mesa, fecha, hora, tra, dni))
-        //    {
-        //        Message("Se registro la reserva correctamente");
-        //        DpDown1.Items.Clear();
-        //        DpDown2.Items.Clear();
-        //        Limpiar();
-        //        LlenarListaHorarios();
-        //    }
+            int IdInsumo;
+            int IdTrabajador = 1;
+            int Cantidad;
+            string IdOrden;
 
-        //}
+            IdOrden = TxtNroIns.Text;
+            IdTrabajador = TR.BuscarIdTrabajador(ObtenerUsuario());
+            if (IN.RegistrarOrdenInsumo(IdTrabajador))
+            {
+
+            }
+
+            for (int i = 0; i < GvOrden.Rows.Count; i++)
+            {
+                GridViewRow row = GvOrden.Rows[i];
+                
+                IdInsumo = IN.BuscarIdInsumoxNumInsumo(row.Cells[0].Text);
+                TextBox tbC = (TextBox)GvOrden.Rows[i].FindControl("txtCantGv");
+                Cantidad = int.Parse(tbC.Text);
+
+                if (IN.RegistrarOrdenInsumoDetalle(IdOrden, IdInsumo, Cantidad))
+                {
+
+                    
+                }
+            }
+            Response.Redirect(Request.RawUrl);
+            Message("Se registro la orden de insumo");
+
+        }
     }
 }

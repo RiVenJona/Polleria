@@ -9,17 +9,17 @@
         <asp:TextBox style="position:relative; float: right; margin-right: 50px" ID="TxtJefe" runat="server" Width="118px"></asp:TextBox>
         <asp:Label style="position:relative; float: right;" ID="Label7" runat="server" Width="160px" Text="Jefe de Cocina:"></asp:Label>
     </div>
-    <h4>BUSCAR INSUMO:</h4>    
-    <asp:Panel ID="Panel1" runat="server" Height="70px" style="border: 1px solid black;">
         <br />
+    <asp:Panel ID="Panel1" runat="server" Height="120px" style="border: 1px solid black;">
+        <h4>BUSCAR INSUMO:</h4>
         <asp:Label ID="Label3" runat="server" Width="160px" Text="Nombre de insumo: "></asp:Label>
         <asp:TextBox ID="TxtInsumoDesc" runat="server"></asp:TextBox>
         <asp:Button style="margin-left: 50px" ID="btnBuscar" runat="server" Text="Buscar" Width="68px" OnClick="btnBuscar_Click"/>
         <br />
     </asp:Panel>
-    <h4>DATOS INSUMO:</h4>  
-    <asp:Panel ID="Panel2" runat="server" Height="240px" style="border: 1px solid black;">
         <br />
+    <asp:Panel ID="Panel2" runat="server" Height="280px" style="border: 1px solid black;">
+        <h4>DATOS INSUMO:</h4>
         <asp:GridView HorizontalAlign="Center" ID="GvDatos" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Width="460px" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged">
             <Columns>
 
@@ -44,9 +44,9 @@
         <asp:Button style="float: right; margin-right: 50px" ID="btnAgregar" runat="server" Width="60px" Text="Agregar" />
         <br />
     </asp:Panel>
-    <h4>DETALLE ORDEN DE INSUMO:</h4>  
-    <asp:Panel ID="Panel3" runat="server" Height="240px" style="border: 1px solid black;">
         <br />
+    <asp:Panel ID="Panel3" runat="server" Height="280px" style="border: 1px solid black;">
+    <h4>DETALLE ORDEN DE INSUMO:</h4>
         <asp:GridView HorizontalAlign="Center" ID="GvOrden" runat="server" ShowHeaderWhenEmpty="true" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="460px" OnSelectedIndexChanged="GvOrden_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField  DataField="NumInsumo" HeaderText="ID" />
@@ -83,7 +83,7 @@
     <div>
         <br />
         <asp:Button style="position:absolute; float: left; margin-left: 50px" ID="btnSalir" runat="server" Width="60px" Text="Salir" />
-        <asp:Button style="position:relative; float: right; margin-right: 50px; top: 0px; left: 0px;" ID="btnGenerar" runat="server" Width="60px" Text="Generar"/>
+        <asp:Button style="position:relative; float: right; margin-right: 50px; top: 0px; left: 0px;" ID="btnGenerar" runat="server" Width="60px" Text="Generar" OnClick="btnGenerar_Click"/>
         <br />
     </div>
     </div>

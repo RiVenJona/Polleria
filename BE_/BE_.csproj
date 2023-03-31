@@ -46,6 +46,7 @@
     <Compile Include="BE_Mesa.cs" />
     <Compile Include="BE_OrdenReserva.cs" />
     <Compile Include="BE_Persona.cs" />
+    <Compile Include="BE_Trabajador.cs" />
     <Compile Include="BE_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

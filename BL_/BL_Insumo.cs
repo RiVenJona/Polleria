@@ -27,9 +27,21 @@ namespace BL_
         {
             return dA_Insumo.NumActualOrdenInsumo();
         }
-        public bool RegistrarOrdenInsumo(int i, int o, int c, int t)
+        public int IdActualOrdenInsumo()
         {
-            return dA_Insumo.RegistrarOrdenInsumo(i, o, c, t);
+            return dA_Insumo.IdActualOrdenInsumo();
+        }
+        public int BuscarIdInsumoxNumInsumo(String n)
+        {
+            return dA_Insumo.BuscarIdInsumoxNumInsumo(n);
+        }
+        public bool RegistrarOrdenInsumo(int t)
+        {
+            return dA_Insumo.RegistrarOrdenInsumo(t);
+        }
+        public bool RegistrarOrdenInsumoDetalle(string i, int o, int c)
+        {
+            return dA_Insumo.RegistrarOrdenInsumoDetalle(i, o, c);
         }
     }
 }

@@ -36,7 +36,9 @@ namespace WebPolleria
             {
                 if (us.ValUsuario(usuario,txtPass.Text)!=0) {
                     Session["RolUser"] = us.GetRol(usuario, txtPass.Text);
+                    Session["usuario"] = txtUser.Text;
                     Response.Redirect("MainMenu.aspx", true);
+                    
                 }
                 else
                 {

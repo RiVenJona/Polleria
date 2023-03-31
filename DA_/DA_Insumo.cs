@@ -32,6 +32,27 @@ namespace DA_
 
             return valor;
         }
+
+        public int IdActualOrdenInsumo()
+        {
+            int valor = 1;
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("[dbo].[SP_IdOrden]", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    valor = int.Parse(rd["NumActual"].ToString());
+                }
+                rd.Close();
+            }
+
+            return valor;
+        }
         public List<BE_Insumo> ListaInsumos()
         {
             SqlDataReader rd = null;
@@ -89,7 +110,30 @@ namespace DA_
             }
         }
 
-            public bool RegistrarOrdenInsumo(int IdIns, int IdOrden, int Cantidad, int IdTra)
+        public int BuscarIdInsumoxNumInsumo(String n)
+        {
+            int valor = 0;
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("[dbo].[SP_BuscarIdInsumo]", cn);
+                cmd.Parameters.AddWithValue("@NumInsumo", n);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    valor = int.Parse(rd["IdInsumo"].ToString());
+                }
+                rd.Close();
+            }
+
+            return valor;
+        }
+
+        public bool RegistrarOrdenInsumo(int IdTra)
             {
                 try
                 {
@@ -99,9 +143,6 @@ namespace DA_
                         SqlDataAdapter dt = new SqlDataAdapter();
                         SqlCommand sc;
                         sc = new SqlCommand("[dbo].[SP_AgregarOrIns]", cn);
-                        sc.Parameters.AddWithValue("@IdInsumo", IdIns);
-                        sc.Parameters.AddWithValue("@IdOrden", IdOrden);
-                        sc.Parameters.AddWithValue("@Cantidad", Cantidad);
                         sc.Parameters.AddWithValue("@IdTrabajador", IdTra); 
                         sc.CommandTimeout = 0;
                         sc.CommandType = CommandType.StoredProcedure;
@@ -114,6 +155,32 @@ namespace DA_
                     return false;
                 }
             }
+        public bool RegistrarOrdenInsumoDetalle(string IdIns, int IdOrden, int Cantidad)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("[dbo].[SP_AgregarOrInsDet]", cn);
+                    sc.Parameters.AddWithValue("@IdOrden", IdIns);
+                    sc.Parameters.AddWithValue("@IdInsumo", IdOrden);
+                    sc.Parameters.AddWithValue("@Cantidad", Cantidad);
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var anul = sc.ExecuteScalar();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
-   }
+    }
+}
+
+  
 

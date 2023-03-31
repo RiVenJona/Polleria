@@ -46,3 +46,9 @@ C:\Users\eduardo\Downloads\Proyecto_Polleria-main\Proyecto_Polleria-main\BE_\obj
 C:\Users\eduardo\Downloads\Proyecto_Polleria-main\Proyecto_Polleria-main\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
 C:\Users\eduardo\Downloads\Proyecto_Polleria-main\Proyecto_Polleria-main\BE_\obj\Debug\BE_.dll
 C:\Users\eduardo\Downloads\Proyecto_Polleria-main\Proyecto_Polleria-main\BE_\obj\Debug\BE_.pdb
+D:\repos\Polleria\BE_\bin\Debug\BE_.dll
+D:\repos\Polleria\BE_\bin\Debug\BE_.pdb
+D:\repos\Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+D:\repos\Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+D:\repos\Polleria\BE_\obj\Debug\BE_.dll
+D:\repos\Polleria\BE_\obj\Debug\BE_.pdb
