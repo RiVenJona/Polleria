@@ -26,7 +26,7 @@ border-radius:15px;" >
         </div>
             <div>
             <nav>
-                <a href="~/RegReserva.aspx" id="aRegistrar" runat="server">Registrar Reserva</a>
+                <a href="~/RegReserva.aspx" id="aRegistrar" runat="server">Generar Reserva</a>
                 <a href="~/AnularReserva.aspx" id="aAnular" runat="server">Anular Reserva</a>
                 <a href="~/GenOrdenInsumo.aspx" id="aGenOrden" runat="server">Generar O. Insumo</a>
                 <a href="CambiarPass.aspx" id="aCambiar" runat="server">Cambiar Password</a>

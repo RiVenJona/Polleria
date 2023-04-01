@@ -88,7 +88,6 @@
     <Content Include="RecepcionarCliente.aspx" />
     <Content Include="RecuperarCuenta.aspx" />
     <Content Include="RegReserva.aspx" />
-    <Content Include="ReOrdenReserva.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
   </ItemGroup>
@@ -156,13 +155,6 @@
     </Compile>
     <Compile Include="RegReserva.aspx.designer.cs">
       <DependentUpon>RegReserva.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ReOrdenReserva.aspx.cs">
-      <DependentUpon>ReOrdenReserva.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ReOrdenReserva.aspx.designer.cs">
-      <DependentUpon>ReOrdenReserva.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>

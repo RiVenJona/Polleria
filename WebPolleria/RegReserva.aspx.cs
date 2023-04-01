@@ -13,6 +13,7 @@ namespace WebPolleria
     public partial class RegReserva : System.Web.UI.Page
     {
         BL_Persona PE;
+        BL_Trabajador TR;
         protected void Page_Load(object sender, EventArgs e)
         {
             Deshabilitar();
@@ -23,6 +24,10 @@ namespace WebPolleria
                 //LlenarListaMesas();
                 this.RegCliente.Visible = false;
                 this.BtnRegistrar.Visible = false;
+                this.PanelClientes.Visible = false;
+                TR = new BL_Trabajador();
+                TxtRecepcionista.Text = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
+                TxtRecepcionista.Enabled = false;
             }
         }
         protected void Habilitar()
@@ -75,13 +80,21 @@ namespace WebPolleria
                 Message("Persona encontrada");
                 Deshabilitar();
                 this.BtnRegistrar.Visible = true;
+                this.PanelClientes.Visible = true;
             }
             else
             {
                 Message("Persona no encontrada, puede proceder a registrarla");
+                Limpiar();
                 Habilitar();
                 this.RegCliente.Visible = true;
+                this.PanelClientes.Visible = true;
             }
+        }
+        protected string ObtenerUsuario()
+        {
+            string LogedUser = Session["usuario"].ToString();
+            return LogedUser;
         }
         public void Message(string str)
         {
@@ -175,11 +188,12 @@ namespace WebPolleria
 
         protected void BtnRegistrar_Click(object sender, EventArgs e)
         {
+            BL_Trabajador TR = new BL_Trabajador();
             BL_OrdenReserva RE = new BL_OrdenReserva();
             int mesa = int.Parse(this.DpDown2.SelectedValue);
             DateTime fecha = DateTime.Parse(this.TxtFecha.Text);
             int hora = int.Parse(this.DpDown1.SelectedValue);
-            int tra = 3;
+            int tra = TR.BuscarIdTrabajador(ObtenerUsuario()); ;
             int dni = int.Parse(this.TxtBDni.Text);
             if (RE.BL_RegistrarReserva(mesa, fecha, hora, tra, dni))
             {
