@@ -22,40 +22,150 @@
 .imgLogo {
     border-radius: 15px;
 }
-btnenviar{
-    border-radius:15px;
-
-}
 
 .containerpass {
     background: #F7971E; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFD200, #F7971E); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFD200, #F7971E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right, #ffd000c9, #f7951ecd); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffd000d3, #f7951ec7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border-radius: 15px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    width:450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height:40vh;
 }
 .barracompleta{
     margin:20px;
 }
 #myInput{
     border-radius:15px;
-    border:.5px solid black;
+    border:.3px solid black;
+    padding:10px;
+    width:20vw;
 }
+    #myInput:focus {
+        outline: none;
+    }
 .txtCambiarPass{
     color:white;
     text-align:center;
+    font-weight:bold;
+    font-size:2vw;
+    margin:5px 0;
 }
-.formCambio{
+.formCambio {
+    height:98vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(180deg, #0000008c 20%,#0000008c 100%), url('../Imagenes/FONDO.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+.btnCambiar {
+    border: 0.3px solid black;
+    background: #a8be2cd1;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 0.2s ease 0s;
+}
+
+    .btnCambiar:hover {
+        transform: scale(1.02);
+        background: #adc044d1;
+    }
+
+.btnenviar {
+    border: 0.3px solid black;
+    background: #91c433e1;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: all 0.2s ease 0s;
+}
+    .btnenviar:hover {
+        transform: scale(1.02);
+        background: #9bc252e1;
+    }
+ul {
+    margin: 0;
+    padding: 0;
+}
+.reglas p{
+    margin:0px;
+}
+
+
+
+/*CAMBIOS PAG "SE OLVIDO LA CUENTA?"*/
+
+
+.containerGeneral {
+    background: #ffffff53;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 15px;
+}
+.container-preguntas {
+    padding: 10px;
+    background: #c0a23fb5;
+    margin: 10px;
+    border-radius: 15px;
+}
+#Preguntas {
+    padding: 10px;
+    background: #c0a23fb5;
+    margin: 10px;
+    border-radius: 15px;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    margin-top:100px
 }
-.btnCambiar{
-    margin:10px;
+
+#Preguntas h3{
+    color:white;
 }
+.inputPreguntas{
+    border-radius:15px;
+    padding:5px;
+    width:30vw;
+    border:0.4px solid black;
+}
+.inputPreguntas:focus{
+    outline:none;
+}
+#btnEnviar {
+    margin: 0px;
+    border: 0.3px solid black;
+    background: #91c433e1;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: all 0.2s ease 0s;
+    margin-top:10px;
+}
+    #btnEnviar:hover {
+        transform: scale(1.02);
+        background: #9bc252e1;
+    }
+#btnRegresar {
+    margin: 0px;
+    border: 0.3px solid black;
+    background: #91c433e1;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: all 0.2s ease 0s;
+    margin-top: 10px;
+}
+    #btnRegresar:hover {
+        transform: scale(1.02);
+        background: #9bc252e1;
+    }

@@ -24,10 +24,12 @@ namespace WebPolleria
                 //LlenarListaMesas();
                 this.RegCliente.Visible = false;
                 this.BtnRegistrar.Visible = false;
-                this.PanelClientes.Visible = false;
+                this.Clientes.Visible = false;
+                this.RegMesas.Visible = false;
                 TR = new BL_Trabajador();
                 TxtRecepcionista.Text = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
                 TxtRecepcionista.Enabled = false;
+
             }
         }
         protected void Habilitar()
@@ -50,16 +52,16 @@ namespace WebPolleria
         }
         protected void Limpiar()
         {
-            TxtNombre.Text=string.Empty;
+            TxtNombre.Text = string.Empty;
             TxtApellidos.Text = string.Empty;
-            TxtCorreo.Text = string.Empty; 
+            TxtCorreo.Text = string.Empty;
             TxtFecha.Text = string.Empty;
             TxtDireccion.Text = string.Empty;
             TxtDni.Text = string.Empty;
             TxtTelefono.Text = string.Empty;
             TxtBDni.Text = string.Empty;
         }
-           
+
         protected void BtnDni_Click(object sender, EventArgs e)
         {
             PE = new BL_Persona();
@@ -80,15 +82,17 @@ namespace WebPolleria
                 Message("Persona encontrada");
                 Deshabilitar();
                 this.BtnRegistrar.Visible = true;
-                this.PanelClientes.Visible = true;
+                this.Clientes.Visible = true;
+                this.RegMesas.Visible = true;
             }
             else
             {
                 Message("Persona no encontrada, puede proceder a registrarla");
                 Limpiar();
                 Habilitar();
+                this.RegMesas.Visible = false;
                 this.RegCliente.Visible = true;
-                this.PanelClientes.Visible = true;
+                this.Clientes.Visible = true;
             }
         }
         protected string ObtenerUsuario()
@@ -170,6 +174,7 @@ namespace WebPolleria
                 if (PE.BL_RegisPersona(Nombre, Apellidos, Correo, Telefono, Direccion, DNI))
                 {
                     Message("Se registro el correctamente");
+                    this.RegMesas.Visible = true;
                 }
                 else
                 {
@@ -184,6 +189,7 @@ namespace WebPolleria
             this.BtnRegistrar.Visible = true;
             TxtBDni.Text = TxtDni.Text;
             TxtBDni.Enabled = true;
+            this.RegCliente.Visible = true;
         }
 
         protected void BtnRegistrar_Click(object sender, EventArgs e)
@@ -210,7 +216,7 @@ namespace WebPolleria
             BL_OrdenReserva DI = new BL_OrdenReserva();
             DateTime Fechad = DateTime.Parse(this.TxtFecha.Text);
             int Horad = int.Parse(this.DpDown1.SelectedValue.ToString());
-            DpDown2.DataSource= DI.BL_Disponibilidad(Fechad, Horad);
+            DpDown2.DataSource = DI.BL_Disponibilidad(Fechad, Horad);
             DpDown2.DataBind();
         }
     }

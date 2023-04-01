@@ -11,9 +11,7 @@
 <body>
     <form id="form1" runat="server" class="formCambio">
         <div class="containerpass">
-           <%-- <input type="password" name="txtContraA" placeholder="Ingrese Antigua contraseña" />
-            <input type="password" name="txtContraN" placeholder="Ingrese Nueva contraseña" />--%>
-            <h3 class="txtCambiarPass">PROCEDA A CAMBIAR LA CONTRASEÑA POR DEFECTO POR FAVOR</h3>
+            <h3 class="txtCambiarPass">CAMBIAR CONTRASEÑA</h3>
             <input type="password" id="myInput" name="txtNuevapass" oninput="inputChanged()" placeholder="Nueva Contraseña" onkeypress="return evitarEspacios(event)" oncopy="return false"/>
             <script>
                 function evitarEspacios(event) {
@@ -78,8 +76,8 @@
                     }
                     .barraseguridad1{
                         background: white;
-                        width: 40px;
-                        height: 10px;
+                        width: 4vw;
+                        height: 1vh;
                         border-top-left-radius: 15px;
                         border-bottom-left-radius: 15px;
                         margin-right:2px;
@@ -87,14 +85,14 @@
                     }
                     .barraseguridad2{
                         background: white;
-                        width: 40px;
-                        height: 10px;
+                        width: 4vw;
+                        height: 1vh;
                         border: 0.5px solid grey;
                     }
                     .barraseguridad3{
                         background: white;
-                        width: 40px;
-                        height: 10px;
+                        width: 4vw;
+                        height: 1vh;
                         border-top-right-radius: 15px;
                         border-bottom-right-radius: 15px;
                         margin-left:2px;
@@ -102,6 +100,14 @@
                     }
                 </style>
             <asp:Button ID="btnCambiarPass" runat="server" Text="Cambiar" OnClick="btnCambiarPass_Click" CssClass="btnCambiar"/>
+            <div class="reglas">
+            <p>Reglas obligatorias de la contraseña:</p>
+                <ul>
+                    <li>Contener una mayuscula</li>
+                    <li>Contener un numero</li>
+                    <li>Contener una simbolo</li>
+                </ul>
+                </div>
             </div>
     </form>
 </body>

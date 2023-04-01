@@ -40,6 +40,7 @@ namespace WebPolleria
             if (blUser.ExisteUsuario(user))
             {
                 Preguntas.Visible = true;
+                this.BuscarUsuario.Visible = false;
                 Message("Conteste las preguntas de seguridad correctamente para formatear su contraseña.");
             }
             else
@@ -78,6 +79,15 @@ namespace WebPolleria
             txtPregunta5.Value = "";
         }
 
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Preguntas.Visible = false;
+            this.BuscarUsuario.Visible = true;
+        }
 
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx", true);
+        }
     }
 }

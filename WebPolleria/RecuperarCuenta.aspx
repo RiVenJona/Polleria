@@ -5,16 +5,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <link rel="stylesheet" type="text/css" href="/estilos/Login.css" />
+    <title>EL BUEN SABOR</title>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <div class="container-preguntas">
+    <form class="formCambio" id="form1" runat="server">
+        <div class="containerGeneral">
+            <div class="container-preguntas" id="BuscarUsuario" runat="server">
                 <h3>RECUPERAR CUENTA DE TRABAJADOR</h3>
                 <h5>Ingrese usuario del que desea recuperar contraseña</h5>
                 <input type="text" placeholder="Usuario" name="txtUsuario" />
                 <asp:Button ID="Button1" runat="server" Text="Buscar" OnClick="Button1_Click" />
+                <asp:Button ID="btnLogin" runat="server" Text="Regresar" OnClick="btnLogin_Click"/>
                 <p><b>Si no lo recuerda, <a href="~/RecuPorCorreo.aspx"> ingrese aquí</a></b></p>
             </div>
             <div id="Preguntas" runat="server">
@@ -28,8 +30,11 @@
                 <input class="inputPreguntas" type="text" name="txtPregunta4" id="txtPregunta4" runat="server" />
                 <h3>Preguntas 5: Cuantos primos tiene?</h3>
                 <input class="inputPreguntas" type="text" name="txtPregunta5" id="txtPregunta5" runat="server"/>
-                <br /><br /><br /><asp:Button ID="btnEnviar" runat="server" Text="Enviar" OnClick="btnEnviar_Click" />
-            </div>
+                <div>
+                <asp:Button ID="btnEnviar" runat="server" Text="Enviar" OnClick="btnEnviar_Click" />
+                <asp:Button ID="btnRegresar" runat="server" Text="Regresar" OnClick="btnRegresar_Click" />
+                </div>
+           </div>
         </div>
     </form>
 </body>
