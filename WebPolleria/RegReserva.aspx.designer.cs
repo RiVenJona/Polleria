@@ -42,24 +42,6 @@ namespace WebPolleria
         protected global::System.Web.UI.WebControls.Button BtnDni;
 
         /// <summary>
-        /// Control TxtRecepcionista.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtRecepcionista;
-
-        /// <summary>
-        /// Control Label3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-
-        /// <summary>
         /// Control Label1.
         /// </summary>
         /// <remarks>
@@ -78,6 +60,24 @@ namespace WebPolleria
         protected global::System.Web.UI.WebControls.TextBox TxtFecha;
 
         /// <summary>
+        /// Control TxtRecepcionista.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtRecepcionista;
+
+        /// <summary>
+        /// Control Label3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
         /// Control BtnDispo.
         /// </summary>
         /// <remarks>
@@ -87,13 +87,13 @@ namespace WebPolleria
         protected global::System.Web.UI.WebControls.Button BtnDispo;
 
         /// <summary>
-        /// Control PanelMesas.
+        /// Control RegMesas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelMesas;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RegMesas;
 
         /// <summary>
         /// Control Label12.
@@ -141,13 +141,13 @@ namespace WebPolleria
         protected global::System.Web.UI.WebControls.Image ImagenMesa;
 
         /// <summary>
-        /// Control PanelClientes.
+        /// Control Clientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelClientes;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Clientes;
 
         /// <summary>
         /// Control Label5.

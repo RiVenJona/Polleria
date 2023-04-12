@@ -24,10 +24,12 @@ namespace WebPolleria
                 //LlenarListaMesas();
                 this.RegCliente.Visible = false;
                 this.BtnRegistrar.Visible = false;
-                this.PanelClientes.Visible = false;
+                this.Clientes.Visible = false;
+                this.RegMesas.Visible = false;
                 TR = new BL_Trabajador();
                 TxtRecepcionista.Text = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
                 TxtRecepcionista.Enabled = false;
+
             }
         }
         protected void Habilitar()
@@ -80,7 +82,8 @@ namespace WebPolleria
                 Message("Persona encontrada");
                 Deshabilitar();
                 this.BtnRegistrar.Visible = true;
-                this.PanelClientes.Visible = true;
+                this.Clientes.Visible = true;
+                this.RegMesas.Visible = true;
             }
             else
             {
@@ -88,7 +91,7 @@ namespace WebPolleria
                 Limpiar();
                 Habilitar();
                 this.RegCliente.Visible = true;
-                this.PanelClientes.Visible = true;
+                this.Clientes.Visible = true;
             }
         }
         protected string ObtenerUsuario()
@@ -184,6 +187,7 @@ namespace WebPolleria
             this.BtnRegistrar.Visible = true;
             TxtBDni.Text = TxtDni.Text;
             TxtBDni.Enabled = true;
+            this.RegCliente.Visible = true;
         }
 
         protected void BtnRegistrar_Click(object sender, EventArgs e)

@@ -75,7 +75,9 @@
     <Content Include="estilos\Login.css" />
     <Content Include="estilos\Master.css" />
     <Content Include="estilos\RegisReserva.css" />
+    <Content Include="estilos\AnularReserva.css" />
     <Content Include="GenOrdenInsumo.aspx" />
+    <Content Include="Imagenes\FONDO.jpg" />
     <Content Include="Imagenes\ImagenInicial.jpg" />
     <Content Include="Imagenes\Logo.jpg" />
     <Content Include="Imagenes\Mesa1.jpg" />

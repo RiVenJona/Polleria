@@ -16,34 +16,8 @@ namespace WebPolleria
         BL_OrdenReserva or;
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Detalle.Visible = false;
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            or = new BL_OrdenReserva();
-            string a = this.TxtNro.Text;
-            CargarDatos(a);
-            List<BE_OrdenReserva> Lista = new List<BE_OrdenReserva>();
-            Lista = or.BL_Reserva(a);
-            if (Lista != null)
-            {
-                foreach (var lis in Lista)
-                {
-                    this.TxtEstado.Text = lis.EstadoOrden;
-                }
-                this.TxtNro.Enabled = false;
-            }
-            else
-            {
-                Message("Registro no encontrado");
-            }
-        }
-        protected void CargarDatos(string a)
-        {
-            or = new BL_OrdenReserva();
-            this.GrdReserva.DataSource = or.BL_Reserva(a);
-            this.GrdReserva.DataBind();
-        } 
         public void Message(string str)
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -55,7 +29,37 @@ namespace WebPolleria
             stringBuilder.Append("</script>");
             this.ClientScript.RegisterClientScriptBlock(this.GetType(), "Alerta", stringBuilder.ToString());
         }
-
+        protected void Button1_Click(object sender, EventArgs e)
+        {   
+            or = new BL_OrdenReserva();
+            string a = this.TxtNro.Text;
+            CargarDatos(a);
+            List<BE_OrdenReserva> Lista = new List<BE_OrdenReserva>();
+            Lista = or.BL_Reserva(a);
+            if (Lista != null)
+            {
+                
+                foreach (var lis in Lista)
+                {
+                    this.Detalle.Visible = true;
+                    this.TxtEstado.Text = lis.EstadoOrden;
+                    this.TxtNro.Enabled = false;
+                }
+            }
+            else
+            {
+                Message("Registro no encontrado");
+                this.Detalle.Visible = false;
+                this.TxtNro.Enabled = true;
+            }
+        }
+        protected void CargarDatos(string a)
+        {
+            or = new BL_OrdenReserva();
+            this.GrdReserva.DataSource = or.BL_Reserva(a);
+            this.GrdReserva.DataBind();
+        } 
+       
         protected void BtnAnular_Click(object sender, EventArgs e)
         {
             or = new BL_OrdenReserva();
