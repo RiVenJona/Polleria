@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ﻿.divp {
+=======
+﻿
+.divp {
+>>>>>>> jonathan
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,12 +24,22 @@
     padding: 20px;
     margin: 10px;
     border-radius: 15px;
+<<<<<<< HEAD
     background: #c0a23fb5
 }
 
 .div1 {
     display: flex;
     flex-direction: row;
+=======
+    height: 0px;
+}
+
+.div1{
+    display:flex;
+    flex-direction:row;
+    border-radius: 15px;
+>>>>>>> jonathan
 }
 
 .div2 {
@@ -41,6 +56,7 @@
     margin: 10px;
     border-radius: 15px;
 }
+<<<<<<< HEAD
 .inputs{
     padding:10px;
     margin-left:10px;
@@ -53,4 +69,18 @@
     padding:7px 10px;
     border: 0.3px solid black;
     border-radius:15px;
+=======
+
+.dropdown select {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+>>>>>>> jonathan
 }
