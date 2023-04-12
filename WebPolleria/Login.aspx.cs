@@ -19,6 +19,7 @@ namespace WebPolleria
         {
             //quiero que se note este cambio en el archivo
             //si se borra es porque jonathan es un marica
+            //jonathan puto
         }
         protected void CargarPag(string a, string b) 
         {
