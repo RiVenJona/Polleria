@@ -89,6 +89,7 @@
     <Content Include="RecepcionarCliente.aspx" />
     <Content Include="RecuperarCuenta.aspx" />
     <Content Include="RegReserva.aspx" />
+    <Content Include="VerCorreo.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
   </ItemGroup>
@@ -136,6 +137,11 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="RecepcionarCliente.aspx.cs">
       <DependentUpon>RecepcionarCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,10 +170,21 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="VerCorreo.aspx.cs">
+      <DependentUpon>VerCorreo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerCorreo.aspx.designer.cs">
+      <DependentUpon>VerCorreo.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

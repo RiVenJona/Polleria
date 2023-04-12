@@ -9,21 +9,29 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" type="text/css" href="/estilos/Master.css" />
-    <%--<style type="text/css">
-        .auto-style1 {
-            width: 290px;
-        }
-    </style>--%>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container" style="display:flex; justify-content:space-between; align-content:center;align-items:center; flex-direction:row; background: #F7971E;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFD200, #F7971E);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFD200, #F7971E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-border-radius:15px;" >
-            <div>
-            <img class="logoimg" src="/Imagenes/Logo.jpg" alt="logo-empresa">
-        </div>
+        <style type="text/css">
+            .container{
+                width:120vw;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                background: #F7971E;
+                background: -webkit-linear-gradient(to right, #FFD200, #F7971E);
+                background: linear-gradient(to right, #FFD200, #F7971E);
+                border-radius:15px;
+            }
+            footer{
+                position: absolute;
+                bottom: 0;
+            }
+        </style>
+        <div class="container">
+                <div>
+                <img class="logoimg" src="/Imagenes/Logo.jpg" alt="logo-empresa">
+                </div>
             <div>
             <nav>
                 <a href="~/RegReserva.aspx" id="aRegistrar" runat="server">Generar Reserva</a>
