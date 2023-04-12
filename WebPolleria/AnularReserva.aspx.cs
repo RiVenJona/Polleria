@@ -36,9 +36,9 @@ namespace WebPolleria
             CargarDatos(a);
             List<BE_OrdenReserva> Lista = new List<BE_OrdenReserva>();
             Lista = or.BL_Reserva(a);
-            if (Lista != null)
+            if (Lista.Count != 0)
             {
-                
+                Message("Registro encontrado");
                 foreach (var lis in Lista)
                 {
                     this.Detalle.Visible = true;
