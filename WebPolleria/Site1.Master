@@ -23,10 +23,6 @@
                 background: linear-gradient(to right, #FFD200, #F7971E);
                 border-radius:15px;
             }
-            footer{
-                position: absolute;
-                bottom: 0;
-            }
         </style>
         <div class="container">
                 <div>
