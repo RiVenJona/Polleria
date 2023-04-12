@@ -17,7 +17,8 @@ namespace WebPolleria
         BL_Usuario us;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //quiero que se note este cambio en el archivo
+            //si se borra es porque jonathan es un marica
         }
         protected void CargarPag(string a, string b) 
         {
