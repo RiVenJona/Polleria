@@ -173,7 +173,7 @@ namespace WebPolleria
             NI.NumInsumo = row.Cells[0].Text;
             NI.DesIns = row.Cells[1].Text;
             NI.Categoria = row.Cells[2].Text;
-            NI.Unidad = row.Cells[3].Text;
+            NI .Unidad = row.Cells[3].Text;
             NI.Cantidad = int.Parse(row.Cells[4].Text);
 
             List<BE_Insumo> listaFilas = (List<BE_Insumo>)ViewState["listaFilas"];
@@ -196,7 +196,10 @@ namespace WebPolleria
                 GvOrden.DataBind();
             }
         }
-
+        protected void btnSalir_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/MainMenu.aspx", true);
+        }
         protected void btnGenerar_Click(object sender, EventArgs e)
         {
             BL_Insumo IN = new BL_Insumo();

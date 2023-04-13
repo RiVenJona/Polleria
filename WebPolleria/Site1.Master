@@ -59,7 +59,7 @@
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-        </div>z
+        </div>
         <footer>
             <p class="footerText">&copy; <%: DateTime.Now.Year %> Panchos - Polleria El Buen Sabor</p>
         </footer>

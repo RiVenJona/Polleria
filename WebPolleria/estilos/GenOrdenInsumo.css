@@ -4,6 +4,10 @@
     align-items: center;
 }
 .panelGv {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
     margin: 0 auto;
     overflow-y: auto;
     height: 300px;
@@ -11,11 +15,26 @@
     width: 1000px;
     max-width: 100%;
 }
-
-.panel {
+.panelInterior {
+    background-color: rgba(255, 247, 231);
     margin: 0 auto;
     overflow-y: auto;
-    height: 150px;
+    width: 700px;
+    height:100%;
+    border: 1px solid #8C4510;
+}
+.FixedHeader {
+    position: absolute;
+    font-weight: bold;
+}
+
+.panel {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 0 auto;
+    overflow-y: auto;
+    height: auto;
     border: 1px solid black;
     width: 1000px;
     max-width: 100%;
@@ -29,6 +48,87 @@
     margin: 10px 0;
 }
 
-h4 {
+h3 {
+    font-family: Cambria;
     color: white;
+    top: 1065px;
+    left: 336px;
+}
+
+.label {
+    color: white;
+    font-weight: bold;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 0px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    width: 100px;
+}
+.button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+.gridView{
+}
+.gridView td:nth-child(1) {
+    width: 100px;
+}
+.gridView td:nth-child(2) {
+    width: 300px;
+}
+.gridView td:nth-child(3) {
+    width: 100px;
+}
+.gridView td:nth-child(4) {
+    width: 50px;
+}   
+.gridView td:nth-child(5) {
+    width: 50px;
+}
+
+.gridView2 {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.gridView2 td:nth-child(1) {
+    width: 100px;
+}
+
+.gridView2 td:nth-child(2) {
+    width: 300px;
+}
+
+.gridView2 td:nth-child(3) {
+    width: 100px;
+}
+
+.gridView2 td:nth-child(4) {
+    width: 50px;    
+}
+
+.gridView2 td:nth-child(5) {
+    text-align: center;
+    width: 50px;
+}
+.gridView2 td:nth-child(6) {
+    text-align: center;
+}
+
+.numero {
+    width: 150px;
 }
