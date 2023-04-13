@@ -72,6 +72,7 @@
   <ItemGroup>
     <Content Include="AnularReserva.aspx" />
     <Content Include="CambiarPass.aspx" />
+    <Content Include="estilos\GenOrdenInsumo.css" />
     <Content Include="estilos\Login.css" />
     <Content Include="estilos\Master.css" />
     <Content Include="estilos\RegisReserva.css" />

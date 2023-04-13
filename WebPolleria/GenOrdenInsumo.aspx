@@ -2,7 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
+    <link rel="stylesheet" type="text/css" href="/estilos/GenOrdenInsumo.css" />
+    <div class="page-container">
+                <br />
     <div style="margin-top: 30px">
         <asp:Label ID="Label6" runat="server" Width="160px" Text="Nro. O. Insumo:"></asp:Label>
         <asp:TextBox ID="TxtNroIns" runat="server" Width="128px" Enabled="false"></asp:TextBox>
@@ -10,7 +12,7 @@
         <asp:Label style="position:relative; float: right;" ID="Label7" runat="server" Width="160px" Text="Jefe de Cocina:"></asp:Label>
     </div>
         <br />
-    <asp:Panel ID="Panel1" runat="server" Height="120px" style="border: 1px solid black;">
+    <asp:Panel ID="Panel1" runat="server" CssClass="panel">
         <h4>BUSCAR INSUMO:</h4>
         <asp:Label ID="Label3" runat="server" Width="160px" Text="Nombre de insumo: "></asp:Label>
         <asp:TextBox ID="TxtInsumoDesc" runat="server"></asp:TextBox>
@@ -18,9 +20,9 @@
         <br />
     </asp:Panel>
         <br />
-    <asp:Panel ID="Panel2" runat="server" Height="280px" style="border: 1px solid black;">
         <h4>DATOS INSUMO:</h4>
-        <asp:GridView HorizontalAlign="Center" ID="GvDatos" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Width="460px" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged">
+    <asp:Panel ID="Panel2" runat="server" CssClass="panelGv">
+        <asp:GridView HorizontalAlign="Center" ID="GvDatos" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged">
             <Columns>
 
                 <asp:BoundField  DataField="NumInsumo" HeaderText="ID" />
@@ -40,13 +42,13 @@
             <SortedDescendingCellStyle BackColor="#F1E5CE" />
             <SortedDescendingHeaderStyle BackColor="#93451F" />
         </asp:GridView>
+    </asp:Panel>
         <br />
         <asp:Button style="float: right; margin-right: 50px" ID="btnAgregar" runat="server" Width="60px" Text="Agregar" />
         <br />
-    </asp:Panel>
-        <br />
-    <asp:Panel ID="Panel3" runat="server" Height="280px" style="border: 1px solid black;">
-    <h4>DETALLE ORDEN DE INSUMO:</h4>
+            <h4>DETALLE ORDEN DE INSUMO:</h4>
+    <asp:Panel ID="Panel3" runat="server" CssClass="panelGv">
+
         <asp:GridView HorizontalAlign="Center" ID="GvOrden" runat="server" ShowHeaderWhenEmpty="true" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="460px" OnSelectedIndexChanged="GvOrden_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField  DataField="NumInsumo" HeaderText="ID" />
@@ -87,4 +89,5 @@
         <br />
     </div>
     </div>
+            <br />
 </asp:Content>
