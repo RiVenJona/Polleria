@@ -14,9 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Util_", "Util_\Util_.csproj", "{5B9243D8-5069-4C9A-8776-0BEC1D25CB92}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{D53C6EAF-3FF7-498B-A26F-7A6DBEBE5C32}"
-	ProjectSection(SolutionItems) = preProject
-		jonathanputo.txt = jonathanputo.txt
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

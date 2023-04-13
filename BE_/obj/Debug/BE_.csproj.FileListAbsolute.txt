@@ -69,3 +69,9 @@ C:\Users\de_or\Documents\POLLERIA-AHORASI-NOOTRO\Polleria\BE_\obj\Debug\BE_.cspr
 C:\Users\de_or\Documents\POLLERIA-AHORASI-NOOTRO\Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
 C:\Users\de_or\Documents\POLLERIA-AHORASI-NOOTRO\Polleria\BE_\obj\Debug\BE_.dll
 C:\Users\de_or\Documents\POLLERIA-AHORASI-NOOTRO\Polleria\BE_\obj\Debug\BE_.pdb
+C:\Repos\Polleria\BE_\bin\Debug\BE_.dll
+C:\Repos\Polleria\BE_\bin\Debug\BE_.pdb
+C:\Repos\Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+C:\Repos\Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+C:\Repos\Polleria\BE_\obj\Debug\BE_.dll
+C:\Repos\Polleria\BE_\obj\Debug\BE_.pdb

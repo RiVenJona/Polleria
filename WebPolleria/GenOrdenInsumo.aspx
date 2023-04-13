@@ -2,25 +2,36 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" type="text/css" href="/estilos/GenOrdenInsumo.css" />
+    <div class="page-container">
+                <br />
     <div>
-    <div style="margin-top: 30px">
-        <asp:Label ID="Label6" runat="server" Width="160px" Text="Nro. O. Insumo:"></asp:Label>
+    <asp:Panel ID="Panel4" runat="server" CssClass="panel">
+        <asp:Label CssClass="label" ID="Label6" runat="server" Width="160px" Text="Nro. O. Insumo:" ></asp:Label>
         <asp:TextBox ID="TxtNroIns" runat="server" Width="128px" Enabled="false"></asp:TextBox>
         <asp:TextBox style="position:relative; float: right; margin-right: 50px" ID="TxtJefe" runat="server" Width="118px"></asp:TextBox>
-        <asp:Label style="position:relative; float: right;" ID="Label7" runat="server" Width="160px" Text="Jefe de Cocina:"></asp:Label>
+        <asp:Label CssClass="label" style="position:relative; float: right;" ID="Label7" runat="server" Width="160px" Text="Jefe de Cocina:"></asp:Label>
+    </asp:Panel>
     </div>
         <br />
-    <asp:Panel ID="Panel1" runat="server" Height="120px" style="border: 1px solid black;">
-        <h4>BUSCAR INSUMO:</h4>
-        <asp:Label ID="Label3" runat="server" Width="160px" Text="Nombre de insumo: "></asp:Label>
+        <div style="text-align: center;">
+        <h3>BUSCAR INSUMO:</h3>
+        </div>
+    <asp:Panel ID="Panel1" runat="server" CssClass="panel">
+        <br />
+        <asp:Label CssClass="label" ID="Label3" runat="server" Width="160px" Text="Nombre de insumo: "></asp:Label>
         <asp:TextBox ID="TxtInsumoDesc" runat="server"></asp:TextBox>
-        <asp:Button style="margin-left: 50px" ID="btnBuscar" runat="server" Text="Buscar" Width="68px" OnClick="btnBuscar_Click"/>
+        <asp:Button CssClass="button" style="background-color: #4CAF50; margin-left: 50px" ID="btnBuscar" runat="server" Text="BUSCAR" OnClick="btnBuscar_Click"/>
         <br />
     </asp:Panel>
         <br />
-    <asp:Panel ID="Panel2" runat="server" Height="280px" style="border: 1px solid black;">
-        <h4>DATOS INSUMO:</h4>
-        <asp:GridView HorizontalAlign="Center" ID="GvDatos" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Width="460px" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged">
+        <div style="text-align: center;">
+        <h3>DATOS INSUMO:</h3>
+        </div>
+    <asp:Panel ID="Panel2" runat="server" CssClass="panelGv">
+        
+        <div>
+        <asp:GridView CssClass="gridView" HorizontalAlign="Center" ID="GvDatos" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged">
             <Columns>
 
                 <asp:BoundField  DataField="NumInsumo" HeaderText="ID" />
@@ -40,16 +51,16 @@
             <SortedDescendingCellStyle BackColor="#F1E5CE" />
             <SortedDescendingHeaderStyle BackColor="#93451F" />
         </asp:GridView>
-        <br />
-        <asp:Button style="float: right; margin-right: 50px" ID="btnAgregar" runat="server" Width="60px" Text="Agregar" />
-        <br />
+            </div>
     </asp:Panel>
-        <br />
-    <asp:Panel ID="Panel3" runat="server" Height="280px" style="border: 1px solid black;">
-    <h4>DETALLE ORDEN DE INSUMO:</h4>
-        <asp:GridView HorizontalAlign="Center" ID="GvOrden" runat="server" ShowHeaderWhenEmpty="true" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" Width="460px" OnSelectedIndexChanged="GvOrden_SelectedIndexChanged">
+        <div style="text-align: center;">
+            <h3>DETALLE ORDEN DE INSUMO:</h3>
+        </div>
+    <asp:Panel ID="Panel3" runat="server" CssClass="panelGv">
+        <asp:Panel ID="Panel5" runat="server" CssClass="panelInterior">
+        <asp:GridView CssClass="gridView2" HorizontalAlign="Center" ID="GvOrden" runat="server" ShowHeaderWhenEmpty="true" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" OnSelectedIndexChanged="GvOrden_SelectedIndexChanged">
             <Columns>
-                <asp:BoundField  DataField="NumInsumo" HeaderText="ID" />
+                <asp:BoundField  DataField="NumInsumo" HeaderText="ID"/>
                 <asp:BoundField  DataField="DesIns" HeaderText="DESCRIPCIÓN" />
                 <asp:BoundField  DataField="Categoria" HeaderText="CATEGORÍA" />
                 <asp:BoundField  DataField="Unidad" HeaderText="UNIDAD" />
@@ -79,12 +90,16 @@
             <SortedDescendingCellStyle BackColor="#F1E5CE" />
             <SortedDescendingHeaderStyle BackColor="#93451F" />
         </asp:GridView>
+        </asp:Panel>
     </asp:Panel>
     <div>
         <br />
-        <asp:Button style="position:absolute; float: left; margin-left: 50px" ID="btnSalir" runat="server" Width="60px" Text="Salir" />
-        <asp:Button style="position:relative; float: right; margin-right: 50px; top: 0px; left: 0px;" ID="btnGenerar" runat="server" Width="60px" Text="Generar" OnClick="btnGenerar_Click"/>
+        <asp:Button CssClass="button" style="background-color: #FF0000; position:absolute; float: left; margin-left: 200px" ID="btnSalir" runat="server" Text="SALIR" OnClick="btnSalir_Click"/>
+        <asp:Button CssClass="button" style="background-color: #4CAF50; position:relative; float: right; margin-right: 200px; top: 0px; left: 0px;" ID="btnGenerar" runat="server" Text="GENERAR" OnClick="btnGenerar_Click"/>
         <br />
     </div>
+        <br />
+        <br />
+        <br />
     </div>
 </asp:Content>
