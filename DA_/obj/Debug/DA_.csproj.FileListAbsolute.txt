@@ -174,3 +174,14 @@ C:\Users\PC\Downloads\Polleria\DA_\obj\Debug\DA_.csproj.CoreCompileInputs.cache
 C:\Users\PC\Downloads\Polleria\DA_\obj\Debug\DA_.csproj.CopyComplete
 C:\Users\PC\Downloads\Polleria\DA_\obj\Debug\DA_.dll
 C:\Users\PC\Downloads\Polleria\DA_\obj\Debug\DA_.pdb
+D:\Polleria-Ultimaversion\Polleria\DA_\bin\Debug\DA_.dll
+D:\Polleria-Ultimaversion\Polleria\DA_\bin\Debug\DA_.pdb
+D:\Polleria-Ultimaversion\Polleria\DA_\bin\Debug\BE_.dll
+D:\Polleria-Ultimaversion\Polleria\DA_\bin\Debug\Util_.dll
+D:\Polleria-Ultimaversion\Polleria\DA_\bin\Debug\BE_.pdb
+D:\Polleria-Ultimaversion\Polleria\DA_\bin\Debug\Util_.pdb
+D:\Polleria-Ultimaversion\Polleria\DA_\obj\Debug\DA_.csproj.AssemblyReference.cache
+D:\Polleria-Ultimaversion\Polleria\DA_\obj\Debug\DA_.csproj.CoreCompileInputs.cache
+D:\Polleria-Ultimaversion\Polleria\DA_\obj\Debug\DA_.csproj.CopyComplete
+D:\Polleria-Ultimaversion\Polleria\DA_\obj\Debug\DA_.dll
+D:\Polleria-Ultimaversion\Polleria\DA_\obj\Debug\DA_.pdb

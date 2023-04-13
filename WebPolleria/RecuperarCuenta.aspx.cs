@@ -61,7 +61,8 @@ namespace WebPolleria
             string user = blUser.ValidarUsuario(p1, p2, p3, p4, p5);
             if (user != string.Empty)
             {
-                Session["User"] = user;
+                Session["usuario"] = user;
+                Response.Redirect("CambiarPass.aspx");
             }
             else
             {

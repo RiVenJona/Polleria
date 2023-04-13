@@ -18,7 +18,7 @@ namespace WebPolleria
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (Session["RolUser"].ToString() == "")
+            if (Session["usuario"].ToString() == "")
             {
                 Response.Redirect("login.aspx", true);
             }
@@ -37,7 +37,7 @@ namespace WebPolleria
             {
                 if(bluser.CamPass(user, nuevapass))
                 {
-                    Response.Redirect("MainMenu.aspx", true);
+                    Response.Redirect("Login.aspx", true);
                 }
                 else
                 {

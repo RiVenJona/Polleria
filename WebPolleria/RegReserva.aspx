@@ -11,7 +11,7 @@
     <asp:Label ID="Label2" runat="server" Text="DNI"></asp:Label>
         <asp:TextBox ID="TxtBDni" runat="server" style="margin-left: 15px" Width="102px"></asp:TextBox>
              </div>
-        <div>
+         <div>
             <asp:Button CssClass="btnes" ID="BtnDni" runat="server" Text="Buscar Cliente" OnClick="BtnDni_Click" />
         </div>
 </div>
