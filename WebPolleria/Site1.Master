@@ -14,7 +14,6 @@
     <form id="form1" runat="server">
         <style type="text/css">
             .container{
-                width:120vw;
                 display:flex;
                 justify-content:space-between;
                 align-items:center;
