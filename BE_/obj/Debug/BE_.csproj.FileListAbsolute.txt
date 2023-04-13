@@ -87,3 +87,9 @@ D:\Polleria-Ultimaversion\Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.ca
 D:\Polleria-Ultimaversion\Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
 D:\Polleria-Ultimaversion\Polleria\BE_\obj\Debug\BE_.dll
 D:\Polleria-Ultimaversion\Polleria\BE_\obj\Debug\BE_.pdb
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BE_\bin\Debug\BE_.dll
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BE_\bin\Debug\BE_.pdb
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BE_\obj\Debug\BE_.dll
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BE_\obj\Debug\BE_.pdb

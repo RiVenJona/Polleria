@@ -37,6 +37,7 @@ namespace WebPolleria
             {
                 if(bluser.CamPass(user, nuevapass))
                 {
+                    Message("Por medidas de seguridad, vuelva a iniciar sesion");
                     Response.Redirect("Login.aspx", true);
                 }
                 else

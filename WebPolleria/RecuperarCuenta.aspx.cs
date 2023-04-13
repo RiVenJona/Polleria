@@ -37,6 +37,7 @@ namespace WebPolleria
             //string valor = Request.Form["txtUsuario"];
             blUser = new BL_Usuario();
             string user = Request.Form["txtUsuario"];
+            Session["usuario"] = user;
             if (blUser.ExisteUsuario(user))
             {
                 Preguntas.Visible = true;
@@ -61,7 +62,6 @@ namespace WebPolleria
             string user = blUser.ValidarUsuario(p1, p2, p3, p4, p5);
             if (user != string.Empty)
             {
-                Session["usuario"] = user;
                 Response.Redirect("CambiarPass.aspx");
             }
             else

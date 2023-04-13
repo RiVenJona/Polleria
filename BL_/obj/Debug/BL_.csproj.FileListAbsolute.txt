@@ -219,3 +219,16 @@ D:\Polleria-Ultimaversion\Polleria\BL_\obj\Debug\BL_.csproj.CoreCompileInputs.ca
 D:\Polleria-Ultimaversion\Polleria\BL_\obj\Debug\BL_.csproj.CopyComplete
 D:\Polleria-Ultimaversion\Polleria\BL_\obj\Debug\BL_.dll
 D:\Polleria-Ultimaversion\Polleria\BL_\obj\Debug\BL_.pdb
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\bin\Debug\BL_.dll
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\bin\Debug\BL_.pdb
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\bin\Debug\BE_.dll
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\bin\Debug\DA_.dll
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\bin\Debug\Util_.dll
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\bin\Debug\BE_.pdb
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\bin\Debug\DA_.pdb
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\bin\Debug\Util_.pdb
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\obj\Debug\BL_.csproj.AssemblyReference.cache
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\obj\Debug\BL_.csproj.CoreCompileInputs.cache
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\obj\Debug\BL_.csproj.CopyComplete
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\obj\Debug\BL_.dll
+C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\BL_\obj\Debug\BL_.pdb
