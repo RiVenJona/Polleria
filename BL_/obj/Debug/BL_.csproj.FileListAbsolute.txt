@@ -193,3 +193,16 @@ C:\Repos\Polleria\BL_\obj\Debug\BL_.csproj.CoreCompileInputs.cache
 C:\Repos\Polleria\BL_\obj\Debug\BL_.csproj.CopyComplete
 C:\Repos\Polleria\BL_\obj\Debug\BL_.dll
 C:\Repos\Polleria\BL_\obj\Debug\BL_.pdb
+C:\Users\PC\Downloads\Polleria\BL_\bin\Debug\BL_.dll
+C:\Users\PC\Downloads\Polleria\BL_\bin\Debug\BL_.pdb
+C:\Users\PC\Downloads\Polleria\BL_\bin\Debug\BE_.dll
+C:\Users\PC\Downloads\Polleria\BL_\bin\Debug\DA_.dll
+C:\Users\PC\Downloads\Polleria\BL_\bin\Debug\Util_.dll
+C:\Users\PC\Downloads\Polleria\BL_\bin\Debug\BE_.pdb
+C:\Users\PC\Downloads\Polleria\BL_\bin\Debug\DA_.pdb
+C:\Users\PC\Downloads\Polleria\BL_\bin\Debug\Util_.pdb
+C:\Users\PC\Downloads\Polleria\BL_\obj\Debug\BL_.csproj.AssemblyReference.cache
+C:\Users\PC\Downloads\Polleria\BL_\obj\Debug\BL_.csproj.CoreCompileInputs.cache
+C:\Users\PC\Downloads\Polleria\BL_\obj\Debug\BL_.csproj.CopyComplete
+C:\Users\PC\Downloads\Polleria\BL_\obj\Debug\BL_.dll
+C:\Users\PC\Downloads\Polleria\BL_\obj\Debug\BL_.pdb

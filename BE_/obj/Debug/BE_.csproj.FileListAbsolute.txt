@@ -75,3 +75,9 @@ C:\Repos\Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
 C:\Repos\Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
 C:\Repos\Polleria\BE_\obj\Debug\BE_.dll
 C:\Repos\Polleria\BE_\obj\Debug\BE_.pdb
+C:\Users\PC\Downloads\Polleria\BE_\bin\Debug\BE_.dll
+C:\Users\PC\Downloads\Polleria\BE_\bin\Debug\BE_.pdb
+C:\Users\PC\Downloads\Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+C:\Users\PC\Downloads\Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+C:\Users\PC\Downloads\Polleria\BE_\obj\Debug\BE_.dll
+C:\Users\PC\Downloads\Polleria\BE_\obj\Debug\BE_.pdb

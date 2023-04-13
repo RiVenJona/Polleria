@@ -29,7 +29,7 @@
         </div>
         </div>
     <div class="div1">
-        <div  id="RegMesas" runat="server" class="div" >
+        <div  id="RegMesas" runat="server" class="div3" >
          <h4>Datos de Reserva:</h4>
          <asp:Label ID="Label12" runat="server" Text="Horarios" Width="170px"></asp:Label>
          <asp:Label ID="Label11" runat="server" Text="Mesas" ></asp:Label>
@@ -44,7 +44,7 @@
         </div>
         <br />
         
-        <div  id="Clientes" runat="server" class="div">
+        <div  id="Clientes" runat="server" class="div3">
         <h4>Datos de clientes:</h4>
         <asp:Label ID="Label5" runat="server" Text="Nombre:" Height="16px" Width="140px"></asp:Label>
         <asp:TextBox ID="TxtNombre" runat="server"></asp:TextBox>
@@ -64,13 +64,12 @@
         <asp:Label ID="Label10" runat="server" Text="Direccion:" Height="16px" Width="140px"></asp:Label>
         <asp:TextBox ID="TxtDireccion" runat="server"></asp:TextBox>
         </div>
+             
         </div>  
-        <div class="div"> 
-        <asp:Button  CssClass="btnes" ID="RegCliente" runat="server" style="margin-left: 36px" Text="Registrar Cliente" Width="125px" OnClick="RegCliente_Click" />
-        <br />
-        <br />
-        <asp:Button CssClass="btnes" ID="BtnSalir" runat="server" Text="Salir" />
+        <div class="div2"> 
         <asp:Button  CssClass="btnes" ID="BtnRegistrar" runat="server" Text="Registrar" OnClick="BtnRegistrar_Click"/>
+        <asp:Button  CssClass="btnes" ID="RegCliente" runat="server" style="margin-left: 10px" Text="Registrar Cliente" Width="125px" OnClick="RegCliente_Click" />
+        <asp:Button CssClass="btnes" ID="BtnSalir" runat="server" Text="Salir" />
             </div> 
           </div>    
           <br />

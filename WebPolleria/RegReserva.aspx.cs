@@ -84,6 +84,7 @@ namespace WebPolleria
                 this.BtnRegistrar.Visible = true;
                 this.Clientes.Visible = true;
                 this.RegMesas.Visible = true;
+                this.RegCliente.Visible = false;
             }
             else
             {
@@ -91,8 +92,10 @@ namespace WebPolleria
                 Limpiar();
                 Habilitar();
                 this.RegMesas.Visible = false;
+                this.TxtBDni.Enabled = false;
                 this.RegCliente.Visible = true;
                 this.Clientes.Visible = true;
+                this.BtnRegistrar.Visible = false;
             }
         }
         protected string ObtenerUsuario()
