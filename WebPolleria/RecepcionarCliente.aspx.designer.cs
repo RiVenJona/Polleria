@@ -24,15 +24,6 @@ namespace WebPolleria
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Reserva;
 
         /// <summary>
-        /// Control CabReserv.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CabReserv;
-
-        /// <summary>
         /// Control Button1.
         /// </summary>
         /// <remarks>
@@ -175,15 +166,6 @@ namespace WebPolleria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Recepcion;
-
-        /// <summary>
-        /// Control CabRecepcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CabRecepcion;
 
         /// <summary>
         /// Control Button2.

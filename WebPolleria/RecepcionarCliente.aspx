@@ -5,8 +5,9 @@
     <link rel="stylesheet" type="text/css" href="/estilos/Recepcion.css" />
      <div Class="divGlobal">
     <div id="Reserva" runat="server" Class="divCabe1">
-    <div>
-         <h3 id="CabReserv" runat="server" Class="Fuente1" >Reservas Activas <asp:Button ID="Button1" runat="server" Class="button3" Text="🡙" OnClick="Button1_Click1" Width="21px"/> </h3>
+    <section>
+        <fieldset>
+         <legend Class="Fuente1">Reservas Activas  </legend> <asp:Button ID="Button1" runat="server" Class="button3" OnClick="Button1_Click1" Width="261px"/> 
         <div id="Busqueda" runat="server">
             <asp:Label ID="Label11" runat="server" Class="Fuente" Text="DNI"></asp:Label>
         <asp:TextBox ID="TxtNro" Class="Fuente" runat="server"></asp:TextBox>
@@ -27,11 +28,13 @@
            <asp:TextBox ID="TxtDni" runat="server"  Class="Fuente" style="margin-left: 19px"></asp:TextBox>
        </div>
          </asp:Panel>
-       </div>
+            </fieldset>
+       </section>
          </div>
     <div id="Recepcion" runat="server" Class="divCabe1"> 
-        <h3  id="CabRecepcion" runat="server" Class="Fuente1">Recepción <asp:Button ID="Button2" runat="server" Class="button3" Text="🡙" OnClick="Button2_Click" />
-            </h3>
+        <fieldset>
+        <legend Class="Fuente1">RecepciÃ³n</legend>
+            <asp:Button ID="Button2" runat="server" Class="button3"  OnClick="Button2_Click" Width="261px" />
         <div  id="Div2" runat="server">
     <div  id="DetRecepcion" runat="server"  Class="divDet1">
          <asp:Label ID="Label7" runat="server" Class="Fuente" Text="Mesa:"></asp:Label>
@@ -43,6 +46,7 @@
         </div>
        </div>  
     </div>
+            </fieldset>
         </div>
         <div Class="divCabe">
         <div id="Div3" runat="server" Class="divDet">
