@@ -7,7 +7,7 @@
                 <br />
     <div>
     <asp:Panel ID="Panel4" runat="server" CssClass="panel">
-        <asp:Label CssClass="label" ID="Label6" runat="server" Width="160px" Text="Nro. O. Insumo:" ></asp:Label>
+        <asp:Label CssClass="label" ID="Label6" runat="server" Width="160px" Text="Nueva S. Insumo:" ></asp:Label>
         <asp:TextBox ID="TxtNroIns" runat="server" Width="128px" Enabled="false"></asp:TextBox>
         <asp:TextBox style="position:relative; float: right; margin-right: 50px" ID="TxtJefe" runat="server" Width="118px"></asp:TextBox>
         <asp:Label CssClass="label" style="position:relative; float: right;" ID="Label7" runat="server" Width="160px" Text="Jefe de Cocina:"></asp:Label>
@@ -29,7 +29,7 @@
         <h3>DATOS INSUMO:</h3>
         </div>
     <asp:Panel ID="Panel2" runat="server" CssClass="panelGv">
-        
+        <asp:Panel ID="Panel6" runat="server" CssClass="panelInterior">
         <div>
         <asp:GridView CssClass="gridView" HorizontalAlign="Center" ID="GvDatos" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged">
             <Columns>
@@ -52,9 +52,10 @@
             <SortedDescendingHeaderStyle BackColor="#93451F" />
         </asp:GridView>
             </div>
+       </asp:Panel> 
     </asp:Panel>
         <div style="text-align: center;">
-            <h3>DETALLE ORDEN DE INSUMO:</h3>
+            <h3>DETALLE SOLICITUD DE INSUMO:</h3>
         </div>
     <asp:Panel ID="Panel3" runat="server" CssClass="panelGv">
         <asp:Panel ID="Panel5" runat="server" CssClass="panelInterior">

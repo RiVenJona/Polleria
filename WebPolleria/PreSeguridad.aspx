@@ -5,11 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="/estilos/Login.css" />
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="containerGeneral">
             <div id="Preguntas" runat="server">
                 <h4>Estas son las preguntas de seguridad que serviran en caso de que se requiera recuperar la contraseña:</h4>
                 <p>(Solo se responden una sola vez, no se reciben respuestas vacias.)</p>

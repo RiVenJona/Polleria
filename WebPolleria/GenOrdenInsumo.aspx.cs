@@ -16,7 +16,7 @@ namespace WebPolleria
     public partial class GenOrdenInsumo : System.Web.UI.Page
     {
 
-        
+        public int activator = 0;
         BL_Insumo IN;
         BL_Trabajador TR;
         List<BE_Insumo> listaFilas = new List<BE_Insumo>();
@@ -24,6 +24,11 @@ namespace WebPolleria
         {
             IN = new BL_Insumo();
             TxtNroIns.Text = IN.NumActualOrdenInsumo();
+            if (activator == 1)
+            {
+                Message("Se registro la orden de insumo");
+                activator = 0;
+            }
             if (!Page.IsPostBack)
             {
                 TR = new BL_Trabajador();
@@ -231,9 +236,8 @@ namespace WebPolleria
                     
                 }
             }
+            
             Response.Redirect(Request.RawUrl);
-            Message("Se registro la orden de insumo");
-
         }
     }
 }

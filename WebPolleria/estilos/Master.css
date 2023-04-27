@@ -49,8 +49,10 @@ a {
         transform: scale(1.05);
     }
    .CerrarSesion:hover {
-        color: darkred;
+        color: white;
         transform: scale(1.05);
+        border-radius:15px;
+        background:rgba(200,0,0,0.6);
     }
     nav{
         margin-right:30px;

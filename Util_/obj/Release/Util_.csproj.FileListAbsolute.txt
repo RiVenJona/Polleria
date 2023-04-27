@@ -1,0 +1,6 @@
+D:\Polleria-Ultimaversion\Polleria\Util_\bin\Release\Util_.dll
+D:\Polleria-Ultimaversion\Polleria\Util_\bin\Release\Util_.pdb
+D:\Polleria-Ultimaversion\Polleria\Util_\obj\Release\Util_.csproj.AssemblyReference.cache
+D:\Polleria-Ultimaversion\Polleria\Util_\obj\Release\Util_.csproj.CoreCompileInputs.cache
+D:\Polleria-Ultimaversion\Polleria\Util_\obj\Release\Util_.dll
+D:\Polleria-Ultimaversion\Polleria\Util_\obj\Release\Util_.pdb

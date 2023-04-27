@@ -1,0 +1,11 @@
+D:\Polleria-Ultimaversion\Polleria\DA_\bin\Release\DA_.dll
+D:\Polleria-Ultimaversion\Polleria\DA_\bin\Release\DA_.pdb
+D:\Polleria-Ultimaversion\Polleria\DA_\bin\Release\BE_.dll
+D:\Polleria-Ultimaversion\Polleria\DA_\bin\Release\Util_.dll
+D:\Polleria-Ultimaversion\Polleria\DA_\bin\Release\BE_.pdb
+D:\Polleria-Ultimaversion\Polleria\DA_\bin\Release\Util_.pdb
+D:\Polleria-Ultimaversion\Polleria\DA_\obj\Release\DA_.csproj.AssemblyReference.cache
+D:\Polleria-Ultimaversion\Polleria\DA_\obj\Release\DA_.csproj.CoreCompileInputs.cache
+D:\Polleria-Ultimaversion\Polleria\DA_\obj\Release\DA_.csproj.CopyComplete
+D:\Polleria-Ultimaversion\Polleria\DA_\obj\Release\DA_.dll
+D:\Polleria-Ultimaversion\Polleria\DA_\obj\Release\DA_.pdb

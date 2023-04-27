@@ -29,9 +29,9 @@
                 </div>
             <div>
             <nav>
-                <a href="~/RegReserva.aspx" id="aRegistrar" runat="server">Generar Reserva</a>
-                <a href="~/AnularReserva.aspx" id="aAnular" runat="server">Anular Reserva</a>
-                <a href="~/GenOrdenInsumo.aspx" id="aGenOrden" runat="server">Generar O. Insumo</a>
+                <a href="~/RegReserva.aspx" id="aRegistrar" runat="server">Generar O. Reserva</a>
+                <a href="~/AnularReserva.aspx" id="aAnular" runat="server">Anular O. Reserva</a>
+                <a href="~/GenOrdenInsumo.aspx" id="aGenOrden" runat="server">Generar S. Insumo</a>
                 <a href="CambiarPass.aspx" id="aCambiar" runat="server">Cambiar Password</a>
                 <asp:Button ID="Button1" runat="server" Text="Cerrar Session" BorderStyle="None" CssClass="CerrarSesion" OnClick="Button1_Click"/>
                 <style>
@@ -40,8 +40,10 @@
                         background:none;
                         color:white;
                         font-weight:bold;
-                        font-size:20px;
+                        font-size:18px;
                         transition: all 0.3s ease 0s;
+                        cursor:pointer;
+                        border-radius:15px;
                     }
                 </style>
             </nav>
