@@ -76,6 +76,7 @@
     <Content Include="estilos\GenOrdenInsumo.css" />
     <Content Include="estilos\Login.css" />
     <Content Include="estilos\Master.css" />
+    <Content Include="estilos\ordenPedido.css" />
     <Content Include="estilos\RegisReserva.css" />
     <Content Include="estilos\AnularReserva.css" />
     <Content Include="GenOrdenInsumo.aspx" />
@@ -87,8 +88,8 @@
     <Content Include="Imagenes\Mesa3.jpg" />
     <Content Include="Imagenes\Mesa4.jpg" />
     <Content Include="Imagenes\Mesa5.jpg" />
-    <Content Include="jonathanputo.html" />
     <Content Include="MainMenu.aspx" />
+    <Content Include="OrdenPedido.aspx" />
     <Content Include="PreSeguridad.aspx" />
     <Content Include="RecepcionarCliente.aspx" />
     <Content Include="RecuperarCuenta.aspx" />
@@ -126,6 +127,13 @@
     </Compile>
     <Compile Include="MainMenu.aspx.designer.cs">
       <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenPedido.aspx.cs">
+      <DependentUpon>OrdenPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrdenPedido.aspx.designer.cs">
+      <DependentUpon>OrdenPedido.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreSeguridad.aspx.cs">
       <DependentUpon>PreSeguridad.aspx</DependentUpon>

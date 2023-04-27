@@ -1,0 +1,166 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+h3 {
+    padding: 0;
+    margin: 0;
+}
+/*SECTION DE TITULO*/
+.tituloCus {
+    display: flex;
+    justify-content: center;
+    border: 2px orange solid;
+    border-radius: 15px;
+    background: rgba(255, 166, 0, 0.534);
+}
+
+    .tituloCus h3 {
+        color: white;
+        font-size: 60px;
+        padding: 5px 0;
+        font-weight: 200;
+        -webkit-text-stroke: 2px rgb(75, 50, 4);
+    }
+/*************************/
+
+/*SECTION DE RESPONSABEL DEL PEDIDO*/
+.ResponsablePedido {
+    display: flex;
+    flex-direction: column;
+    background: #00000016;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 10px;
+    align-items: flex-end;
+}
+
+.inputItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5px 0;
+}
+
+    .inputItem p {
+        font-size: 15px;
+        margin-right: 5px;
+        font-weight: bold;
+    }
+
+    .inputItem input {
+        border-radius: 5px;
+        border: .5px solid black;
+    }
+/*************************/
+
+/*SECTION DE BUSQUEDA*/
+.containerBusqueda {
+    display: flex;
+    justify-content: center;
+}
+
+.BusquedaCliente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    background: #00000016;
+    margin: 15px 50px;
+    border-radius: 15px;
+    padding: 10px;
+    padding-bottom: 15px;
+}
+
+.busqueda {
+    display: flex;
+}
+
+    .busqueda input {
+        width: 100px;
+        margin: 0 10px;
+        border-radius: 5px;
+        border: .5px solid black;
+    }
+/*************************/
+
+
+/*SECTION DE TIPO ORDEN*/
+.TipoPedidoBox {
+    display: flex;
+    justify-content: center;
+}
+
+.TipodePedido {
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+    border-radius: 15px;
+}
+
+.optionRadio {
+    display: flex;
+}
+
+.espacioxd {
+    width: 100px;
+}
+
+/*************************/
+
+/*SECTION DE DETALLE PERSONA*/
+.BoxDetalle {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.DetalleOrden {
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+    border-radius: 15px;
+}
+
+.DetallesInputs {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+    .DetallesInputs p {
+        margin-right: 10px;
+    }
+
+    .DetallesInputs input {
+        width: 210px;
+    }
+/*************************/
+
+
+/*SECTION DE DETALLE PERSONA*/
+.ListaTickets {
+    border-radius: 15px;
+    border: 2px orange groove;
+}
+
+/*************************/
+
+/*SECTION DE DETALLE PERSONA*/
+.CosaBuscador {
+    display: flex;
+    justify-content: center;
+    background: #00000016;
+}
+
+    .CosaBuscador input {
+        margin: 0 20px;
+    }
+/*************************/
