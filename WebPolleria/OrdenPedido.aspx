@@ -4,8 +4,8 @@
    <link rel="stylesheet" type="text/css" href="/estilos/ordenPedido.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-        <section>
+    
+    <section>
         <div class="tituloCus">
             <h3>Orden de Pedido</h3>
         </div>
@@ -92,17 +92,21 @@
             </div>
                 <div class="AgregarCosas">
                     <div class="CosaBuscador">
-                        <p>Descripcion</p>
-                        <input type="text">
-                        <button>Buscar</button>
+                        <div class="CosaBuscadorHijo">
+                            <p>Descripcion del Producto</p>
+                            <input type="text">
+                            <button>Buscar</button>
+                        </div>
                     </div>
                     <div>
                         <p>Cosas Encontradas</p>
                     </div>
                 </div>
-                <div>
-                    <p>Monto Total</p>
-                    <input type="text">
+                <div class="monto">
+                    <div class="casillas">
+                        <p>Monto Total</p>
+                        <input type="text">
+                    </div>
                 </div>
         </fieldset>
     </section>
@@ -110,4 +114,5 @@
         <button class="generalBtn">Regresar</button>
         <button class="generalBtn">Generar</button>
     </section>
+
 </asp:Content>
