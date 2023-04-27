@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL_CDP.cs" />
     <Compile Include="BL_Horario.cs" />
     <Compile Include="BL_Insumo.cs" />
+    <Compile Include="BL_MetodoPago.cs" />
     <Compile Include="BL_OrdenReserva.cs" />
     <Compile Include="BL_Mesa.cs" />
     <Compile Include="BL_Persona.cs" />
