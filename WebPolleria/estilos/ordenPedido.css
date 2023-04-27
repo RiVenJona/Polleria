@@ -15,6 +15,7 @@ h3 {
 }
 /*SECTION DE TITULO*/
 .tituloCus {
+    margin-top:50px;
     display: flex;
     justify-content: center;
     border: 2px orange solid;
@@ -153,14 +154,52 @@ h3 {
 
 /*************************/
 
-/*SECTION DE DETALLE PERSONA*/
+/*SECTION DE DETALLE PEDIDO*/
 .CosaBuscador {
     display: flex;
     justify-content: center;
-    background: #00000016;
 }
 
-    .CosaBuscador input {
-        margin: 0 20px;
+.CosaBuscadorHijo {
+    display: flex;
+    background: #00000015;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.CosaBuscador input {
+    margin: 0 20px;
+}
+
+.monto {
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.casillas {
+    display: flex;
+    background: #00000016;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+    .casillas input {
+        margin-left: 10px;
     }
+
 /*************************/
+
+
+/*SECTION DE BOTONES SALIDA*/
+
+.BotonesFinales {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 200px;
+}
+
+/*************************/
+
+
+
