@@ -19,7 +19,7 @@ namespace DA_
             {
 
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CdpId, descCDP from CDP;", cn);
+                SqlCommand cmd = new SqlCommand("SELECT TipoId, descCDP from TipoCDP;", cn);
                 cmd.CommandTimeout = 0;
                 cmd.CommandType = CommandType.Text;
                 rd = cmd.ExecuteReader();
@@ -28,7 +28,7 @@ namespace DA_
                 while (rd.Read())
                 {
                     cdp = new BE_CDP();
-                    cdp.Valor = int.Parse(rd["CdpId"].ToString());
+                    cdp.Valor = int.Parse(rd["TipoId"].ToString());
                     cdp.Descripcion = rd["descCDP"].ToString();
                     ListaCDP.Add(cdp);
                 }
