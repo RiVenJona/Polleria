@@ -19,6 +19,10 @@ namespace BL_
         {
             return dA_Orden.ListaOrdenReserva(a);
         }
+        public List<BE_OrdenReserva> BL_ReservaActiva(int a)
+        {
+            return dA_Orden.ReservasActivas(a);
+        }
         public bool BL_RegistrarReserva(int mesa, DateTime fecha, int hora, int tra, int dni)
         {
             return dA_Orden.RegistrarReserva(mesa, fecha, hora, tra, dni);

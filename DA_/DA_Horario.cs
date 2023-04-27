@@ -36,5 +36,25 @@ namespace DA_
 
             }
         }
+        public string HoraReal()
+        {
+            string valor = "";
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("[dbo].[HoraHorario]", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    valor = rd["Horario"].ToString();
+                }
+                rd.Close();
+            }
+
+            return valor;
+        }
     }
 }

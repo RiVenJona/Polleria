@@ -46,6 +46,41 @@ namespace DA_
                 return Reserva;
             }
         }
+
+        public List<BE_OrdenReserva> ReservasActivas(int DNI)
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlDataAdapter dt = new SqlDataAdapter();
+                SqlCommand sc;
+                sc = new SqlCommand("[dbo].[BuscaReservaRec]", cn);
+                sc.Parameters.AddWithValue("@DNI", DNI);
+                sc.CommandTimeout = 0;
+                sc.CommandType = CommandType.StoredProcedure;
+                rd = sc.ExecuteReader();
+                BE_OrdenReserva ListaReserva;
+                List<BE_OrdenReserva> Reserva = new List<BE_OrdenReserva>();
+                while (rd.Read())
+                {
+                    ListaReserva = new BE_OrdenReserva();
+                    ListaReserva.NumOrdenRe = rd["NumOrdenRe"].ToString();
+                    ListaReserva.FechaProgra = rd["FechaProgra"].ToString();
+                    ListaReserva.DNI = int.Parse(rd["DNI"].ToString());
+                    ListaReserva.Nombre = rd["Nombre"].ToString();
+                    ListaReserva.Apellidos = rd["Apellidos"].ToString();
+                    ListaReserva.DescHorario = rd["DescHorario"].ToString();
+                    ListaReserva.Telefono = int.Parse(rd["Telefono"].ToString());
+                    ListaReserva.Correo = rd["correo"].ToString();
+                    ListaReserva.IdMesa = int.Parse(rd["IdMesa"].ToString());
+                    ListaReserva.Espacio = int.Parse(rd["Espacios"].ToString());
+                    ListaReserva.EstadoOrden = rd["DescEstado"].ToString();
+                    Reserva.Add(ListaReserva);
+                }
+                return Reserva;
+            }
+        }
         public bool RegistrarReserva(int IdMesa, DateTime FechaProgra, int IdHorario, int IdTrabajador, int DNI)
         {
             try

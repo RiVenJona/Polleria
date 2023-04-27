@@ -22,6 +22,7 @@ namespace WebPolleria
                 {
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
+                    aRecepcion.Style.Add("display", "none");
                 }
             }
 

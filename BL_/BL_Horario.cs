@@ -19,5 +19,9 @@ namespace BL_
         {
             return dA_Horario.ListaHorario();
         }
+        public string BL_HoraReal()
+        {
+            return dA_Horario.HoraReal();
+        }
     }
 }
