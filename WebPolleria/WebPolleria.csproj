@@ -87,6 +87,7 @@
     <Content Include="Imagenes\Mesa3.jpg" />
     <Content Include="Imagenes\Mesa4.jpg" />
     <Content Include="Imagenes\Mesa5.jpg" />
+    <Content Include="jonathanputo.html" />
     <Content Include="MainMenu.aspx" />
     <Content Include="PreSeguridad.aspx" />
     <Content Include="RecepcionarCliente.aspx" />
