@@ -48,6 +48,8 @@
     <Compile Include="BE_Persona.cs" />
     <Compile Include="BE_Trabajador.cs" />
     <Compile Include="BE_Usuario.cs" />
+    <Compile Include="BE_CDP.cs" />
+    <Compile Include="BE_MetodoPago.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
