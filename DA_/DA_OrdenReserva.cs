@@ -81,6 +81,42 @@ namespace DA_
                 return Reserva;
             }
         }
+
+        public List<BE_OrdenReserva> ReservasActivas1(string Nombre, string Apellidos)
+        {
+            SqlDataReader rd1 = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlDataAdapter dt = new SqlDataAdapter();
+                SqlCommand sc1;
+                sc1 = new SqlCommand("[dbo].[BuscaReservaRec1]", cn);
+                sc1.Parameters.AddWithValue("@Nombre", Nombre);
+                sc1.Parameters.AddWithValue("@Apellidos", Apellidos);
+                sc1.CommandTimeout = 0;
+                sc1.CommandType = CommandType.StoredProcedure;
+                rd1 = sc1.ExecuteReader();
+                BE_OrdenReserva ListaReserva1;
+                List<BE_OrdenReserva> Reserva1 = new List<BE_OrdenReserva>();
+                while (rd1.Read())
+                {
+                    ListaReserva1 = new BE_OrdenReserva();
+                    ListaReserva1.NumOrdenRe = rd1["NumOrdenRe"].ToString();
+                    ListaReserva1.FechaProgra = rd1["FechaProgra"].ToString();
+                    ListaReserva1.DNI = int.Parse(rd1["DNI"].ToString());
+                    ListaReserva1.Nombre = rd1["Nombre"].ToString();
+                    ListaReserva1.Apellidos = rd1["Apellidos"].ToString();
+                    ListaReserva1.DescHorario = rd1["DescHorario"].ToString();
+                    ListaReserva1.Telefono = int.Parse(rd1["Telefono"].ToString());
+                    ListaReserva1.Correo = rd1["correo"].ToString();
+                    ListaReserva1.IdMesa = int.Parse(rd1["IdMesa"].ToString());
+                    ListaReserva1.Espacio = int.Parse(rd1["Espacios"].ToString());
+                    ListaReserva1.EstadoOrden = rd1["DescEstado"].ToString();
+                    Reserva1.Add(ListaReserva1);
+                }
+                return Reserva1;
+            }
+        }
         public bool RegistrarReserva(int IdMesa, DateTime FechaProgra, int IdHorario, int IdTrabajador, int DNI)
         {
             try
@@ -107,7 +143,7 @@ namespace DA_
                 return false;
             }
         }
-        public List<string> Disponibilidad(DateTime FechaProgra,int IdHorario)
+        public List<string> Disponibilidad(DateTime FechaProgra, int IdHorario)
         {
             try
             {
@@ -124,7 +160,7 @@ namespace DA_
                     sc.CommandType = CommandType.StoredProcedure;
                     rd = sc.ExecuteReader();
                     List<string> Dispo = new List<string>();
-                    Dispo.Add( "Seleccionar");
+                    Dispo.Add("Seleccionar");
                     while (rd.Read())
                     {
                         Dispo.Add(rd["IdMesa"].ToString());
@@ -159,7 +195,7 @@ namespace DA_
             {
                 return false;
             }
-               
+
         }
 
     }

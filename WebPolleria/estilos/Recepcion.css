@@ -1,69 +1,58 @@
-﻿.divGlobal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /*  background: linear-gradient(180deg, #0000008c 20%,#0000008c 100%), url("../Imagenes/FONDO.jpg")no-repeat center center fixed;*/
+﻿.Global {
+    background: linear-gradient(180deg, #0000008c 20%,#0000008c 100%), url("../Imagenes/FONDO.jpg")no-repeat center center fixed;
     height: 90vh;
     background-size: cover;
     font-weight: bold;
     border-radius: 15px;
+    margin: 10px 0;
 }
 
-.divCabe {
-    display: flex;
-    flex-direction: row;
-    border-width: 3px;
-    border-radius: 15px;
-}
-
-.divDet {
+.Global1 {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    background: #c0a23fb5;
-    box-sizing: border-box;
-    border: 1px solid black;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
-    margin: 10px;
-    border-width: 2px;
+    height: 90vh;
+    background-size: cover;
+    font-weight: bold;
     border-radius: 15px;
+    margin: 10px 0;
 }
 
-.divCabe1 {
-    border: 1px solid black;
-    border-width: 2px;
+.Fondo {
+    background: #00000016;
     margin: 60px;
 }
 
-.divDet1 {
-    display: flex;
-    flex-direction: column;
-    background: #c0a23fb5;
-    box-sizing: border-box;
-    border: 1px solid black;
-    padding: 50px;
-    margin: 10px;
-    border-width: 1px;
-    border-radius: 15px;
+.DivRecepcionista {
+    position: relative;
+    float: right;
 }
 
-.Fuente {
-    font-family: 'Times New Roman';
+.divDet1 {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
+    padding: 30px;
+    margin: 0 auto;
+    overflow-y: auto;
+    height: auto;
+    border: 1px solid black;
+    width: 1000px;
+    max-width: 100%;
 }
+
+/*Texto*/
 
 .Fuente1 {
     font-family: 'Times New Roman';
-    /*    background: #8AE8FF;*/
+    color: white;
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: 19px;
 }
-
+/*Botones*/
 .button {
     background: #8AE8FF;
     -webkit-transition-duration: 0.4s;

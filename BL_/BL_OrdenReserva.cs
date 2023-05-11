@@ -23,11 +23,15 @@ namespace BL_
         {
             return dA_Orden.ReservasActivas(a);
         }
+        public List<BE_OrdenReserva> BL_ReservaActiva1(string b, string c)
+        {
+            return dA_Orden.ReservasActivas1(b, c);
+        }
         public bool BL_RegistrarReserva(int mesa, DateTime fecha, int hora, int tra, int dni)
         {
             return dA_Orden.RegistrarReserva(mesa, fecha, hora, tra, dni);
         }
-        public List<string> BL_Disponibilidad(DateTime Fechad,int Horad)
+        public List<string> BL_Disponibilidad(DateTime Fechad, int Horad)
         {
             return dA_Orden.Disponibilidad(Fechad, Horad);
         }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace BL_
 {
@@ -18,6 +19,24 @@ namespace BL_
         public List<BE_Mesa> BL_ListaMesas()
         {
             return dA_Mesa.ListaMesa();
+        }
+
+        public List<BE_Mesa> MesasDisponiblesPre()
+        {
+            return dA_Mesa.MesasDisponiblesPre();
+        }
+        public bool BL_AsignarMesa(int mesa, int mozo)
+        {
+            return dA_Mesa.AsignarMesa(mesa, mozo);
+        }
+        public bool BL_AsignarMesa1(int mesa)
+        {
+            return dA_Mesa.AsignarMesa1(mesa);
+        }
+
+        public DataTable BL_Mozo()
+        {
+            return dA_Mesa.Mozo();
         }
     }
 }
