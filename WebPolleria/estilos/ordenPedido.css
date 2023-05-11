@@ -9,16 +9,18 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    padding:10px;
-    border-radius:15px;
+    padding: 10px;
+    border-radius: 15px;
 }
-legend{
-    color:white;
+
+legend {
+    color: white;
 }
+
 p {
     padding: 0;
     margin: 0;
-    color:white;
+    color: white;
 }
 
 h3 {
@@ -27,7 +29,7 @@ h3 {
 }
 /*SECTION DE TITULO*/
 .tituloCus {
-    margin-top:50px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     border: 2px orange solid;
@@ -47,12 +49,11 @@ h3 {
 /*SECTION DE RESPONSABEL DEL PEDIDO*/
 .ResponsablePedido {
     display: flex;
-    flex-direction: column;
     background: #00000016;
     border-radius: 15px;
     margin: 15px;
     padding: 10px;
-    align-items: flex-end;
+    justify-content: space-evenly;
 }
 
 .inputItem {
@@ -126,6 +127,15 @@ h3 {
     width: 100px;
 }
 
+.DetallesInputsPedido {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+    .DetallesInputsPedido input {
+        margin-left: 20px;
+    }
 /*************************/
 
 /*SECTION DE DETALLE PERSONA*/
@@ -153,7 +163,7 @@ h3 {
     }
 
     .DetallesInputs input {
-        width: 210px;
+        width: 40vw;
     }
 /*************************/
 
