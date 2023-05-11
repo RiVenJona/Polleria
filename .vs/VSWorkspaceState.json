@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WebPolleria"
   ],
-  "SelectedNode": "\\Proyecto_Polleria.sln",
+  "SelectedNode": "\\WebPolleria\\Web.config",
   "PreviewInSolutionExplorer": false
 }
