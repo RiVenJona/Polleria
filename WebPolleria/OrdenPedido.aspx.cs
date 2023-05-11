@@ -13,26 +13,29 @@ namespace WebPolleria
     public partial class OrdenPedido : System.Web.UI.Page
     {
         BL_Insumo IN;
-        List<BE_Insumo> listaFilas = new List<BE_Insumo>();
+        List<BE_CatalogoProductos> listaPedidos = new List<BE_CatalogoProductos>();
+        string a = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarTabla();
+            if (!Page.IsPostBack)
+            {
+                CargarTabla();
+            }
+            
         }
         protected void CargarTabla()
         {
-            IN = new BL_Insumo();
-            GvDatos.DataSource = IN.ListaInsumos();
-            GvDatos.DataBind();
+            BL_CatalogoProductos caPro = new BL_CatalogoProductos();
 
             DataTable dt = new DataTable();
-            dt.Columns.Add("NumInsumo");
-            dt.Columns.Add("DesIns");
-            dt.Columns.Add("Categoria");
-            dt.Columns.Add("Unidad");
-            dt.Columns.Add("Cantidad");
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Producto");
+            dt.Columns.Add("Precio");
 
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
+            gvPedido.DataSource = dt;
+            gvPedido.DataBind();
+            gvCatalogo.DataSource = caPro.ListaProductos(a);
+            gvCatalogo.DataBind();
         }
         protected void btnIncrementar_Click(object sender, EventArgs e)
         {
@@ -42,7 +45,7 @@ namespace WebPolleria
             string numInsumo = GvrOrden.Cells[0].Text;
             int value = 0;
             int cantidadMaxima = 0;
-            foreach (GridViewRow GvrDatos in GridView1.Rows)
+            foreach (GridViewRow GvrDatos in gvPedido.Rows)
             {
                 if (GvrDatos.Cells[0].Text == numInsumo)
                 {
@@ -83,20 +86,18 @@ namespace WebPolleria
 
         protected void GvDatos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow row = GvDatos.SelectedRow;
-            BE_Insumo NI = new BE_Insumo();
-            NI.NumInsumo = row.Cells[0].Text;
-            NI.DesIns = row.Cells[1].Text;
-            NI.Categoria = row.Cells[2].Text;
-            NI.Unidad = row.Cells[3].Text;
-            NI.Cantidad = int.Parse(row.Cells[4].Text);
+            GridViewRow row = gvCatalogo.SelectedRow;
+            BE_CatalogoProductos NI = new BE_CatalogoProductos();
+            NI.idProducto = int.Parse(row.Cells[0].Text);
+            NI.desProducto = row.Cells[1].Text;
+            NI.PrecioProducto = int.Parse(row.Cells[2].Text);
 
-            List<BE_Insumo> listaFilas = (List<BE_Insumo>)ViewState["listaFilas"];
+            List<BE_CatalogoProductos> listaFilas = (List<BE_CatalogoProductos>)ViewState["listaPedidos"];
 
             bool filaRepetida = false;
-            foreach (BE_Insumo fila in listaFilas)
+            foreach (BE_CatalogoProductos fila in listaFilas)
             {
-                if (fila.NumInsumo == NI.NumInsumo)
+                if (fila.idProducto == NI.idProducto)
                 {
                     filaRepetida = true;
                     break;
@@ -107,8 +108,8 @@ namespace WebPolleria
                 listaFilas.Add(NI);
                 ViewState["listaFilas"] = listaFilas;
 
-                GridView1.DataSource = listaFilas;
-                GridView1.DataBind();
+                gvPedido.DataSource = listaFilas;
+                gvPedido.DataBind();
             }
         }
     }

@@ -89,14 +89,12 @@
         <fieldset class="ListaTickets">
             <legend>Pedidos</legend>
             <div>
-                <asp:GridView CssClass="gridView" HorizontalAlign="Center" ID="GvDatos" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged">
+                <asp:GridView CssClass="gridView" HorizontalAlign="Center" ID="gvCatalogo" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged">
             <Columns>
 
-                <asp:BoundField  DataField="NumInsumo" HeaderText="ID" />
-                <asp:BoundField  DataField="DesIns" HeaderText="PRODUCTO" />
-                <asp:BoundField  DataField="Categoria" HeaderText="PRECIO" />
-                <asp:BoundField  DataField="Unidad" HeaderText="CANTIDAD" />
-                <asp:BoundField  DataField="Cantidad" HeaderText="TOTAL" />
+                <asp:BoundField  DataField="idProducto" HeaderText="ID" />
+                <asp:BoundField  DataField="desProducto" HeaderText="PRODUCTO" />
+                <asp:BoundField  DataField="PrecioProducto" HeaderText="PRECIO" />
                 <asp:CommandField HeaderText="SELECCIÓN" SelectText="X" ShowSelectButton="True"/>           
             </Columns>
             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
@@ -118,12 +116,12 @@
                             <button>Buscar</button>
                         </div>
                     </div>
-                    <div>
-                        <asp:GridView ID="GridView1" EmptyDataText="vacio" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                    <div style="display:flex; align-items:center; justify-content:center;">
+                        <asp:GridView ID="gvPedido" EmptyDataText="vacio" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
                             <AlternatingRowStyle BackColor="#CCCCCC" />
                             <Columns>
-                                <asp:BoundField DataField="CodPro" HeaderText="CODIGO"/>
-                                <asp:BoundField DataField="DescPro" HeaderText="DESCRIPCION"/>
+                                <asp:BoundField DataField="idProducto" HeaderText="CODIGO"/>
+                                <asp:BoundField DataField="desProducto" HeaderText="DESCRIPCION"/>
                                 <asp:TemplateField HeaderText="CANTIDAD">
                                   <ItemTemplate>
                                     <asp:TextBox ID="txtCantGv" runat="server"  Width="38px" Enabled="false" Text=1></asp:TextBox>
@@ -132,7 +130,7 @@
                                     <asp:Button runat="server" ID="btnDisminuir" Text="-" OnClick="btnDisminuir_Click" />
                                   </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="MontoTotal" HeaderText="MONTO TOTAL"/>
+                                <asp:BoundField DataField="PrecioProducto" HeaderText="PRECIO"/>
                                 <asp:ButtonField Text="X" />
                             </Columns>
                             <EmptyDataRowStyle BorderStyle="Dotted" />

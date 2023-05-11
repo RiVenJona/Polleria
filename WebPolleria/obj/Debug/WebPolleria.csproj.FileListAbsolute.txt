@@ -1306,3 +1306,4 @@ C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\WebPolleria\obj\Debug\Web
 C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\WebPolleria\obj\Debug\WebPolleria.dll
 C:\Users\de_or\Documents\IMPLEMETACION TALLER\Polleria\WebPolleria\obj\Debug\WebPolleria.pdb
 C:\Repos\Polleria\WebPolleria\bin\AjaxControlToolkit.dll
+C:\Users\de_or\Documents\POLLERIA-AHORASI-NOOTRO\Polleria\WebPolleria\bin\AjaxControlToolkit.dll
