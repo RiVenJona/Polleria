@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\de_or\Desktop\POLLERIA_PUBLISH</_PublishTargetUrl>
-    <History>True|2023-04-14T02:38:54.6072797Z;True|2023-04-13T20:37:43.7202067-05:00;True|2023-04-13T20:15:12.7173813-05:00;True|2023-04-13T18:32:00.2804756-05:00;True|2023-04-13T18:30:05.3923149-05:00;</History>
+    <History>True|2023-04-28T02:04:21.0353461Z;True|2023-04-13T21:38:54.6072797-05:00;True|2023-04-13T20:37:43.7202067-05:00;True|2023-04-13T20:15:12.7173813-05:00;True|2023-04-13T18:32:00.2804756-05:00;True|2023-04-13T18:30:05.3923149-05:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -16,22 +16,22 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/13/2023 17:03:22</publishTime>
     </File>
     <File Include="bin/BE_.dll">
-      <publishTime>04/13/2023 18:30:03</publishTime>
+      <publishTime>04/27/2023 21:04:17</publishTime>
     </File>
     <File Include="bin/BE_.pdb">
-      <publishTime>04/13/2023 18:30:03</publishTime>
+      <publishTime>04/27/2023 21:04:17</publishTime>
     </File>
     <File Include="bin/BL_.dll">
-      <publishTime>04/13/2023 21:38:51</publishTime>
+      <publishTime>04/27/2023 21:04:18</publishTime>
     </File>
     <File Include="bin/BL_.pdb">
-      <publishTime>04/13/2023 21:38:51</publishTime>
+      <publishTime>04/27/2023 21:04:18</publishTime>
     </File>
     <File Include="bin/DA_.dll">
-      <publishTime>04/13/2023 21:38:51</publishTime>
+      <publishTime>04/27/2023 21:04:17</publishTime>
     </File>
     <File Include="bin/DA_.pdb">
-      <publishTime>04/13/2023 21:38:51</publishTime>
+      <publishTime>04/27/2023 21:04:17</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>04/13/2023 17:03:22</publishTime>
@@ -190,16 +190,22 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/13/2023 18:30:02</publishTime>
     </File>
     <File Include="bin/WebPolleria.dll">
-      <publishTime>04/13/2023 21:38:52</publishTime>
+      <publishTime>04/27/2023 21:04:18</publishTime>
     </File>
     <File Include="bin/WebPolleria.pdb">
-      <publishTime>04/13/2023 21:38:52</publishTime>
+      <publishTime>04/27/2023 21:04:18</publishTime>
     </File>
     <File Include="CambiarPass.aspx">
       <publishTime>04/13/2023 17:03:22</publishTime>
     </File>
+    <File Include="CobrarOrdenPedido.aspx">
+      <publishTime>04/27/2023 19:22:32</publishTime>
+    </File>
     <File Include="estilos/AnularReserva.css">
       <publishTime>04/13/2023 17:03:22</publishTime>
+    </File>
+    <File Include="estilos/CobrarOrdenPedido.css">
+      <publishTime>04/27/2023 19:22:32</publishTime>
     </File>
     <File Include="estilos/GenOrdenInsumo.css">
       <publishTime>04/13/2023 17:03:22</publishTime>
@@ -210,14 +216,26 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="estilos/Master.css">
       <publishTime>04/13/2023 20:24:52</publishTime>
     </File>
+    <File Include="estilos/ordenPedido.css">
+      <publishTime>04/27/2023 20:55:39</publishTime>
+    </File>
+    <File Include="estilos/Recepcion.css">
+      <publishTime>04/27/2023 19:22:32</publishTime>
+    </File>
     <File Include="estilos/RegisReserva.css">
       <publishTime>04/13/2023 17:03:22</publishTime>
     </File>
     <File Include="GenOrdenInsumo.aspx">
-      <publishTime>04/13/2023 21:37:40</publishTime>
+      <publishTime>04/27/2023 20:10:55</publishTime>
+    </File>
+    <File Include="Imagenes/CalendarioSim.png">
+      <publishTime>04/27/2023 19:22:32</publishTime>
     </File>
     <File Include="Imagenes/FONDO.jpg">
       <publishTime>04/13/2023 17:03:22</publishTime>
+    </File>
+    <File Include="Imagenes/IdentificacionSim.png">
+      <publishTime>04/27/2023 19:22:32</publishTime>
     </File>
     <File Include="Imagenes/ImagenInicial.jpg">
       <publishTime>04/13/2023 17:03:22</publishTime>
@@ -240,17 +258,29 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Imagenes/Mesa5.jpg">
       <publishTime>04/13/2023 17:03:22</publishTime>
     </File>
+    <File Include="Imagenes/MesasSim.png">
+      <publishTime>04/27/2023 19:22:32</publishTime>
+    </File>
+    <File Include="Imagenes/PersonasSim.png">
+      <publishTime>04/27/2023 19:22:32</publishTime>
+    </File>
+    <File Include="Imagenes/RelojSim.png">
+      <publishTime>04/27/2023 19:22:32</publishTime>
+    </File>
     <File Include="Login.aspx">
       <publishTime>04/13/2023 17:03:22</publishTime>
     </File>
     <File Include="MainMenu.aspx">
       <publishTime>04/13/2023 17:03:22</publishTime>
     </File>
+    <File Include="OrdenPedido.aspx">
+      <publishTime>04/27/2023 20:51:15</publishTime>
+    </File>
     <File Include="PreSeguridad.aspx">
       <publishTime>04/13/2023 20:13:21</publishTime>
     </File>
     <File Include="RecepcionarCliente.aspx">
-      <publishTime>04/13/2023 17:03:22</publishTime>
+      <publishTime>04/27/2023 19:22:32</publishTime>
     </File>
     <File Include="RecuperarCuenta.aspx">
       <publishTime>04/13/2023 17:03:22</publishTime>
@@ -259,13 +289,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/13/2023 17:16:53</publishTime>
     </File>
     <File Include="Site1.Master">
-      <publishTime>04/13/2023 20:25:17</publishTime>
+      <publishTime>04/27/2023 20:03:13</publishTime>
     </File>
     <File Include="VerCorreo.aspx">
       <publishTime>04/13/2023 17:03:22</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/13/2023 18:31:59</publishTime>
+      <publishTime>04/27/2023 21:04:19</publishTime>
     </File>
   </ItemGroup>
 </Project>

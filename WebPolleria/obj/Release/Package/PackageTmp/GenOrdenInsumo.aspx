@@ -35,11 +35,11 @@
             <Columns>
 
                 <asp:BoundField  DataField="NumInsumo" HeaderText="ID" />
-                <asp:BoundField  DataField="DesIns" HeaderText="DESCRIPCIÓN" />
-                <asp:BoundField  DataField="Categoria" HeaderText="CATEGORÍA" />
-                <asp:BoundField  DataField="Unidad" HeaderText="UNIDAD" />
-                <asp:BoundField  DataField="Cantidad" HeaderText="CANTIDAD" />
-                <asp:CommandField HeaderText="SELECCIÓN" SelectText="Seleccionar" ShowSelectButton="True"/>           
+                <asp:BoundField  DataField="DesIns" HeaderText="PRODUCTO" />
+                <asp:BoundField  DataField="Categoria" HeaderText="PRECIO" />
+                <asp:BoundField  DataField="Unidad" HeaderText="CANTIDAD" />
+                <asp:BoundField  DataField="Cantidad" HeaderText="TOTAL" />
+                <asp:CommandField HeaderText="SELECCIÓN" SelectText="X" ShowSelectButton="True"/>           
             </Columns>
             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />

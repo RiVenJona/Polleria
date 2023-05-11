@@ -33,8 +33,10 @@
                 <a href="~/RegReserva.aspx" id="aRegistrar" runat="server">Generar O. Reserva</a>
                 <a href="~/AnularReserva.aspx" id="aAnular" runat="server">Anular O. Reserva</a>
                 <a href="~/GenOrdenInsumo.aspx" id="aGenOrden" runat="server">Generar S. Insumo</a>
-                <a href="~/CobrarOrdenPedido.aspx" id="aCobrPedido" runat="server">Cobrar Orden Pedido</a>
+                <a href="~/CobrarOrdenPedido.aspx" id="aCobrarOrden" runat="server">Cobrar Orden Pedido</a>
+                <a href="OrdenPedido.aspx" id="aOrdenPedido" runat="server">Generar Orden Pedido</a>
                 <a href="CambiarPass.aspx" id="aCambiar" runat="server">Cambiar Password</a>
+                
                 <asp:Button ID="Button1" runat="server" Text="Cerrar Session" BorderStyle="None" CssClass="CerrarSesion" OnClick="Button1_Click"/>
                 <style>
                     .CerrarSesion{
