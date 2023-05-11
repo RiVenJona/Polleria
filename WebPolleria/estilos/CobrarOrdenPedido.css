@@ -1,35 +1,82 @@
-﻿h3 {
+﻿input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.ddl {
+    margin-left: 10px;
+}
+
+h3 {
     font-family: Cambria;
     color: white;
-    top: 1065px;
-    left: 336px;
     text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 24px;
 }
 .panel {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 30px;
-    margin: 0 auto;
-    overflow-y: auto;
+    margin: 30px;
+    margin-top: 5px;
+    overflow-y: hidden;
     height: auto;
-    border: 1px solid black;
-    width: 1000px;
-    max-width: 100%;
-    position:relative;
+    border: 1px solid white;
+    position: relative;
+}
+
+.panelTipo {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin: 30px;
+    margin-top: 5px;
+    overflow-y: hidden;
+    border: 1px solid white;
+    position: relative;
+}
+
+.txtbox2 {
+    margin-left: 10px;
+
+
+}
+
+.txtbox3 {
+    margin-left: 10px;
+    width: 70px;
 }
 
 .panelExterior {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
+    margin-right: 30px;
+    margin-top: 5px;
     padding: 30px;
-    margin: 0 auto;
-    overflow-y: auto;
-    height: 410px;
-    border: 1px solid black;
-    width: 1000px;
-    max-width: 100%;
+    height: 343px;
+    overflow-y: hidden;
+    border: 1px solid white;
     position: relative;
 }
+
+.full-screen-view {
+    width: 100%;
+}
+
+.panelExterior2 {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin: 30px;
+    margin-top: 5px;
+    padding: 30px;
+    width: 1210px;
+    border: 1px solid white;
+    height: 400px;
+    position: relative;
+}
+
 
 .panelInterior {
     position: absolute;
@@ -39,12 +86,12 @@
     margin-top: 30px;
     overflow-y: auto;
     width: 700px;
-    height: 300px;
+    height: 250px;
     border: 1px solid #8C4510;
 }
 
 .button {
-    border: none;
+    border: 1px solid white;
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -52,7 +99,7 @@
     display: inline-block;
     font-size: 12px;
     font-weight: bold;
-    margin-top: 0px;
+    margin: 0px;
     cursor: pointer;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -74,11 +121,60 @@
     font-weight: bold;
     display: inline-block;
     width: 100px;
+    margin-bottom: 10px;
 }
 
 .rbllabel {
     color: white;
 }
+
+.rbllabel2 {
+    color: white;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.tabs-container {
+    margin-bottom: 0px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.tab-buttons {
+    display: flex;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    padding-left: 40px;
+    padding-bottom: 2px;
+    background-color: rgba(10,10,10);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+}
+
+.tab-button {
+    padding: 5px 10px;
+    margin-right: 30px;
+    background-color: rgba(10,10,10);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+    width: 150px;
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+    .tab-button:hover {
+        background-color: rgba(10,10,10);
+        transform: scale(1.1);
+    }
+
+    .tab-button.active {
+        background-color: #FFFFFF;
+        font-weight: bold;
+        width: 150px;
+        color: black;
+    }
 
 .page-container {
     background: linear-gradient(180deg, #0000008c 20%,#0000008c 100%), url("../Imagenes/FONDO.jpg")no-repeat center center fixed;
