@@ -233,7 +233,7 @@ namespace WebPolleria
                 if (IN.RegistrarOrdenInsumoDetalle(IdOrden, IdInsumo, Cantidad))
                 {
 
-                    
+                    Message("Salio Gentita");
                 }
             }
             

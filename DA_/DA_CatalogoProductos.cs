@@ -38,6 +38,28 @@ namespace DA_
                 return ListaUsers;
             }
         }
+        public List<int> ListaMesasOcupadas()
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
 
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("dbo.MesasOcupadas", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                BE_CatalogoProductos insumos;
+                List<int> ListaInsumos = new List<int>();
+                while (rd.Read())
+                {
+                    insumos = new BE_CatalogoProductos();
+                    int a = int.Parse(rd["IdMesa"].ToString());
+                    ListaInsumos.Add(a);
+                }
+                return ListaInsumos;
+
+            }
+        }
+        }
     }
-}

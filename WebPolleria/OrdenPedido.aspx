@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
    <link rel="stylesheet" type="text/css" href="/estilos/ordenPedido.css" />
+    <style type="text/css">
+        .gridView {}
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="BgContainer">
@@ -14,7 +17,7 @@
         <div class="ResponsablePedido">
             <div class="inputItem">
                 <p>Responsable de O. Pedido</p>
-                <input type="text">
+                <input runat="server" id="nombreMozo" name="nombreMozo" type="text">
             </div>
             <div class="inputItem">
                 <p>Codigo O.Pedido</p>
@@ -27,23 +30,23 @@
             <legend>Busqueda</legend>
             <div class="busqueda">
                 <p>Mesa Asignada:</p>
-                <input type="text">
-                <button>Buscar</button>
+                <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
+                <asp:Button ID="Button1" runat="server" Text="Buscar" OnClick="Button1_Click" />
             </div>
         </fieldset>
     </section>
-    <section>
+<%--    <section>
         <div class="DetallesInputsPedido">
             <p>Codigo O.Pedido:</p>
             <input type="text">
         </div>
-    </section>
+    </section>--%>
     <section class="TipoPedidoBox">
         <fieldset class="TipodePedido">
             <legend>Detalle Cliente de Pedido</legend>
             <div class="DetallesInputs">
                 <p>Nombre:</p>
-                <input type="text">
+                <input runat="server" id="nombreCliente" name="nombreCliente" type="text">
             </div>
         </fieldset>
     </section>
@@ -89,35 +92,35 @@
         <fieldset class="ListaTickets">
             <legend>Pedidos</legend>
             <div>
-                <asp:GridView CssClass="gridView" HorizontalAlign="Center" ID="gvCatalogo" runat="server" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged">
+                <asp:GridView CssClass="gridView" HorizontalAlign="Center" ID="gvCatalogo" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged" ForeColor="Black" GridLines="Vertical" Height="218px" Width="537px">
+                    <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
 
                 <asp:BoundField  DataField="idProducto" HeaderText="ID" />
                 <asp:BoundField  DataField="desProducto" HeaderText="PRODUCTO" />
                 <asp:BoundField  DataField="PrecioProducto" HeaderText="PRECIO" />
-                <asp:CommandField HeaderText="SELECCIÓN" SelectText="X" ShowSelectButton="True"/>           
+                <asp:CommandField HeaderText="SELECCIÓN" SelectText="AGREGAR" ShowSelectButton="True"/>           
             </Columns>
-            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#FFF1D4" />
-            <SortedAscendingHeaderStyle BackColor="#B95C30" />
-            <SortedDescendingCellStyle BackColor="#F1E5CE" />
-            <SortedDescendingHeaderStyle BackColor="#93451F" />
+            <FooterStyle BackColor="#CCCCCC" />
+            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+            <PagerStyle ForeColor="Black" HorizontalAlign="Center" BackColor="#999999" />
+            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#808080" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#383838" />
         </asp:GridView>
             </div>
                 <div class="AgregarCosas">
                     <div class="CosaBuscador">
                         <div class="CosaBuscadorHijo">
                             <p>Descripcion del Producto</p>
-                            <input type="text">
-                            <button>Buscar</button>
+                            <input  type="text" name="txtBuscarProducto" id="txtBuscarProducto">
+                            <asp:Button ID="Button2" runat="server" Text="Buscar" OnClick="Button2_Click" />
                         </div>
                     </div>
                     <div style="display:flex; align-items:center; justify-content:center;">
-                        <asp:GridView ID="gvPedido" EmptyDataText="vacio" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                        <asp:GridView ID="gvPedido" EmptyDataText="vacio" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="16px" Width="409px">
                             <AlternatingRowStyle BackColor="#CCCCCC" />
                             <Columns>
                                 <asp:BoundField DataField="idProducto" HeaderText="CODIGO"/>
@@ -131,7 +134,11 @@
                                   </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="PrecioProducto" HeaderText="PRECIO"/>
-                                <asp:ButtonField Text="X" />
+                                <asp:TemplateField HeaderText="QUITAR">
+                                  <ItemTemplate>
+                                      <asp:Button runat="server" ID="btnEliminar" Width="25px" Height="25px" CommandArgument='<%# Container.DataItemIndex %>' Text="x" OnClick="btnEliminar_Click"/>
+                                  </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                             <EmptyDataRowStyle BorderStyle="Dotted" />
                             <FooterStyle BackColor="#CCCCCC" />
@@ -148,14 +155,14 @@
                 <div class="monto">
                     <div class="casillas">
                         <p>Monto Total</p>
-                        <input type="text">
+                        <input runat="server" name="txtTotal" id="txtTotal" type="text">
                     </div>
                 </div>
         </fieldset>
     </section>
     <section class="BotonesFinales">
         <button class="generalBtn">Regresar</button>
-        <button class="generalBtn">Generar</button>
+        <asp:Button ID="Button3" runat="server" Text="Generar" OnClick="Button3_Click" />
     </section>
         </div>
 </asp:Content>
