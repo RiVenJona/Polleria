@@ -207,3 +207,14 @@ D:\IMPLEMENTACION - 1304\Polleria\DA_\obj\Debug\DA_.csproj.CoreCompileInputs.cac
 D:\IMPLEMENTACION - 1304\Polleria\DA_\obj\Debug\DA_.csproj.CopyComplete
 D:\IMPLEMENTACION - 1304\Polleria\DA_\obj\Debug\DA_.dll
 D:\IMPLEMENTACION - 1304\Polleria\DA_\obj\Debug\DA_.pdb
+C:\Users\PC\Pictures\Polleria\DA_\bin\Debug\DA_.dll
+C:\Users\PC\Pictures\Polleria\DA_\bin\Debug\DA_.pdb
+C:\Users\PC\Pictures\Polleria\DA_\bin\Debug\BE_.dll
+C:\Users\PC\Pictures\Polleria\DA_\bin\Debug\Util_.dll
+C:\Users\PC\Pictures\Polleria\DA_\bin\Debug\BE_.pdb
+C:\Users\PC\Pictures\Polleria\DA_\bin\Debug\Util_.pdb
+C:\Users\PC\Pictures\Polleria\DA_\obj\Debug\DA_.csproj.AssemblyReference.cache
+C:\Users\PC\Pictures\Polleria\DA_\obj\Debug\DA_.csproj.CoreCompileInputs.cache
+C:\Users\PC\Pictures\Polleria\DA_\obj\Debug\DA_.csproj.CopyComplete
+C:\Users\PC\Pictures\Polleria\DA_\obj\Debug\DA_.dll
+C:\Users\PC\Pictures\Polleria\DA_\obj\Debug\DA_.pdb

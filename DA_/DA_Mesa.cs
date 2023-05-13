@@ -59,7 +59,7 @@ namespace DA_
             }
         }
 
-        public bool AsignarMesa(int IdMesa, int Mozo)
+        public bool AsignarMesa(int IdMesa, int Mozo, string Nombre, string Apellidos)
         {
             try
             {
@@ -71,6 +71,8 @@ namespace DA_
                     sc = new SqlCommand("[dbo].[AsignarMesa]", cn);
                     sc.Parameters.AddWithValue("@Mesa", IdMesa);
                     sc.Parameters.AddWithValue("@Mozo", Mozo);
+                    sc.Parameters.AddWithValue("@Nombre", Nombre);
+                    sc.Parameters.AddWithValue("@Apellidos", Apellidos);
                     sc.CommandTimeout = 0;
                     sc.CommandType = CommandType.StoredProcedure;
                     var anul = sc.ExecuteScalar();
@@ -84,7 +86,7 @@ namespace DA_
             }
         }
 
-        public bool AsignarMesa1(int IdMesa)
+        public bool AsignarMesa1(int IdMesa, string Nombre, string Apellidos)
         {
             try
             {
@@ -95,6 +97,8 @@ namespace DA_
                     SqlCommand sc;
                     sc = new SqlCommand("[dbo].[AsignarMesa1]", cn);
                     sc.Parameters.AddWithValue("@Mesa", IdMesa);
+                    sc.Parameters.AddWithValue("@Nombre", Nombre);
+                    sc.Parameters.AddWithValue("@Apellidos", Apellidos);
                     sc.CommandTimeout = 0;
                     sc.CommandType = CommandType.StoredProcedure;
                     var anul = sc.ExecuteScalar();
@@ -110,8 +114,6 @@ namespace DA_
 
         public DataTable Mozo()
         {
-
-
             DataTable dt = new DataTable();
             using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
             {
@@ -124,18 +126,26 @@ namespace DA_
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 
                 adapter.Fill(dt);
-
-
-                //if (rd.Read())
-                //{
-                //    valor = rd["TraId"].ToString();
-                //    valor1 = rd["Nombre"].ToString();
-                //}
-                //rd.Close();
             }
-
             return dt;
+        }
 
+        public DataTable MesaDispoPre()
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("[dbo].[DisponibilidadPre]", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteReader();
+                cn.Close();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                adapter.Fill(dt);
+            }
+            return dt;
         }
     }
 }

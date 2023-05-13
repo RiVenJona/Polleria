@@ -25,18 +25,23 @@ namespace BL_
         {
             return dA_Mesa.MesasDisponiblesPre();
         }
-        public bool BL_AsignarMesa(int mesa, int mozo)
+        public bool BL_AsignarMesa(int mesa, int mozo, string nombre, string apellidos)
         {
-            return dA_Mesa.AsignarMesa(mesa, mozo);
+            return dA_Mesa.AsignarMesa(mesa, mozo, nombre, apellidos);
         }
-        public bool BL_AsignarMesa1(int mesa)
+        public bool BL_AsignarMesa1(int mesa, string nombre, string apellidos)
         {
-            return dA_Mesa.AsignarMesa1(mesa);
+            return dA_Mesa.AsignarMesa1(mesa, nombre, apellidos);
         }
 
         public DataTable BL_Mozo()
         {
             return dA_Mesa.Mozo();
+        }
+
+        public DataTable BL_MesaDispoPre()
+        {
+            return dA_Mesa.MesaDispoPre();
         }
     }
 }

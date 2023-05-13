@@ -12,26 +12,26 @@
     <br />
      <div class="Global1">
     <asp:Panel ID="General1" runat="server">      
-    <asp:Button ID="BtnRep" runat="server" Text="RecepcionCliente" OnClick="Button1_Click1" />
-    <asp:Button ID="BtnReser" runat="server" Text="ReservasActicas" OnClick="Button2_Click" />
+        <div>
+    <asp:Button Class="tab-button" ID="BtnRep" runat="server" Text="RecepcionCliente" OnClick="Button1_Click1" />
+    <asp:Button Class="tab-button" ID="BtnReser" runat="server" Text="ReservasActicas" OnClick="Button2_Click" />
+        </div>
     <asp:Panel ID="General2" runat="server">
     <asp:Panel ID="RecepcionCliente" runat="server">
     <div id="Recepcion" runat="server"> 
-        <fieldset>
+        <fieldset style="width: 1224px">
         <legend Class="Fuente1">Mesas Disponibles</legend>
         <div  id="Div2" runat="server">
     <div  id="DetRecepcion" runat="server"  Class="divDet1">
          <asp:Label ID="Label7" runat="server" Class="Fuente1" Text="Mesa Asignada: "></asp:Label>
-        <asp:DropDownList ID="DropDownListMesas" runat="server" Class="Fuente" Height="20px" Width="120px" >
-        </asp:DropDownList>
-        <asp:Button ID="BtnDisponibilidad" runat="server" Class="button2" Text="Buscar Mesa Disponible"  OnClick="Button1_Click"/>
+         <asp:TextBox ID="TxtMesa" runat="server" Enabled="False"></asp:TextBox>
        </div>  
     </div>
             </fieldset>
         </div>
     
     <div id="Div4" runat="server" > 
-        <fieldset>
+        <fieldset style="width: 1226px">
         <legend Class="Fuente1">Datos Cliente</legend>
             <div  id="Div5" runat="server"  Class="divDet1">
             <asp:Label ID="Label2" runat="server" Class="Fuente1" Text="Nombre: "></asp:Label>
@@ -42,11 +42,12 @@
             <br />
             <asp:Label ID="Label4" runat="server" Class="Fuente1" Text="DNI: "></asp:Label>
             <asp:TextBox ID="TxtDni" runat="server"></asp:TextBox>
+                <asp:Label ID="Label14" runat="server" Class="Fuente1" Text="(Opcional en caso de no usar poner 0*)"></asp:Label>
                 </div>
         </fieldset>
         </div>
     <div id="Div1" runat="server" > 
-        <fieldset>
+        <fieldset style="width: 1226px">
         <legend Class="Fuente1">Datos del mozo</legend>
             <div  id="Div6" runat="server"  Class="divDet1">
             <asp:Label ID="Label8" runat="server" Class="Fuente1" Text="Mozo Responsable"></asp:Label>
@@ -75,6 +76,8 @@
            <asp:Image ID="Image4" runat="server" ImageUrl="~/Imagenes/CalendarioSim.png" Height="29px" Width="36px" />
                 <asp:Label ID="Label12" runat="server" Text="" Width="36px"></asp:Label>
            <asp:Label ID="LbCalendario" runat="server" Class="Fuente1" Text="Fecha de Reserva"></asp:Label>
+                <asp:Label ID="LbNombre" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="LbApellidos" runat="server" Text="Label"></asp:Label>
            <br />
            <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/RelojSim.png" Height="29px" Width="36px"/>
                 <asp:Label ID="Label6" runat="server" Text="" Width="36px"></asp:Label>

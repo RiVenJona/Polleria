@@ -30,26 +30,15 @@ namespace WebPolleria
                 TxtNombre1.Visible = false;
                 BtnBuscarRes1.Visible = false;
                 RdDNI.Checked = true;
+                LbNombre.Visible = false;
+                LbApellidos.Visible = false;
                 TR = new BL_Trabajador();
                 TxtRecepcionista.Text = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
                 TxtRecepcionista.Enabled = false;
                 BtnRep.Style.Value = "background: #41403F";
-                LlenarListaMesas();
                 Mozo1();
-
+                Mesa1();
             }
-        }
-        protected void LlenarListaMesas()
-        {
-            List<BE_Mesa> mesas = new List<BE_Mesa>();
-            BL_Mesa m = new BL_Mesa();
-            mesas = m.BL_ListaMesas();
-            DropDownListMesas.DataSource = mesas;
-            DropDownListMesas.DataTextField = "IdMesa";
-            DropDownListMesas.DataValueField = "IdMesa";
-            DropDownListMesas.DataBind();
-            DropDownListMesas.Items.Insert(0, new System.Web.UI.WebControls.ListItem("[Seleccione una Mesa]", "0"));
-
         }
 
         protected void Limpiar()
@@ -77,12 +66,6 @@ namespace WebPolleria
             this.ClientScript.RegisterClientScriptBlock(this.GetType(), "Alerta", stringBuilder.ToString());
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            BL_Mesa m = new BL_Mesa();
-            DropDownListMesas.DataSource = m.MesasDisponiblesPre();
-            DropDownListMesas.DataBind();
-        }
         protected void Mozo1()
         {
             try
@@ -109,6 +92,27 @@ namespace WebPolleria
             }
         }
 
+        protected void Mesa1()
+        {
+            try
+            {
+                ME = new BL_Mesa();
+                DataTable dt = ME.BL_MesaDispoPre();
+
+                String valor1 = "";
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    valor1 = dt.Rows[i]["IdMesa"].ToString();
+                }
+                TxtMesa.Text = "Mesa " + valor1;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error" + ex.ToString());
+            }
+        }
+
         protected void BtnBuscarRes_Click(object sender, EventArgs e)
         {
             try
@@ -125,10 +129,11 @@ namespace WebPolleria
                     BtnBuscarRes.Enabled = false;
                     TxtNro.Enabled = false;
                     Recepcion.Visible = false;
-                    BtnDisponibilidad.Visible = false;
                     Limpiar1();
                     foreach (var lis in Lista)
                     {
+                        LbNombre.Text = lis.Nombre.ToString();
+                        LbApellidos.Text = lis.Apellidos.ToString();
                         LbCalendario.Text = lis.FechaProgra.ToString();
                         LbHorario.Text = lis.DescHorario;
                         LbMesa.Text = lis.IdMesa.ToString();
@@ -141,7 +146,7 @@ namespace WebPolleria
                     this.Reserva.Visible = false;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Message("Falta ingresar DNI");
             }
@@ -175,13 +180,24 @@ namespace WebPolleria
         protected void BtnAsignar_Click(object sender, EventArgs e)
         {
             BL_Mesa ME = new BL_Mesa();
-            int Mesa = int.Parse(DropDownListMesas.SelectedValue);
+            ME = new BL_Mesa();
+            DataTable dt = ME.BL_MesaDispoPre();
+
+            int valor1 = 0;
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                valor1 = int.Parse(dt.Rows[i]["IdMesa"].ToString());
+            }
+
             int Mozo = int.Parse(TxtMozoId.Text);
-            if (ME.BL_AsignarMesa(Mesa, Mozo))
+            string Nombre = TxtNombre.Text;
+            string Apellidos = TxtApellidos.Text;
+            if (ME.BL_AsignarMesa(valor1, Mozo, Nombre, Apellidos))
             {
                 Message("Se asigno la mesa correctamente");
-                DropDownListMesas.Items.Clear();
                 Mozo1();
+                Mesa1();
                 Limpiar();
             }
         }
@@ -190,7 +206,9 @@ namespace WebPolleria
         {
             BL_Mesa ME = new BL_Mesa();
             int Mesa = int.Parse(LbMesa.Text);
-            if (ME.BL_AsignarMesa1(Mesa))
+            string Nombre = LbNombre.Text;
+            string Apellidos = LbApellidos.Text;
+            if (ME.BL_AsignarMesa1(Mesa, Nombre, Apellidos))
             {
                 Message("Se asigno la mesa correctamente");
             }
@@ -232,10 +250,11 @@ namespace WebPolleria
                 BtnBuscarRes1.Enabled = false;
                 TxtNro.Enabled = false;
                 Recepcion.Visible = false;
-                BtnDisponibilidad.Visible = false;
                 Limpiar1();
                 foreach (var lis in Lista1)
                 {
+                    LbNombre.Text = lis.Nombre.ToString();
+                    LbApellidos.Text = lis.Apellidos.ToString();
                     LbCalendario.Text = lis.FechaProgra.ToString();
                     LbHorario.Text = lis.DescHorario;
                     LbMesa.Text = lis.IdMesa.ToString();

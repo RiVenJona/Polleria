@@ -8,15 +8,12 @@
 }
 
 .Global1 {
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    margin: auto;
     height: 90vh;
     background-size: cover;
     font-weight: bold;
     border-radius: 15px;
-    margin: 10px 0;
 }
 
 .Fondo {
@@ -35,11 +32,11 @@
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 30px;
-    margin: 0 auto;
+    margin: auto;
     overflow-y: auto;
     height: auto;
     border: 1px solid black;
-    width: 1000px;
+    width: 845px;
     max-width: 100%;
 }
 
@@ -92,3 +89,24 @@
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
+.tab-button {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+    width: 150px;
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+    .tab-button:hover {
+        transform: scale(1.1);
+    }
+
+    .tab-button.active {
+        font-weight: bold;
+        width: 150px;
+        color: black;
+    }
