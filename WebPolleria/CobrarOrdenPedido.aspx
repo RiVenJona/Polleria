@@ -199,7 +199,7 @@
                             </asp:Panel>
                             <div style="margin-top:300px;">
                                 <asp:Button CssClass="button" Style="background-color: #4CAF50; position: absolute; float: left; margin-left: 100px" ID="Button5" runat="server" OnClick="Button3_Click" Text="SALIR" />
-                                 <asp:Button CssClass="button" Style="background-color: #4CAF50; position: relative; float: right; margin-right: 100px" ID="Button6" runat="server" OnClick="Button4_Click" Text="GENERAR" />
+                                 <asp:Button CssClass="button" Style="background-color: #4CAF50; position: relative; float: right; margin-right: 100px" ID="Button6" runat="server" OnClick="Button4_Click" Text="MODIFICAR" />
                                 </div>
                         </asp:Panel>
                 </asp:View>

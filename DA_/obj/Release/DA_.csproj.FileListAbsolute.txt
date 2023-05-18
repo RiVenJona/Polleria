@@ -9,3 +9,14 @@ D:\Polleria-Ultimaversion\Polleria\DA_\obj\Release\DA_.csproj.CoreCompileInputs.
 D:\Polleria-Ultimaversion\Polleria\DA_\obj\Release\DA_.csproj.CopyComplete
 D:\Polleria-Ultimaversion\Polleria\DA_\obj\Release\DA_.dll
 D:\Polleria-Ultimaversion\Polleria\DA_\obj\Release\DA_.pdb
+D:\IMPLEMENTACION - 1304\Polleria\DA_\bin\Release\DA_.dll
+D:\IMPLEMENTACION - 1304\Polleria\DA_\bin\Release\DA_.pdb
+D:\IMPLEMENTACION - 1304\Polleria\DA_\bin\Release\BE_.dll
+D:\IMPLEMENTACION - 1304\Polleria\DA_\bin\Release\Util_.dll
+D:\IMPLEMENTACION - 1304\Polleria\DA_\bin\Release\BE_.pdb
+D:\IMPLEMENTACION - 1304\Polleria\DA_\bin\Release\Util_.pdb
+D:\IMPLEMENTACION - 1304\Polleria\DA_\obj\Release\DA_.csproj.AssemblyReference.cache
+D:\IMPLEMENTACION - 1304\Polleria\DA_\obj\Release\DA_.csproj.CoreCompileInputs.cache
+D:\IMPLEMENTACION - 1304\Polleria\DA_\obj\Release\DA_.csproj.CopyComplete
+D:\IMPLEMENTACION - 1304\Polleria\DA_\obj\Release\DA_.dll
+D:\IMPLEMENTACION - 1304\Polleria\DA_\obj\Release\DA_.pdb

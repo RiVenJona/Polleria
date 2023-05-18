@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\de_or\Desktop\POLLERIA_PUBLISH</_PublishTargetUrl>
+    <History>True|2023-05-13T14:28:55.8737698Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="AnularReserva.aspx">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="bin/AjaxControlToolkit.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/BCrypt.Net.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/BE_.dll">
+      <publishTime>05/13/2023 09:28:51</publishTime>
+    </File>
+    <File Include="bin/BE_.pdb">
+      <publishTime>05/13/2023 09:28:51</publishTime>
+    </File>
+    <File Include="bin/BL_.dll">
+      <publishTime>05/13/2023 09:28:52</publishTime>
+    </File>
+    <File Include="bin/BL_.pdb">
+      <publishTime>05/13/2023 09:28:52</publishTime>
+    </File>
+    <File Include="bin/DA_.dll">
+      <publishTime>05/13/2023 09:28:52</publishTime>
+    </File>
+    <File Include="bin/DA_.pdb">
+      <publishTime>05/13/2023 09:28:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Win32.Primitives.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Globalization.Calendars.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.ZipFile.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Net.Http.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Net.Sockets.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Runtime.InteropServices.RuntimeInformation.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Threading.Tasks.Extensions.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="bin/Util_.dll">
+      <publishTime>05/13/2023 09:28:51</publishTime>
+    </File>
+    <File Include="bin/Util_.pdb">
+      <publishTime>05/13/2023 09:28:51</publishTime>
+    </File>
+    <File Include="bin/WebPolleria.dll">
+      <publishTime>05/13/2023 09:28:52</publishTime>
+    </File>
+    <File Include="bin/WebPolleria.pdb">
+      <publishTime>05/13/2023 09:28:52</publishTime>
+    </File>
+    <File Include="CambiarPass.aspx">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="CobrarOrdenPedido.aspx">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="estilos/AnularReserva.css">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="estilos/CobrarOrdenPedido.css">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="estilos/GenOrdenInsumo.css">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="estilos/Login.css">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="estilos/Master.css">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="estilos/ordenPedido.css">
+      <publishTime>05/11/2023 21:57:16</publishTime>
+    </File>
+    <File Include="estilos/Recepcion.css">
+      <publishTime>05/13/2023 09:26:26</publishTime>
+    </File>
+    <File Include="estilos/RegisReserva.css">
+      <publishTime>05/11/2023 19:17:32</publishTime>
+    </File>
+    <File Include="GenOrdenInsumo.aspx">
+      <publishTime>05/11/2023 21:04:43</publishTime>
+    </File>
+    <File Include="Imagenes/CalendarioSim.png">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Imagenes/FONDO.jpg">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Imagenes/IdentificacionSim.png">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Imagenes/ImagenInicial.jpg">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Imagenes/Logo.jpg">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Imagenes/Mesa1.jpg">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Imagenes/Mesa2.jpg">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Imagenes/Mesa3.jpg">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Imagenes/Mesa4.jpg">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Imagenes/Mesa5.jpg">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Imagenes/MesasSim.png">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Imagenes/PersonasSim.png">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Imagenes/RelojSim.png">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="MainMenu.aspx">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="OrdenPedido.aspx">
+      <publishTime>05/11/2023 22:03:19</publishTime>
+    </File>
+    <File Include="PreSeguridad.aspx">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="RecepcionarCliente.aspx">
+      <publishTime>05/13/2023 09:26:26</publishTime>
+    </File>
+    <File Include="RecuperarCuenta.aspx">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="RegReserva.aspx">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Site1.Master">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="VerCorreo.aspx">
+      <publishTime>05/11/2023 19:17:31</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/13/2023 09:28:54</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

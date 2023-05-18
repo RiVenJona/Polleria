@@ -2,9 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
    <link rel="stylesheet" type="text/css" href="/estilos/ordenPedido.css" />
-    <style type="text/css">
-        .gridView {}
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="BgContainer">
@@ -20,8 +17,8 @@
                 <input runat="server" id="nombreMozo" name="nombreMozo" type="text">
             </div>
             <div class="inputItem">
-                <p>Codigo O.Pedido</p>
-                <input type="text">
+                <p>Fecha Pedido</p>
+                <input type="date">
             </div>
         </div>
     </section>
@@ -90,6 +87,36 @@
     </section> -->
     <section>
         <fieldset class="ListaTickets">
+            <div>
+                <asp:PlaceHolder ID="phAcordeon" runat="server"></asp:PlaceHolder>
+            </div>
+                <style>
+        .accordion {
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+    </style>
+            <script>
+                $(document).ready(function () {
+                    $(".accordion").click(function () {
+                        $(this).toggleClass("active");
+                        $(this).next(".panel").slideToggle("fast");
+                        return false; // Evita el envío y recarga del formulario
+                    });
+                });
+            </script>
             <legend>Pedidos</legend>
             <div>
                 <asp:GridView CssClass="gridView" HorizontalAlign="Center" ID="gvCatalogo" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged" ForeColor="Black" GridLines="Vertical" Height="218px" Width="537px">

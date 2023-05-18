@@ -139,7 +139,6 @@
     </Compile>
     <Compile Include="OrdenPedido.aspx.cs">
       <DependentUpon>OrdenPedido.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="OrdenPedido.aspx.designer.cs">
       <DependentUpon>OrdenPedido.aspx</DependentUpon>

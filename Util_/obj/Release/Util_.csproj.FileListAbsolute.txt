@@ -4,3 +4,9 @@ D:\Polleria-Ultimaversion\Polleria\Util_\obj\Release\Util_.csproj.AssemblyRefere
 D:\Polleria-Ultimaversion\Polleria\Util_\obj\Release\Util_.csproj.CoreCompileInputs.cache
 D:\Polleria-Ultimaversion\Polleria\Util_\obj\Release\Util_.dll
 D:\Polleria-Ultimaversion\Polleria\Util_\obj\Release\Util_.pdb
+D:\IMPLEMENTACION - 1304\Polleria\Util_\bin\Release\Util_.dll
+D:\IMPLEMENTACION - 1304\Polleria\Util_\bin\Release\Util_.pdb
+D:\IMPLEMENTACION - 1304\Polleria\Util_\obj\Release\Util_.csproj.AssemblyReference.cache
+D:\IMPLEMENTACION - 1304\Polleria\Util_\obj\Release\Util_.csproj.CoreCompileInputs.cache
+D:\IMPLEMENTACION - 1304\Polleria\Util_\obj\Release\Util_.dll
+D:\IMPLEMENTACION - 1304\Polleria\Util_\obj\Release\Util_.pdb

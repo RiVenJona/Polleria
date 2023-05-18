@@ -11,6 +11,12 @@ using System.Web.UI.WebControls;
 
 namespace WebPolleria
 {
+    public class Datos
+    {
+        public string Titulo { get; set; }
+        public string Contenido { get; set; }
+        public int cantidad { get; set; }
+    }
     public partial class OrdenPedido : System.Web.UI.Page
     {
         BL_CatalogoProductos IN;
@@ -19,6 +25,16 @@ namespace WebPolleria
         string a = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+
+                // Lista de datos
+                var listaDatos = new List<Datos>
+                {
+                    new Datos { Titulo = "Dato 1", Contenido = "Contenido del dato 1",cantidad=2 },
+                    new Datos { Titulo = "Dato 2", Contenido = "Contenido del dato 2",cantidad=3 },
+                    new Datos { Titulo = "Producto 3", Contenido = "Contenido del dato 3",cantidad=5 }
+                };
+
+                GenerarAcordeon(listaDatos);
             if (!Page.IsPostBack)
             {
                 CargarTabla(a);
@@ -36,6 +52,29 @@ namespace WebPolleria
             
             
         }
+
+        public void GenerarAcordeon(List<Datos> listaDatos)
+        {
+            foreach (var dato in listaDatos)
+            {
+                var button = new Button
+                {
+                    CssClass = "accordion",
+                    Text = dato.Titulo
+                };
+
+                var panel = new Panel
+                {
+                    CssClass = "panel"
+                };
+                panel.Controls.Add(new LiteralControl("<p>" + dato.Contenido + "</p>"));
+                panel.Controls.Add(new LiteralControl("<p>" + dato.cantidad + "</p>"));
+
+                phAcordeon.Controls.Add(button);
+                phAcordeon.Controls.Add(panel);
+            }
+        }
+
         protected void MesasOcupadas()
         {
             BL_CatalogoProductos caPro = new BL_CatalogoProductos();
