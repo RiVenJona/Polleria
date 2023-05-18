@@ -144,5 +144,27 @@ namespace DA_
 
             return valor;
         }
+        public int GetOrdenPedidoID(int mozo,int mesa)
+        {
+                int valor = 0;
+                SqlDataReader rd = null;
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("GetOrdenPedidoID", cn);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@idMesa", SqlDbType.VarChar).Value = mesa;
+                cmd.Parameters.Add("@mozo", SqlDbType.VarChar).Value = mozo;
+                rd = cmd.ExecuteReader();
+                    if (rd.Read())
+                    {
+                        valor = int.Parse(rd["idAten"].ToString());
+                    }
+                    rd.Close();
+                }
+
+            return valor;
+        }
     }
 }

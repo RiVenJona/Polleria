@@ -38,5 +38,9 @@ namespace BL_
         {
             return dA_OrdenPedido.ListaOrdenesPedido();
         }
+        public int GetOrdenPedidoId(int mozo, int mesa)
+        {
+            return dA_OrdenPedido.GetOrdenPedidoID(mozo, mesa);
+        }
     }
 }

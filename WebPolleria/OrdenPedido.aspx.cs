@@ -44,11 +44,8 @@ namespace WebPolleria
                 MesasOcupadas(TR.BuscarIdTrabajador(user));
             }
             MesasOcupadas(TR.BuscarIdTrabajador(user));
-            blOrdenPedido = new BL_OrdenPedido();
-            List<TicketDetalle> Lista = new List<TicketDetalle>();
-            Lista = blOrdenPedido.ListaTicketsXOP(1);
-            GenerarAcordeon(Lista);
-            txtTotalOP.Value = "s/"+TotalOP(1);
+            
+            
 
         }
         public double TotalOP(int id)
@@ -238,10 +235,13 @@ namespace WebPolleria
         {
 
             blOrdenPedido = new BL_OrdenPedido();
-
-                nombreCliente.Value = blOrdenPedido.NombreCliente(int.Parse(DropDownList1.SelectedValue));
-            
-
+            nombreCliente.Value = blOrdenPedido.NombreCliente(int.Parse(DropDownList1.SelectedValue));
+            List<TicketDetalle> Lista = new List<TicketDetalle>();
+            TR = new BL_Trabajador();
+            int id = TR.BuscarIdTrabajador(user);
+            Lista = blOrdenPedido.ListaTicketsXOP(blOrdenPedido.GetOrdenPedidoId(id, int.Parse(DropDownList1.SelectedValue)));
+            GenerarAcordeon(Lista);
+            txtTotalOP.Value = "s/" + TotalOP(blOrdenPedido.GetOrdenPedidoId(id, int.Parse(DropDownList1.SelectedValue)));
         }
 
         public void Message(string str)
