@@ -14,7 +14,8 @@ namespace BE_
         public string desProducto { get; set; }
         public double PrecioProducto { get; set; }
         public int cantidadProducto { get; set; }
-
         public int mesas { get; set; }
+       
+
     }
 }

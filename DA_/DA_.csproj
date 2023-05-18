@@ -51,6 +51,7 @@
     <Compile Include="DA_Persona.cs" />
     <Compile Include="DA_Trabajador.cs" />
     <Compile Include="DA_Usuario.cs" />
+    <Compile Include="DA_OrdenPedido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -38,7 +38,7 @@ namespace DA_
                 return ListaUsers;
             }
         }
-        public List<int> ListaMesasOcupadas()
+        public List<int> ListaMesasOcupadas(int user)
         {
             SqlDataReader rd = null;
             using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
@@ -48,6 +48,7 @@ namespace DA_
                 SqlCommand cmd = new SqlCommand("dbo.MesasOcupadas", cn);
                 cmd.CommandTimeout = 0;
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idmozo", user);
                 rd = cmd.ExecuteReader();
                 BE_CatalogoProductos insumos;
                 List<int> ListaInsumos = new List<int>();

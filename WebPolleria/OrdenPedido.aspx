@@ -2,6 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
    <link rel="stylesheet" type="text/css" href="/estilos/ordenPedido.css" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="BgContainer">
@@ -32,101 +36,63 @@
             </div>
         </fieldset>
     </section>
-<%--    <section>
-        <div class="DetallesInputsPedido">
-            <p>Codigo O.Pedido:</p>
-            <input type="text">
-        </div>
-    </section>--%>
     <section class="TipoPedidoBox">
         <fieldset class="TipodePedido">
             <legend>Detalle Cliente de Pedido</legend>
             <div class="DetallesInputs">
                 <p>Nombre:</p>
-                <input runat="server" id="nombreCliente" name="nombreCliente" type="text">
+                <input disabled runat="server" id="nombreCliente" name="nombreCliente" type="text">
             </div>
         </fieldset>
     </section>
-    <!-- <section class="BoxDetalle">
-        <fieldset class="DetalleOrden">
-            <legend>Datos del Cliente</legend>
-            <div class="DatosPersonales">
-                <div class="DetallesInputs">
-                    <p>Nombre:</p>
-                    <input type="text">
-                </div>
-                <div class="DetallesInputs">
-                    <p>Apellido:</p>
-                    <input type="text">
-                </div>
-                <div class="DetallesInputs">
-                    <p>DNI:</p>
-                    <input type="text">
-                </div>
-                <div class="DetallesInputs">
-                    <p>Nro.Telefono:</p>
-                    <input type="text">
-                </div>
-                <div class="DetallesInputs">
-                    <p>Fecha:</p>
-                    <input type="date">
-                </div>
-            </div>
-            <div class="espacioxd"></div>
-            <div class="DatosEnvio">
-                <div class="DetallesInputs">
-                    <p>Direccion:</p>
-                    <input type="text">
-                </div>
-                <div class="DetallesInputs">
-                    <p>Referencia:</p>
-                    <input type="text">
-                </div>
-            </div>
-        </fieldset>
-    </section> -->
     <section>
         <fieldset class="ListaTickets">
-            <div>
-                <asp:PlaceHolder ID="phAcordeon" runat="server"></asp:PlaceHolder>
+            <div class="ListaTickets2">
+                <div  id="TicketsUsuario" runat="server"></div>
             </div>
-                <style>
-        .accordion {
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            text-align: left;
-            border: none;
-            outline: none;
-            transition: 0.4s;
-        }
+           <script>
+               $(function () {
+                   $(".accordion").click(function () {
+                       var panel = $(this).next(".panel");
+                       panel.slideToggle("fast");
+                       $(".panel").not(panel).slideUp("fast"); // Cierra los paneles que no se estén abriendo
+                   });
 
-        .panel {
-            padding: 0 18px;
-            display: none;
-            overflow: hidden;
-            background-color: #f1f1f1;
-        }
+                   $("#TicketsUsuario").accordion({
+                       collapsible: true,
+                       active: false
+                   });
+               });
+           </script>
+                <style>
+        
     </style>
-            <script>
-                $(document).ready(function () {
-                    $(".accordion").click(function () {
-                        $(this).toggleClass("active");
-                        $(this).next(".panel").slideToggle("fast");
-                        return false; // Evita el envío y recarga del formulario
-                    });
-                });
-            </script>
             <legend>Pedidos</legend>
+            
             <div>
-                <asp:GridView CssClass="gridView" HorizontalAlign="Center" ID="gvCatalogo" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged" ForeColor="Black" GridLines="Vertical" Height="218px" Width="537px">
+                <fieldset style="margin-bottom:10px; border-radius:15px;">
+                <legend>Nuevo Ticket a Generar</legend>
+                    <div class="CosaBuscador">
+                        <div class="CosaBuscadorHijo">
+                            <p>Descripcion del Producto</p>
+                            <input  type="text" name="txtBuscarProducto" id="txtBuscarProducto">
+                            <asp:Button ID="Button2" runat="server" Text="Buscar" OnClick="Button2_Click" />
+                        </div>
+                    </div>
+                <asp:GridView ItemStyle-HorizontalAlign="Center" AllowPaging="True" PageSize="3" CssClass="gridView" HorizontalAlign="Center" ID="gvCatalogo" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" OnSelectedIndexChanged="GvDatos_SelectedIndexChanged" ForeColor="Black" GridLines="Vertical" Height="218px" Width="700px" OnPageIndexChanging="gvCatalogo_PageIndexChanging">
                     <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
 
-                <asp:BoundField  DataField="idProducto" HeaderText="ID" />
-                <asp:BoundField  DataField="desProducto" HeaderText="PRODUCTO" />
-                <asp:BoundField  DataField="PrecioProducto" HeaderText="PRECIO" />
-                <asp:CommandField HeaderText="SELECCIÓN" SelectText="AGREGAR" ShowSelectButton="True"/>           
+                <asp:BoundField  DataField="idProducto" HeaderText="CODIGO" ItemStyle-HorizontalAlign="Center" />
+                <asp:BoundField  DataField="desProducto" HeaderText="PRODUCTO" ItemStyle-HorizontalAlign="Center" />
+                <asp:BoundField  DataField="PrecioProducto" HeaderText="PRECIO" ItemStyle-HorizontalAlign="Center" />
+                <asp:TemplateField HeaderText="IMAGEN">
+            <ItemTemplate >
+                <asp:Image ItemStyle-HorizontalAlign="Center" ID="Image1" runat="server" ImageUrl='<%# Eval("idProducto", "~/Imagenes/{0}.jpg") %>' 
+                    Width="100" Height="100" />
+            </ItemTemplate>
+        </asp:TemplateField>
+                <asp:CommandField HeaderText="SELECCIÓN" SelectText="AGREGAR" ShowSelectButton="True" ItemStyle-HorizontalAlign="Center"/>           
             </Columns>
             <FooterStyle BackColor="#CCCCCC" />
             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -137,33 +103,28 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#383838" />
         </asp:GridView>
-            </div>
-                <div class="AgregarCosas">
-                    <div class="CosaBuscador">
-                        <div class="CosaBuscadorHijo">
-                            <p>Descripcion del Producto</p>
-                            <input  type="text" name="txtBuscarProducto" id="txtBuscarProducto">
-                            <asp:Button ID="Button2" runat="server" Text="Buscar" OnClick="Button2_Click" />
-                        </div>
-                    </div>
+                    <div class="AgregarCosas">
+                    
                     <div style="display:flex; align-items:center; justify-content:center;">
-                        <asp:GridView ID="gvPedido" EmptyDataText="vacio" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="16px" Width="409px">
+                        <fieldset>
+                        <legend>Carrito Del Nuevo Ticket</legend>
+                        <asp:GridView  ItemStyle-HorizontalAlign="Center" ID="gvPedido" EmptyDataText="Carrito vacio" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Height="16px" Width="700px">
                             <AlternatingRowStyle BackColor="#CCCCCC" />
                             <Columns>
-                                <asp:BoundField DataField="idProducto" HeaderText="CODIGO"/>
-                                <asp:BoundField DataField="desProducto" HeaderText="DESCRIPCION"/>
-                                <asp:TemplateField HeaderText="CANTIDAD">
+                                <asp:BoundField DataField="idProducto" HeaderText="CODIGO" ItemStyle-HorizontalAlign="Center"/>
+                                <asp:BoundField DataField="desProducto" HeaderText="DESCRIPCION" ItemStyle-HorizontalAlign="Center"/>
+                                <asp:TemplateField HeaderText="CANTIDAD" ItemStyle-HorizontalAlign="Center">
                                   <ItemTemplate>
-                                    <asp:TextBox ID="txtCantGv" runat="server"  Width="38px" Enabled="false" Text=1></asp:TextBox>
+                                    <asp:TextBox ItemStyle-HorizontalAlign="Center" ID="txtCantGv" runat="server"  Width="38px" Enabled="false" Text=1></asp:TextBox>
                                       <BR />
                                     <asp:Button runat="server" ID="btnIncrementar" Text="+" OnClick="btnIncrementar_Click" />
                                     <asp:Button runat="server" ID="btnDisminuir" Text="-" OnClick="btnDisminuir_Click" />
                                   </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="PrecioProducto" HeaderText="PRECIO"/>
-                                <asp:TemplateField HeaderText="QUITAR">
+                                <asp:BoundField DataField="PrecioProducto" HeaderText="PRECIO" ItemStyle-HorizontalAlign="Center"/>
+                                <asp:TemplateField HeaderText="QUITAR" ItemStyle-HorizontalAlign="Center">
                                   <ItemTemplate>
-                                      <asp:Button runat="server" ID="btnEliminar" Width="25px" Height="25px" CommandArgument='<%# Container.DataItemIndex %>' Text="x" OnClick="btnEliminar_Click"/>
+                                      <asp:Button  runat="server" ID="btnEliminar" Width="25px" Height="25px" CommandArgument='<%# Container.DataItemIndex %>' Text="x" OnClick="btnEliminar_Click"/>
                                   </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -177,12 +138,22 @@
                             <SortedDescendingCellStyle BackColor="#CAC9C9" />
                             <SortedDescendingHeaderStyle BackColor="#383838" />
                         </asp:GridView>
+                        </fieldset>
                     </div>
                 </div>
+                    <div class="monto">
+                    <div class="casillas">
+                        <p>Total del Nuevo Ticket</p>
+                        <input disabled runat="server" name="txtTotal" id="txtTotal" type="text">
+                    </div>
+                        <asp:Button ID="Button4" runat="server" Text="Generar" OnClick="Button3_Click" />
+                </div>
+                </fieldset>
+            </div>
                 <div class="monto">
                     <div class="casillas">
-                        <p>Monto Total</p>
-                        <input runat="server" name="txtTotal" id="txtTotal" type="text">
+                        <p>Total Orden de Pedido</p>
+                        <input disabled runat="server" name="txtTotalOP" id="txtTotalOP" type="text">
                     </div>
                 </div>
         </fieldset>

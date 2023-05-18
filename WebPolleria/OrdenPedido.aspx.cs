@@ -1,6 +1,7 @@
 ﻿using BE_;
 using BL_;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -11,30 +12,18 @@ using System.Web.UI.WebControls;
 
 namespace WebPolleria
 {
-    public class Datos
-    {
-        public string Titulo { get; set; }
-        public string Contenido { get; set; }
-        public int cantidad { get; set; }
-    }
     public partial class OrdenPedido : System.Web.UI.Page
     {
         BL_CatalogoProductos IN;
         List<BE_CatalogoProductos> listaFilas = new List<BE_CatalogoProductos>();
         BL_Trabajador TR;
+        BL_OrdenPedido blOrdenPedido;
         string a = "";
+        string user = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-
-                // Lista de datos
-                var listaDatos = new List<Datos>
-                {
-                    new Datos { Titulo = "Dato 1", Contenido = "Contenido del dato 1",cantidad=2 },
-                    new Datos { Titulo = "Dato 2", Contenido = "Contenido del dato 2",cantidad=3 },
-                    new Datos { Titulo = "Producto 3", Contenido = "Contenido del dato 3",cantidad=5 }
-                };
-
-                GenerarAcordeon(listaDatos);
+            Page.MaintainScrollPositionOnPostBack = true;
+            user = Session["usuario"].ToString();
             if (!Page.IsPostBack)
             {
                 CargarTabla(a);
@@ -44,41 +33,71 @@ namespace WebPolleria
                 }
                 gvPedido.DataSource = (List<BE_CatalogoProductos>)ViewState["listaFilas"];
                 gvPedido.DataBind();
-                txtTotal.Value = "" + 0;
+                txtTotal.Value = "s/" + 0;
                 TR = new BL_Trabajador();
                 nombreMozo.Value = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
-                MesasOcupadas();
+                
             }
-            
-            
-        }
-
-        public void GenerarAcordeon(List<Datos> listaDatos)
-        {
-            foreach (var dato in listaDatos)
+            if (user != null)
             {
-                var button = new Button
-                {
-                    CssClass = "accordion",
-                    Text = dato.Titulo
-                };
+                TR = new BL_Trabajador();
+                MesasOcupadas(TR.BuscarIdTrabajador(user));
+            }
+            MesasOcupadas(TR.BuscarIdTrabajador(user));
+            blOrdenPedido = new BL_OrdenPedido();
+            List<TicketDetalle> Lista = new List<TicketDetalle>();
+            Lista = blOrdenPedido.ListaTicketsXOP(1);
+            GenerarAcordeon(Lista);
+            txtTotalOP.Value = "s/"+TotalOP(1);
 
-                var panel = new Panel
-                {
-                    CssClass = "panel"
-                };
-                panel.Controls.Add(new LiteralControl("<p>" + dato.Contenido + "</p>"));
-                panel.Controls.Add(new LiteralControl("<p>" + dato.cantidad + "</p>"));
+        }
+        public double TotalOP(int id)
+        {
+            blOrdenPedido = new BL_OrdenPedido();
+            return blOrdenPedido.TotalOP(id);
+        }
+        public void GenerarAcordeon(List<TicketDetalle> listTicket)
+        {
+            blOrdenPedido=new BL_OrdenPedido();
+            var accordionContainer = new PlaceHolder();
+            if (listTicket.Count!=0) { 
+            foreach (var dato in listTicket)
+            {
+                var button = new LiteralControl("<h4 class=\"accordion\">✅ Ticket Nro."+dato.idTicket+ "&nbsp&nbsp&nbsp&nbspPrecio:s/" + dato.totalTicket+ "&nbsp&nbsp&nbsp&nbspArticulos:" + dato.cantidadXTicket+"</h4>");
+                    var panel = ContAcordeon(blOrdenPedido.DetallexTicket(dato.idTicket));
 
-                phAcordeon.Controls.Add(button);
-                phAcordeon.Controls.Add(panel);
+                accordionContainer.Controls.Add(button);
+                accordionContainer.Controls.Add(panel);
+            }
+
+            TicketsUsuario.Controls.Add(accordionContainer);
+            }
+            else
+            {
+                var panel = new LiteralControl("<div class=\"panel\"><p>NO SE ENCONTRARON TICKETS PREVIOS</p></div>");
+                accordionContainer.Controls.Add(panel);
+                TicketsUsuario.Controls.Add(accordionContainer);
             }
         }
+        public Panel ContAcordeon(List<TicketDetalle> listTicketDetalle)
+        {
+            Panel panel=new Panel();
+            PlaceHolder placeholder = new PlaceHolder();
+            StringBuilder htmlBuilder = new StringBuilder();
+            panel.CssClass = "panel";
+            foreach (var dato in listTicketDetalle)
+                {
+                    var panel2 = new LiteralControl("<div class=\"panel2\"><h5>✔️&nbspProducto:&nbsp" + dato.desProductoTicket + "&nbsp&nbsp&nbsp&nbsp&nbspCantidad:&nbsp" + dato.cantidadProductoTicket + "&nbsp&nbsp&nbsp&nbsp&nbspPrecioXUnidad:&nbsps/" + dato.precio + "&nbsp&nbsp&nbsp&nbsp&nbspTotal:&nbsp" + dato.totalProductoTicket + "</h5>"+ "</div>");
+                panel.Controls.Add(panel2);
+            }
+            
+            return panel;
+        }
 
-        protected void MesasOcupadas()
+        protected void MesasOcupadas(int user)
         {
             BL_CatalogoProductos caPro = new BL_CatalogoProductos();
-            DropDownList1.DataSource = caPro.listaMesas();
+            DropDownList1.DataSource = caPro.listaMesas(user);
             DropDownList1.DataBind();
         }
         protected void CargarTabla(string b)
@@ -164,7 +183,7 @@ namespace WebPolleria
                 total += xd * Cantidad;
                 
             }
-            txtTotal.Value = total.ToString();
+            txtTotal.Value = "s/"+total.ToString();
         }
         protected void GvDatos_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -217,14 +236,12 @@ namespace WebPolleria
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (int.Parse(DropDownList1.SelectedItem.Text) == 4)
-            {
-                nombreCliente.Value = "Juan Gonzales Vargas";
-            }
-            else if (int.Parse(DropDownList1.SelectedItem.Text) == 5)
-            {
-                nombreCliente.Value = "Santiago Dulce Marton";
-            }
+
+            blOrdenPedido = new BL_OrdenPedido();
+
+                nombreCliente.Value = blOrdenPedido.NombreCliente(int.Parse(DropDownList1.SelectedValue));
+            
+
         }
 
         public void Message(string str)
@@ -241,6 +258,17 @@ namespace WebPolleria
         protected void Button3_Click(object sender, EventArgs e)
         {
             Message("Se genero correctamente");
+        }
+
+        protected void gvCatalogo_PageIndexChanged(object sender, GridViewPageEventArgs e)
+        {
+            
+        }
+
+        protected void gvCatalogo_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvCatalogo.PageIndex = e.NewPageIndex;
+            CargarTabla(a);
         }
     }
 }

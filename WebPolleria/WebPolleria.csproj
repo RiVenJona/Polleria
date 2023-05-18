@@ -84,6 +84,12 @@
     <Content Include="estilos\RegisReserva.css" />
     <Content Include="estilos\AnularReserva.css" />
     <Content Include="GenOrdenInsumo.aspx" />
+    <Content Include="Imagenes\1.jpg" />
+    <Content Include="Imagenes\2.jpg" />
+    <Content Include="Imagenes\3.jpg" />
+    <Content Include="Imagenes\4.jpg" />
+    <Content Include="Imagenes\5.jpg" />
+    <Content Include="Imagenes\6.jpg" />
     <Content Include="Imagenes\CalendarioSim.png" />
     <Content Include="Imagenes\FONDO.jpg" />
     <Content Include="Imagenes\IdentificacionSim.png" />
@@ -139,6 +145,7 @@
     </Compile>
     <Compile Include="OrdenPedido.aspx.cs">
       <DependentUpon>OrdenPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="OrdenPedido.aspx.designer.cs">
       <DependentUpon>OrdenPedido.aspx</DependentUpon>

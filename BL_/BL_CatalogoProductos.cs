@@ -19,9 +19,9 @@ namespace BL_
         {
             return dA_Catalogo.ListaProductos(a);
         }
-        public List<int> listaMesas()
+        public List<int> listaMesas(int user)
         {
-            return dA_Catalogo.ListaMesasOcupadas();
+            return dA_Catalogo.ListaMesasOcupadas(user);
         }
     }
 }
