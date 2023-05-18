@@ -91,6 +91,12 @@
            <asp:Image ID="Image3" runat="server" ImageUrl="~/Imagenes/IdentificacionSim.png" Height="29px" Width="36px" />
                 <asp:Label ID="Label10" runat="server" Text="" Width="36px"></asp:Label>
            <asp:Label ID="LbIdentificacion" runat="server" Class="Fuente1" Text="Identificacion"></asp:Label>
+                <br />
+           <asp:Image ID="Image5" runat="server" ImageUrl="~/Imagenes/Mozo.png" Height="29px" Width="36px" />
+                <asp:Label ID="Label11" runat="server" Text="" Width="36px"></asp:Label>
+           <asp:Label ID="Label15" runat="server" Class="Fuente1" Text="Mozo Asignado: "></asp:Label>
+           <asp:Label ID="LbMozo" runat="server" Class="Fuente1" Text="Mozo"></asp:Label>
+                <asp:Label ID="LbMozoId" runat="server" Text=""></asp:Label>
             </div>
             </fieldset>
          </div>
