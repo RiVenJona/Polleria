@@ -33,15 +33,15 @@
                                 <h3>DATOS DEL CLIENTE:</h3>
                                 <asp:Panel ID="Panel3" runat="server" CssClass="panel">
                                     <asp:Label CssClass="label" ID="Label7" runat="server" Text="DNI / RUC:"></asp:Label>
-                                    <asp:TextBox Style="margin-left: 10px;" ID="TextBox7" runat="server" Enabled="False"></asp:TextBox>
+                                    <asp:TextBox Style="margin-left: 10px;" ID="txtDNI" runat="server" Enabled="False"></asp:TextBox>
                                     <br />
                                     <br />
                                     <asp:Label CssClass="labelDC" ID="Label5" runat="server" Text="Nombres:"></asp:Label>
-                                    <asp:TextBox ID="TextBox5" runat="server" Width="400px" Enabled="False"></asp:TextBox>
+                                    <asp:TextBox ID="txtNombres" runat="server" Width="400px" Enabled="False"></asp:TextBox>
                                     <br />
                                     <br />
                                     <asp:Label CssClass="labelDC" ID="Label6" runat="server" Text="Apellidos:"></asp:Label>
-                                    <asp:TextBox ID="TextBox6" runat="server" Width="400px" Enabled="False"></asp:TextBox>
+                                    <asp:TextBox ID="txtApellidos" runat="server" Width="400px" Enabled="False"></asp:TextBox>
                                 </asp:Panel>
                             </asp:TableCell>
                             <asp:TableCell Width="60%" Style="vertical-align: top;">
@@ -69,12 +69,29 @@
                                             <SortedDescendingCellStyle BackColor="#F1E5CE" />
                                             <SortedDescendingHeaderStyle BackColor="#93451F" />
                                         </asp:GridView>
+                                        <asp:GridView ID="GvDetalleDelivery" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay datos disponibles" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
+                                            <Columns>
+                                                <asp:BoundField DataField="desProducto" HeaderText="DESCRIPCIÓN" />
+                                                <asp:BoundField DataField="cantidadProducto" HeaderText="CANTIDAD" />
+                                                <asp:BoundField DataField="PrecioProducto" HeaderText="PRECIO UNIT." />
+                                                <asp:BoundField DataField="total" HeaderText="TOTAL" />
+                                            </Columns>
+                                            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+                                            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+                                            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+                                            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+                                            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                                            <SortedAscendingCellStyle BackColor="#FFF1D4" />
+                                            <SortedAscendingHeaderStyle BackColor="#B95C30" />
+                                            <SortedDescendingCellStyle BackColor="#F1E5CE" />
+                                            <SortedDescendingHeaderStyle BackColor="#93451F" />
+                                        </asp:GridView>
                                     </asp:Panel>
                                     <div style="margin-top: 305px">
                                         <asp:Label CssClass="label" ID="Label21" runat="server" Text="Dir. Entrega:"></asp:Label>
                                         <asp:TextBox Style="margin-left: 20px;" ID="txtDireccion" Width="300px" runat="server" Enabled="False"></asp:TextBox>
-                                        <asp:TextBox Style="position: relative; float: right; margin-right: 0px; margin-left: 20px;" ID="TextBox3" runat="server" Enabled="False"></asp:TextBox>
-                                        <asp:Label Style="position: relative; float: right;" CssClass="label" ID="Label3" runat="server" Text="Monto:"></asp:Label>
+                                        <asp:TextBox Style="position: relative; float: right; margin-right: 0px; margin-left: 20px;" ID="txtMonto" runat="server" Enabled="False"></asp:TextBox>
+                                        <asp:Label Style="position: relative; float: right;" CssClass="label" ID="Label3" runat="server" Text="Monto S/:"></asp:Label>
                                     </div>
                                 </asp:Panel>
                             </asp:TableCell>
@@ -180,13 +197,17 @@
                                 <asp:ListItem Text="DELIVERY" Value="2" />
                             </asp:DropDownList>
                             <asp:Label Style="position: relative; float: right;" CssClass="label" ID="Label23" runat="server" Text="Tipo de Servicio:"></asp:Label>
-                            <asp:Panel ID="Panel7" runat="server" CssClass="panelInterior">
+                            <asp:Panel ID="Panel7" runat="server" CssClass="panelInterior" Width="1100px">
                                 <asp:GridView ID="GvEstadoPedido" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay datos disponibles" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
                                     <Columns>
-                                        <asp:BoundField DataField="des" HeaderText="DESCRIPCIÓN" />
-                                        <asp:BoundField DataField="cant" HeaderText="CANTIDAD" />
-                                        <asp:BoundField DataField="tot" HeaderText="TOTAL" />
-                                    </Columns>
+                                        <asp:BoundField DataField="NumOrdenPedido" HeaderText="IDPEDIDO" />
+                                        <asp:BoundField DataField="cliente" HeaderText="NOMBRE" />
+                                        <asp:BoundField DataField="clienteDNI" HeaderText="DNI" />
+                                        <asp:BoundField DataField="totalOP" HeaderText="TOTAL S/" />
+                                        <asp:BoundField DataField="dia" HeaderText="FECHA" />
+                                        <asp:BoundField DataField="hora" HeaderText="HORA" />
+                                        <asp:BoundField DataField="estado" HeaderText="ESTADO" />
+                                        </Columns>
                                     <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                                     <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
                                     <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />

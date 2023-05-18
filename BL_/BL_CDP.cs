@@ -25,5 +25,10 @@ namespace BL_
             return dA_CDP.SiguienteIdOrdenPedido();
         }
 
+        public BE_Persona ClienteCDP(string a)
+        {
+            return dA_CDP.ClienteCDP(a);
+        }
+
     }
 }

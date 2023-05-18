@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE_;
+using System.Net.Sockets;
 
 namespace BL_
 {
@@ -31,6 +32,11 @@ namespace BL_
         public string NombreCliente(int mesa)
         {
             return dA_OrdenPedido.NombreCliente(mesa);
+        }
+
+        public List<BE_OrdenPedido> ListaOrdenesPedido()
+        {
+            return dA_OrdenPedido.ListaOrdenesPedido();
         }
     }
 }

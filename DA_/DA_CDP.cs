@@ -12,6 +12,31 @@ namespace DA_
 {
     public class DA_CDP
     {
+
+        public BE_Persona ClienteCDP(string id)
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("[dbo].[SP_DatosClienteCDP]", cn);
+                cmd.Parameters.AddWithValue("@NumOrdenPedido", id);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                BE_Persona p;
+                p = new BE_Persona();
+                if (rd.Read())
+                {
+                    
+                p.DNI = int.Parse(rd["dni"].ToString());
+                p.Nombre = rd["nombre"].ToString();
+                p.Apellidos = rd["apellidos"].ToString();
+                }
+                return p;
+            }
+        }
         public string SiguienteIdOrdenPedido()
         {
             string valor = "";

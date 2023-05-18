@@ -14,11 +14,7 @@ namespace BE_
         public string desProducto { get; set; }
         public double PrecioProducto { get; set; }
         public int cantidadProducto { get; set; }
-<<<<<<< HEAD
-=======
-
         public double total { get; set; }
->>>>>>> wong
         public int mesas { get; set; }
        
 

@@ -12,9 +12,12 @@ namespace WebPolleria
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
+        
         public DateTime date = DateTime.Today;
         BL_CatalogoProductos CP;
+        BL_OrdenPedido OP;
         BL_CDP CDP;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             MultiViewTabs.ActiveViewIndex = 0;
@@ -23,16 +26,14 @@ namespace WebPolleria
                 CDP = new BL_CDP();
                 BtnTab1.CssClass = MultiViewTabs.ActiveViewIndex == 0 ? "tab-button active" : "tab-button";
                 BtnTab2.CssClass = MultiViewTabs.ActiveViewIndex == 1 ? "tab-button active" : "tab-button";
- 
+                CargarTabla();
                 txtFecha.Text = date.ToString("yyyy-MM-dd");
-                GvDetalle.DataBind();
+                Limpiar();
                 GvEstadoPedido.DataBind();
                 h3delivery.Visible = false;
                 LlenarListas();
                 txtNroCDP.Text = CDP.SiguienteIdOrdenPedido();
                 
-
-
             }
             if (RblMetodoPago.SelectedIndex != 0) 
             {
@@ -45,6 +46,8 @@ namespace WebPolleria
                 txtTipoServ.Text = "DELIVERY";
                 txtDireccion.Visible = true;
                 Label21.Visible = true;
+                GvDetalleDelivery.Visible = true;
+                GvDetalle.Visible = false;
             } else
             {
                 h3delivery.Visible = false;
@@ -52,11 +55,22 @@ namespace WebPolleria
                 txtTipoServ.Text = "PRESENCIAL";
                 txtDireccion.Visible = false;
                 Label21.Visible = false;
+                GvDetalleDelivery.Visible = false;
+                GvDetalle.Visible = true;
             }
 
         }
 
-        protected void LlenarListas()
+        protected void CargarTabla()
+        {
+            OP = new BL_OrdenPedido();
+            GvEstadoPedido.DataSource = OP.ListaOrdenesPedido();
+            GvEstadoPedido.DataBind();
+            GvEstadoPedido.Width = Unit.Percentage(100);
+            Panel7.Style["overflow-x"] = "auto";
+        }
+
+            protected void LlenarListas()
         {
             LlenarListaCDP();
             LlenarListaMetodoPago();
@@ -111,6 +125,8 @@ namespace WebPolleria
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             CP = new BL_CatalogoProductos();
+            OP = new BL_OrdenPedido();
+            CDP = new BL_CDP();
             GvDetalle.DataSource = CP.DetalleOrdenPedido(txtBuscar.Text);
             GvDetalle.DataBind();
             GvDetalle.Width = Unit.Percentage(100);
@@ -120,13 +136,33 @@ namespace WebPolleria
             {
                 string contenido = txtBuscar.Text;
                 txtNroOrden.Text = contenido;
+                string texto = txtBuscar.Text;
+                texto = texto.Replace("OP", "").TrimStart('0');
+                txtMonto.Text = (OP.TotalOP(int.Parse(texto))).ToString();
+
+                BE_Persona p = CDP.ClienteCDP(txtBuscar.Text);
+
+                txtDNI.Text = (p.DNI).ToString();
+                txtNombres.Text = p.Nombre;
+                txtApellidos.Text = p.Apellidos;
             }
             else
             {
-                txtNroOrden.Text = "";    
+                Limpiar();
             }
-            
 
+
+        }
+
+        protected void Limpiar()
+        {
+            GvDetalle.DataBind();
+            GvDetalleDelivery.DataBind();
+            txtNroOrden.Text = "";
+            txtMonto.Text = "";
+            txtDNI.Text = "";
+            txtNombres.Text = "";
+            txtApellidos.Text = "";
         }
         protected void Button3_Click(object sender, EventArgs e)
         {
@@ -181,6 +217,7 @@ namespace WebPolleria
 
         protected void RblTipoServ_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Limpiar();
             if (RblMetodoPago.SelectedIndex == 0)
             {
                 pMetodoPago.Visible = true;

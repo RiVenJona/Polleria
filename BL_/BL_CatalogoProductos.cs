@@ -19,18 +19,13 @@ namespace BL_
         {
             return dA_Catalogo.ListaProductos(a);
         }
-<<<<<<< HEAD
         public List<int> listaMesas(int user)
-=======
+        {
+            return dA_Catalogo.ListaMesasOcupadas(user);
+        }
         public List<BE_CatalogoProductos> DetalleOrdenPedido(string a)
         {
             return dA_Catalogo.DetalleOrdenPedido(a);
-        }
-
-        public List<int> listaMesas()
->>>>>>> wong
-        {
-            return dA_Catalogo.ListaMesasOcupadas(user);
         }
 
 

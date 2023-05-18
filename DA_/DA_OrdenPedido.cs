@@ -13,6 +13,35 @@ namespace DA_
 {
     public class DA_OrdenPedido
     {
+        public List<BE_OrdenPedido> ListaOrdenesPedido()
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("SP_OrdenesPedido", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                BE_OrdenPedido op;
+                List<BE_OrdenPedido> ListaOrdenesPedido = new List<BE_OrdenPedido>();
+                while (rd.Read())
+                {
+                    op = new BE_OrdenPedido();
+                    op.numOrdenPedido = rd["NumOrdenPedido"].ToString();
+                    op.cliente = rd["nombres"].ToString();
+                    op.clienteDNI = rd["dni"].ToString();
+                    op.totalOP = double.Parse(rd["total"].ToString());
+                    op.dia = rd["Fecha"].ToString();
+                    op.hora = rd["Hora"].ToString();
+                    op.estado = rd["DescEstado"].ToString();
+                    ListaOrdenesPedido.Add(op);
+                }
+                return ListaOrdenesPedido;
+
+            }
+        }
         public List<TicketDetalle> ListaTicketsXOP(int idOP)
         {
             SqlDataReader reader = null;
