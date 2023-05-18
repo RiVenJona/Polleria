@@ -19,5 +19,11 @@ namespace BL_
         {
             return dA_CDP.ListaCDP();
         }
+        
+        public string SiguienteIdOrdenPedido()
+        {
+            return dA_CDP.SiguienteIdOrdenPedido();
+        }
+
     }
 }

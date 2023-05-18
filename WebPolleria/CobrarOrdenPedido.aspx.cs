@@ -13,12 +13,14 @@ namespace WebPolleria
     public partial class WebForm2 : System.Web.UI.Page
     {
         public DateTime date = DateTime.Today;
+        BL_CatalogoProductos CP;
+        BL_CDP CDP;
         protected void Page_Load(object sender, EventArgs e)
         {
             MultiViewTabs.ActiveViewIndex = 0;
             if (!Page.IsPostBack)
             {
-                
+                CDP = new BL_CDP();
                 BtnTab1.CssClass = MultiViewTabs.ActiveViewIndex == 0 ? "tab-button active" : "tab-button";
                 BtnTab2.CssClass = MultiViewTabs.ActiveViewIndex == 1 ? "tab-button active" : "tab-button";
  
@@ -27,6 +29,9 @@ namespace WebPolleria
                 GvEstadoPedido.DataBind();
                 h3delivery.Visible = false;
                 LlenarListas();
+                txtNroCDP.Text = CDP.SiguienteIdOrdenPedido();
+                
+
 
             }
             if (RblMetodoPago.SelectedIndex != 0) 
@@ -102,6 +107,26 @@ namespace WebPolleria
             RblMetodoPago.DataBind();
             RblMetodoPago.RepeatDirection = RepeatDirection.Horizontal;
             RblMetodoPago.SelectedIndex = 0;
+        }
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            CP = new BL_CatalogoProductos();
+            GvDetalle.DataSource = CP.DetalleOrdenPedido(txtBuscar.Text);
+            GvDetalle.DataBind();
+            GvDetalle.Width = Unit.Percentage(100);
+            Panel5.Style["overflow-x"] = "auto";
+            bool tieneFilas = GvDetalle.Rows.Count > 0;
+            if (tieneFilas)
+            {
+                string contenido = txtBuscar.Text;
+                txtNroOrden.Text = contenido;
+            }
+            else
+            {
+                txtNroOrden.Text = "";    
+            }
+            
+
         }
         protected void Button3_Click(object sender, EventArgs e)
         {
