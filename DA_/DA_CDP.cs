@@ -12,6 +12,26 @@ namespace DA_
 {
     public class DA_CDP
     {
+        public string SiguienteIdOrdenPedido()
+        {
+            string valor = "";
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("[dbo].[SP_NextCDP]", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    valor = rd["CDPActual"].ToString();
+                }
+                rd.Close();
+            }
+
+            return valor;
+        }
         public List<BE_CDP> ListaCDP()
         {
             SqlDataReader rd = null;

@@ -15,6 +15,7 @@ namespace BE_
         public double PrecioProducto { get; set; }
         public int cantidadProducto { get; set; }
 
+        public double total { get; set; }
         public int mesas { get; set; }
     }
 }

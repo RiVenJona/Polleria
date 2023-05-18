@@ -26,8 +26,8 @@
                                 <h3 id="h3delivery" visible="false" runat="server">BUSCAR ORDEN DE DELIVERY:</h3>
                                 <asp:Panel ID="Panel1" runat="server" CssClass="panel">
                                     <asp:Label CssClass="label" ID="Label4" runat="server" Text="Código de Orden:"></asp:Label>
-                                    <asp:TextBox Style="margin-left: 20px;" Width="100px" ID="TextBox4" runat="server"></asp:TextBox>
-                                    <asp:Button CssClass="button" Style="background-color: #4CAF50; margin-left: 30px;" ID="Button2" runat="server" Text="BUSCAR" />
+                                    <asp:TextBox Style="margin-left: 20px;" Width="100px" ID="txtBuscar" runat="server"></asp:TextBox>
+                                    <asp:Button CssClass="button" Style="background-color: #4CAF50; margin-left: 30px;" ID="btnBuscar" runat="server" Text="BUSCAR" OnClick="btnBuscar_Click"/>
                                 </asp:Panel>
 
                                 <h3>DATOS DEL CLIENTE:</h3>
@@ -54,9 +54,10 @@
                                     <asp:Panel ID="Panel5" runat="server" CssClass="panelInterior">
                                         <asp:GridView ID="GvDetalle" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay datos disponibles" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
                                             <Columns>
-                                                <asp:BoundField DataField="des" HeaderText="DESCRIPCIÓN" />
-                                                <asp:BoundField DataField="cant" HeaderText="CANTIDAD" />
-                                                <asp:BoundField DataField="tot" HeaderText="TOTAL" />
+                                                <asp:BoundField DataField="desProducto" HeaderText="DESCRIPCIÓN" />
+                                                <asp:BoundField DataField="cantidadProducto" HeaderText="CANTIDAD" />
+                                                <asp:BoundField DataField="PrecioProducto" HeaderText="PRECIO UNIT." />
+                                                <asp:BoundField DataField="total" HeaderText="TOTAL" />
                                             </Columns>
                                             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                                             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
@@ -85,7 +86,7 @@
                             <asp:TableRow>
                                 <asp:TableCell Width="600px" Style="vertical-align: top;">
                                     <asp:Label CssClass="label" ID="Label8" runat="server" Text="N° CDP:"></asp:Label>
-                                    <asp:TextBox Style="margin-left: 10px;" ID="TextBox8" Width="100px" runat="server" Enabled="False"></asp:TextBox>
+                                    <asp:TextBox Style="margin-left: 10px;" ID="txtNroCDP" Width="100px" runat="server" Enabled="False"></asp:TextBox>
                                     <asp:Label CssClass="label" Style="margin-left: 150px;" ID="Label9" runat="server" Text="Fecha:"></asp:Label>
                                     <asp:TextBox Style="margin-left: 10px;" ID="txtFecha" Width="100px" runat="server" TextMode="Date" Enabled="False"></asp:TextBox>
                                     <br />
