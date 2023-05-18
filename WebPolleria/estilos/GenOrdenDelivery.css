@@ -1,0 +1,44 @@
+﻿body {
+}
+
+.General {
+    display: flex;
+    flex: 1;
+}
+
+.Column1 {
+    background: #FFDE63;
+    border: 1px solid black;
+    font-weight: bold;
+    width: 65%;
+    height: 600px;
+}
+
+.Column2 {
+    border: 1px solid black;
+    width: 35%;
+    justify-content: space-between;
+    height: 600px;
+}
+
+.Platillos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin: 5px;
+}
+
+.Platillos1 {
+    flex-basis: 33.33%;
+}
+
+/*---------*/
+.TextoSuperior {
+    align-self: flex-start;
+}
+
+.TextoInferior {
+    align-self: flex-end;
+}

@@ -32,6 +32,7 @@ namespace WebPolleria
                 RdDNI.Checked = true;
                 LbNombre.Visible = false;
                 LbApellidos.Visible = false;
+                LbMozoId.Visible = false;
                 TR = new BL_Trabajador();
                 TxtRecepcionista.Text = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
                 TxtRecepcionista.Enabled = false;
@@ -84,6 +85,8 @@ namespace WebPolleria
 
                 TxtMozo.Text = valor2;
                 TxtMozoId.Text = valor1;
+                LbMozo.Text = valor2;
+                LbMozoId.Text = valor1;
                 TxtMozo.Enabled = false;
             }
             catch (Exception ex)
@@ -208,7 +211,8 @@ namespace WebPolleria
             int Mesa = int.Parse(LbMesa.Text);
             string Nombre = LbNombre.Text;
             string Apellidos = LbApellidos.Text;
-            if (ME.BL_AsignarMesa1(Mesa, Nombre, Apellidos))
+            int Mozo = int.Parse(LbMozoId.Text);
+            if (ME.BL_AsignarMesa(Mesa, Mozo, Nombre, Apellidos))
             {
                 Message("Se asigno la mesa correctamente");
             }

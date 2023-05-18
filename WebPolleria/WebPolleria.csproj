@@ -76,6 +76,7 @@
     <Content Include="AnularReserva.aspx" />
     <Content Include="CambiarPass.aspx" />
     <Content Include="estilos\CobrarOrdenPedido.css" />
+    <Content Include="estilos\GenOrdenDelivery.css" />
     <Content Include="estilos\GenOrdenInsumo.css" />
     <Content Include="estilos\Login.css" />
     <Content Include="estilos\Master.css" />
@@ -83,6 +84,7 @@
     <Content Include="estilos\Recepcion.css" />
     <Content Include="estilos\RegisReserva.css" />
     <Content Include="estilos\AnularReserva.css" />
+    <Content Include="GeneOrdenDelivery.aspx" />
     <Content Include="GenOrdenInsumo.aspx" />
     <Content Include="Imagenes\1.jpg" />
     <Content Include="Imagenes\2.jpg" />
@@ -128,6 +130,13 @@
     </Compile>
     <Compile Include="CambiarPass.aspx.designer.cs">
       <DependentUpon>CambiarPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GeneOrdenDelivery.aspx.cs">
+      <DependentUpon>GeneOrdenDelivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GeneOrdenDelivery.aspx.designer.cs">
+      <DependentUpon>GeneOrdenDelivery.aspx</DependentUpon>
     </Compile>
     <Compile Include="GenOrdenInsumo.aspx.cs">
       <DependentUpon>GenOrdenInsumo.aspx</DependentUpon>
