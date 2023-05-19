@@ -196,7 +196,8 @@ namespace WebPolleria
             int Mozo = int.Parse(TxtMozoId.Text);
             string Nombre = TxtNombre.Text;
             string Apellidos = TxtApellidos.Text;
-            if (ME.BL_AsignarMesa(valor1, Mozo, Nombre, Apellidos))
+            int Dni = int.Parse(TxtDni.Text);
+            if (ME.BL_AsignarMesa(valor1, Mozo, Nombre, Apellidos, Dni))
             {
                 Message("Se asigno la mesa correctamente");
                 Mozo1();
@@ -212,7 +213,8 @@ namespace WebPolleria
             string Nombre = LbNombre.Text;
             string Apellidos = LbApellidos.Text;
             int Mozo = int.Parse(LbMozoId.Text);
-            if (ME.BL_AsignarMesa(Mesa, Mozo, Nombre, Apellidos))
+            int Dni=int.Parse(LbIdentificacion.Text);
+            if (ME.BL_AsignarMesa(Mesa, Mozo, Nombre, Apellidos, Dni))
             {
                 Message("Se asigno la mesa correctamente");
             }

@@ -25,9 +25,9 @@ namespace BL_
         {
             return dA_Mesa.MesasDisponiblesPre();
         }
-        public bool BL_AsignarMesa(int mesa, int mozo, string nombre, string apellidos)
+        public bool BL_AsignarMesa(int mesa, int mozo, string nombre, string apellidos, int dni)
         {
-            return dA_Mesa.AsignarMesa(mesa, mozo, nombre, apellidos);
+            return dA_Mesa.AsignarMesa(mesa, mozo, nombre, apellidos, dni);
         }
         public bool BL_AsignarMesa1(int mesa, string nombre, string apellidos)
         {

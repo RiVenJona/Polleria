@@ -59,7 +59,7 @@ namespace DA_
             }
         }
 
-        public bool AsignarMesa(int IdMesa, int Mozo, string Nombre, string Apellidos)
+        public bool AsignarMesa(int IdMesa, int Mozo, string Nombre, string Apellidos, int DNI)
         {
             try
             {
@@ -73,6 +73,7 @@ namespace DA_
                     sc.Parameters.AddWithValue("@Mozo", Mozo);
                     sc.Parameters.AddWithValue("@Nombre", Nombre);
                     sc.Parameters.AddWithValue("@Apellidos", Apellidos);
+                    sc.Parameters.AddWithValue("@DNI", DNI);
                     sc.CommandTimeout = 0;
                     sc.CommandType = CommandType.StoredProcedure;
                     var anul = sc.ExecuteScalar();
