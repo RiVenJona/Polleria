@@ -1448,3 +1448,9 @@ C:\Users\PC\Pictures\Polleria\WebPolleria\obj\Debug\WebPolleria.csproj.CopyCompl
 C:\Users\PC\Pictures\Polleria\WebPolleria\obj\Debug\WebPolleria.dll
 C:\Users\PC\Pictures\Polleria\WebPolleria\obj\Debug\WebPolleria.pdb
 C:\Users\PC\Desktop\Polleria\WebPolleria\bin\AjaxControlToolkit.dll
+C:\Repos\Polleria\WebPolleria\bin\PdfSharp.Charting.dll
+C:\Repos\Polleria\WebPolleria\bin\PdfSharp.dll
+C:\Repos\Polleria\WebPolleria\bin\PdfSharp.xml
+C:\Repos\Polleria\WebPolleria\bin\PdfSharp.Charting.xml
+C:\Repos\Polleria\WebPolleria\bin\de\PdfSharp.resources.dll
+C:\Repos\Polleria\WebPolleria\bin\de\PdfSharp.Charting.resources.dll

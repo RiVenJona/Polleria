@@ -33,7 +33,7 @@
                                 <h3>DATOS DEL CLIENTE:</h3>
                                 <asp:Panel ID="Panel3" runat="server" CssClass="panel">
                                     <asp:Label CssClass="label" ID="Label7" runat="server" Text="DNI / RUC:"></asp:Label>
-                                    <asp:TextBox Style="margin-left: 10px;" ID="txtDNI" runat="server" Enabled="False"></asp:TextBox>
+                                    <asp:TextBox Style="margin-left: 10px;" ID="txtDNI" runat="server"></asp:TextBox>
                                     <br />
                                     <br />
                                     <asp:Label CssClass="labelDC" ID="Label5" runat="server" Text="Nombres:"></asp:Label>
@@ -154,6 +154,10 @@
                                                 <asp:TableCell Width="180px" Style="vertical-align: top;">
                                                     <asp:Label CssClass="label" ID="label16" runat="server" Text="Pago          S/:"></asp:Label>
                                                     <asp:TextBox CssClass="txtbox3" ID="txtPago" runat="server" TextMode="Number" onKeyDown="if(this.value.length==9 && event.keyCode!=8) return false;"></asp:TextBox>
+                                                    <br />
+                                                    <br />
+                                                    <asp:Button CssClass="button" Style="background-color: #4CAF50; margin-left: 30px;" ID="btnVer" runat="server" Text="VER" OnClick="btnVer_Click"/>
+                                
                                                 </asp:TableCell>
                                                 <asp:TableCell Style="vertical-align: top;">
                                                     <asp:Label CssClass="label" ID="Label17" runat="server" Text="Op. Gravada   S/:"></asp:Label>
@@ -182,7 +186,7 @@
 
                     </asp:Panel>
                     <asp:Button CssClass="button" Style="background-color: #FF0000; position: absolute; float: left; margin-left: 100px" ID="Button3" runat="server" OnClick="Button3_Click" Text="SALIR" />
-                    <asp:Button CssClass="button" Style="background-color: #4CAF50; position: relative; float: right; margin-right: 100px" ID="Button4" runat="server" OnClick="Button4_Click" Text="EMITIR" />
+                    <asp:Button CssClass="button" Style="background-color: #4CAF50; position: relative; float: right; margin-right: 100px" ID="btnEmitir" runat="server" OnClick="btnEmitir_Click" Text="EMITIR" />
                 </asp:View>
 
                 <!--segunda tab-->
@@ -192,11 +196,6 @@
                             <asp:Label CssClass="label" ID="Label22" runat="server" Text="Filtrar Orden:"></asp:Label>
                             <asp:TextBox Style="margin-left: 20px;" ID="TextBox1" runat="server"></asp:TextBox>
                             <asp:Button CssClass="button" Style="background-color: #4CAF50; margin-left: 30px;" ID="Button1" runat="server" Text="BUSCAR" />
-                            <asp:DropDownList CssClass="ddl" Style="position: relative; float: right; margin-right: 0px; margin-left: 20px;" WIDTH="120px" ID="ddlTipoServEstado" runat="server">
-                                <asp:ListItem Text="PRESENCIAL" Value="1" />
-                                <asp:ListItem Text="DELIVERY" Value="2" />
-                            </asp:DropDownList>
-                            <asp:Label Style="position: relative; float: right;" CssClass="label" ID="Label23" runat="server" Text="Tipo de Servicio:"></asp:Label>
                             <asp:Panel ID="Panel7" runat="server" CssClass="panelInterior" Width="1100px">
                                 <asp:GridView ID="GvEstadoPedido" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay datos disponibles" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
                                     <Columns>
@@ -220,8 +219,7 @@
                                 </asp:GridView>                
                             </asp:Panel>
                             <div style="margin-top:300px;">
-                                <asp:Button CssClass="button" Style="background-color: #4CAF50; position: absolute; float: left; margin-left: 100px" ID="Button5" runat="server" OnClick="Button3_Click" Text="SALIR" />
-                                 <asp:Button CssClass="button" Style="background-color: #4CAF50; position: relative; float: right; margin-right: 100px" ID="Button6" runat="server" OnClick="Button4_Click" Text="MODIFICAR" />
+                                <asp:Button CssClass="button" Style="background-color: #FF0000; position: absolute; float: left; margin-left: 100px" ID="Button5" runat="server" OnClick="Button3_Click" Text="SALIR" />
                                 </div>
                         </asp:Panel>
                 </asp:View>

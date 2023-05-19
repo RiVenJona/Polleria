@@ -30,7 +30,7 @@ namespace DA_
                 if (rd.Read())
                 {
                     
-                p.DNI = int.Parse(rd["dni"].ToString());
+                p.DNI = int.Parse(rd["dni_ruc"].ToString());
                 p.Nombre = rd["nombre"].ToString();
                 p.Apellidos = rd["apellidos"].ToString();
                 }
