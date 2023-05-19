@@ -47,7 +47,7 @@ namespace DA_
                     op = new BE_OrdenPedido();
                     op.numOrdenPedido = rd["NumOrdenPedido"].ToString();
                     op.cliente = rd["nombres"].ToString();
-                    op.clienteDNI = rd["dni"].ToString();
+                    op.clienteDNI = rd["dni_ruc"].ToString();
                     op.totalOP = double.Parse(rd["total"].ToString());
                     op.dia = rd["Fecha"].ToString();
                     op.hora = rd["Hora"].ToString();

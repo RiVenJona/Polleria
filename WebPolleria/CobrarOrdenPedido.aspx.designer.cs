@@ -483,6 +483,15 @@ namespace WebPolleria
         protected global::System.Web.UI.WebControls.TextBox txtPago;
 
         /// <summary>
+        /// Control btnVer.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVer;
+
+        /// <summary>
         /// Control Label17.
         /// </summary>
         /// <remarks>
@@ -564,13 +573,13 @@ namespace WebPolleria
         protected global::System.Web.UI.WebControls.Button Button3;
 
         /// <summary>
-        /// Control Button4.
+        /// Control btnEmitir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.Button btnEmitir;
 
         /// <summary>
         /// Control ViewTab2.
@@ -618,24 +627,6 @@ namespace WebPolleria
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// Control ddlTipoServEstado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoServEstado;
-
-        /// <summary>
-        /// Control Label23.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label23;
-
-        /// <summary>
         /// Control Panel7.
         /// </summary>
         /// <remarks>
@@ -661,14 +652,5 @@ namespace WebPolleria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button5;
-
-        /// <summary>
-        /// Control Button6.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button6;
     }
 }
