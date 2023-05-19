@@ -13,6 +13,22 @@ namespace DA_
 {
     public class DA_OrdenPedido
     {
+        public bool OPPagado(string NumOrdenPedido)
+        {
+            
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("[dbo].[SP_OPEstadoPagado]", cn);
+                    sc.Parameters.AddWithValue("@NumOrdenPedido", NumOrdenPedido);
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var pagar = sc.ExecuteScalar();
+                    return true;
+                }
+        }
         public List<BE_OrdenPedido> ListaOrdenesPedido()
         {
             SqlDataReader rd = null;
@@ -159,12 +175,58 @@ namespace DA_
                 rd = cmd.ExecuteReader();
                     if (rd.Read())
                     {
-                        valor = int.Parse(rd["idAten"].ToString());
+                        valor = int.Parse(rd["idOrdenPedido"].ToString());
                     }
                     rd.Close();
                 }
 
             return valor;
+        }
+        public bool InsertOP(int mozo, int mesa)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("[dbo].[AddOrdenPedidoOrTicket]", cn);
+                    sc.Parameters.AddWithValue("@mesa", mesa);
+                    sc.Parameters.AddWithValue("@mozo", mozo);
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var anul = sc.ExecuteScalar();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool InsertDetallePedido(int idProducto,int cantidad)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("[dbo].[AddDetalleTicket]", cn);
+                    sc.Parameters.AddWithValue("@idProducto", idProducto);
+                    sc.Parameters.AddWithValue("@cantidad", cantidad);
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var anul = sc.ExecuteScalar();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

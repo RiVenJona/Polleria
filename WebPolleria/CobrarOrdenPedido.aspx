@@ -182,7 +182,7 @@
 
                     </asp:Panel>
                     <asp:Button CssClass="button" Style="background-color: #FF0000; position: absolute; float: left; margin-left: 100px" ID="Button3" runat="server" OnClick="Button3_Click" Text="SALIR" />
-                    <asp:Button CssClass="button" Style="background-color: #4CAF50; position: relative; float: right; margin-right: 100px" ID="Button4" runat="server" OnClick="Button4_Click" Text="GENERAR" />
+                    <asp:Button CssClass="button" Style="background-color: #4CAF50; position: relative; float: right; margin-right: 100px" ID="Button4" runat="server" OnClick="Button4_Click" Text="EMITIR" />
                 </asp:View>
 
                 <!--segunda tab-->

@@ -36,17 +36,8 @@ namespace WebPolleria
                 txtTotal.Value = "s/" + 0;
                 TR = new BL_Trabajador();
                 nombreMozo.Value = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
-                
-            }
-            if (user != null)
-            {
-                TR = new BL_Trabajador();
                 MesasOcupadas(TR.BuscarIdTrabajador(user));
             }
-            MesasOcupadas(TR.BuscarIdTrabajador(user));
-            
-            
-
         }
         public double TotalOP(int id)
         {
@@ -237,11 +228,12 @@ namespace WebPolleria
             blOrdenPedido = new BL_OrdenPedido();
             nombreCliente.Value = blOrdenPedido.NombreCliente(int.Parse(DropDownList1.SelectedValue));
             List<TicketDetalle> Lista = new List<TicketDetalle>();
-            TR = new BL_Trabajador();
+            TR = new BL_Trabajador();   
             int id = TR.BuscarIdTrabajador(user);
             Lista = blOrdenPedido.ListaTicketsXOP(blOrdenPedido.GetOrdenPedidoId(id, int.Parse(DropDownList1.SelectedValue)));
             GenerarAcordeon(Lista);
             txtTotalOP.Value = "s/" + TotalOP(blOrdenPedido.GetOrdenPedidoId(id, int.Parse(DropDownList1.SelectedValue)));
+            DropDownList1.Enabled=false;
         }
 
         public void Message(string str)
@@ -257,7 +249,27 @@ namespace WebPolleria
         }
         protected void Button3_Click(object sender, EventArgs e)
         {
-            Message("Se genero correctamente");
+            int contador = 0;
+            TR = new BL_Trabajador();
+            int mozo = TR.BuscarIdTrabajador(user);
+            int mesa = int.Parse(DropDownList1.SelectedValue);
+            blOrdenPedido = new BL_OrdenPedido();
+            if (blOrdenPedido.InsertOP(mozo, mesa))
+            {
+                for (int i = 0; i < gvPedido.Rows.Count; i++)
+                {
+                    GridViewRow row = gvPedido.Rows[i];
+                    int idProducto = int.Parse(row.Cells[0].Text);
+                    TextBox tbC = (TextBox)gvPedido.Rows[i].FindControl("txtCantGv");
+                    int Cantidad = int.Parse(tbC.Text);
+                    if (blOrdenPedido.InsertDetallePedido(idProducto, Cantidad))
+                    {
+                        contador++;
+                    }
+                }
+                Message("Se agregaron " + contador + " al ultimo ticket");   
+            }
+            Response.Redirect("~/OrdenPedido.aspx", true);
         }
 
         protected void gvCatalogo_PageIndexChanged(object sender, GridViewPageEventArgs e)

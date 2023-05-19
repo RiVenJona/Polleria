@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -171,7 +172,22 @@ namespace WebPolleria
 
         protected void Button4_Click(object sender, EventArgs e)
         {
+            OP = new BL_OrdenPedido();
+            OP.OPPagado(txtBuscar.Text);
+            Message("COMPROBANTE DE PAGO EMITIDO");
+            CargarTabla();
+        }
 
+        public void Message(string str)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("<script type = 'text/javascript'>");
+            stringBuilder.Append("window.onload=function(){");
+            stringBuilder.Append("alert('");
+            stringBuilder.Append(str);
+            stringBuilder.Append("')};");
+            stringBuilder.Append("</script>");
+            this.ClientScript.RegisterClientScriptBlock(this.GetType(), "Alerta", stringBuilder.ToString());
         }
 
         protected void BtnTab_Click(object sender, EventArgs e)
