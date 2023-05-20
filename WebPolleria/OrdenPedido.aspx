@@ -22,7 +22,7 @@
             </div>
             <div class="inputItem">
                 <p>Fecha Pedido</p>
-                <input type="date">
+                <asp:TextBox ID="fecha" runat="server" type="date"></asp:TextBox>
             </div>
         </div>
     </section>
@@ -159,8 +159,7 @@
         </fieldset>
     </section>
     <section class="BotonesFinales">
-        <button class="generalBtn">Regresar</button>
-        <asp:Button ID="Button3" runat="server" Text="Generar" OnClick="Button3_Click" />
+        <asp:Button ID="btnLimpiar" runat="server" Text="Regresar" OnClick="btnLimpiar_Click" />
     </section>
         </div>
 </asp:Content>

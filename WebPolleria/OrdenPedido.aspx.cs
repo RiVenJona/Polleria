@@ -22,6 +22,7 @@ namespace WebPolleria
         string user = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            fecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
             Page.MaintainScrollPositionOnPostBack = true;
             user = Session["usuario"].ToString();
             if (!Page.IsPostBack)
@@ -37,6 +38,7 @@ namespace WebPolleria
                 TR = new BL_Trabajador();
                 nombreMozo.Value = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
                 MesasOcupadas(TR.BuscarIdTrabajador(user));
+                Button4.Enabled = false;
             }
         }
         public double TotalOP(int id)
@@ -202,6 +204,12 @@ namespace WebPolleria
                 gvPedido.DataBind();
                 ObtenerTotal();
             }
+            blOrdenPedido = new BL_OrdenPedido();
+            List<TicketDetalle> Lista = new List<TicketDetalle>();
+            TR = new BL_Trabajador();
+            int id = TR.BuscarIdTrabajador(user);
+            Lista = blOrdenPedido.ListaTicketsXOP(blOrdenPedido.GetOrdenPedidoId(id, int.Parse(DropDownList1.SelectedValue)));
+            GenerarAcordeon(Lista);
         }
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -214,6 +222,12 @@ namespace WebPolleria
         protected void Button2_Click(object sender, EventArgs e)
         {
             a = Request.Form["txtBuscarProducto"];
+            blOrdenPedido = new BL_OrdenPedido();
+            List<TicketDetalle> Lista = new List<TicketDetalle>();
+            TR = new BL_Trabajador();
+            int id = TR.BuscarIdTrabajador(user);
+            Lista = blOrdenPedido.ListaTicketsXOP(blOrdenPedido.GetOrdenPedidoId(id, int.Parse(DropDownList1.SelectedValue)));
+            GenerarAcordeon(Lista);
             CargarTabla2(a);
         }
 
@@ -224,8 +238,9 @@ namespace WebPolleria
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            
             blOrdenPedido = new BL_OrdenPedido();
+            if (DropDownList1.SelectedValue == "") {Message("Mozo no cuenta con mesas disponibles para generar Ordenes") ; return; }
             nombreCliente.Value = blOrdenPedido.NombreCliente(int.Parse(DropDownList1.SelectedValue));
             List<TicketDetalle> Lista = new List<TicketDetalle>();
             TR = new BL_Trabajador();   
@@ -234,6 +249,7 @@ namespace WebPolleria
             GenerarAcordeon(Lista);
             txtTotalOP.Value = "s/" + TotalOP(blOrdenPedido.GetOrdenPedidoId(id, int.Parse(DropDownList1.SelectedValue)));
             DropDownList1.Enabled=false;
+            Button4.Enabled = true;
         }
 
         public void Message(string str)
@@ -251,8 +267,10 @@ namespace WebPolleria
         {
             int contador = 0;
             TR = new BL_Trabajador();
+            if (gvPedido.Rows.Count == 0) { Message("No se puede generar si el carro esta vacio"); return; }
             int mozo = TR.BuscarIdTrabajador(user);
             int mesa = int.Parse(DropDownList1.SelectedValue);
+            
             blOrdenPedido = new BL_OrdenPedido();
             if (blOrdenPedido.InsertOP(mozo, mesa))
             {
@@ -262,7 +280,7 @@ namespace WebPolleria
                     int idProducto = int.Parse(row.Cells[0].Text);
                     TextBox tbC = (TextBox)gvPedido.Rows[i].FindControl("txtCantGv");
                     int Cantidad = int.Parse(tbC.Text);
-                    if (blOrdenPedido.InsertDetallePedido(idProducto, Cantidad))
+                    if (blOrdenPedido.InsertDetallePedido(idProducto, Cantidad,mesa,mozo))
                     {
                         contador++;
                     }
@@ -281,6 +299,11 @@ namespace WebPolleria
         {
             gvCatalogo.PageIndex = e.NewPageIndex;
             CargarTabla(a);
+        }
+
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MainMenu.aspx");
         }
     }
 }

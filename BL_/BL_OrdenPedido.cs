@@ -46,9 +46,9 @@ namespace BL_
         {
             return dA_OrdenPedido.InsertOP(mozo, mesa);
         }
-        public bool InsertDetallePedido(int idProducto, int cantidad)
+        public bool InsertDetallePedido(int idProducto, int cantidad, int mesa, int mozo)
         {
-            return dA_OrdenPedido.InsertDetallePedido(idProducto, cantidad);
+            return dA_OrdenPedido.InsertDetallePedido(idProducto, cantidad,mesa,mozo);
         }
         public bool OPPagado(string a)
         {

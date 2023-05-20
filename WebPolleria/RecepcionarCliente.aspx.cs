@@ -121,7 +121,7 @@ namespace WebPolleria
         }
 
         protected void TicketAten()
-        { 
+        {
             // Crea un nuevo documento PDF
             PdfDocument document = new PdfDocument();
             // Crea una nueva página
@@ -140,7 +140,7 @@ namespace WebPolleria
             DateTime fechahora = DateTime.Now;
             graphics.DrawString("Fecha emisión: " + (fechahora).ToString("yyyy-MM-dd HH:mm:ss"), font, XBrushes.Black, new XRect(20, 120, page.Width, page.Height), XStringFormats.TopLeft);
             graphics.DrawString("----------------------------------------", font, XBrushes.Black, new XRect(20, 140, page.Width, page.Height), XStringFormats.TopLeft);
-            graphics.DrawString("Mesa: "+TxtMesa.Text, font, XBrushes.Black, new XRect(20, 160, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("Mesa: " + TxtMesa.Text, font, XBrushes.Black, new XRect(20, 160, page.Width, page.Height), XStringFormats.TopLeft);
             graphics.DrawString("Nombre: " + TxtNombre.Text, font, XBrushes.Black, new XRect(20, 180, page.Width, page.Height), XStringFormats.TopLeft);
             graphics.DrawString("Apellidos: " + TxtApellidos.Text, font, XBrushes.Black, new XRect(20, 200, page.Width, page.Height), XStringFormats.TopLeft);
             graphics.DrawString("Documento de identidad: " + TxtDni.Text, font, XBrushes.Black, new XRect(20, 220, page.Width, page.Height), XStringFormats.TopLeft);
@@ -199,7 +199,8 @@ namespace WebPolleria
             {
                 Message("Ingresar el DNI del reservista");
             }
-            else { 
+            else
+            {
                 OR = new BL_OrdenReserva();
                 int a = int.Parse(this.TxtNro.Text);
                 List<BE_OrdenReserva> Lista = new List<BE_OrdenReserva>();
@@ -261,48 +262,50 @@ namespace WebPolleria
             if (!Regex.IsMatch(TxtDni.Text, "^[0-9]+$"))
             {
                 Message("El campo DNI debe tener solo numeros");
-            }else if (!Regex.IsMatch(TxtNombre.Text, "^[a-zA-Z]+$") || !Regex.IsMatch(TxtApellidos.Text, "^[a-zA-Z]+$"))
-            {
-                Message("Los campo Nombre y Apellido deben tener carateres alfabeticos");
             }
-            else { 
+            else if (!Regex.IsMatch(TxtNombre.Text, "^[a-zA-Z]+$"))
+            {
+                Message("El campo Nombre debe tener carateres alfabeticos");
+            }
+            else
+            {
                 BL_Mesa ME = new BL_Mesa();
-            ME = new BL_Mesa();
-            DataTable dt = ME.BL_MesaDispoPre();
-            int valor1 = 0;
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                valor1 = int.Parse(dt.Rows[i]["IdMesa"].ToString());
-            }
+                ME = new BL_Mesa();
+                DataTable dt = ME.BL_MesaDispoPre();
+                int valor1 = 0;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    valor1 = int.Parse(dt.Rows[i]["IdMesa"].ToString());
+                }
 
-            int Mozo = int.Parse(TxtMozoId.Text);
-            string Nombre = TxtNombre.Text;
-            string Apellidos = TxtApellidos.Text;
-            int Dni = int.Parse(TxtDni.Text);
-            if (ME.BL_AsignarMesa(valor1, Mozo, Nombre, Apellidos, Dni))
-            {
-                Message("Se asigno la mesa correctamente");
-                TicketAten(); 
-            }
-            Mozo1();
-            Mesa1();
-            Limpiar();
+                int Mozo = int.Parse(TxtMozoId.Text);
+                string Nombre = TxtNombre.Text;
+                string Apellidos = TxtApellidos.Text;
+                int Dni = int.Parse(TxtDni.Text);
+                if (ME.BL_AsignarMesa(valor1, Mozo, Nombre, Apellidos, Dni))
+                {
+                    Message("Se asigno la mesa correctamente");
+                    /* TicketAten();*/
+                }
+                Mozo1();
+                Mesa1();
+                Limpiar();
             }
         }
 
         protected void BtnAsignar1_Click(object sender, EventArgs e)
         {
-            
+
             BL_Mesa ME = new BL_Mesa();
             int Mesa = int.Parse(LbMesa.Text);
             string Nombre = LbNombre.Text;
             string Apellidos = LbApellidos.Text;
             int Mozo = int.Parse(LbMozoId.Text);
-            int Dni=int.Parse(LbIdentificacion.Text);
+            int Dni = int.Parse(LbIdentificacion.Text);
             if (ME.BL_AsignarMesa(Mesa, Mozo, Nombre, Apellidos, Dni))
             {
                 Message("Se asigno la mesa correctamente");
-                TicketAten1();
+                /*TicketAten1();*/
             }
         }
 
@@ -337,9 +340,10 @@ namespace WebPolleria
             if (string.IsNullOrEmpty(TxtNombre1.Text) || string.IsNullOrEmpty(TxtApellido1.Text))
             {
                 Message("LLenar los datos de la persona que realizo la reserva");
-            }else if (!Regex.IsMatch(TxtNombre1.Text, "^[a-zA-Z]+$") || !Regex.IsMatch(TxtApellido1.Text, "^[a-zA-Z]+$"))
+            }
+            else if (!Regex.IsMatch(TxtNombre1.Text, "^[a-zA-Z]+$"))
             {
-                Message("Los campo Nombre y Apellido deben tener carateres alfabeticos");
+                Message("El campo Nombre debe tener carateres alfabeticos");
             }
             else
             {

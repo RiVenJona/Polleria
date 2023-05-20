@@ -24,6 +24,15 @@ namespace WebPolleria
         protected global::System.Web.UI.HtmlControls.HtmlInputText nombreMozo;
 
         /// <summary>
+        /// Control fecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fecha;
+
+        /// <summary>
         /// Control DropDownList1.
         /// </summary>
         /// <remarks>
@@ -114,12 +123,12 @@ namespace WebPolleria
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtTotalOP;
 
         /// <summary>
-        /// Control Button3.
+        /// Control btnLimpiar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button btnLimpiar;
     }
 }

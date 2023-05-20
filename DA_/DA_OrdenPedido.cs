@@ -205,7 +205,7 @@ namespace DA_
                 return false;
             }
         }
-        public bool InsertDetallePedido(int idProducto,int cantidad)
+        public bool InsertDetallePedido(int idProducto,int cantidad,int mesa, int mozo)
         {
             try
             {
@@ -217,6 +217,8 @@ namespace DA_
                     sc = new SqlCommand("[dbo].[AddDetalleTicket]", cn);
                     sc.Parameters.AddWithValue("@idProducto", idProducto);
                     sc.Parameters.AddWithValue("@cantidad", cantidad);
+                    sc.Parameters.AddWithValue("@mesa", mesa);
+                    sc.Parameters.AddWithValue("@mozo", mozo);
                     sc.CommandTimeout = 0;
                     sc.CommandType = CommandType.StoredProcedure;
                     var anul = sc.ExecuteScalar();
