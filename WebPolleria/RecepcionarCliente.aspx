@@ -40,7 +40,7 @@
             <asp:Label ID="Label3" runat="server" Class="Fuente1" Text="Apellidos: "></asp:Label>
             <asp:TextBox ID="TxtApellidos" runat="server"></asp:TextBox>
             <br />
-            <asp:Label ID="Label4" runat="server" Class="Fuente1" Text="DNI: "></asp:Label>
+            <asp:Label ID="Label4" runat="server" Class="Fuente1" Text="DNI/RUC: "></asp:Label>
             <asp:TextBox ID="TxtDni" runat="server"></asp:TextBox>
                 <asp:Label ID="Label14" runat="server" Class="Fuente1" Text="(Opcional en caso de no usar poner 0*)"></asp:Label>
                 </div>

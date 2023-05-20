@@ -8,19 +8,23 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL_;
 using BE_;
+using PdfSharp;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
+using System.Text.RegularExpressions;
 
 namespace WebPolleria
 {
     public partial class RecepcionarCliente : System.Web.UI.Page
     {
         BL_OrdenReserva OR;
-        BL_Horario HR;
         BL_Trabajador TR;
         BL_Mesa ME;
         protected void Page_Load(object sender, EventArgs e)
         {
-            HR = new BL_Horario();
             if (!Page.IsPostBack)
             {
                 ReservaActivas.Visible = false;
@@ -116,10 +120,86 @@ namespace WebPolleria
             }
         }
 
+        protected void TicketAten()
+        { 
+            // Crea un nuevo documento PDF
+            PdfDocument document = new PdfDocument();
+            // Crea una nueva página
+            PdfPage page = document.AddPage();
+            page.Width = 300;
+            page.Height = 280;
+            // Obtiene un objeto XGraphics que representa la página actual
+            XGraphics graphics = XGraphics.FromPdfPage(page);
+            // Agrega contenido al documento, como texto, imágenes, etc.
+            XFont font = new XFont("Consolas", 12, XFontStyle.Regular);
+            XStringFormat format = new XStringFormat();
+            format.Alignment = XStringAlignment.Center;
+            // Crea un objeto XImage con la imagen
+            graphics.DrawString("Pollería El Buen Sabor", font, XBrushes.Black, new XRect(0, 50, page.Width, page.Height), format);
+            graphics.DrawString("Ticket de Atencion", font, XBrushes.Black, new XRect(0, 100, page.Width, page.Height), format);
+            DateTime fechahora = DateTime.Now;
+            graphics.DrawString("Fecha emisión: " + (fechahora).ToString("yyyy-MM-dd HH:mm:ss"), font, XBrushes.Black, new XRect(20, 120, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("----------------------------------------", font, XBrushes.Black, new XRect(20, 140, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("Mesa: "+TxtMesa.Text, font, XBrushes.Black, new XRect(20, 160, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("Nombre: " + TxtNombre.Text, font, XBrushes.Black, new XRect(20, 180, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("Apellidos: " + TxtApellidos.Text, font, XBrushes.Black, new XRect(20, 200, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("Documento de identidad: " + TxtDni.Text, font, XBrushes.Black, new XRect(20, 220, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("Mozo: " + TxtMozo.Text, font, XBrushes.Black, new XRect(20, 240, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("----------------------------------------", font, XBrushes.Black, new XRect(20, 260, page.Width, page.Height), XStringFormats.TopLeft);
+            // Guarda el documento en un archivo
+            string nombreArchivo = "Ticket_Atencion" + (fechahora).ToString("yyyyMMdd_HHmmss") + ".pdf";
+            string filePath = Server.MapPath("~/Reportes/" + nombreArchivo + ".pdf");
+            document.Save(filePath);
+            // Descarga el archivo PDF generado
+            Response.ContentType = "application/pdf";
+            Response.AppendHeader("Content-Disposition", "attachment; filename=" + nombreArchivo);
+            Response.TransmitFile(filePath);
+            Response.End();
+        }
+
+        protected void TicketAten1()
+        {
+            // Crea un nuevo documento PDF
+            PdfDocument document = new PdfDocument();
+            // Crea una nueva página
+            PdfPage page = document.AddPage();
+            page.Width = 300;
+            page.Height = 280;
+            // Obtiene un objeto XGraphics que representa la página actual
+            XGraphics graphics = XGraphics.FromPdfPage(page);
+            // Agrega contenido al documento, como texto, imágenes, etc.
+            XFont font = new XFont("Consolas", 12, XFontStyle.Regular);
+            XStringFormat format = new XStringFormat();
+            format.Alignment = XStringAlignment.Center;
+            // Crea un objeto XImage con la imagen
+            graphics.DrawString("Pollería El Buen Sabor", font, XBrushes.Black, new XRect(0, 50, page.Width, page.Height), format);
+            graphics.DrawString("Ticket de Atencion", font, XBrushes.Black, new XRect(0, 100, page.Width, page.Height), format);
+            DateTime fechahora = DateTime.Now;
+            graphics.DrawString("Fecha emisión: " + (fechahora).ToString("yyyy-MM-dd HH:mm:ss"), font, XBrushes.Black, new XRect(20, 120, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("----------------------------------------", font, XBrushes.Black, new XRect(20, 140, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("Mesa: " + LbMesa.Text, font, XBrushes.Black, new XRect(20, 160, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("Nombre: " + LbNombre.Text, font, XBrushes.Black, new XRect(20, 180, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("Apellidos: " + LbApellidos.Text, font, XBrushes.Black, new XRect(20, 200, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("Documento de identidad: " + LbIdentificacion.Text, font, XBrushes.Black, new XRect(20, 220, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("Mozo: " + LbMozo.Text, font, XBrushes.Black, new XRect(20, 240, page.Width, page.Height), XStringFormats.TopLeft);
+            graphics.DrawString("----------------------------------------", font, XBrushes.Black, new XRect(20, 260, page.Width, page.Height), XStringFormats.TopLeft);
+            // Guarda el documento en un archivo
+            string nombreArchivo = "Ticket_Atencion" + (fechahora).ToString("yyyyMMdd_HHmmss") + ".pdf";
+            string filePath = Server.MapPath("~/Reportes/" + nombreArchivo + ".pdf");
+            document.Save(filePath);
+            // Descarga el archivo PDF generado
+            Response.ContentType = "application/pdf";
+            Response.AppendHeader("Content-Disposition", "attachment; filename=" + nombreArchivo);
+            Response.TransmitFile(filePath);
+            Response.End();
+        }
         protected void BtnBuscarRes_Click(object sender, EventArgs e)
         {
-            try
+            if (string.IsNullOrEmpty(TxtNro.Text))
             {
+                Message("Ingresar el DNI del reservista");
+            }
+            else { 
                 OR = new BL_OrdenReserva();
                 int a = int.Parse(this.TxtNro.Text);
                 List<BE_OrdenReserva> Lista = new List<BE_OrdenReserva>();
@@ -148,10 +228,6 @@ namespace WebPolleria
                     Message("Reserva no encontrada");
                     this.Reserva.Visible = false;
                 }
-            }
-            catch (Exception)
-            {
-                Message("Falta ingresar DNI");
             }
         }
         protected void BtnSalir_Click(object sender, EventArgs e)
@@ -182,12 +258,18 @@ namespace WebPolleria
 
         protected void BtnAsignar_Click(object sender, EventArgs e)
         {
-            BL_Mesa ME = new BL_Mesa();
+            if (!Regex.IsMatch(TxtDni.Text, "^[0-9]+$"))
+            {
+                Message("El campo DNI debe tener solo numeros");
+            }else if (!Regex.IsMatch(TxtNombre.Text, "^[a-zA-Z]+$") || !Regex.IsMatch(TxtApellidos.Text, "^[a-zA-Z]+$"))
+            {
+                Message("Los campo Nombre y Apellido deben tener carateres alfabeticos");
+            }
+            else { 
+                BL_Mesa ME = new BL_Mesa();
             ME = new BL_Mesa();
             DataTable dt = ME.BL_MesaDispoPre();
-
             int valor1 = 0;
-
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 valor1 = int.Parse(dt.Rows[i]["IdMesa"].ToString());
@@ -200,14 +282,17 @@ namespace WebPolleria
             if (ME.BL_AsignarMesa(valor1, Mozo, Nombre, Apellidos, Dni))
             {
                 Message("Se asigno la mesa correctamente");
-                Mozo1();
-                Mesa1();
-                Limpiar();
+                TicketAten(); 
+            }
+            Mozo1();
+            Mesa1();
+            Limpiar();
             }
         }
 
         protected void BtnAsignar1_Click(object sender, EventArgs e)
         {
+            
             BL_Mesa ME = new BL_Mesa();
             int Mesa = int.Parse(LbMesa.Text);
             string Nombre = LbNombre.Text;
@@ -217,6 +302,7 @@ namespace WebPolleria
             if (ME.BL_AsignarMesa(Mesa, Mozo, Nombre, Apellidos, Dni))
             {
                 Message("Se asigno la mesa correctamente");
+                TicketAten1();
             }
         }
 
@@ -248,29 +334,39 @@ namespace WebPolleria
             string c = TxtApellido1.Text;
             List<BE_OrdenReserva> Lista1 = new List<BE_OrdenReserva>();
             Lista1 = OR.BL_ReservaActiva1(b, c);
-            if (Lista1.Count != 0)
+            if (string.IsNullOrEmpty(TxtNombre1.Text) || string.IsNullOrEmpty(TxtApellido1.Text))
             {
-                Message("Reserva encontrada");
-                BtnRep.Visible = false;
-                Busqueda.Visible = true;
-                BtnBuscarRes1.Enabled = false;
-                TxtNro.Enabled = false;
-                Recepcion.Visible = false;
-                Limpiar1();
-                foreach (var lis in Lista1)
-                {
-                    LbNombre.Text = lis.Nombre.ToString();
-                    LbApellidos.Text = lis.Apellidos.ToString();
-                    LbCalendario.Text = lis.FechaProgra.ToString();
-                    LbHorario.Text = lis.DescHorario;
-                    LbMesa.Text = lis.IdMesa.ToString();
-                    LbIdentificacion.Text = lis.DNI.ToString();
-                }
+                Message("LLenar los datos de la persona que realizo la reserva");
+            }else if (!Regex.IsMatch(TxtNombre1.Text, "^[a-zA-Z]+$") || !Regex.IsMatch(TxtApellido1.Text, "^[a-zA-Z]+$"))
+            {
+                Message("Los campo Nombre y Apellido deben tener carateres alfabeticos");
             }
             else
             {
-                Message("Reserva no encontrada");
-                this.Reserva.Visible = false;
+                if (Lista1.Count != 0)
+                {
+                    Message("Reserva encontrada");
+                    BtnRep.Visible = false;
+                    Busqueda.Visible = true;
+                    BtnBuscarRes1.Enabled = false;
+                    TxtNro.Enabled = false;
+                    Recepcion.Visible = false;
+                    Limpiar1();
+                    foreach (var lis in Lista1)
+                    {
+                        LbNombre.Text = lis.Nombre.ToString();
+                        LbApellidos.Text = lis.Apellidos.ToString();
+                        LbCalendario.Text = lis.FechaProgra.ToString();
+                        LbHorario.Text = lis.DescHorario;
+                        LbMesa.Text = lis.IdMesa.ToString();
+                        LbIdentificacion.Text = lis.DNI.ToString();
+                    }
+                }
+                else
+                {
+                    Message("Reserva no encontrada");
+                    this.Reserva.Visible = false;
+                }
             }
         }
     }

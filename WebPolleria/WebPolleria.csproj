@@ -109,6 +109,7 @@
     <Content Include="Imagenes\Mesa4.jpg" />
     <Content Include="Imagenes\Mesa5.jpg" />
     <Content Include="Imagenes\MesasSim.png" />
+    <Content Include="Imagenes\Mozo.png" />
     <Content Include="Imagenes\PersonasSim.png" />
     <Content Include="Imagenes\RelojSim.png" />
     <Content Include="MainMenu.aspx" />
