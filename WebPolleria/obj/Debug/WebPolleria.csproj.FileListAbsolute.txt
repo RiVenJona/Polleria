@@ -1466,3 +1466,10 @@ C:\Users\de_or\Documents\POLLERIA-AHORASI-NOOTRO\Polleria\WebPolleria\bin\PdfSha
 C:\Users\de_or\Documents\POLLERIA-AHORASI-NOOTRO\Polleria\WebPolleria\bin\PdfSharp.Charting.xml
 C:\Users\de_or\Documents\POLLERIA-AHORASI-NOOTRO\Polleria\WebPolleria\bin\de\PdfSharp.resources.dll
 C:\Users\de_or\Documents\POLLERIA-AHORASI-NOOTRO\Polleria\WebPolleria\bin\de\PdfSharp.Charting.resources.dll
+C:\Users\PC\Downloads\Polleria\WebPolleria\bin\AjaxControlToolkit.dll
+C:\Users\PC\Downloads\Polleria\WebPolleria\bin\PdfSharp.Charting.dll
+C:\Users\PC\Downloads\Polleria\WebPolleria\bin\PdfSharp.dll
+C:\Users\PC\Downloads\Polleria\WebPolleria\bin\PdfSharp.xml
+C:\Users\PC\Downloads\Polleria\WebPolleria\bin\PdfSharp.Charting.xml
+C:\Users\PC\Downloads\Polleria\WebPolleria\bin\de\PdfSharp.resources.dll
+C:\Users\PC\Downloads\Polleria\WebPolleria\bin\de\PdfSharp.Charting.resources.dll

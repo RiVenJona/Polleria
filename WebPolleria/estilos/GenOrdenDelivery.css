@@ -1,7 +1,4 @@
-﻿body {
-}
-
-.General {
+﻿.General {
     display: flex;
     flex: 1;
 }
@@ -19,6 +16,7 @@
     width: 35%;
     justify-content: space-between;
     height: 600px;
+    margin-left: 20px;
 }
 
 .Platillos {
@@ -30,9 +28,45 @@
     margin: 5px;
 }
 
+.General1 {
+    background: linear-gradient(180deg, #0000008c 20%,#0000008c 100%), url("../Imagenes/FONDO.jpg")no-repeat center center fixed;
+    height: 100%;
+    background-size: cover;
+    font-weight: bold;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
+.Datos {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    margin: auto;
+    overflow-y: auto;
+    height: auto;
+    border: 1px solid black;
+    color: white;
+    width: 445px;
+    max-width: 100%;
+}
+
+.Datos1 {
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin: auto;
+    overflow-y: auto;
+    color: white;
+    width: 370px;
+}
+
+
 .Platillos1 {
     flex-basis: 33.33%;
 }
+/*----------------------*/
 
 /*---------*/
 .TextoSuperior {
@@ -41,4 +75,8 @@
 
 .TextoInferior {
     align-self: flex-end;
+}
+
+.Header {
+    background: #E58C46;
 }

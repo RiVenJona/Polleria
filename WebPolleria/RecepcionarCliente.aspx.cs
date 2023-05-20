@@ -105,7 +105,6 @@ namespace WebPolleria
             {
                 ME = new BL_Mesa();
                 DataTable dt = ME.BL_MesaDispoPre();
-
                 String valor1 = "";
 
                 for (int i = 0; i < dt.Rows.Count; i++)
@@ -233,7 +232,7 @@ namespace WebPolleria
         }
         protected void BtnSalir_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("MainMenu.aspx", true);
         }
 
         protected void Button1_Click1(object sender, EventArgs e)
@@ -273,23 +272,33 @@ namespace WebPolleria
                 ME = new BL_Mesa();
                 DataTable dt = ME.BL_MesaDispoPre();
                 int valor1 = 0;
-                for (int i = 0; i < dt.Rows.Count; i++)
+
+                if (dt.Rows.Count > 0)
                 {
-                    valor1 = int.Parse(dt.Rows[i]["IdMesa"].ToString());
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        valor1 = int.Parse(dt.Rows[i]["IdMesa"].ToString());
+                    }
+
+                    int Mozo = int.Parse(TxtMozoId.Text);
+                    string Nombre = TxtNombre.Text;
+                    string Apellidos = TxtApellidos.Text;
+                    int Dni = int.Parse(TxtDni.Text);
+                    if (ME.BL_AsignarMesa(valor1, Mozo, Nombre, Apellidos, Dni))
+                    {
+                        Message("Se asigno la mesa correctamente");
+                        /* TicketAten();*/
+                    }
+                    Mozo1();
+                    Mesa1();
+                    Limpiar();
+                }
+                else
+                {
+                    Message("No hay mesa disponible");
+                    Response.Redirect("MainMenu.aspx", true);
                 }
 
-                int Mozo = int.Parse(TxtMozoId.Text);
-                string Nombre = TxtNombre.Text;
-                string Apellidos = TxtApellidos.Text;
-                int Dni = int.Parse(TxtDni.Text);
-                if (ME.BL_AsignarMesa(valor1, Mozo, Nombre, Apellidos, Dni))
-                {
-                    Message("Se asigno la mesa correctamente");
-                    /* TicketAten();*/
-                }
-                Mozo1();
-                Mesa1();
-                Limpiar();
             }
         }
 
