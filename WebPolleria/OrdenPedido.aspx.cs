@@ -213,7 +213,7 @@ namespace WebPolleria
         }
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-                int index = int.Parse((sender as Button).CommandArgument);
+            int index = int.Parse((sender as Button).CommandArgument);
             listaFilas.RemoveAt(index);
             gvPedido.DataSource = listaFilas;
             gvPedido.DataBind();
@@ -246,7 +246,6 @@ namespace WebPolleria
             TR = new BL_Trabajador();   
             int id = TR.BuscarIdTrabajador(user);
             Lista = blOrdenPedido.ListaTicketsXOP(blOrdenPedido.GetOrdenPedidoId(id, int.Parse(DropDownList1.SelectedValue)));
-            GenerarAcordeon(Lista);
             txtTotalOP.Value = "s/" + TotalOP(blOrdenPedido.GetOrdenPedidoId(id, int.Parse(DropDownList1.SelectedValue)));
             DropDownList1.Enabled=false;
             Button4.Enabled = true;

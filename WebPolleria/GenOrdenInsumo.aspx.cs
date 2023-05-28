@@ -225,7 +225,7 @@ namespace WebPolleria
             for (int i = 0; i < GvOrden.Rows.Count; i++)
             {
                 GridViewRow row = GvOrden.Rows[i];
-                
+
                 IdInsumo = IN.BuscarIdInsumoxNumInsumo(row.Cells[0].Text);
                 TextBox tbC = (TextBox)GvOrden.Rows[i].FindControl("txtCantGv");
                 Cantidad = int.Parse(tbC.Text);

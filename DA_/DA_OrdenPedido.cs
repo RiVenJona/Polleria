@@ -230,5 +230,52 @@ namespace DA_
                 return false;
             }
         }
+        public bool PedidoDelivery(int idCliente, double totalOP)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("[dbo].[PedidoDelivery]", cn);
+                    sc.Parameters.AddWithValue("@Cliente", idCliente);
+                    sc.Parameters.AddWithValue("@Total", totalOP);
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var anul = sc.ExecuteScalar();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool DetallePedidoDelivery(int idProducto, int cantidad)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("[dbo].[PedidoDeliveryDet]", cn);
+                    sc.Parameters.AddWithValue("@idProducto", idProducto);
+                    sc.Parameters.AddWithValue("@cantidad", cantidad);
+
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var anul = sc.ExecuteScalar();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

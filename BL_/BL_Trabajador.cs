@@ -18,7 +18,10 @@ namespace BL_
         {
             return dA_Trabajador.BuscarIdTrabajador(n);
         }
-
+        public int BuscarIdCliente(String n)
+        {
+            return dA_Trabajador.BuscarIdCliente(n);
+        }
         public string BuscarNombreTrabajador(String n)
         {
             return dA_Trabajador.BuscarNombreTrabajador(n);

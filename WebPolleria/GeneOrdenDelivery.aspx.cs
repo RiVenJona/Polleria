@@ -1,29 +1,75 @@
-﻿using System;
+﻿using BE_;
+using BL_;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Text;
 
 namespace WebPolleria
 {
     public partial class GeneOrdenDelivery : System.Web.UI.Page
     {
+        BL_CatalogoProductos IN;
+        List<BE_CatalogoProductos> listaFilas = new List<BE_CatalogoProductos>();
+        BL_Trabajador TR;
+        string a = "";
+        string Cli = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            Page.MaintainScrollPositionOnPostBack = true;
             if (!Page.IsPostBack)
             {
-                Div1.Visible = false;
-                Div2.Visible = false;
-                Div3.Visible = false;
-                Div4.Visible = false;
-                Div5.Visible = false;
-                Div6.Visible = false;
-                General3.Visible = false;
-                General2.Visible = false;
-                Button13.Enabled = false;
+                CargarTabla(a);
+                if (ViewState["listaFilas"] == null)
+                {
+                    ViewState["listaFilas"] = new List<BE_CatalogoProductos>();
+                }
+                gvPedido.DataSource = (List<BE_CatalogoProductos>)ViewState["listaFilas"];
+                gvPedido.DataBind();
+                txtTotal.Text = 0.ToString();
+                TR = new BL_Trabajador();
             }
+        }
+        protected string ObtenerUsuario()
+        {
+            BL_Trabajador Cl = new BL_Trabajador();
+            string LogedUser = Session["usuario"].ToString();
+            string ID = (Cl.BuscarIdCliente(LogedUser)).ToString();
+            return ID;
+        }
+        protected void CargarTabla(string b)
+        {
+            BL_CatalogoProductos caPro = new BL_CatalogoProductos();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Producto");
+            dt.Columns.Add("Precio");
+
+            gvPedido.DataSource = dt;
+            gvPedido.DataBind();
+            gvCatalogo.DataSource = caPro.ListaProductos(b);
+            gvCatalogo.DataBind();
+        }
+        protected void ObtenerTotal()
+        {
+            int Cantidad;
+            double total = 0;
+            for (int i = 0; i < gvPedido.Rows.Count; i++)
+            {
+                GridViewRow row = gvPedido.Rows[i];
+                TextBox tbC = (TextBox)gvPedido.Rows[i].FindControl("txtCantGv");
+                Cantidad = int.Parse(tbC.Text);
+                double xd = double.Parse(row.Cells[3].Text);
+                total += xd * Cantidad;
+
+            }
+            txtTotal.Text = total.ToString();
         }
         public void Message(string str)
         {
@@ -36,336 +82,118 @@ namespace WebPolleria
             stringBuilder.Append("</script>");
             this.ClientScript.RegisterClientScriptBlock(this.GetType(), "Alerta", stringBuilder.ToString());
         }
-        protected void Total()
+        protected void GvDatos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            double a = double.Parse(LbCo1.Text);
-            double b = double.Parse(LbCo2.Text);
-            double c = double.Parse(LbCo3.Text);
-            double d = double.Parse(LbCo4.Text);
-            double e = double.Parse(LbCo5.Text);
-            double f = double.Parse(LbCo6.Text);
+            GridViewRow row = gvCatalogo.SelectedRow;
+            BE_CatalogoProductos NI = new BE_CatalogoProductos();
+            NI.idProducto = int.Parse(row.Cells[0].Text);
+            NI.desProducto = row.Cells[1].Text;
+            NI.PrecioProducto = double.Parse(row.Cells[2].Text);
+            NI.cantidadProducto = 1;
 
-            int cnt1 = int.Parse(Cant1.Text);
-            int cnt2 = int.Parse(Cant2.Text);
-            int cnt3 = int.Parse(Cant3.Text);
-            int cnt4 = int.Parse(Cant4.Text);
-            int cnt5 = int.Parse(Cant5.Text);
-            int cnt6 = int.Parse(Cant6.Text);
+            List<BE_CatalogoProductos> listaFilas = (List<BE_CatalogoProductos>)ViewState["listaFilas"];
 
-            double entre = double.Parse(CostoEntrega.Text);
-
-            double total = (a * cnt1) + (b * cnt2) + (c * cnt3) + (d * cnt4) + (e * cnt5) + (f * cnt6) + entre;
-
-            CostoTotal3.Text = total.ToString();
-            LbTotal.Text = total.ToString();
-        }
-
-        protected void Mensaje()
-        {
-            int cnt1 = int.Parse(Cant1.Text);
-            int cnt2 = int.Parse(Cant2.Text);
-            int cnt3 = int.Parse(Cant3.Text);
-            int cnt4 = int.Parse(Cant4.Text);
-            int cnt5 = int.Parse(Cant5.Text);
-            int cnt6 = int.Parse(Cant6.Text);
-
-            if (cnt1 == 0 && cnt2 == 0 && cnt3 == 0 && cnt4 == 0 && cnt5 == 0 && cnt3 == 0)
+            bool filaRepetida = false;
+            foreach (BE_CatalogoProductos fila in listaFilas)
             {
-                MensajeVacio.Visible = true;
-                Button13.Enabled = false;
-                CostoEntrega.Text = 0.00.ToString();
+                if (fila.idProducto == NI.idProducto)
+                {
+                    filaRepetida = true;
+                    break;
+                }
+            }
+            if (!filaRepetida)
+            {
+                listaFilas.Add(NI);
+                ViewState["listaFilas"] = listaFilas;
+
+                gvPedido.DataSource = listaFilas;
+                gvPedido.DataBind();
+                ObtenerTotal();
             }
         }
-        protected void Incrementar1()
+        protected void gvCatalogo_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            int a1 = int.Parse(Cant1.Text) + 1;
-            Cant1.Text = a1.ToString();
+            gvCatalogo.PageIndex = e.NewPageIndex;
+            CargarTabla(a);
         }
-        protected void Incrementar2()
+        protected void btnIncrementar_Click(object sender, EventArgs e)
         {
-            int a2 = int.Parse(Cant2.Text) + 1;
-            Cant2.Text = a2.ToString();
-        }
-        protected void Incrementar3()
-        {
-            int a3 = int.Parse(Cant3.Text) + 1;
-            Cant3.Text = a3.ToString();
-        }
-        protected void Incrementar4()
-        {
-            int a4 = int.Parse(Cant4.Text) + 1;
-            Cant4.Text = a4.ToString();
-        }
-        protected void Incrementar5()
-        {
-            int a5 = int.Parse(Cant5.Text) + 1;
-            Cant5.Text = a5.ToString();
-        }
-        protected void Incrementar6()
-        {
-            int a6 = int.Parse(Cant6.Text) + 1;
-            Cant6.Text = a6.ToString();
-        }
-
-        protected void Decrecer1()
-        {
-            int a1 = int.Parse(Cant1.Text) - 1;
-            Cant1.Text = a1.ToString();
-        }
-        protected void Decrecer2()
-        {
-            int a2 = int.Parse(Cant2.Text) - 1;
-            Cant2.Text = a2.ToString();
-        }
-        protected void Decrecer3()
-        {
-            int a3 = int.Parse(Cant3.Text) - 1;
-            Cant3.Text = a3.ToString();
-        }
-        protected void Decrecer4()
-        {
-            int a4 = int.Parse(Cant4.Text) - 1;
-            Cant4.Text = a4.ToString();
-        }
-        protected void Decrecer5()
-        {
-            int a5 = int.Parse(Cant5.Text) - 1;
-            Cant5.Text = a5.ToString();
-        }
-        protected void Decrecer6()
-        {
-            int a6 = int.Parse(Cant6.Text) - 1;
-            Cant6.Text = a6.ToString();
-        }
-
-        protected void Btn1_Click(object sender, EventArgs e)
-        {
-            Div1.Visible = true;
-            MensajeVacio.Visible = false;
-            Button13.Enabled = true;
-            Cant1.Text = 1.ToString();
-            CostoEntrega.Text = 6.50.ToString();
-            Total();
-        }
-
-        protected void Btn2_Click(object sender, EventArgs e)
-        {
-            Div2.Visible = true;
-            MensajeVacio.Visible = false;
-            Button13.Enabled = true;
-            Cant2.Text = 1.ToString();
-            CostoEntrega.Text = 6.50.ToString();
-            Total();
-        }
-
-        protected void Btn3_Click(object sender, EventArgs e)
-        {
-            Div3.Visible = true;
-            MensajeVacio.Visible = false;
-            Button13.Enabled = true;
-            Cant3.Text = 1.ToString();
-            CostoEntrega.Text = 6.50.ToString();
-            Total();
-        }
-
-        protected void Btn4_Click(object sender, EventArgs e)
-        {
-            Div4.Visible = true;
-            MensajeVacio.Visible = false;
-            Button13.Enabled = true;
-            Cant4.Text = 1.ToString();
-            CostoEntrega.Text = 6.50.ToString();
-            Total();
-        }
-
-        protected void Btn5_Click(object sender, EventArgs e)
-        {
-            Div5.Visible = true;
-            MensajeVacio.Visible = false;
-            Button13.Enabled = true;
-            Cant5.Text = 1.ToString();
-            CostoEntrega.Text = 6.50.ToString();
-            Total();
-        }
-
-        protected void Btn6_Click(object sender, EventArgs e)
-        {
-            Div6.Visible = true;
-            MensajeVacio.Visible = false;
-            Button13.Enabled = true;
-            Cant6.Text = 1.ToString();
-            CostoEntrega.Text = 6.50.ToString();
-            Total();
-        }
-
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
-            Div1.Visible = false;
-            Cant1.Text = 0.ToString();
-            Mensaje();
-            Total();
-        }
-
-        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
-        {
-            Div2.Visible = false;
-            Cant2.Text = 0.ToString();
-            Mensaje();
-            Total();
-        }
-
-        protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
-        {
-            Div3.Visible = false;
-            Cant3.Text = 0.ToString();
-            Mensaje();
-            Total();
-        }
-
-        protected void ImageButton4_Click(object sender, ImageClickEventArgs e)
-        {
-            Div4.Visible = false;
-            Cant4.Text = 0.ToString();
-            Mensaje();
-            Total();
-        }
-
-        protected void ImageButton5_Click(object sender, ImageClickEventArgs e)
-        {
-            Div5.Visible = false;
-            Cant5.Text = 0.ToString();
-            Mensaje();
-            Total();
-        }
-
-        protected void ImageButton6_Click(object sender, ImageClickEventArgs e)
-        {
-            Div6.Visible = false;
-            Cant6.Text = 0.ToString();
-            Mensaje();
-            Total();
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Incrementar1();
-            Total();
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            Decrecer1();
-            Total();
-        }
-
-        protected void Button3_Click(object sender, EventArgs e)
-        {
-            Incrementar2();
-            Total();
-        }
-
-        protected void Button4_Click(object sender, EventArgs e)
-        {
-            Decrecer2();
-            Total();
-        }
-
-        protected void Button5_Click(object sender, EventArgs e)
-        {
-            Incrementar3();
-            Total();
-        }
-
-        protected void Button6_Click(object sender, EventArgs e)
-        {
-            Decrecer3();
-            Total();
-        }
-
-        protected void Button7_Click(object sender, EventArgs e)
-        {
-            Incrementar4();
-            Total();
-        }
-
-        protected void Button8_Click(object sender, EventArgs e)
-        {
-            Decrecer4();
-            Total();
-        }
-
-        protected void Button9_Click(object sender, EventArgs e)
-        {
-            Incrementar5();
-            Total();
-        }
-
-        protected void Button10_Click(object sender, EventArgs e)
-        {
-            Decrecer5();
-            Total();
-        }
-
-        protected void Button11_Click(object sender, EventArgs e)
-        {
-            Incrementar6();
-            Total();
-        }
-
-        protected void Button12_Click(object sender, EventArgs e)
-        {
-            Decrecer6();
-            Total();
-        }
-
-        protected void Button13_Click(object sender, EventArgs e)
-        {
-            General1.Visible = false;
-            General2.Visible = true;
-        }
-
-        protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            RadioButton2.Checked = false;
-        }
-
-        protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            RadioButton1.Checked = false;
-        }
-
-        protected void Button14_Click(object sender, EventArgs e)
-        {
-            General1.Visible = true;
-            General2.Visible = false;
-        }
-
-        protected void RadioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-            RadioButton4.Checked = false;
-        }
-
-        protected void RadioButton4_CheckedChanged(object sender, EventArgs e)
-        {
-            RadioButton3.Checked = false;
-        }
-
-        protected void Button15_Click(object sender, EventArgs e)
-        {
-            if (RadioButton3.Checked)
+            Button button = (Button)sender;
+            GridViewRow GvrOrden = (GridViewRow)button.Parent.Parent;
+            TextBox textBox = (TextBox)GvrOrden.FindControl("txtCantGv");
+            string numInsumo = GvrOrden.Cells[0].Text;
+            int value = 0;
+            int cantidadMaxima = 0;
+            foreach (GridViewRow GvrDatos in gvPedido.Rows)
             {
-                Message("Pedido realizado satisfactoriamente");
+                if (GvrDatos.Cells[0].Text == numInsumo)
+                {
+                    cantidadMaxima = 5;
+                    break;
+                }
             }
-            else if (RadioButton4.Checked)
+            if (int.TryParse(textBox.Text, out value))
             {
-                General2.Visible = false;
-                General3.Visible = true;
+                if (value >= cantidadMaxima)
+                {
+
+                }
+                else
+                {
+                    value++;
+                }
+                textBox.Text = value.ToString();
             }
+            ObtenerTotal();
         }
 
-        protected void Button16_Click(object sender, EventArgs e)
+        protected void btnDisminuir_Click(object sender, EventArgs e)
         {
-            Message("Pedido realizado satisfactoriamente");
+            Button button = (Button)sender;
+            GridViewRow gridViewRow = (GridViewRow)button.Parent.Parent;
+            TextBox textBox = (TextBox)gridViewRow.FindControl("txtCantGv");
+            int value;
+            if (int.TryParse(textBox.Text, out value))
+            {
+                value--;
+                if (value < 1)
+                {
+                    value = 1;
+                }
+                textBox.Text = value.ToString();
+            }
+            ObtenerTotal();
+        }
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int index = int.Parse((sender as Button).CommandArgument);
+            listaFilas.RemoveAt(index);
+            gvPedido.DataSource = listaFilas;
+            gvPedido.DataBind();
+        }
+
+        protected void BtnRegistrar_Click(object sender, EventArgs e)
+        {
+            BL_OrdenPedido OD = new BL_OrdenPedido();
+            int CLi = int.Parse(ObtenerUsuario());
+            double Total = double.Parse(txtTotal.Text);
+            if (OD.PedidoDelivery(CLi, Total))
+            {
+                
+            }
+
+            for (int i = 0; i < gvPedido.Rows.Count; i++)
+            {
+                GridViewRow row = gvPedido.Rows[i];
+                int idProducto = int.Parse(row.Cells[0].Text);
+                TextBox tbC = (TextBox)gvPedido.Rows[i].FindControl("txtCantGv");
+                int Cantidad = int.Parse(tbC.Text);
+                if (OD.DetallePedidoDelivery(idProducto, Cantidad))
+                {
+                }
+            }
+            Message("Se registro el pedido correctamente");
         }
     }
 }

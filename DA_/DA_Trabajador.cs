@@ -33,7 +33,28 @@ namespace DA_
 
             return valor;
         }
+        public int BuscarIdCliente(String n)
+        {
+            int valor = 0;
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
 
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("[dbo].[SP_BuscarIdCliente]", cn);
+                cmd.Parameters.AddWithValue("@Usuario", n);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    valor = int.Parse(rd["IdCliente"].ToString());
+                }
+                rd.Close();
+            }
+
+            return valor;
+        }
         public string BuscarNombreTrabajador(String n)
         {
             string valor = "";

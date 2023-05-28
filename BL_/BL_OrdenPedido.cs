@@ -50,6 +50,14 @@ namespace BL_
         {
             return dA_OrdenPedido.InsertDetallePedido(idProducto, cantidad,mesa,mozo);
         }
+        public bool PedidoDelivery(int idCliente, double totalOP)
+        {
+            return dA_OrdenPedido.PedidoDelivery(idCliente, totalOP);
+        }
+        public bool DetallePedidoDelivery(int idProducto, int cantidad)
+        {
+            return dA_OrdenPedido.DetallePedidoDelivery(idProducto, cantidad);
+        }
         public bool OPPagado(string a)
         {
             return dA_OrdenPedido.OPPagado (a);
