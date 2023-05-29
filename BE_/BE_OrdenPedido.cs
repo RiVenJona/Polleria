@@ -20,7 +20,7 @@ namespace BE_
         public DateTime fechaOrdenPedido { get; set; }
         public string dia { get; set; }
         public string hora { get; set; }
-
+        
         public double totalOP { get; set; }
         public int idcliente { get; set; }
         public string mozo { get; set; }
