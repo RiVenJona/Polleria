@@ -15,9 +15,10 @@ namespace WebPolleria
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            CargarTabla();
             if (!Page.IsPostBack)
             {
-                CargarTabla();
+                
             }
         }
 
@@ -26,8 +27,14 @@ namespace WebPolleria
             BL_OrdenPedido OP = new BL_OrdenPedido();
             GridViewRow row = GvEsperando.SelectedRow;
             int idorden = int.Parse(row.Cells[0].Text);
-
-            GvDetalle.DataSource = OP.DetalleXTicketPreparar(idorden);
+            if (ddlTipo.SelectedIndex == 0)
+            {
+                GvDetalle.DataSource = OP.DetalleXTicketPreparar(idorden);
+            }
+            else if (ddlTipo.SelectedIndex == 1)
+            {
+                GvDetalle.DataSource = OP.DetalleXODPPreparar(idorden);
+            }
             GvDetalle.DataBind();
             GvDetalle.Width = Unit.Percentage(100);
             Panel2.Style["overflow-x"] = "auto";
@@ -53,15 +60,27 @@ namespace WebPolleria
         }
         protected void btnPreparado_Click(object sender, EventArgs e)
         {
+
             BL_OrdenPedido OP = new BL_OrdenPedido();
             GridViewRow row = GvEsperando.SelectedRow;
             int idorden = int.Parse(row.Cells[0].Text);
-
-            if (OP.OPPreparado(idorden))
+            if (ddlTipo.SelectedIndex == 0)
             {
-                Message("TICKET/ORDEN PREPARADO");
+                if (OP.OPPreparado(idorden))
+                {
+                    Message("TICKET/ORDEN PREPARADO");
 
+                }
             }
+            else if (ddlTipo.SelectedIndex == 1)
+            {
+                if (OP.OPDPreparado(idorden))
+                {
+                    Message("ORDEN PEDIDO DELIVERY PREPARADO");
+
+                }
+            }
+            
         }
 
         public void Message(string str)

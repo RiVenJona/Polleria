@@ -26,6 +26,10 @@ namespace BL_
         {
             return dA_OrdenPedido.DetalleXTicketPreparar(ticket);
         }
+        public List<TicketDetalle> DetalleXODPPreparar(int a)
+        {
+            return dA_OrdenPedido.DetalleXODPPreparar(a);
+        }
         public List<TicketDetalle> DetallexTicket(int ticket)
         {
             return dA_OrdenPedido.DetalleXTicket(ticket);
@@ -72,6 +76,10 @@ namespace BL_
         public bool OPPreparado(int a)
         {
             return dA_OrdenPedido.OPPreparado(a);
+        }
+        public bool OPDPreparado(int a)
+        {
+            return dA_OrdenPedido.OPDPreparado(a);
         }
     }
 }

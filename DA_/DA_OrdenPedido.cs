@@ -13,6 +13,22 @@ namespace DA_
 {
     public class DA_OrdenPedido
     {
+        public bool OPDPreparado(int idodp)
+        {
+
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlDataAdapter dt = new SqlDataAdapter();
+                SqlCommand sc;
+                sc = new SqlCommand("[dbo].[SP_PedidoDeliveryPreparado]", cn);
+                sc.Parameters.AddWithValue("@idDelivery", idodp);
+                sc.CommandTimeout = 0;
+                sc.CommandType = CommandType.StoredProcedure;
+                var pagar = sc.ExecuteScalar();
+                return true;
+            }
+        }
         public bool OPPreparado(int idticket)
         {
 
@@ -57,14 +73,42 @@ namespace DA_
                 return ListTicketsXOPPreparar;
             }
         }
+        public List<TicketDetalle> DetalleXODPPreparar(int idopd)
+        {
+            SqlDataReader reader = null;
+
+            using (SqlConnection cnx = new SqlConnection(Conexion.Obtener()))
+            {
+                cnx.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd;
+                cmd = new SqlCommand("SP_DetallePedidoDeliveryPreparar", cnx);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@idDelivery", SqlDbType.VarChar).Value = idopd;
+                reader = cmd.ExecuteReader();
+                
+                TicketDetalle beOP;
+                List<TicketDetalle> ListTicketsXOPPreparar = new List<TicketDetalle>();
+
+                while (reader.Read())
+                {
+                    beOP = new TicketDetalle();
+                    beOP.desProductoTicket = reader["desProducto"].ToString();
+                    beOP.cantidadProductoTicket = int.Parse(reader["Cantidad"].ToString());
+                    ListTicketsXOPPreparar.Add(beOP);
+                }
+                return ListTicketsXOPPreparar;
+            }
+        }
         public List<BE_OrdenPedido> ListaPedidosDeliveryPreparar()
         {
             SqlDataReader rd = null;
             using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
             {
-
+                
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("select IdDelivery, NumDelivery", cn);
+                SqlCommand cmd = new SqlCommand("select IdDelivery, NumDelivery from OrdenPedidoDelivery", cn);
                 cmd.CommandTimeout = 0;
                 cmd.CommandType = CommandType.Text;
                 rd = cmd.ExecuteReader();
@@ -73,7 +117,7 @@ namespace DA_
                 while (rd.Read())
                 {
                     op = new BE_OrdenPedido();
-                    op.idOrdenPedido = int.Parse(rd["IdDelivery"].ToString());
+                    op.idTicket = int.Parse(rd["IdDelivery"].ToString());
                     op.numOrdenPedido = rd["NumDelivery"].ToString();
                     ListaPedidosDeliveryPreparar.Add(op);
                 }

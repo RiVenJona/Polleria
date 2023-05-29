@@ -7,7 +7,7 @@
     <div class="page-container">
         <h3>VER ESTADO DE PEDIDOS:</h3>
         <asp:Panel ID="Panel6" runat="server" CssClass="panelExterior2">
-            <asp:DropDownList ID="ddlTipo" runat="server">
+            <asp:DropDownList ID="ddlTipo" runat="server" AutoPostBack="true">
                 <asp:ListItem Text="PRESENCIAL" Value="1" Selected="True" />
                 <asp:ListItem Text="DELIVERY" Value="2" />
             </asp:DropDownList>
