@@ -29,12 +29,8 @@
                 </div>
             <div>
             <nav>
-<<<<<<< HEAD
                 <a href="~/GeneOrdenDelivery.aspx" id="aDelivery" runat="server">O. Delivery</a>
-=======
-                <%--<a href="~/GeneOrdenDelivery.aspx" id="aDelivery" runat="server">O. Delivery</a>--%>
                 <a href="~/PrepararPedido.aspx" id="aPreparar" runat="server">Preparar</a>
->>>>>>> wong
                 <a href="~/RecepcionarCliente.aspx" id="aRecepcion" runat="server">Recepcionar</a>
                 <a href="~/RegReserva.aspx" id="aRegistrar" runat="server">Generar O. Reserva</a>
                 <a href="~/AnularReserva.aspx" id="aAnular" runat="server">Anular O. Reserva</a>

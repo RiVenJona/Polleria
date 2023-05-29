@@ -33,21 +33,22 @@ namespace WebPolleria
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-<<<<<<< HEAD
         /// Control aDelivery.
-=======
-        /// Control aPreparar.
->>>>>>> wong
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-<<<<<<< HEAD
         protected global::System.Web.UI.HtmlControls.HtmlAnchor aDelivery;
-=======
+
+        /// <summary>
+        /// Control aPreparar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor aPreparar;
->>>>>>> wong
 
         /// <summary>
         /// Control aRecepcion.
