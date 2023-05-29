@@ -13,6 +13,99 @@ namespace DA_
 {
     public class DA_OrdenPedido
     {
+        public bool OPPreparado(int idticket)
+        {
+
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlDataAdapter dt = new SqlDataAdapter();
+                SqlCommand sc;
+                sc = new SqlCommand("[dbo].[SP_PedidoPreparado]", cn);
+                sc.Parameters.AddWithValue("@idTicketOrdenPedido", idticket);
+                sc.CommandTimeout = 0;
+                sc.CommandType = CommandType.StoredProcedure;
+                var pagar = sc.ExecuteScalar();
+                return true;
+            }
+        }
+        public List<TicketDetalle> DetalleXTicketPreparar(int Ticket)
+        {
+            SqlDataReader reader = null;
+
+            using (SqlConnection cnx = new SqlConnection(Conexion.Obtener()))
+            {
+                cnx.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd;
+                cmd = new SqlCommand("SP_DetalleTicket", cnx);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@idTicket", SqlDbType.VarChar).Value = Ticket;
+                reader = cmd.ExecuteReader();
+
+                TicketDetalle beOP;
+                List<TicketDetalle> ListTicketsXOPPreparar = new List<TicketDetalle>();
+
+                while (reader.Read())
+                {
+                    beOP = new TicketDetalle();
+                    beOP.desProductoTicket = reader["desProducto"].ToString();
+                    beOP.cantidadProductoTicket = int.Parse(reader["cantidadProducto"].ToString());
+                    ListTicketsXOPPreparar.Add(beOP);
+                }
+                return ListTicketsXOPPreparar;
+            }
+        }
+        public List<BE_OrdenPedido> ListaPedidosDeliveryPreparar()
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("select IdDelivery, NumDelivery", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.Text;
+                rd = cmd.ExecuteReader();
+                BE_OrdenPedido op;
+                List<BE_OrdenPedido> ListaPedidosDeliveryPreparar = new List<BE_OrdenPedido>();
+                while (rd.Read())
+                {
+                    op = new BE_OrdenPedido();
+                    op.idOrdenPedido = int.Parse(rd["IdDelivery"].ToString());
+                    op.numOrdenPedido = rd["NumDelivery"].ToString();
+                    ListaPedidosDeliveryPreparar.Add(op);
+                }
+                return ListaPedidosDeliveryPreparar;
+
+            }
+        }
+        public List<BE_OrdenPedido> ListaTickets()
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("select idTicketOrdenPedido, NumOrdenPedido from TicketOrdenPedido torp inner join OrdenPedido op on torp.idOrdenPedido=op.idOrdenPedido", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.Text;
+                rd = cmd.ExecuteReader();
+                BE_OrdenPedido op;
+                List<BE_OrdenPedido> ListaTickets = new List<BE_OrdenPedido>();
+                while (rd.Read())
+                {
+                    op = new BE_OrdenPedido();
+                    op.idTicket = int.Parse(rd["idTicketOrdenPedido"].ToString());
+                    op.numOrdenPedido = rd["NumOrdenPedido"].ToString();
+                    ListaTickets.Add(op);
+                }
+                return ListaTickets;
+
+            }
+        }
+
         public bool OPPagado(string NumOrdenPedido)
         {
             

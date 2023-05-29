@@ -87,6 +87,7 @@
     <Content Include="estilos\Login.css" />
     <Content Include="estilos\Master.css" />
     <Content Include="estilos\ordenPedido.css" />
+    <Content Include="estilos\PrepararPedido.css" />
     <Content Include="estilos\Recepcion.css" />
     <Content Include="estilos\RegisReserva.css" />
     <Content Include="estilos\AnularReserva.css" />
@@ -122,6 +123,7 @@
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
     <Content Include="CobrarOrdenPedido.aspx" />
+    <Content Include="PrepararPedido.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnularReserva.aspx.cs">
@@ -227,6 +229,13 @@
     </Compile>
     <Compile Include="CobrarOrdenPedido.aspx.designer.cs">
       <DependentUpon>CobrarOrdenPedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrepararPedido.aspx.cs">
+      <DependentUpon>PrepararPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrepararPedido.aspx.designer.cs">
+      <DependentUpon>PrepararPedido.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

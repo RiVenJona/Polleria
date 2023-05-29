@@ -16,12 +16,14 @@ namespace WebPolleria
                 this.txtRol.Value = Session["RolUser"].ToString();
                 if (Session["RolUser"].ToString() == "Recepcionista")
                 {
+                    aPreparar.Style.Add("display", "none");
                     aGenOrden.Style.Add("display", "none");
                     aOrdenPedido.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");
                 }
                 else if (Session["RolUser"].ToString() == "Jefe de Cocina")
                 {
+                    aPreparar.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
                     aRecepcion.Style.Add("display", "none");
@@ -30,6 +32,7 @@ namespace WebPolleria
                 }
                 else if (Session["RolUser"].ToString() == "Mozo")
                 {
+                    aPreparar.Style.Add("display", "none");
                     aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
@@ -38,6 +41,16 @@ namespace WebPolleria
                 }
                 else if (Session["RolUser"].ToString() == "Cajero")
                 {
+                    aPreparar.Style.Add("display", "none");
+                    aGenOrden.Style.Add("display", "none");
+                    aRegistrar.Style.Add("display", "none");
+                    aAnular.Style.Add("display", "none");
+                    aRecepcion.Style.Add("display", "none");
+                    aOrdenPedido.Style.Add("display", "none");
+                }
+                else if (Session["RolUser"].ToString() == "Chef")
+                {
+                    aCobrarOrden.Style.Add("display", "none");
                     aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");

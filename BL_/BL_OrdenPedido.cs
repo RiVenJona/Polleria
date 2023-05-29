@@ -21,6 +21,11 @@ namespace BL_
         {
             return dA_OrdenPedido.ListaTicketsXOP(id);
         }
+
+        public List<TicketDetalle> DetalleXTicketPreparar(int ticket)
+        {
+            return dA_OrdenPedido.DetalleXTicketPreparar(ticket);
+        }
         public List<TicketDetalle> DetallexTicket(int ticket)
         {
             return dA_OrdenPedido.DetalleXTicket(ticket);
@@ -38,6 +43,16 @@ namespace BL_
         {
             return dA_OrdenPedido.ListaOrdenesPedido();
         }
+
+        public List<BE_OrdenPedido> ListaTickets()
+        {
+            return dA_OrdenPedido.ListaTickets();
+        }
+        public List<BE_OrdenPedido> ListaPedidosDeliveryPreparar()
+        {
+            return dA_OrdenPedido.ListaPedidosDeliveryPreparar();
+        }
+
         public int GetOrdenPedidoId(int mozo, int mesa)
         {
             return dA_OrdenPedido.GetOrdenPedidoID(mozo, mesa);
@@ -53,6 +68,10 @@ namespace BL_
         public bool OPPagado(string a)
         {
             return dA_OrdenPedido.OPPagado (a);
+        }
+        public bool OPPreparado(int a)
+        {
+            return dA_OrdenPedido.OPPreparado(a);
         }
     }
 }

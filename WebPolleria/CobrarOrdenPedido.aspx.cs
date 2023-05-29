@@ -221,10 +221,10 @@ namespace WebPolleria
                     TR = new BL_Trabajador();
                     string trabajador = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
 
-                    //OP = new BL_OrdenPedido();
-                    //OP.OPPagado(txtBuscar.Text);
-                    //Message("COMPROBANTE DE PAGO EMITIDO");
-                    //CargarTabla();
+                    OP = new BL_OrdenPedido();
+                    OP.OPPagado(txtBuscar.Text);
+                    Message("COMPROBANTE DE PAGO EMITIDO");
+                    CargarTabla();
 
 
                     // Crea un nuevo documento PDF
