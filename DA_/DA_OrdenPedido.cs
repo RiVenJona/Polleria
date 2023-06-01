@@ -101,6 +101,8 @@ namespace DA_
                 return ListTicketsXOPPreparar;
             }
         }
+
+        
         public List<BE_OrdenPedido> ListaPedidosDeliveryPreparar()
         {
             SqlDataReader rd = null;
@@ -276,6 +278,28 @@ namespace DA_
 
             return valor;
         }
+        public double TotalOPD(int id)
+        {
+            double valor = 0;
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("[dbo].[SP_TotalOrdenPedidoDeli]", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@idDelivery", SqlDbType.VarChar).Value = id;
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    valor = double.Parse(rd["total"].ToString());
+                }
+                rd.Close();
+            }
+
+            return valor;
+        }
+
         public string NombreCliente(int id)
         {
                 string valor = "";

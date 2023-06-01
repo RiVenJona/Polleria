@@ -134,30 +134,58 @@ namespace WebPolleria
             CP = new BL_CatalogoProductos();
             OP = new BL_OrdenPedido();
             CDP = new BL_CDP();
-            GvDetalle.DataSource = CP.DetalleOrdenPedido(txtBuscar.Text);
-            GvDetalle.DataBind();
-            GvDetalle.Width = Unit.Percentage(100);
-            Panel5.Style["overflow-x"] = "auto";
-            bool tieneFilas = GvDetalle.Rows.Count > 0;
-            if (tieneFilas)
+            if (RblTipoServ.SelectedValue == "1")
             {
-                txtPago.Enabled = true;
-                string contenido = txtBuscar.Text;
-                txtNroOrden.Text = contenido;
-                string texto = txtBuscar.Text;
-                texto = texto.Replace("OP", "").TrimStart('0');
-                txtMonto.Text = (OP.TotalOP(int.Parse(texto))).ToString();
+                GvDetalle.DataSource = CP.DetalleOrdenPedido(txtBuscar.Text);
+                GvDetalle.DataBind();
+                GvDetalle.Width = Unit.Percentage(100);
+                Panel5.Style["overflow-x"] = "auto";
 
-                BE_Persona p = CDP.ClienteCDP(txtBuscar.Text);
+                bool tieneFilas = GvDetalle.Rows.Count > 0;
+                if (tieneFilas)
+                {
+                    txtPago.Enabled = true;
+                    string contenido = txtBuscar.Text;
+                    txtNroOrden.Text = contenido;
+                    string texto = txtBuscar.Text;
+                    texto = texto.Replace("OP", "").TrimStart('0');
+                    txtMonto.Text = (OP.TotalOP(int.Parse(texto))).ToString();
 
-                txtDNI.Text = (p.DNI).ToString();
-                txtNombres.Text = p.Nombre;
-                txtApellidos.Text = p.Apellidos;
-            }
-            else
+                    BE_Persona p = CDP.ClienteCDP(txtBuscar.Text);
+
+                    txtDNI.Text = (p.DNI).ToString();
+                    txtNombres.Text = p.Nombre;
+                    txtApellidos.Text = p.Apellidos;
+                }
+                else
+                {
+                    Limpiar();
+                }
+            } else if (RblTipoServ.SelectedValue == "2")
             {
-                Limpiar();
+                GvDetalleDelivery.DataSource = CP.DetalleOrdenPedidoDeli(txtBuscar.Text);
+                GvDetalleDelivery.DataBind();
+                GvDetalleDelivery.Width = Unit.Percentage(100);
+                Panel5.Style["overflow-x"] = "auto";
+
+                bool tieneFilas = GvDetalleDelivery.Rows.Count > 0;
+                if (tieneFilas)
+                {
+                    txtPago.Enabled = true;
+                    string contenido = txtBuscar.Text;
+                    txtNroOrden.Text = contenido;
+                    string texto = txtBuscar.Text;
+                    texto = texto.Replace("OD", "").TrimStart('0');
+                    txtMonto.Text = (OP.TotalOPD(int.Parse(texto))).ToString();
+
+                }
+                else
+                {
+                    Limpiar();
+                }
             }
+
+            
 
 
         }
@@ -218,75 +246,85 @@ namespace WebPolleria
                 CalculoEfectivo();
                 if (permitir == true)
                 {
-                    TR = new BL_Trabajador();
-                    string trabajador = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
+                    if (RblTipoServ.SelectedValue == "1") { 
+                        TR = new BL_Trabajador();
+                        string trabajador = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
 
-                    OP = new BL_OrdenPedido();
-                    OP.OPPagado(txtBuscar.Text);
-                    Message("COMPROBANTE DE PAGO EMITIDO");
-                    CargarTabla();
+                        OP = new BL_OrdenPedido();
+                        OP.OPPagado(txtBuscar.Text);
+                        Message("COMPROBANTE DE PAGO EMITIDO");
+                        CargarTabla();
 
 
-                    // Crea un nuevo documento PDF
-                    PdfDocument document = new PdfDocument();
-                    // Crea una nueva página
-                    PdfPage page = document.AddPage();
-                    page.Width = 302;
-                    // Obtiene un objeto XGraphics que representa la página actual
-                    XGraphics graphics = XGraphics.FromPdfPage(page);
-                    // Agrega contenido al documento, como texto, imágenes, etc.
-                    XFont font = new XFont("Consolas", 12, XFontStyle.Regular);
-                    XStringFormat format = new XStringFormat();
-                    format.Alignment = XStringAlignment.Center;
-                    string logo = Server.MapPath("~/Imagenes/Logo.jpg");
+                        // Crea un nuevo documento PDF
+                        PdfDocument document = new PdfDocument();
+                        // Crea una nueva página
+                        PdfPage page = document.AddPage();
+                        page.Width = 302;
+                        // Obtiene un objeto XGraphics que representa la página actual
+                        XGraphics graphics = XGraphics.FromPdfPage(page);
+                        // Agrega contenido al documento, como texto, imágenes, etc.
+                        XFont font = new XFont("Consolas", 12, XFontStyle.Regular);
+                        XStringFormat format = new XStringFormat();
+                        format.Alignment = XStringAlignment.Center;
+                        string logo = Server.MapPath("~/Imagenes/Logo.jpg");
 
-                    // Crea un objeto XImage con la imagen
-                    XImage image = XImage.FromFile(logo);
-                    graphics.DrawImage(image, 101, 10, 100, 100);
-                    graphics.DrawString("Pollería El Buen Sabor", font, XBrushes.Black, new XRect(0, 100, page.Width, page.Height), format);
-                    graphics.DrawString("Jr. Lima 536", font, XBrushes.Black, new XRect(0, 115, page.Width, page.Height), format);
-                    graphics.DrawString("Tarma-Tarma-Junín", font, XBrushes.Black, new XRect(0, 130, page.Width, page.Height), format);
-                    graphics.DrawString(RblCDP.SelectedItem.Text + " de venta", font, XBrushes.Black, new XRect(0, 145, page.Width, page.Height), format);
-                    graphics.DrawString("No. " + txtNroCDP.Text, font, XBrushes.Black, new XRect(0, 160, page.Width, page.Height), format);
-                    DateTime fechahora = DateTime.Now;
-                    graphics.DrawString("Fecha emisión: " + (fechahora).ToString("yyyy-MM-dd HH:mm:ss"), font, XBrushes.Black, new XRect(20, 190, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("----------------------------------------", font, XBrushes.Black, new XRect(20, 205, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("DESCRIPCION        CANT   P.UNIT  SUBTOTAL", font, XBrushes.Black, new XRect(20, 220, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("----------------------------------------", font, XBrushes.Black, new XRect(20, 235, page.Width, page.Height), XStringFormats.TopLeft);
-                    int altura = 235;
-                    for (int i = 0; i < GvDetalle.Rows.Count; i++)
+                        // Crea un objeto XImage con la imagen
+                        XImage image = XImage.FromFile(logo);
+                        graphics.DrawImage(image, 101, 10, 100, 100);
+                        graphics.DrawString("Pollería El Buen Sabor", font, XBrushes.Black, new XRect(0, 100, page.Width, page.Height), format);
+                        graphics.DrawString("Jr. Lima 536", font, XBrushes.Black, new XRect(0, 115, page.Width, page.Height), format);
+                        graphics.DrawString("Tarma-Tarma-Junín", font, XBrushes.Black, new XRect(0, 130, page.Width, page.Height), format);
+                        graphics.DrawString(RblCDP.SelectedItem.Text + " de venta", font, XBrushes.Black, new XRect(0, 145, page.Width, page.Height), format);
+                        graphics.DrawString("No. " + txtNroCDP.Text, font, XBrushes.Black, new XRect(0, 160, page.Width, page.Height), format);
+                        DateTime fechahora = DateTime.Now;
+                        graphics.DrawString("Fecha emisión: " + (fechahora).ToString("yyyy-MM-dd HH:mm:ss"), font, XBrushes.Black, new XRect(20, 190, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("----------------------------------------", font, XBrushes.Black, new XRect(20, 205, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("DESCRIPCION        CANT   P.UNIT  SUBTOTAL", font, XBrushes.Black, new XRect(20, 220, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("----------------------------------------", font, XBrushes.Black, new XRect(20, 235, page.Width, page.Height), XStringFormats.TopLeft);
+                        int altura = 235;
+                        for (int i = 0; i < GvDetalle.Rows.Count; i++)
+                        {
+                            GridViewRow row = GvDetalle.Rows[i];
+                            string descripcion = row.Cells[0].Text;
+                            string cantidad = row.Cells[1].Text;
+                            string precio = row.Cells[2].Text;
+                            string total = row.Cells[3].Text;
+                            graphics.DrawString(descripcion, font, XBrushes.Black, new XRect(20, altura += 15, page.Width, page.Height), XStringFormats.TopLeft);
+                            graphics.DrawString("                    " + cantidad + "     " + precio + "      " + total, font, XBrushes.Black, new XRect(20, altura += 15, page.Width, page.Height), XStringFormats.TopLeft);
+
+                        }
+                        graphics.DrawString("----------------------------------------", font, XBrushes.Black, new XRect(20, altura += 15, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("Pago        : S/   " + (int.Parse((txtPago.Text))).ToString("00.00"), font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("Op. Gravada : S/   " + txtOpGrav.Text, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("IGV         : S/   " + txtIGV.Text, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("Importe     : S/   " + txtImporte.Text, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("Vuelto      : S/   " + txtVuelto.Text, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("Tipo pago: " + RblMetodoPago.SelectedItem.Text, font, XBrushes.Black, new XRect(20, altura += 40, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("Cliente  : " + txtNombres.Text + " " + txtApellidos.Text, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("DNI/RUC  : " + txtDNI.Text, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("Cajero   : " + trabajador, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
+                        graphics.DrawString("¡GRACIAS POR LA COMPRA!", font, XBrushes.Black, new XRect(0, altura += 40, page.Width, page.Height), format);
+
+
+                        // Guarda el documento en un archivo
+                        string nombreArchivo = "CdP_" + (fechahora).ToString("yyyyMMdd_HHmmss") + ".pdf";
+                        string filePath = Server.MapPath("~/Reportes/" + nombreArchivo + ".pdf");
+                        document.Save(filePath);
+                        // Descarga el archivo PDF generado
+                        Response.ContentType = "application/pdf";
+                        Response.AppendHeader("Content-Disposition", "attachment; filename=" + nombreArchivo);
+                        Response.TransmitFile(filePath);
+                        Response.End();
+                } else if (RblTipoServ.SelectedValue == "2")
                     {
-                        GridViewRow row = GvDetalle.Rows[i];
-                        string descripcion = row.Cells[0].Text;
-                        string cantidad = row.Cells[1].Text;
-                        string precio = row.Cells[2].Text;
-                        string total = row.Cells[3].Text;
-                        graphics.DrawString(descripcion, font, XBrushes.Black, new XRect(20, altura += 15, page.Width, page.Height), XStringFormats.TopLeft);
-                        graphics.DrawString("                    " + cantidad + "     " + precio + "      " + total, font, XBrushes.Black, new XRect(20, altura += 15, page.Width, page.Height), XStringFormats.TopLeft);
-
+                        BL_OrdenPedidoDelivery OPD = new BL_OrdenPedidoDelivery();
+                        string texto = txtNroOrden.Text.Replace("OD", "").TrimStart('0');
+                        if (OPD.OPDPagado(int.Parse(texto),double.Parse(txtPago.Text), double.Parse(txtVuelto.Text)))
+                        {
+                            Message("COMPROBANTE DE PAGO EMITIDO");
+                        }
                     }
-                    graphics.DrawString("----------------------------------------", font, XBrushes.Black, new XRect(20, altura += 15, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("Pago        : S/   " + (int.Parse((txtPago.Text))).ToString("00.00"), font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("Op. Gravada : S/   " + txtOpGrav.Text, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("IGV         : S/   " + txtIGV.Text, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("Importe     : S/   " + txtImporte.Text, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("Vuelto      : S/   " + txtVuelto.Text, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("Tipo pago: " + RblMetodoPago.SelectedItem.Text, font, XBrushes.Black, new XRect(20, altura += 40, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("Cliente  : " + txtNombres.Text + " " + txtApellidos.Text, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("DNI/RUC  : " + txtDNI.Text, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("Cajero   : " + trabajador, font, XBrushes.Black, new XRect(20, altura += 20, page.Width, page.Height), XStringFormats.TopLeft);
-                    graphics.DrawString("¡GRACIAS POR LA COMPRA!", font, XBrushes.Black, new XRect(0, altura += 40, page.Width, page.Height), format);
-
-
-                    // Guarda el documento en un archivo
-                    string nombreArchivo = "CdP_" + (fechahora).ToString("yyyyMMdd_HHmmss") + ".pdf";
-                    string filePath = Server.MapPath("~/Reportes/" + nombreArchivo + ".pdf");
-                    document.Save(filePath);
-                    // Descarga el archivo PDF generado
-                    Response.ContentType = "application/pdf";
-                    Response.AppendHeader("Content-Disposition", "attachment; filename=" + nombreArchivo);
-                    Response.TransmitFile(filePath);
-                    Response.End();
                 }
                 else
                 {

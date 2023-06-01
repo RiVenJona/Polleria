@@ -12,8 +12,34 @@ namespace DA_
 {
     public class DA_CatalogoProductos
     {
-
-        public List<BE_CatalogoProductos> DetalleOrdenPedido(string user)
+        public List<BE_CatalogoProductos> DetalleOrdenPedidoDeli(string user)
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlDataAdapter dt = new SqlDataAdapter();
+                SqlCommand sc;
+                sc = new SqlCommand("[dbo].[SP_DetalleOrdenPedidoDeli]", cn);
+                sc.Parameters.AddWithValue("@NumDelivery", user);
+                sc.CommandTimeout = 0;
+                sc.CommandType = CommandType.StoredProcedure;
+                rd = sc.ExecuteReader();
+                BE_CatalogoProductos cp;
+                List<BE_CatalogoProductos> DetalleOrdenPedidoDeli = new List<BE_CatalogoProductos>();
+                while (rd.Read())
+                {
+                    cp = new BE_CatalogoProductos();
+                    cp.desProducto = rd["desProducto"].ToString();
+                    cp.cantidadProducto = int.Parse(rd["cantidadProducto"].ToString());
+                    cp.PrecioProducto = double.Parse(rd["precio"].ToString());
+                    cp.total = double.Parse(rd["total"].ToString());
+                    DetalleOrdenPedidoDeli.Add(cp);
+                }
+                return DetalleOrdenPedidoDeli;
+            }
+        }
+            public List<BE_CatalogoProductos> DetalleOrdenPedido(string user)
         {
             SqlDataReader rd = null;
             using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))

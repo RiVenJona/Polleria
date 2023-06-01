@@ -20,6 +20,7 @@ namespace BL_
         public List<TicketDetalle> ListaTicketsXOP(int id)
         {
             return dA_OrdenPedido.ListaTicketsXOP(id);
+          
         }
 
         public List<TicketDetalle> DetalleXTicketPreparar(int ticket)
@@ -37,6 +38,10 @@ namespace BL_
         public double TotalOP(int id)
         {
             return dA_OrdenPedido.TotalOP(id);
+        }
+        public double TotalOPD(int id)
+        {
+            return dA_OrdenPedido.TotalOPD(id);
         }
         public string NombreCliente(int mesa)
         {

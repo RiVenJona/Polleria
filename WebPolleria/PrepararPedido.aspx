@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link rel="stylesheet" type="text/css" href="/estilos/CobrarOrdenPedido.css" />
+    <link rel="stylesheet" type="text/css" href="/estilos/PrepararPedido.css" />
     <div class="page-container">
         <h3>VER ESTADO DE PEDIDOS:</h3>
         <asp:Panel ID="Panel6" runat="server" CssClass="panelExterior2">

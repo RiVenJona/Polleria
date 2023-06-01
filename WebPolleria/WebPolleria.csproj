@@ -84,6 +84,7 @@
     <Content Include="estilos\CobrarOrdenPedido.css" />
     <Content Include="estilos\GenOrdenDelivery.css" />
     <Content Include="estilos\GenOrdenInsumo.css" />
+    <Content Include="estilos\GestionarOrdenDelivery.css" />
     <Content Include="estilos\Login.css" />
     <Content Include="estilos\Master.css" />
     <Content Include="estilos\ordenPedido.css" />
@@ -124,6 +125,7 @@
     <Content Include="Login.aspx" />
     <Content Include="CobrarOrdenPedido.aspx" />
     <Content Include="PrepararPedido.aspx" />
+    <Content Include="GestionarOrdenDelivery.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnularReserva.aspx.cs">
@@ -236,6 +238,13 @@
     </Compile>
     <Compile Include="PrepararPedido.aspx.designer.cs">
       <DependentUpon>PrepararPedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarOrdenDelivery.aspx.cs">
+      <DependentUpon>GestionarOrdenDelivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarOrdenDelivery.aspx.designer.cs">
+      <DependentUpon>GestionarOrdenDelivery.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

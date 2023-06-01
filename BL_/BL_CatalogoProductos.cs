@@ -27,6 +27,10 @@ namespace BL_
         {
             return dA_Catalogo.DetalleOrdenPedido(a);
         }
+        public List<BE_CatalogoProductos> DetalleOrdenPedidoDeli(string a)
+        {
+            return dA_Catalogo.DetalleOrdenPedidoDeli(a);
+        }
 
 
     }
