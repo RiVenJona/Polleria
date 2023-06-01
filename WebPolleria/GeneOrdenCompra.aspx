@@ -1,0 +1,83 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="GeneOrdenCompra.aspx.cs" Inherits="WebPolleria.GeneOrdenCompra" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" type="text/css" href="/estilos/GenOrdenCompra.css" />
+    <section>
+        <div class="tituloCus">
+            <asp:Label ID="Label4" runat="server" Text="Orden de Compra" Font-Bold="True" Font-Size="Larger"></asp:Label>
+        </div>
+    </section>
+    <br />
+    <div>
+    <asp:Label ID="Label1" runat="server" style="position:relative; float: left; top: 0px; left: 0px;" Text="Fecha: " ></asp:Label>
+    <asp:TextBox ID="TxtFecha" TextMode="Date"  style="position:relative; float: left; top: 0px; left: 0px;" runat="server"></asp:TextBox>
+
+    <asp:TextBox ID="TxtEAlmacen" style="position:relative; float: right; top: 0px; left: 0px;" runat="server"></asp:TextBox>
+    <asp:Label ID="Label2" runat="server"  style="position:relative; float: right; top: 0px; left: 0px;" Text="Encargado de Almacen: "></asp:Label> 
+    </div>
+    <br />
+    <div class="Contenedor">
+        <div class="columna">
+         <fieldset >
+            <legend>Buscar Insumo</legend>
+            <div>
+                <asp:Label ID="Label3" runat="server" CssClass="Fuente" Text="Descripcion"></asp:Label>
+                <asp:DropDownList ID="DpInsumos" runat="server" style="margin-left: 39px" Width="125px"></asp:DropDownList>
+                <asp:Button ID="BtnAñadir" runat="server" Text="Añadir" style="margin-left: 54px" OnClick="BtnAñadir_Click"  />
+            </div>
+        </fieldset>
+        </div>
+        <div class="columna">
+           <asp:Button ID="BtnPlanificacion" runat="server" CssClass="BotonPla" Text="Cargar Planificacion" OnClick="BtnPlanificacion_Click" Height="66px" Width="165px" style="margin-left: 50px"/>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="Detalle">
+        <fieldset style="width: 675px">
+            <legend>Lista de Insumos</legend>
+            <div style="width: 658px">
+             <asp:GridView HorizontalAlign="Center" ID="GvOrden" runat="server" ShowHeaderWhenEmpty="True" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False">
+            <Columns>
+                <asp:BoundField  DataField="NumInsumo" HeaderText="ID"/>
+                <asp:BoundField  DataField="Categoria" HeaderText="CATEGORÍA" />
+                <asp:BoundField  DataField="DesIns" HeaderText="DESCRIPCIÓN" />
+                <asp:TemplateField HeaderText="CANTIDAD">
+                  <ItemTemplate>
+                    <asp:TextBox ID="txtCantGv" runat="server"  Width="38px" Enabled="false" Text=1></asp:TextBox>
+                      <BR />
+                    <asp:Button runat="server" ID="btnIncrementar" Text="+" OnClick="btnIncrementar_Click" />
+                    <asp:Button runat="server" ID="btnDisminuir" Text="-" OnClick="btnDisminuir_Click" />
+                  </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField  DataField="Unidad" HeaderText="UNIDAD" />
+                
+                <asp:TemplateField HeaderText="ACCION" ItemStyle-HorizontalAlign="Center">
+                  <ItemTemplate>
+                      <asp:Button runat="server" ID="btnEliminar" CssClass="Boton" Width="25px" Height="25px" CommandArgument='<%# Container.DataItemIndex %>' Text="x" OnClick="btnEliminar_Click"/>
+                  </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+
+            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#FFF1D4" />
+            <SortedAscendingHeaderStyle BackColor="#B95C30" />
+            <SortedDescendingCellStyle BackColor="#F1E5CE" />
+            <SortedDescendingHeaderStyle BackColor="#93451F" />
+        </asp:GridView>   
+            </div>
+        </fieldset>
+         </div>
+        <br />
+            <br />
+        <div class="Botones">
+                <asp:Button ID="btnSalir" runat="server" Text="Salir" OnClick="btnSalir_Click" />
+            <asp:Button ID="btnGenerar" runat="server" Text="Generar" OnClick="btnGenerar_Click" />
+           
+         </div>
+</asp:Content>

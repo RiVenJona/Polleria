@@ -46,6 +46,7 @@
     <Compile Include="DA_Horario.cs" />
     <Compile Include="DA_Insumo.cs" />
     <Compile Include="DA_MetodoPago.cs" />
+    <Compile Include="DA_OrdenCompra.cs" />
     <Compile Include="DA_OrdenPedidoDelivery.cs" />
     <Compile Include="DA_OrdenReserva.cs" />
     <Compile Include="DA_Mesa.cs" />

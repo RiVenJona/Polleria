@@ -45,6 +45,7 @@
     <Compile Include="BE_Horario.cs" />
     <Compile Include="BE_Insumo.cs" />
     <Compile Include="BE_Mesa.cs" />
+    <Compile Include="BE_OrdenCompra.cs" />
     <Compile Include="BE_OrdenPedidoDelivery.cs" />
     <Compile Include="BE_OrdenReserva.cs" />
     <Compile Include="BE_Persona.cs" />

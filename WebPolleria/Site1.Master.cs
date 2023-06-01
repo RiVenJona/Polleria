@@ -16,15 +16,16 @@ namespace WebPolleria
                 this.txtRol.Value = Session["RolUser"].ToString();
                 if (Session["RolUser"].ToString() == "Recepcionista")
                 {
+                    aCompra.Style.Add("display", "none");
                     aPreparar.Style.Add("display", "none");
                     aGenOrden.Style.Add("display", "none");
                     aOrdenPedido.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");
                     aDelivery.Style.Add("display", "none");
-                    aGestOrdenDeli.Style.Add("display", "none");
                 }
                 else if (Session["RolUser"].ToString() == "Jefe de Cocina")
                 {
+                    aCompra.Style.Add("display", "none");
                     aPreparar.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
@@ -32,10 +33,10 @@ namespace WebPolleria
                     aOrdenPedido.Style.Add("display", "none");
                     aDelivery.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");
-                    aGestOrdenDeli.Style.Add("display", "none");
                 }
                 else if (Session["RolUser"].ToString() == "Mozo")
                 {
+                    aCompra.Style.Add("display", "none");
                     aPreparar.Style.Add("display", "none");
                     aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
@@ -43,21 +44,21 @@ namespace WebPolleria
                     aRecepcion.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");
                     aDelivery.Style.Add("display", "none");
-                    aGestOrdenDeli.Style.Add("display", "none");
                 }
                 else if (Session["RolUser"].ToString() == "Cajero")
                 {
+                    aCompra.Style.Add("display", "none");
                     aPreparar.Style.Add("display", "none");
                     aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
                     aRecepcion.Style.Add("display", "none");
-                    aOrdenPedido.Style.Add("display", "none");
-                    aGestOrdenDeli.Style.Add("display", "none");
                     aDelivery.Style.Add("display", "none");
+                    aOrdenPedido.Style.Add("display", "none");
                 }
                 else if (Session["RolUser"].ToString() == "Chef")
                 {
+                    aCompra.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");
                     aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
@@ -65,11 +66,20 @@ namespace WebPolleria
                     aRecepcion.Style.Add("display", "none");
                     aDelivery.Style.Add("display", "none");
                     aOrdenPedido.Style.Add("display", "none");
-                    aGestOrdenDeli.Style.Add("display", "none");
                 }
                 else if (Session["RolUser"].ToString() == "Cliente")
                 {
-                    aPreparar.Style.Add("display", "none");
+                    aCompra.Style.Add("display", "none");
+                    aGenOrden.Style.Add("display", "none");
+                    aRegistrar.Style.Add("display", "none");
+                    aAnular.Style.Add("display", "none");
+                    aCobrarOrden.Style.Add("display", "none");
+                    aRecepcion.Style.Add("display", "none");
+                    aOrdenPedido.Style.Add("display", "none");
+                }
+                else if (Session["RolUser"].ToString() == "Encargado de Almacen")
+                {
+                    aDelivery.Style.Add("display", "none");
                     aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
@@ -77,9 +87,11 @@ namespace WebPolleria
                     aRecepcion.Style.Add("display", "none");
                     aOrdenPedido.Style.Add("display", "none");
                     aGestOrdenDeli.Style.Add("display", "none");
+                    aPreparar.Style.Add("display", "none");
                 }
                 else if (Session["RolUser"].ToString() == "Repartidor")
                 {
+                    aCompra.Style.Add("display", "none");
                     aPreparar.Style.Add("display", "none");
                     aDelivery.Style.Add("display", "none");
                     aGenOrden.Style.Add("display", "none");

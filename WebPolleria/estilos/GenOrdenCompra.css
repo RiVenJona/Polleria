@@ -1,0 +1,44 @@
+﻿.Contenedor {
+    display: flex;
+    justify-content: center;
+}
+
+.columna {
+    width: 30%; /* Puedes ajustar el ancho según tus necesidades */
+}
+
+.Detalle {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+}
+
+.Botones {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+}
+.BotonPla {
+    background: #F28705;
+    font-weight: bold;
+}
+.Fuente {
+    font-weight: bold;
+}
+
+.tituloCus {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    border: 2px orange solid;
+
+    border-radius: 15px;
+    background: rgba(255, 166, 0, 0.534);
+}
+
+    .tituloCus h3 {
+        color: white;
+        font-size: 150px;
+        padding: 5px 0;
+        font-weight: 200;
+        font-weight: bold;
+        -webkit-text-stroke: 2px rgb(75, 50, 4);
+    }
