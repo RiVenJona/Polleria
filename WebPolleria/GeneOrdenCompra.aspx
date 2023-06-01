@@ -43,13 +43,12 @@
                 <asp:BoundField  DataField="NumInsumo" HeaderText="ID"/>
                 <asp:BoundField  DataField="Categoria" HeaderText="CATEGORÍA" />
                 <asp:BoundField  DataField="DesIns" HeaderText="DESCRIPCIÓN" />
-                <asp:TemplateField HeaderText="CANTIDAD">
-                  <ItemTemplate>
-                    <asp:TextBox ID="txtCantGv" runat="server"  Width="38px" Enabled="false" Text=1></asp:TextBox>
-                      <BR />
-                    <asp:Button runat="server" ID="btnIncrementar" Text="+" OnClick="btnIncrementar_Click" />
-                    <asp:Button runat="server" ID="btnDisminuir" Text="-" OnClick="btnDisminuir_Click" />
-                  </ItemTemplate>
+                <asp:BoundField  DataField="Cantidad" HeaderText="STOCK ACTUAL" />
+                <asp:BoundField  DataField="StockMax" HeaderText="PLANIFICADO" />
+                <asp:TemplateField HeaderText="PENDIENTE">
+                    <ItemTemplate>
+                        <%# Convert.ToInt32(Eval("StockMax")) - Convert.ToInt32(Eval("Cantidad")) %>
+                    </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField  DataField="Unidad" HeaderText="UNIDAD" />
                 

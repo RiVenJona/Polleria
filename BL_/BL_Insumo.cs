@@ -19,6 +19,14 @@ namespace BL_
         {
             return dA_Insumo.ListaInsumos();
         }
+        public List<BE_Insumo> ListaCategorias()
+        {
+            return dA_Insumo.ListaCategorias();
+        }
+        public List<BE_Insumo> ListaUnidades()
+        {
+            return dA_Insumo.ListaUnidades();
+        }
         public List<BE_Insumo> InsumosCatMin()
         {
             return dA_Insumo.InsumosCatMin();
@@ -31,6 +39,10 @@ namespace BL_
         {
             return dA_Insumo.NumActualOrdenInsumo();
         }
+        public int BuscarNomCateg(string a)
+        {
+            return dA_Insumo.BuscarNomCateg(a);
+        }
         public int IdActualOrdenInsumo()
         {
             return dA_Insumo.IdActualOrdenInsumo();
@@ -38,6 +50,18 @@ namespace BL_
         public int BuscarIdInsumoxNumInsumo(String n)
         {
             return dA_Insumo.BuscarIdInsumoxNumInsumo(n);
+        }
+        public List<BE_Insumo> BuscarInsumo(string a)
+        {
+            return dA_Insumo.BuscarInsumo(a);
+        }
+        public bool RegistrarInsumo(string DesIns, int Categoria, string unidad, int cantidad, int StockMin, int StockMax)
+        {
+            return dA_Insumo.RegistrarInsumo(DesIns, Categoria, unidad, cantidad, StockMin, StockMax);
+        }
+        public bool ModificarInsumo(string NumInsumo, int Categoria, string unidad, int cantidad, int StockMin, int StockMax)
+        {
+            return dA_Insumo.ModificarInsumo(NumInsumo, Categoria, unidad, cantidad, StockMin, StockMax);
         }
         public bool RegistrarOrdenInsumo(int t)
         {

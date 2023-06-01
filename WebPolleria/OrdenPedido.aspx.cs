@@ -231,11 +231,6 @@ namespace WebPolleria
             CargarTabla2(a);
         }
 
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             

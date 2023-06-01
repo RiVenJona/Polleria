@@ -31,7 +31,7 @@
             <legend>Busqueda</legend>
             <div class="busqueda">
                 <p>Mesa Asignada:</p>
-                <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
                 <asp:Button ID="Button1" runat="server" Text="Buscar" OnClick="Button1_Click" />
             </div>
         </fieldset>

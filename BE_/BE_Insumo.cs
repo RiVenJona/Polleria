@@ -15,6 +15,8 @@ namespace BE_
         public string Categoria { get; set; }
         public string Unidad { get; set; }
         public int Cantidad { get; set; }
+        public int StockMin { get; set; }
+        public int StockMax { get; set; }
 
     }
 }

@@ -79,9 +79,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AgregarInsumos.aspx" />
     <Content Include="AnularReserva.aspx" />
     <Content Include="CambiarPass.aspx" />
     <Content Include="estilos\CobrarOrdenPedido.css" />
+    <Content Include="estilos\DatosInsumos.css" />
     <Content Include="estilos\GenOrdenCompra.css" />
     <Content Include="estilos\GenOrdenDelivery.css" />
     <Content Include="estilos\GenOrdenInsumo.css" />
@@ -130,6 +132,13 @@
     <Content Include="GestionarOrdenDelivery.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarInsumos.aspx.cs">
+      <DependentUpon>AgregarInsumos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarInsumos.aspx.designer.cs">
+      <DependentUpon>AgregarInsumos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AnularReserva.aspx.cs">
       <DependentUpon>AnularReserva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

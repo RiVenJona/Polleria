@@ -68,36 +68,6 @@ namespace WebPolleria
             GvOrden.DataSource = IN.InsumosCatMin();
             GvOrden.DataBind();
         }
-        protected void btnIncrementar_Click(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            GridViewRow GvrOrden = (GridViewRow)button.Parent.Parent;
-            TextBox textBox = (TextBox)GvrOrden.FindControl("txtCantGv");
-            string numInsumo = GvrOrden.Cells[0].Text;
-            int value = 0;
-            if (int.TryParse(textBox.Text, out value))
-            {
-                value++;
-                textBox.Text = value.ToString();
-            }
-        }
-
-        protected void btnDisminuir_Click(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            GridViewRow gridViewRow = (GridViewRow)button.Parent.Parent;
-            TextBox textBox = (TextBox)gridViewRow.FindControl("txtCantGv");
-            int value;
-            if (int.TryParse(textBox.Text, out value))
-            {
-                value--;
-                if (value < 1)
-                {
-                    value = 1;
-                }
-                textBox.Text = value.ToString();
-            }
-        }
 
         public void Message(string str)
         {
@@ -123,6 +93,25 @@ namespace WebPolleria
         }
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
+
+            //int index = int.Parse((sender as Button).CommandArgument);
+            //if (index >= 0 && index < listaFilas.Count)
+            //{
+            //    listaFilas.RemoveAt(index);
+            //    GvOrden.DataSource = listaFilas;
+            //    GvOrden.DataBind();
+            //}
+            //else
+            //{
+            //    // Manejar el caso en el que el índice está fuera de los límites
+            //    Message("El índice está fuera de los límites de la lista.");
+            //}
+
+            // int index = int.Parse((sender as Button).CommandArgument);
+
+            // Message("Index: " + index);
+            //Message("Lista: " + listaFilas);
+
             int index = int.Parse((sender as Button).CommandArgument);
             listaFilas.RemoveAt(index);
             GvOrden.DataSource = listaFilas;
@@ -148,8 +137,8 @@ namespace WebPolleria
             {
                 GridViewRow row = GvOrden.Rows[i];
                 int idProducto = IN.BuscarIdInsumoxNumInsumo(row.Cells[0].Text);
-                TextBox tbC = (TextBox)GvOrden.Rows[i].FindControl("txtCantGv");
-                int Cantidad = int.Parse(tbC.Text);
+                int Cantidad = int.Parse(row.Cells[4].Text) - int.Parse(row.Cells[3].Text);
+
                 if (OC.DetalleOrdenCompra(idProducto, Cantidad))
                 {
                 }
@@ -169,8 +158,7 @@ namespace WebPolleria
             }
             catch (Exception ex)
             {
-                // Manejo de excepciones - muestra o registra el mensaje de error
-                Console.WriteLine("Error al cargar los datos en el GridView: " + ex.Message);
+                Message("Error al cargar los datos en el GridView: "+ex);
             }
 
         }
