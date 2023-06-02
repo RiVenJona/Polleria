@@ -127,6 +127,30 @@ namespace DA_
 
             }
         }
+        public List<BE_CatalogoProductos> ListaProdCata()
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT desProducto,idProducto FROM CatalogoProductos", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.Text;
+                rd = cmd.ExecuteReader();
+                BE_CatalogoProductos Producto;
+                List<BE_CatalogoProductos> ListaProductos = new List<BE_CatalogoProductos>();
+                while (rd.Read())
+                {
+                    Producto = new BE_CatalogoProductos();
+                    Producto.desProducto = rd["desProducto"].ToString();
+                    Producto.idProducto = int.Parse(rd["idProducto"].ToString());
+                    ListaProductos.Add(Producto);
+                }
+                return ListaProductos;
+
+            }
+        }
         public List<BE_Insumo> InsumosCatMin()
         {
             SqlDataReader rd = null;
@@ -251,7 +275,7 @@ namespace DA_
 
             return valor;
         }
-        public bool RegistrarInsumo(string DesIns,int Categoria,string unidad,int cantidad,int StockMin, int StockMax)
+        public bool RegistrarInsumo(string DesIns, int Categoria, string unidad, int cantidad, int StockMin, int StockMax)
         {
             try
             {

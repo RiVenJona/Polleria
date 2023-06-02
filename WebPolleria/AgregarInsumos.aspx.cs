@@ -16,8 +16,7 @@ namespace WebPolleria
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Llenar_Categorias();
-            Llenar_Unidades();
+
             BtnModificar.Visible = false;
         }
         protected void Llenar_Categorias()
@@ -64,12 +63,12 @@ namespace WebPolleria
         {
             BL_Insumo IN = new BL_Insumo();
             string NumInsumo = TxtCod.Text;
-            int Categ = IN.BuscarNomCateg(DpCategoria.SelectedValue);
+            int Categ = int.Parse(DpCategoria.SelectedValue);
             string Unidad = DpUnidad.SelectedValue;
             int Cantidad = int.Parse(TxtSActual.Text);
             int Min = int.Parse(TxtSMin.Text);
             int Max = int.Parse(TxtSMax.Text);
-            if (IN.RegistrarInsumo(NumInsumo, Categ, Unidad, Cantidad, Min, Max))
+            if (IN.ModificarInsumo(NumInsumo, Categ, Unidad, Cantidad, Min, Max))
             {
                 Message("Se modifico el insumo correctamente");
                 Limpiar();
@@ -80,12 +79,12 @@ namespace WebPolleria
         {
             BL_Insumo IN = new BL_Insumo();
             string Des = TxtDes.Text;
-            int Categ = IN.BuscarNomCateg(DpCategoria.SelectedValue);
+            int Categ = int.Parse(DpCategoria.SelectedValue);
             string Unidad = DpUnidad.SelectedValue;
             int Cantidad = int.Parse(TxtSActual.Text);
             int Min = int.Parse(TxtSMin.Text);
             int Max = int.Parse(TxtSMax.Text);
-            if (IN.RegistrarInsumo(Des, Categ, Unidad,Cantidad,Min,Max))
+            if (IN.RegistrarInsumo(Des, Categ, Unidad, Cantidad, Min, Max))
             {
                 Message("Se registro el insumo correctamente");
                 Limpiar();

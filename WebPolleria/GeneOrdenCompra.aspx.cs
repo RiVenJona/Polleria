@@ -19,9 +19,10 @@ namespace WebPolleria
         List<BE_Insumo> listaFilas = new List<BE_Insumo>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Llenar_Insumos();
+
             if (!Page.IsPostBack)
             {
+
                 TR = new BL_Trabajador();
                 TxtFecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 TxtEAlmacen.Text = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
@@ -39,6 +40,17 @@ namespace WebPolleria
                 listaFilas = (List<BE_Insumo>)ViewState["listaFilas"];
             }
 
+        }
+        protected void Llenar_Productos()
+        {
+            List<BE_CatalogoProductos> productos = new List<BE_CatalogoProductos>();
+            BL_Insumo m = new BL_Insumo();
+            productos = m.ListaProdCata();
+            DpInsumos.DataSource = productos;
+            DpInsumos.DataTextField = "desProducto";
+            DpInsumos.DataValueField = "idProducto";
+            DpInsumos.DataBind();
+            DpInsumos.Items.Insert(0, new System.Web.UI.WebControls.ListItem("[Seleccione un Insumo]", "0"));
         }
         protected void Llenar_Insumos()
         {
@@ -84,37 +96,16 @@ namespace WebPolleria
         protected void BtnPlanificacion_Click(object sender, EventArgs e)
         {
             CargarTabla();
-            Llenar_Insumos_NoMin();
         }
 
         protected void btnSalir_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/MainMenu.aspx", true);
         }
-        protected void btnEliminar_Click(object sender, EventArgs e)
+        protected void EliminarFila(object sender, GridViewCommandEventArgs e)
         {
-
-            //int index = int.Parse((sender as Button).CommandArgument);
-            //if (index >= 0 && index < listaFilas.Count)
-            //{
-            //    listaFilas.RemoveAt(index);
-            //    GvOrden.DataSource = listaFilas;
-            //    GvOrden.DataBind();
-            //}
-            //else
-            //{
-            //    // Manejar el caso en el que el índice está fuera de los límites
-            //    Message("El índice está fuera de los límites de la lista.");
-            //}
-
-            // int index = int.Parse((sender as Button).CommandArgument);
-
-            // Message("Index: " + index);
-            //Message("Lista: " + listaFilas);
-
             int index = int.Parse((sender as Button).CommandArgument);
-            listaFilas.RemoveAt(index);
-            GvOrden.DataSource = listaFilas;
+            GvOrden.DeleteRow(index);
             GvOrden.DataBind();
         }
         protected string ObtenerUsuario()
@@ -151,14 +142,20 @@ namespace WebPolleria
             try
             {
                 BL_OrdenCompra OC = new BL_OrdenCompra();
-                string descripcionInsumo = DpInsumos.Text;
-                DataTable data = OC.AñadirInsumo(descripcionInsumo);
-                GvOrden.DataSource = data;
-                GvOrden.DataBind();
+                int IdProducto = int.Parse(DpInsumos.SelectedValue);
+                if (IdProducto == 0)
+                {
+                    Message("No se selecciono producto");
+                }
+                else
+                {
+                    GvOrden.DataSource = OC.AñadirInsumo(IdProducto);
+                    GvOrden.DataBind();
+                }
             }
             catch (Exception ex)
             {
-                Message("Error al cargar los datos en el GridView: "+ex);
+                Message("Error al cargar los datos en el GridView: " + ex);
             }
 
         }

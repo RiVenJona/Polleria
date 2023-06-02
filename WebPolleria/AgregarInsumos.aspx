@@ -22,7 +22,14 @@
         <br />
     <br />
     <asp:Label ID="Label2" runat="server" Text="Categoria: "></asp:Label>
-    <asp:DropDownList ID="DpCategoria" runat="server"></asp:DropDownList>
+    <asp:DropDownList ID="DpCategoria" runat="server">
+         <asp:ListItem Selected="True" Text="SELECCIONAR CATEGORIA" Value="0"></asp:ListItem>
+                <asp:ListItem Text="CARNE" Value="1"></asp:ListItem>
+                <asp:ListItem Text="VEGETAL" Value="2"></asp:ListItem>
+                <asp:ListItem Text="FRUTA" Value="3"></asp:ListItem>
+                <asp:ListItem Text="ABARROTES" Value="4"></asp:ListItem>
+        <asp:ListItem Text="OTROS" Value="5"></asp:ListItem>
+    </asp:DropDownList>
         <br />
         </fieldset>
     <br />
@@ -31,7 +38,13 @@
     <legend>Planificacion</legend>
         <br />
     <asp:Label ID="Label3" runat="server" Text="Unidad: "></asp:Label>
-    <asp:DropDownList ID="DpUnidad" runat="server"></asp:DropDownList>
+    <asp:DropDownList ID="DpUnidad" runat="server">
+        <asp:ListItem Selected="True" Text="SELECCIONAR UNIDAD" Value="-"></asp:ListItem>
+                <asp:ListItem Text="KG." Value="kg."></asp:ListItem>
+                <asp:ListItem Text="UNID." Value="unid."></asp:ListItem>
+               <asp:ListItem Text="GRAMOS" Value="gr."></asp:ListItem>
+                <asp:ListItem Text="LITROS" Value="lt."></asp:ListItem>  
+    </asp:DropDownList>
         <br />
         <br />
     <asp:Label ID="Label4" runat="server" Text="Stock Actual: "></asp:Label>

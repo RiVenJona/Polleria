@@ -23,7 +23,15 @@
             <legend>Buscar Insumo</legend>
             <div>
                 <asp:Label ID="Label3" runat="server" CssClass="Fuente" Text="Descripcion"></asp:Label>
-                <asp:DropDownList ID="DpInsumos" runat="server" style="margin-left: 39px" Width="125px"></asp:DropDownList>
+                <asp:DropDownList ID="DpInsumos" runat="server" style="margin-left: 39px" Width="125px">
+                    <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
+                <asp:ListItem Text="1 POLLO A LA BRASA" Value="1"></asp:ListItem>
+                <asp:ListItem Text="1/2 POLLO A LA BRASA" Value="2"></asp:ListItem>
+                <asp:ListItem Text="1/4 POLLO A LA BRASA" Value="3"></asp:ListItem>
+                <asp:ListItem Text="1/8 POLLO A LA BRASA" Value="4"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 1LT" Value="5"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 3LT" Value="6"></asp:ListItem>
+                </asp:DropDownList>
                 <asp:Button ID="BtnAñadir" runat="server" Text="Añadir" style="margin-left: 54px" OnClick="BtnAñadir_Click"  />
             </div>
         </fieldset>
@@ -38,7 +46,7 @@
         <fieldset style="width: 675px">
             <legend>Lista de Insumos</legend>
             <div style="width: 658px">
-             <asp:GridView HorizontalAlign="Center" ID="GvOrden" runat="server" ShowHeaderWhenEmpty="True" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False">
+             <asp:GridView HorizontalAlign="Center" ID="GvOrden" runat="server" ShowHeaderWhenEmpty="True" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" OnRowCommand="EliminarFila">
             <Columns>
                 <asp:BoundField  DataField="NumInsumo" HeaderText="ID"/>
                 <asp:BoundField  DataField="Categoria" HeaderText="CATEGORÍA" />
@@ -54,7 +62,7 @@
                 
                 <asp:TemplateField HeaderText="ACCION" ItemStyle-HorizontalAlign="Center">
                   <ItemTemplate>
-                      <asp:Button runat="server" ID="btnEliminar" CssClass="Boton" Width="25px" Height="25px" CommandArgument='<%# Container.DataItemIndex %>' Text="x" OnClick="btnEliminar_Click"/>
+                      <asp:Button runat="server" ID="btnEliminar" CssClass="Boton" Width="25px" Height="25px" Text="x" CommandName="ELIMINAR" CommandArgument="<%# Container.DataItemIndex %> "/>
                   </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -76,7 +84,7 @@
             <br />
         <div class="Botones">
                 <asp:Button ID="btnSalir" runat="server" Text="Salir" OnClick="btnSalir_Click" />
-            <asp:Button ID="btnGenerar" runat="server" Text="Generar" OnClick="btnGenerar_Click" />
+            <asp:Button ID="btnGenerar" runat="server" Text="Generar" OnClick="btnGenerar_Click" style="margin-left:10px"/>
            
          </div>
 </asp:Content>

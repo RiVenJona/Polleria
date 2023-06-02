@@ -34,7 +34,7 @@ namespace BL_
         {
             return dA_OrdenCompra.ListaInsumosNoMin();
         }
-        public DataTable AñadirInsumo(string DesIns)
+        public List<BE_Insumo> AñadirInsumo(int DesIns)
         {
             return dA_OrdenCompra.AñadirInsumo(DesIns);
         }

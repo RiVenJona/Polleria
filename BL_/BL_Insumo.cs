@@ -31,6 +31,10 @@ namespace BL_
         {
             return dA_Insumo.InsumosCatMin();
         }
+        public List<BE_CatalogoProductos> ListaProdCata()
+        {
+            return dA_Insumo.ListaProdCata();
+        }
         public List<BE_Insumo> ListaInsumosxNombre(String n)
         {
             return dA_Insumo.ListaInsumosxNombre(n);
@@ -63,6 +67,7 @@ namespace BL_
         {
             return dA_Insumo.ModificarInsumo(NumInsumo, Categoria, unidad, cantidad, StockMin, StockMax);
         }
+
         public bool RegistrarOrdenInsumo(int t)
         {
             return dA_Insumo.RegistrarOrdenInsumo(t);

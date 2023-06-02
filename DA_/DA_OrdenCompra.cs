@@ -103,30 +103,33 @@ namespace DA_
                 return ListaInsumos;
             }
         }
-        public DataTable AñadirInsumo(string DesIns)
-{
-            try
+        public List<BE_Insumo> AñadirInsumo(int ProdCata)
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
             {
-                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                cn.Open();
+                SqlDataAdapter dt = new SqlDataAdapter();
+                SqlCommand sc;
+                sc = new SqlCommand("[dbo].[AñadirInsumo]", cn);
+                sc.Parameters.AddWithValue("@ProdCata", ProdCata);
+                sc.CommandTimeout = 0;
+                sc.CommandType = CommandType.StoredProcedure;
+                rd = sc.ExecuteReader();
+                BE_Insumo ListaReserva;
+                List<BE_Insumo> Reserva = new List<BE_Insumo>();
+                while (rd.Read())
                 {
-                    cn.Open();
-                    SqlDataAdapter dt = new SqlDataAdapter();
-                    SqlCommand sc;
-                    sc = new SqlCommand("[dbo].[AñadirInsumo]", cn);
-                    sc.Parameters.AddWithValue("@DesIns", DesIns);
-                    sc.CommandTimeout = 0;
-                    sc.CommandType = CommandType.StoredProcedure;
-            
-                    DataTable result = new DataTable();
-                    dt.SelectCommand = sc;
-                    dt.Fill(result);
-
-                    return result;
+                    ListaReserva = new BE_Insumo();
+                    ListaReserva.NumInsumo = rd["NumInsumo"].ToString();
+                    ListaReserva.Categoria = rd["DesCateg"].ToString();
+                    ListaReserva.DesIns = rd["DesIns"].ToString();
+                    ListaReserva.Cantidad = int.Parse(rd["Cantidad"].ToString());
+                    ListaReserva.StockMax = int.Parse(rd["StockMax"].ToString());
+                    ListaReserva.Unidad = rd["Unidad"].ToString();
+                    Reserva.Add(ListaReserva);
                 }
-            }
-            catch (Exception)
-            {
-                return null;
+                return Reserva;
             }
         }
 
