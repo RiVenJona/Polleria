@@ -19,5 +19,18 @@ namespace BL_
         {
             return dA_OrdenInsumo.ListaOrdenesInsumo();
         }
+        public List<BE_Insumo> ListaInsumoDisponible(string a)
+        {
+            return dA_OrdenInsumo.ListaInsumoDisponible(a);
+        }
+
+        public bool RegistrarOrdenSalida(int a)
+        {
+            return dA_OrdenInsumo.RegistrarOrdenSalida(a);
+        }
+        public bool RegistrarOrdenSalidaDet(int a, int b)
+        {
+            return dA_OrdenInsumo.RegistrarOrdenSalidaDet(a,b);
+        }
     }
 }

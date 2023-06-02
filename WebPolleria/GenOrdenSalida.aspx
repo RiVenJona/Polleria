@@ -10,7 +10,7 @@
         <asp:Panel ID="Panel" runat="server" CssClass="panelExterior">
             <h3>SOLICITUDES DE INSUMO:</h3>
             <asp:Panel ID="Panel1" runat="server" CssClass="panelInterior">
-                <asp:GridView ID="GvInsumo" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay datos disponibles" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="10px" CellPadding="3" CellSpacing="2">
+                <asp:GridView ID="GvInsumo" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay datos disponibles" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="10px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GvInsumos_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="numOrdenInsumo" HeaderText="IDPEDIDO" />
                         <asp:BoundField DataField="fecha" HeaderText="NOMBRE" />
@@ -29,7 +29,7 @@
             </asp:Panel>
             <div style="margin-top:30px;">
             <asp:Label CssClass="label" runat="server" Text="Nro. Solicitud:"></asp:Label>
-            <asp:TextBox Style="margin-left: 20px;" ID="txtNroSol" runat="server"></asp:TextBox>
+            <asp:TextBox Style="margin-left: 20px;" ID="txtNroSol" runat="server" Enabled="false"></asp:TextBox>
             </div>
         </asp:Panel>
                 </asp:TableCell>
@@ -68,10 +68,10 @@
                         <asp:Panel ID="Panel5" runat="server" CssClass="panelInterior">
                             <asp:GridView ID="GvSalida" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay datos disponibles" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
                                 <Columns>
-                                    <asp:BoundField DataField="desProducto" HeaderText="DESCRIPCIÓN" />
-                                    <asp:BoundField DataField="cantidadProducto" HeaderText="CANTIDAD" />
-                                    <asp:BoundField DataField="PrecioProducto" HeaderText="PRECIO UNIT." />
-                                    <asp:BoundField DataField="total" HeaderText="TOTAL" />
+                                    <asp:BoundField DataField="NumInsumo" HeaderText="ID INSUMO" />
+                                    <asp:BoundField DataField="DesIns" HeaderText="DESCRIPCIÓN" />
+                                    <asp:BoundField DataField="Unidad" HeaderText="UNIDAD" />
+                                    <asp:BoundField DataField="Cantidad" HeaderText="CANT. SOLICITADA" />
                                 </Columns>
                                 <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                                 <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
