@@ -320,7 +320,7 @@ namespace WebPolleria
                     {
                         BL_OrdenPedidoDelivery OPD = new BL_OrdenPedidoDelivery();
                         string texto = txtNroOrden.Text.Replace("OD", "").TrimStart('0');
-                        if (OPD.OPDPagado(int.Parse(texto),double.Parse(txtPago.Text), double.Parse(txtVuelto.Text)))
+                        if (OPD.OPDPagado(int.Parse(texto),double.Parse(txtPago.Text), double.Parse(txtVuelto.Text)) && OPD.GenerarCDPyTSD(int.Parse(texto),ObtenerUsuario()))
                         {
                             Message("COMPROBANTE DE PAGO EMITIDO");
                         }
@@ -332,7 +332,13 @@ namespace WebPolleria
                 }
             }
         }
-
+        protected int ObtenerUsuario()
+        {
+            BL_Trabajador TR = new BL_Trabajador();
+            string LogedUser = Session["usuario"].ToString();
+            int ID = TR.BuscarIdTrabajador(LogedUser);
+            return ID;
+        }
         public void Message(string str)
         {
             StringBuilder stringBuilder = new StringBuilder();

@@ -23,6 +23,10 @@ namespace BL_
         {
             return dA_OrdenPedidoDelivery.CambiarEstadoDelivery(e, id);
         }
+        public bool GenerarCDPyTSD(int a, int b)
+        {
+            return dA_OrdenPedidoDelivery.GenerarCDPyTSD(a, b);
+        }
 
         public List<BE_OrdenPedidoDelivery> ListaOrdenesPedidoXDeliveryID()
         {

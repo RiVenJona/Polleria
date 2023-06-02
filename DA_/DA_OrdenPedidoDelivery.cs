@@ -12,6 +12,22 @@ namespace DA_
 {
     public class DA_OrdenPedidoDelivery
     {
+        public bool GenerarCDPyTSD(int idDelivery,int TraId)
+        {
+
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlCommand sc;
+                sc = new SqlCommand("[dbo].[SP_GenerarCDPyTSD]", cn);
+                sc.Parameters.AddWithValue("@idDelivery", idDelivery);
+                sc.Parameters.AddWithValue("@TraId", TraId);
+                sc.CommandTimeout = 0;
+                sc.CommandType = CommandType.StoredProcedure;
+                var pagar = sc.ExecuteScalar();
+                return true;
+            }
+        }
         public bool OPDPagado(int idDelivery, double pago, double vuelto)
         {
 
