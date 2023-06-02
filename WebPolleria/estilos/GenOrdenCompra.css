@@ -1,4 +1,12 @@
-﻿.Contenedor {
+﻿.General {
+    background: linear-gradient(180deg, #0000008c 20%,#0000008c 100%), url("../Imagenes/FONDO.jpg")no-repeat center center fixed;
+    height: 90vh;
+    background-size: cover;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
+.Contenedor {
     display: flex;
     justify-content: center;
 }
@@ -16,12 +24,19 @@
     display: flex;
     justify-content: center; /* Centra horizontalmente */
 }
+
 .BotonPla {
     background: #F28705;
     font-weight: bold;
 }
+
 .Fuente {
     font-weight: bold;
+}
+
+.Fuente1 {
+    font-weight: bold;
+    color: white;
 }
 
 .tituloCus {
@@ -29,7 +44,6 @@
     display: flex;
     justify-content: center;
     border: 2px orange solid;
-
     border-radius: 15px;
     background: rgba(255, 166, 0, 0.534);
 }

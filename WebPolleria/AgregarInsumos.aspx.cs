@@ -14,9 +14,13 @@ namespace WebPolleria
 {
     public partial class AgregarInsumos : System.Web.UI.Page
     {
+        BL_Trabajador TR;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            TR = new BL_Trabajador();
+            TxtFecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            TxtEAlmacen.Text = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
+            TxtEAlmacen.Enabled = false;
             BtnModificar.Visible = false;
         }
         protected void Llenar_Categorias()
@@ -123,6 +127,13 @@ namespace WebPolleria
                 Message("Insumo no encontrado");
                 Limpiar();
             }
+        }
+
+        protected void DpCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BL_Insumo IN = new BL_Insumo();
+            int Categ = int.Parse(DpCategoria.SelectedValue);
+            TxtCod.Text = IN.NuevoNumeroInsumoCateg(Categ);
         }
     }
 }

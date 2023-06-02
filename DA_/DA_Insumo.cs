@@ -33,6 +33,27 @@ namespace DA_
             return valor;
         }
 
+        public string NuevoNumeroInsumoCateg(int n)
+        {
+            string valor = "";
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("[dbo].[NumInsumoInsert]", cn);
+                cmd.Parameters.AddWithValue("@IdCategoria", n);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    valor = rd["NewNumIns"].ToString();
+                }
+                rd.Close();
+            }
+
+            return valor;
+        }
         public int IdActualOrdenInsumo()
         {
             int valor = 1;
@@ -383,8 +404,6 @@ namespace DA_
                 return false;
             }
         }
-
-
 
     }
 }

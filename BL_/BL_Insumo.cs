@@ -43,6 +43,10 @@ namespace BL_
         {
             return dA_Insumo.NumActualOrdenInsumo();
         }
+        public string NuevoNumeroInsumoCateg(int a)
+        {
+            return dA_Insumo.NuevoNumeroInsumoCateg(a);
+        }
         public int BuscarNomCateg(string a)
         {
             return dA_Insumo.BuscarNomCateg(a);

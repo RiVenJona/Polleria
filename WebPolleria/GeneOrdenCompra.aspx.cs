@@ -159,5 +159,10 @@ namespace WebPolleria
             }
 
         }
+
+        protected void GvOrden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
