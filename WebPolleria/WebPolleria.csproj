@@ -85,6 +85,7 @@
     <Content Include="estilos\CobrarOrdenPedido.css" />
     <Content Include="estilos\DatosInsumos.css" />
     <Content Include="estilos\GenOrdenCompra.css" />
+    <Content Include="estilos\GenOrdenDelivery%28dan%29.css" />
     <Content Include="estilos\GenOrdenDelivery.css" />
     <Content Include="estilos\GenOrdenInsumo.css" />
     <Content Include="estilos\GestionarOrdenDelivery.css" />
@@ -98,6 +99,7 @@
     <Content Include="GeneOrdenCompra.aspx" />
     <Content Include="GeneOrdenDelivery.aspx" />
     <Content Include="GenOrdenInsumo.aspx" />
+    <Content Include="GOrdenDelivery%28Daniel%29.aspx" />
     <Content Include="Imagenes\1.jpg" />
     <Content Include="Imagenes\2.jpg" />
     <Content Include="Imagenes\3.jpg" />
@@ -124,6 +126,10 @@
     <Content Include="RecepcionarCliente.aspx" />
     <Content Include="RecuperarCuenta.aspx" />
     <Content Include="RegReserva.aspx" />
+    <Content Include="Svgs\demo.html" />
+    <Content Include="Svgs\icofont.css" />
+    <Content Include="Svgs\icofont.min.css" />
+    <Content Include="Svgs\icofonts\icofont.svg" />
     <Content Include="VerCorreo.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
@@ -173,6 +179,13 @@
     </Compile>
     <Compile Include="GenOrdenInsumo.aspx.designer.cs">
       <DependentUpon>GenOrdenInsumo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GOrdenDelivery%28Daniel%29.aspx.cs">
+      <DependentUpon>GOrdenDelivery%28Daniel%29.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GOrdenDelivery%28Daniel%29.aspx.designer.cs">
+      <DependentUpon>GOrdenDelivery%28Daniel%29.aspx</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.aspx.cs">
       <DependentUpon>MainMenu.aspx</DependentUpon>
@@ -272,6 +285,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Svgs\icofonts\icofont.eot" />
+    <Content Include="Svgs\icofonts\icofont.ttf" />
+    <Content Include="Svgs\icofonts\icofont.woff" />
+    <Content Include="Svgs\icofonts\icofont.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

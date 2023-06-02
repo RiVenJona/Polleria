@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BL_CatalogoProductos.cs" />
     <Compile Include="BL_CDP.cs" />
+    <Compile Include="BL_GenerarOrdenPedidoDelivery.cs" />
     <Compile Include="BL_Horario.cs" />
     <Compile Include="BL_Insumo.cs" />
     <Compile Include="BL_MetodoPago.cs" />

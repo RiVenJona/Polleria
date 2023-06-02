@@ -10,10 +10,12 @@ namespace BE_
     {
         public int idOrdenPedidoDeli { get; set; }
         public string numOrdenPedidoDeli { get; set; }
-        public double total { get; set;  }
+        public double total { get; set; }
         public double vuelto { get; set; }
         public double recaudacion { get; set; }
         public string estado { get; set; }
+        public string cliente { get; set; }
+        public string direccion { get; set; }
 
 
 

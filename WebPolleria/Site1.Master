@@ -41,6 +41,7 @@
                 <a href="~/CobrarOrdenPedido.aspx" id="aCobrarOrden" runat="server">Cobrar Orden Pedido</a>
                 <a href="OrdenPedido.aspx" id="aOrdenPedido" runat="server">Generar Orden Pedido</a>
                 <a href="CambiarPass.aspx" id="aCambiar" runat="server">Cambiar Password</a>
+                <a href="GOrdenDelivery(Daniel).aspx" id="dOrdenDelivery" runat="server">Generar Orden Delivery</a>
 
                 <asp:Button ID="Button1" runat="server" Text="Cerrar Session" BorderStyle="None" CssClass="CerrarSesion" OnClick="Button1_Click"/>
                 <style>

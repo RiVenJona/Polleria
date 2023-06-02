@@ -19,10 +19,18 @@ namespace BL_
         {
             return dA_OrdenPedidoDelivery.OPDPagado(idDelivery, pago, vuelto);
         }
+        public bool CambiarEstadoDelivery(int e, string id)
+        {
+            return dA_OrdenPedidoDelivery.CambiarEstadoDelivery(e, id);
+        }
 
         public List<BE_OrdenPedidoDelivery> ListaOrdenesPedidoXDeliveryID()
         {
             return dA_OrdenPedidoDelivery.ListaOrdenesPedidoXDeliveryID();
+        } 
+        public List<BE_OrdenPedidoDelivery> ListaOrdenesPedido2XDeliveryID()
+        {
+            return dA_OrdenPedidoDelivery.ListaOrdenesPedido2XDeliveryID();
         } 
     }
 }

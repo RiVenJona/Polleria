@@ -106,3 +106,9 @@ C:\Users\PC\Pictures\Polleria\Util_\obj\Debug\Util_.csproj.AssemblyReference.cac
 C:\Users\PC\Pictures\Polleria\Util_\obj\Debug\Util_.csproj.CoreCompileInputs.cache
 C:\Users\PC\Pictures\Polleria\Util_\obj\Debug\Util_.dll
 C:\Users\PC\Pictures\Polleria\Util_\obj\Debug\Util_.pdb
+D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\Util_\bin\Debug\Util_.dll
+D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\Util_\bin\Debug\Util_.pdb
+D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\Util_\obj\Debug\Util_.csproj.AssemblyReference.cache
+D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\Util_\obj\Debug\Util_.csproj.CoreCompileInputs.cache
+D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\Util_\obj\Debug\Util_.dll
+D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\Util_\obj\Debug\Util_.pdb

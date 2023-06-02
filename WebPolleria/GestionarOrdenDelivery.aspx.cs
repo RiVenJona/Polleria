@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -22,9 +24,13 @@ namespace WebPolleria
         {
             BL_OrdenPedidoDelivery OPD = new BL_OrdenPedidoDelivery();
             GvOrdenes.DataSource = OPD.ListaOrdenesPedidoXDeliveryID();
+            GvOrdenesDel.DataSource = OPD.ListaOrdenesPedido2XDeliveryID();
             GvOrdenes.DataBind();
+            GvOrdenesDel.DataBind();
             GvOrdenes.Width = Unit.Percentage(100);
             Panel3.Style["overflow-x"] = "auto";
+            GvOrdenesDel.Width = Unit.Percentage(100);
+            Panel5.Style["overflow-x"] = "auto";
 
 
             //recaudacion
@@ -46,6 +52,31 @@ namespace WebPolleria
         protected void RblEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        protected void btnCambiar_Click(object sender, EventArgs e)
+        {
+            BL_OrdenPedidoDelivery OPD = new BL_OrdenPedidoDelivery();
+            if (OPD.CambiarEstadoDelivery(int.Parse(ddlEstado.SelectedValue), txtNroOP.Text))
+            {
+                Message("ESTADO DE DELIVERY CAMBIADO");
+            }
+        }
+        protected void GvOrdenesDel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = GvOrdenesDel.SelectedRow;
+            txtNroOP.Text = row.Cells[0].Text;
+
+        }
+        public void Message(string str)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("<script type = 'text/javascript'>");
+            stringBuilder.Append("window.onload=function(){");
+            stringBuilder.Append("alert('");
+            stringBuilder.Append(str);
+            stringBuilder.Append("')};");
+            stringBuilder.Append("</script>");
+            this.ClientScript.RegisterClientScriptBlock(this.GetType(), "Alerta", stringBuilder.ToString());
         }
     }
 }

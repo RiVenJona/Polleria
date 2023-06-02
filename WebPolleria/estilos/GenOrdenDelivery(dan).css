@@ -1,0 +1,153 @@
+﻿
+.BgContainer {
+    background-image: linear-gradient(180deg, #0000008c 20%,#0000008c 100%), url('../Imagenes/FONDO.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 10px;
+    border-radius: 15px;
+    margin:10px;
+}
+h4{
+    padding:15px;
+    margin:0;
+}
+
+button {
+    text-align: center;
+    padding: 5px;
+    width: 10vw;
+    height: 4vh;
+    border-radius: 15px;
+    border: .2px solid black;
+    margin-bottom: 10px;
+}
+.btnRefresh{
+    height:35px;
+    border-radius:15px;
+    font-size:18px;
+    border:none;
+}
+.btnAsignar{
+    border:none;
+    padding:6px;
+    border-radius:15px;
+}
+.btnAsignar:hover{
+    background:grey;
+}
+.btnRefresh:hover{
+    background:grey;
+}
+
+.containerText {
+    background: #ff00003b;
+    display: inline-flex;
+    flex-direction:row;
+    border-radius: 15px;
+    width:16vw;
+    height:10vh;
+    align-items:center;
+}
+.txtCantidad {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size:1.5em;
+    font-weight:bold;
+}
+.btnTablaPedido{
+    border:none;
+    border-radius:15;
+}
+.containerText h5{
+    padding:10px;
+    margin:0px;
+}
+
+h5 {
+    font-size: 1.5em;
+    padding: 5px 10px;
+    color:white;
+}
+
+fieldset {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    background: #00000037;
+    padding: 3px 7px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    color:white;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px 20px;
+    width: 80%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.encabezadoDelivery {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+
+    align-items:center;
+    background:rgba(255,255,255,.3);
+    border-radius:15px;
+}
+
+.Titulo {
+    font-size: 2em;
+    color:white;
+}
+
+button i {
+    font-size: 1.4em;
+}
+
+.Refresh {
+    color: blue;
+}
+
+.checkRepar {
+    width: 7.5vw;
+    color: rgb(0, 255, 0);
+}
+
+@media (max-width:500px) {
+    .encabezadoDelivery {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+        .encabezadoDelivery button {
+            margin-top: 10px;
+        }
+
+    button {
+        width: 25vw;
+    }
+
+    .checkRepar {
+        width: 20vw;
+    }
+}
