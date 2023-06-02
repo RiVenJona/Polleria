@@ -48,6 +48,7 @@
     <Compile Include="BL_Insumo.cs" />
     <Compile Include="BL_MetodoPago.cs" />
     <Compile Include="BL_OrdenCompra.cs" />
+    <Compile Include="BL_OrdenInsumo.cs" />
     <Compile Include="BL_OrdenPedido.cs" />
     <Compile Include="BL_OrdenPedidoDelivery.cs" />
     <Compile Include="BL_OrdenReserva.cs" />
