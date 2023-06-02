@@ -88,6 +88,7 @@
     <Content Include="estilos\GenOrdenDelivery%28dan%29.css" />
     <Content Include="estilos\GenOrdenDelivery.css" />
     <Content Include="estilos\GenOrdenInsumo.css" />
+    <Content Include="estilos\GenOrdenSalida.css" />
     <Content Include="estilos\GestionarOrdenDelivery.css" />
     <Content Include="estilos\Login.css" />
     <Content Include="estilos\Master.css" />
@@ -99,6 +100,7 @@
     <Content Include="GeneOrdenCompra.aspx" />
     <Content Include="GeneOrdenDelivery.aspx" />
     <Content Include="GenOrdenInsumo.aspx" />
+    <Content Include="GenOrdenSalida.aspx" />
     <Content Include="GOrdenDelivery%28Daniel%29.aspx" />
     <Content Include="Imagenes\1.jpg" />
     <Content Include="Imagenes\2.jpg" />
@@ -179,6 +181,13 @@
     </Compile>
     <Compile Include="GenOrdenInsumo.aspx.designer.cs">
       <DependentUpon>GenOrdenInsumo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenOrdenSalida.aspx.cs">
+      <DependentUpon>GenOrdenSalida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenOrdenSalida.aspx.designer.cs">
+      <DependentUpon>GenOrdenSalida.aspx</DependentUpon>
     </Compile>
     <Compile Include="GOrdenDelivery%28Daniel%29.aspx.cs">
       <DependentUpon>GOrdenDelivery%28Daniel%29.aspx</DependentUpon>
