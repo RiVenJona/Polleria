@@ -33,6 +33,15 @@ namespace WebPolleria
         protected global::System.Web.UI.WebControls.GridView gvListaPedidos;
 
         /// <summary>
+        /// Control Modal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Modal;
+
+        /// <summary>
         /// Control txtSeleccionados.
         /// </summary>
         /// <remarks>

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Util_;
 using BE_;
+using System.Security.Cryptography;
 
 namespace DA_
 {
@@ -61,16 +62,17 @@ namespace DA_
                 return true;
             }
         }
-        public List<BE_OrdenPedidoDelivery> ListaOrdenesPedido2XDeliveryID()
+        public List<BE_OrdenPedidoDelivery> ListaOrdenesPedido2XDeliveryID(int OPD)
         {
             SqlDataReader rd = null;
             using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
             {
 
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("select NumDelivery, p.Nombre+' '+p.apellidos as cliente, p.Direccion as direccion,total, vuelto\r\nfrom OrdenPedidoDelivery opd\r\ninner join cliente c on c.IdCliente = opd.IdCliente\r\ninner join persona p on c.PersonaID = p.PersonaId\r\nwhere opd.Estado=15", cn);
+                SqlCommand cmd = new SqlCommand("SP_ListaPedidosxOrdenEst", cn);
                 cmd.CommandTimeout = 0;
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idGOPD", OPD);
                 rd = cmd.ExecuteReader();
                 BE_OrdenPedidoDelivery opd;
                 List<BE_OrdenPedidoDelivery> ListaOrdenes2XDelivery = new List<BE_OrdenPedidoDelivery>();
@@ -88,16 +90,18 @@ namespace DA_
 
             }
         }
-        public List<BE_OrdenPedidoDelivery> ListaOrdenesPedidoXDeliveryID()
+        public List<BE_OrdenPedidoDelivery> ListaOrdenesPedidoXDeliveryID(int OPD)
         {
             SqlDataReader rd = null;
             using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
             {
 
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("select NumDelivery, total, vuelto, recaudacion, e.DescEstado\r\nfrom OrdenPedidoDelivery opd\r\ninner join estado e on e.EstadoId = opd.Estado\r\nwhere Estado=15\r\n", cn);
+                SqlCommand cmd = new SqlCommand("SP_ListaPedidosxOrdenDes", cn);
                 cmd.CommandTimeout = 0;
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@idGOPD", OPD);
                 rd = cmd.ExecuteReader();
                 BE_OrdenPedidoDelivery opd;
                 List<BE_OrdenPedidoDelivery> ListaOrdenesXDelivery= new List<BE_OrdenPedidoDelivery>();

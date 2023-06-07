@@ -12,6 +12,7 @@ namespace BE_
         public string nombreCliente { get; set; }
         public string Creacion { get; set; }
         public string estadoPedido { get; set; }
+        public int idRepartidor { get; set; }
         public string repartidor { get; set; }
 
     }

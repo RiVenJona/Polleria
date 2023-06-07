@@ -64,9 +64,6 @@
                    });
                });
            </script>
-                <style>
-        
-    </style>
             <legend>Pedidos</legend>
             
             <div>

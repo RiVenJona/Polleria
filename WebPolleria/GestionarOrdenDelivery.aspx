@@ -9,7 +9,7 @@
         <h3>ORDENES DE PEDIDO:</h3>
              <asp:Panel ID="Panel4" runat="server" CssClass="panelExterior2" Height="300px">
             <asp:Label CssClass="label" Style="margin-left:60px;" ID="Label4" runat="server" Text="ID Orden Delivery:" ></asp:Label>
-            <asp:TextBox CssClass="txtbox" ID="TextBox1" runat="server" Enabled="false"></asp:TextBox>
+            <asp:TextBox CssClass="txtbox" ID="txtOD" runat="server" Enabled="false"></asp:TextBox>
             <asp:Panel ID="Panel5" runat="server" CssClass="panelInterior" Width="1100px">
                 <asp:GridView ID="GvOrdenesDel" runat="server" AutoGenerateColumns="False" EmptyDataText="No tienes entregas pendientes" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GvOrdenesDel_SelectedIndexChanged">
                     <Columns>

@@ -28,13 +28,13 @@ namespace BL_
             return dA_OrdenPedidoDelivery.GenerarCDPyTSD(a, b);
         }
 
-        public List<BE_OrdenPedidoDelivery> ListaOrdenesPedidoXDeliveryID()
+        public List<BE_OrdenPedidoDelivery> ListaOrdenesPedidoXDeliveryID(int a)
         {
-            return dA_OrdenPedidoDelivery.ListaOrdenesPedidoXDeliveryID();
+            return dA_OrdenPedidoDelivery.ListaOrdenesPedidoXDeliveryID(a);
         } 
-        public List<BE_OrdenPedidoDelivery> ListaOrdenesPedido2XDeliveryID()
+        public List<BE_OrdenPedidoDelivery> ListaOrdenesPedido2XDeliveryID(int a)
         {
-            return dA_OrdenPedidoDelivery.ListaOrdenesPedido2XDeliveryID();
+            return dA_OrdenPedidoDelivery.ListaOrdenesPedido2XDeliveryID(a);
         } 
     }
 }

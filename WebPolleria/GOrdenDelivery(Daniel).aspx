@@ -11,22 +11,18 @@
     <fieldset>
         <legend>Pedidos por asignar</legend>
     <%-- TABLA 1 --%>
-        <asp:GridView ID="gvListaPedidos" runat="server" AutoGenerateColumns="false" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
+        <asp:GridView ID="gvListaPedidos" runat="server" AutoGenerateColumns="false" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="gvListaPedidos_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField HeaderText="CODIGO" DataField="idOPD" />
                 <asp:BoundField HeaderText="CLIENTE" DataField="nombreCliente" />
                 <asp:BoundField HeaderText="PEDIDO" DataField="Creacion" />
-                <asp:BoundField HeaderText="LISTO" DataField="estadoPedido" />
+                <asp:BoundField HeaderText="ESTADO" DataField="estadoPedido" />
                 <asp:TemplateField HeaderText="PICK">
                   <ItemTemplate>
-                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                    <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="true" OnCheckedChanged="CheckBox_CheckedChanged" />
                   </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="ACT">
-                  <ItemTemplate>
-                    <asp:Button CssClass="btnTablaPedido" ID="SelectButton" runat="server" Text="Ver"/>
-                  </ItemTemplate>
-                </asp:TemplateField>
+                <asp:CommandField HeaderText="DETALLE" SelectText="Ver" ShowSelectButton="True"/> 
             </Columns>
             
             <AlternatingRowStyle BackColor="White" />
@@ -41,6 +37,11 @@
             <SortedDescendingHeaderStyle BackColor="#575357" />
         </asp:GridView>
     </fieldset>
+        <div class="Modal-Container">
+            <div class="Modal" id="Modal" runat="server">
+
+            </div>
+        </div>
     <div class="containerText">
         <h5>Seleccionados:</h5>
         <asp:Label ID="txtSeleccionados" runat="server" Text="0" CssClass="txtCantidad"></asp:Label>
@@ -48,11 +49,12 @@
     
     <fieldset>
         <legend>Persona quien envia</legend>
-        <asp:GridView ID="gvRepEnable" AutoGenerateColumns="false" runat="server" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
+        <asp:GridView ID="gvRepEnable" AutoGenerateColumns="false" runat="server" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="gvRepEnable_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
+                <asp:BoundField HeaderText="CODIGO" DataField="idRepartidor"/>
                 <asp:BoundField HeaderText="REPARTIDOR" DataField="repartidor"/>
-                <asp:ButtonField Text="Seleccionar" />
+                <asp:CommandField HeaderText="SELECCIÓN" SelectText="SELECCIÓN" ShowSelectButton="True"/> 
             </Columns>
             <FooterStyle BackColor="#CCCC99" />
             <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
@@ -64,7 +66,7 @@
             <SortedDescendingCellStyle BackColor="#EAEAD3" />
             <SortedDescendingHeaderStyle BackColor="#575357" />
         </asp:GridView>
-    <asp:Button  runat="server" Text="Asignar" ID="btnAsignar" CssClass="btnAsignar"/>
+    <asp:Button  runat="server" Text="Asignar" ID="btnAsignar" CssClass="btnAsignar" OnClick="btnAsignar_Click"/>
 </fieldset>
         </div>
 </asp:Content>

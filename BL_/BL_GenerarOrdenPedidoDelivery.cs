@@ -25,5 +25,21 @@ namespace BL_
         {
             return daGOPD.ListaRepartidores();
         }
+        public bool RegistrarGOPD(int idRepartidor)
+        {
+            return daGOPD.RegistrarGOPD(idRepartidor);
+        }
+        public bool RegistrarDetalleGOPD(string iddelivery)
+        {
+            return daGOPD.RegistrarDetalleGOPD(iddelivery);
+        }
+        public int UltimoDelivery()
+        {
+            return daGOPD.UltimoDelivery();
+        }
+        public List<TicketDetalle> ListaTickets(string iddelivery)
+        {
+            return daGOPD.ListaTickets(iddelivery);
+        }
     }
 }

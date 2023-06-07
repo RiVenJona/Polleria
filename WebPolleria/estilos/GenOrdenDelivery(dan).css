@@ -131,6 +131,11 @@ button i {
     color: rgb(0, 255, 0);
 }
 
+.Modal-Container{
+    position:absolute;
+    margin:100px;
+}
+
 @media (max-width:500px) {
     .encabezadoDelivery {
         flex-direction: column;

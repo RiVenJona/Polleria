@@ -14,17 +14,20 @@ namespace WebPolleria
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Cargar();
             if (!Page.IsPostBack)
             {
-                Cargar();
+                
             }
         }
 
         protected void Cargar()
         {
             BL_OrdenPedidoDelivery OPD = new BL_OrdenPedidoDelivery();
-            GvOrdenes.DataSource = OPD.ListaOrdenesPedidoXDeliveryID();
-            GvOrdenesDel.DataSource = OPD.ListaOrdenesPedido2XDeliveryID();
+            BL_GenerarOrdenPedidoDelivery GOPD = new BL_GenerarOrdenPedidoDelivery();
+            txtOD.Text = GOPD.UltimoDelivery().ToString(); 
+            GvOrdenes.DataSource = OPD.ListaOrdenesPedidoXDeliveryID(int.Parse(txtOD.Text));
+            GvOrdenesDel.DataSource = OPD.ListaOrdenesPedido2XDeliveryID(int.Parse(txtOD.Text));
             GvOrdenes.DataBind();
             GvOrdenesDel.DataBind();
             GvOrdenes.Width = Unit.Percentage(100);
