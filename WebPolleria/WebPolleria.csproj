@@ -85,6 +85,7 @@
     <Content Include="estilos\CobrarOrdenPedido.css" />
     <Content Include="estilos\DatosInsumos.css" />
     <Content Include="estilos\GenOrdenCompra.css" />
+    <Content Include="estilos\GenSoliInsumo.css" />
     <Content Include="estilos\GenOrdenDelivery%28dan%29.css" />
     <Content Include="estilos\GenOrdenDelivery.css" />
     <Content Include="estilos\GenOrdenInsumo.css" />
@@ -98,6 +99,7 @@
     <Content Include="estilos\RegisReserva.css" />
     <Content Include="estilos\AnularReserva.css" />
     <Content Include="GeneOrdenCompra.aspx" />
+    <Content Include="GeneSolicitudInsumo.aspx" />
     <Content Include="GeneOrdenDelivery.aspx" />
     <Content Include="GenOrdenInsumo.aspx" />
     <Content Include="GenOrdenSalida.aspx" />
@@ -167,6 +169,13 @@
     </Compile>
     <Compile Include="GeneOrdenCompra.aspx.designer.cs">
       <DependentUpon>GeneOrdenCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GeneSolicitudInsumo.aspx.cs">
+      <DependentUpon>GeneSolicitudInsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GeneSolicitudInsumo.aspx.designer.cs">
+      <DependentUpon>GeneSolicitudInsumo.aspx</DependentUpon>
     </Compile>
     <Compile Include="GeneOrdenDelivery.aspx.cs">
       <DependentUpon>GeneOrdenDelivery.aspx</DependentUpon>

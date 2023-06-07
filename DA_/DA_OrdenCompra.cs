@@ -12,7 +12,7 @@ namespace DA_
 {
     public class DA_OrdenCompra
     {
-        public bool OrdenCompra(int IdTrabajador)
+        public bool SolicitudInsumo(int IdTrabajador)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace DA_
                     cn.Open();
                     SqlDataAdapter dt = new SqlDataAdapter();
                     SqlCommand sc;
-                    sc = new SqlCommand("[dbo].[InsertOrdenCompra]", cn);
+                    sc = new SqlCommand("[dbo].[InsertSolicitudInsumo]", cn);
                     sc.Parameters.AddWithValue("@IdTrabajador", IdTrabajador);
                     sc.CommandTimeout = 0;
                     sc.CommandType = CommandType.StoredProcedure;
@@ -34,7 +34,7 @@ namespace DA_
                 return false;
             }
         }
-        public bool DetalleOrdenCompra(int idProducto, int cantidad)
+        public bool DetalleSolicitudInsumo(int Producto, int cantidad)
         {
             try
             {
@@ -43,8 +43,8 @@ namespace DA_
                     cn.Open();
                     SqlDataAdapter dt = new SqlDataAdapter();
                     SqlCommand sc;
-                    sc = new SqlCommand("[dbo].[InsertOrdenCompraDet]", cn);
-                    sc.Parameters.AddWithValue("@IdProducto", idProducto);
+                    sc = new SqlCommand("[dbo].[InsertSolicitudInsumoDet]", cn);
+                    sc.Parameters.AddWithValue("@Producto", Producto);
                     sc.Parameters.AddWithValue("@Cantidad", cantidad);
 
                     sc.CommandTimeout = 0;
@@ -132,7 +132,30 @@ namespace DA_
                 return Reserva;
             }
         }
+        public List<BE_OrdenCompra> ListaSolicitudes()
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
 
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("select numOrdenSalida, CONVERT(varchar,GETDATE(),23) as FechaSolicitudes from OrdenSalida", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.Text;
+                rd = cmd.ExecuteReader();
+                BE_OrdenCompra op;
+                List<BE_OrdenCompra> ListaSolicitudes = new List<BE_OrdenCompra>();
+                while (rd.Read())
+                {
+                    op = new BE_OrdenCompra();
+                    op.numOrdenSalida = rd["numOrdenSalida"].ToString();
+                    op.FechaSolicitudes = rd["FechaSolicitudes"].ToString();
+                    ListaSolicitudes.Add(op);
+                }
+                return ListaSolicitudes;
+
+            }
+        }
 
     }
 }

@@ -1,43 +1,30 @@
 ﻿.General {
     background: linear-gradient(180deg, #0000008c 20%,#0000008c 100%), url("../Imagenes/FONDO.jpg")no-repeat center center fixed;
-    height: 90vh;
+    height: 100%;
     background-size: cover;
     border-radius: 15px;
     margin: 10px 0;
 }
 
-.Contenedor {
+.Seccion {
+    color: white;
     display: flex;
     justify-content: center;
 }
 
-.columna {
-    width: 30%; /* Puedes ajustar el ancho según tus necesidades */
-}
-
-.Detalle {
+.SeccionBotones {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
+    justify-content: center;
+}
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
 
-.Botones {
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-}
-
-.BotonPla {
-    background: #F28705;
-    font-weight: bold;
-}
-
-.Fuente {
-    font-weight: bold;
-}
-
-.Fuente1 {
-    font-weight: bold;
-    color: white;
-}
+    .button:hover {
+        background-color: orange; /* Green */
+        color: white;
+    }
 
 .tituloCus {
     margin-top: 10px;

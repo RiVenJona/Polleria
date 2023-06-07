@@ -23,7 +23,10 @@ namespace BL_
         {
             return dA_OrdenInsumo.ListaInsumoDisponible(a);
         }
-
+        public List<BE_Insumo> ListaInsumoOC(string a)
+        {
+            return dA_OrdenInsumo.ListaInsumoOC(a);
+        }
         public bool RegistrarOrdenSalida(int a)
         {
             return dA_OrdenInsumo.RegistrarOrdenSalida(a);

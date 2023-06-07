@@ -18,13 +18,13 @@ namespace BL_
         {
             dA_OrdenCompra = new DA_OrdenCompra();
         }
-        public bool OrdenCompra(int IdTrabajador)
+        public bool SolicitudInsumo(int IdTrabajador)
         {
-            return dA_OrdenCompra.OrdenCompra(IdTrabajador);
+            return dA_OrdenCompra.SolicitudInsumo(IdTrabajador);
         }
-        public bool DetalleOrdenCompra(int idProducto, int cantidad)
+        public bool DetalleSolicitudInsumo(int Producto, int cantidad)
         {
-            return dA_OrdenCompra.DetalleOrdenCompra(idProducto, cantidad);
+            return dA_OrdenCompra.DetalleSolicitudInsumo(Producto, cantidad);
         }
         public List<BE_Insumo> ListaInsumos()
         {
@@ -37,6 +37,10 @@ namespace BL_
         public List<BE_Insumo> AñadirInsumo(int DesIns)
         {
             return dA_OrdenCompra.AñadirInsumo(DesIns);
+        }
+        public List<BE_OrdenCompra> ListaSolicitudes()
+        {
+            return dA_OrdenCompra.ListaSolicitudes();
         }
     }
 }

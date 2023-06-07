@@ -37,9 +37,6 @@ namespace WebPolleria
             GvSalida.DataBind();
             GvSalida.Width = Unit.Percentage(100);
             Panel1.Style["overflow-x"] = "auto";
-
-            
-
         }
         public void Message(string str)
         {

@@ -39,6 +39,32 @@ namespace DA_
             }
         }
 
+        public List<BE_Insumo> ListaInsumoOC(string id)
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("SP_InsumosOC", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@NumOrdenSalida", SqlDbType.VarChar).Value = id;
+                rd = cmd.ExecuteReader();
+                BE_Insumo op;
+                List<BE_Insumo> ListaInsumosSalida = new List<BE_Insumo>();
+                while (rd.Read())
+                {
+                    op = new BE_Insumo();
+                    op.NumInsumo = rd["NumInsumo"].ToString();
+                    op.DesIns = rd["DesIns"].ToString();
+                    op.Unidad = rd["Unidad"].ToString();
+                    op.Cantidad = int.Parse(rd["cantidad"].ToString());
+                    ListaInsumosSalida.Add(op);
+                }
+                return ListaInsumosSalida;
+            }
+        }
         public bool RegistrarOrdenSalida(int IdTra)
         {
             try

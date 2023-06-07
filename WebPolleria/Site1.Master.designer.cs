@@ -33,6 +33,15 @@ namespace WebPolleria
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control aGenOrdenCompra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor aGenOrdenCompra;
+
+        /// <summary>
         /// Control aGenOrdenSalida.
         /// </summary>
         /// <remarks>
@@ -51,13 +60,13 @@ namespace WebPolleria
         protected global::System.Web.UI.HtmlControls.HtmlAnchor aDatosInsumo;
 
         /// <summary>
-        /// Control aCompra.
+        /// Control aSolicitudInsumo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aCompra;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor aSolicitudInsumo;
 
         /// <summary>
         /// Control aGestOrdenDeli.
@@ -112,15 +121,6 @@ namespace WebPolleria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor aAnular;
-
-        /// <summary>
-        /// Control aGenOrden.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aGenOrden;
 
         /// <summary>
         /// Control aCobrarOrden.
