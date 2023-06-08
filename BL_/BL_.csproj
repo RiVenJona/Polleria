@@ -54,6 +54,7 @@
     <Compile Include="BL_OrdenReserva.cs" />
     <Compile Include="BL_Mesa.cs" />
     <Compile Include="BL_Persona.cs" />
+    <Compile Include="BL_SolicitudCompra.cs" />
     <Compile Include="BL_Trabajador.cs" />
     <Compile Include="BL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

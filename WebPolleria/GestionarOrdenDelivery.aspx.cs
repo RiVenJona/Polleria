@@ -25,9 +25,18 @@ namespace WebPolleria
         {
             BL_OrdenPedidoDelivery OPD = new BL_OrdenPedidoDelivery();
             BL_GenerarOrdenPedidoDelivery GOPD = new BL_GenerarOrdenPedidoDelivery();
-            txtOD.Text = GOPD.UltimoDelivery().ToString(); 
-            GvOrdenes.DataSource = OPD.ListaOrdenesPedidoXDeliveryID(int.Parse(txtOD.Text));
-            GvOrdenesDel.DataSource = OPD.ListaOrdenesPedido2XDeliveryID(int.Parse(txtOD.Text));
+            
+            string ultimo = GOPD.UltimoDelivery().ToString(); 
+            if (ultimo == "0")
+            {
+                txtOD.Text = "Sin asignar";
+
+            } else
+            {
+                txtOD.Text = ultimo;
+            }
+            GvOrdenes.DataSource = OPD.ListaOrdenesPedidoXDeliveryID(int.Parse(ultimo));
+            GvOrdenesDel.DataSource = OPD.ListaOrdenesPedido2XDeliveryID(int.Parse(ultimo));
             GvOrdenes.DataBind();
             GvOrdenesDel.DataBind();
             GvOrdenes.Width = Unit.Percentage(100);

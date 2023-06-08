@@ -23,6 +23,10 @@ namespace BL_
         {
             return dA_OrdenInsumo.ListaInsumoDisponible(a);
         }
+        public List<BE_Insumo> ListaInsumoNoDisponible(string a)
+        {
+            return dA_OrdenInsumo.ListaInsumoNoDisponible(a);
+        }
         public List<BE_Insumo> ListaInsumoOC(string a)
         {
             return dA_OrdenInsumo.ListaInsumoOC(a);
@@ -34,6 +38,10 @@ namespace BL_
         public bool RegistrarOrdenSalidaDet(int a, int b)
         {
             return dA_OrdenInsumo.RegistrarOrdenSalidaDet(a,b);
+        }
+        public bool CerrarSolicitudInsumo(string a)
+        {
+            return dA_OrdenInsumo.CerrarSolicitudInsumo(a);
         }
     }
 }

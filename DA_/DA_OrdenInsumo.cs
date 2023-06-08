@@ -37,6 +37,31 @@ namespace DA_
                 }
                 return ListaInsumosDispo;
             }
+        }public List<BE_Insumo> ListaInsumoNoDisponible(string id)
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("InsumosNoDisponibles", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@NumOrdenIns", SqlDbType.VarChar).Value = id;
+                rd = cmd.ExecuteReader();
+                BE_Insumo op;
+                List<BE_Insumo> ListaInsumosDispo = new List<BE_Insumo>();
+                while (rd.Read())
+                {
+                    op = new BE_Insumo();
+                    op.NumInsumo = rd["numInsumo"].ToString();
+                    op.DesIns = rd["DesIns"].ToString();
+                    op.Unidad = rd["unidad"].ToString();
+                    op.Cantidad = int.Parse(rd["cantoi"].ToString());
+                    ListaInsumosDispo.Add(op);
+                }
+                return ListaInsumosDispo;
+            }
         }
 
         public List<BE_Insumo> ListaInsumoOC(string id)
@@ -50,7 +75,7 @@ namespace DA_
                 cmd.CommandTimeout = 0;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@NumOrdenSalida", SqlDbType.VarChar).Value = id;
-                rd = cmd.ExecuteReader();
+                    rd = cmd.ExecuteReader();
                 BE_Insumo op;
                 List<BE_Insumo> ListaInsumosSalida = new List<BE_Insumo>();
                 while (rd.Read())
@@ -86,7 +111,8 @@ namespace DA_
             {
                 return false;
             }
-        }public bool RegistrarOrdenSalidaDet(int id, int cant)
+        }
+        public bool RegistrarOrdenSalidaDet(int id, int cant)
         {
             try
             {
@@ -109,7 +135,28 @@ namespace DA_
                 return false;
             }
         }
-
+        public bool CerrarSolicitudInsumo(string id)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("SP_CerrarOrdenInsumo", cn);
+                    sc.Parameters.AddWithValue("@NumOrdenIns", id);
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var anul = sc.ExecuteScalar();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         public List<BE_OrdenInsumo> ListaOrdenesInsumo()
         {
             SqlDataReader rd = null;
@@ -117,9 +164,9 @@ namespace DA_
             {
 
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("select NumOrdenIns, CONVERT(varchar,fecOi,101) as fecha from OrdenInsumo", cn);
+                SqlCommand cmd = new SqlCommand("SP_ListaSoliInsumo", cn);
                 cmd.CommandTimeout = 0;
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 rd = cmd.ExecuteReader();
                 BE_OrdenInsumo op;
                 List<BE_OrdenInsumo> ListaOrdenesInsumo = new List<BE_OrdenInsumo>();
