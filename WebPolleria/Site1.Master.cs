@@ -50,7 +50,7 @@ namespace WebPolleria
                     aPreparar.Style.Add("display", "none");
                     //aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
-                    aAnular.Style.Add("display", "none");|
+                    aAnular.Style.Add("display", "none");
                     aRecepcion.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");
                     aDelivery.Style.Add("display", "none");
