@@ -10,7 +10,7 @@
         </div>
         <div id="Solicitudes" runat="server">
             <h3 class="Seccion">Solicitudes</h3>
-           <asp:GridView ID="GvSolicitudes" runat="server" AutoGenerateColumns="False" HorizontalAlign="Center" EmptyDataText="No hay datos disponibles" OnSelectedIndexChanged="GvSolicitudes_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
+           <asp:GridView ID="GvSolicitudes" runat="server" AutoGenerateColumns="False" HorizontalAlign="Center" EmptyDataText="No hay solicitudes disponibles" OnSelectedIndexChanged="GvSolicitudes_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
     <AlternatingRowStyle BackColor="White" />
     <Columns>
         <asp:BoundField DataField="numOrdenSalida" HeaderText="Id Solicitud" ItemStyle-HorizontalAlign="Center" />

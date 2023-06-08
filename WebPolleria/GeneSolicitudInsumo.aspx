@@ -36,7 +36,7 @@
                 <asp:ListItem Text="INKA KOLA 1LT" Value="5"></asp:ListItem>
                 <asp:ListItem Text="INKA KOLA 3LT" Value="6"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:Button ID="BtnAñadir" runat="server" Text="Añadir" style="margin-left: 27px" OnClick="BtnAñadir_Click"  />
+                <asp:Button ID="BtnAñadir" runat="server" Text="Añadir" style="margin-left: 27px; width: 55px;" OnClick="BtnAñadir_Click"  />
             </div>
         </fieldset>
         </div>

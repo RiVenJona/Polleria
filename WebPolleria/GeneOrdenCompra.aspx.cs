@@ -59,7 +59,30 @@ namespace WebPolleria
 
         protected void BtnGenerar_Click(object sender, EventArgs e)
         {
+            BL_OrdenCompra OC = new BL_OrdenCompra();
+            BL_Trabajador TR = new BL_Trabajador();
+            BL_Insumo IN = new BL_Insumo();
+            int Trabajador = TR.BuscarIdTrabajador(ObtenerUsuario()); ;
+            int z = 0;
+            GridViewRow row1 = GvSolicitudes.Rows[z];
+            string numSoli = row1.Cells[0].Text;
+            if (OC.OrdenCompra(Trabajador, numSoli))
+            {
 
+            }
+
+            for (int i = 0; i < GvInsumo.Rows.Count; i++)
+            {
+                GridViewRow row = GvInsumo.Rows[i];
+                int idProducto = IN.BuscarIdInsumoxNumInsumo(row.Cells[0].Text);
+                int Cantidad = int.Parse(row.Cells[3].Text);
+
+                if (OC.OrdenCompraDet(idProducto, Cantidad))
+                {
+                }
+            }
+            Message("Se genero la solicitud de insumos correctamente");
+            
         }
     }
 }

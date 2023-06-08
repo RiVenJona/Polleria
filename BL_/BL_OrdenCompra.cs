@@ -42,5 +42,13 @@ namespace BL_
         {
             return dA_OrdenCompra.ListaSolicitudes();
         }
+        public bool OrdenCompra(int IdTrabajador,string NumSolicitudCompra)
+        {
+            return dA_OrdenCompra.OrdenCompra(IdTrabajador, NumSolicitudCompra);
+        }
+        public bool OrdenCompraDet(int Producto, int cantidad)
+        {
+            return dA_OrdenCompra.OrdenCompraDet(Producto, cantidad);
+        }
     }
 }

@@ -74,7 +74,7 @@ namespace DA_
                 SqlCommand cmd = new SqlCommand("SP_InsumosOC", cn);
                 cmd.CommandTimeout = 0;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@NumOrdenSalida", SqlDbType.VarChar).Value = id;
+                cmd.Parameters.Add("@numSolicitudCompra", SqlDbType.VarChar).Value = id;
                     rd = cmd.ExecuteReader();
                 BE_Insumo op;
                 List<BE_Insumo> ListaInsumosSalida = new List<BE_Insumo>();

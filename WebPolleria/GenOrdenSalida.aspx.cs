@@ -89,7 +89,7 @@ namespace WebPolleria
         protected void btnSolicitar_Click(object sender, EventArgs e)
         {
             BL_SolicitudCompra SC = new BL_SolicitudCompra();
-            //SC.RegistrarSolicitudCompra();
+            SC.RegistrarSolicitudCompra();
             for (int i = 0; i < GvCompra.Rows.Count; i++)
             {
                 GridViewRow rowCompra = GvCompra.Rows[i];

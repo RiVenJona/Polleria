@@ -136,7 +136,24 @@ namespace WebPolleria
             }
             Message("Se genero la solicitud de insumos correctamente");
         }
+        private GridView FindGridView(Control control)
+        {
+            if (control is GridView gridView)
+            {
+                return gridView;
+            }
 
+            foreach (Control childControl in control.Controls)
+            {
+                GridView foundGridView = FindGridView(childControl);
+                if (foundGridView != null)
+                {
+                    return foundGridView;
+                }
+            }
+
+            return null;
+        }
         protected void BtnAñadir_Click(object sender, EventArgs e)
         {
             try
@@ -159,8 +176,9 @@ namespace WebPolleria
             }
 
         }
+    
 
-        protected void GvOrden_SelectedIndexChanged(object sender, EventArgs e)
+    protected void GvOrden_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

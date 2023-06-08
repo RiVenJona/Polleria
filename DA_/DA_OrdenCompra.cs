@@ -139,7 +139,7 @@ namespace DA_
             {
 
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("select numOrdenSalida, CONVERT(varchar,GETDATE(),23) as FechaSolicitudes from OrdenSalida", cn);
+                SqlCommand cmd = new SqlCommand("select numSolicitudCompra,CONVERT(varchar,GETDATE(),23) as FechaSolicitudes from SolicitudCompra where idEstado=9", cn);
                 cmd.CommandTimeout = 0;
                 cmd.CommandType = CommandType.Text;
                 rd = cmd.ExecuteReader();
@@ -148,12 +148,59 @@ namespace DA_
                 while (rd.Read())
                 {
                     op = new BE_OrdenCompra();
-                    op.numOrdenSalida = rd["numOrdenSalida"].ToString();
+                    op.numOrdenSalida = rd["numSolicitudCompra"].ToString();
                     op.FechaSolicitudes = rd["FechaSolicitudes"].ToString();
                     ListaSolicitudes.Add(op);
                 }
                 return ListaSolicitudes;
 
+            }
+        }
+        public bool OrdenCompra(int IdTrabajador,string NumSolicitudCompra)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("[dbo].[InsertOrdenCompra]", cn);
+                    sc.Parameters.AddWithValue("@Trabajador", IdTrabajador);
+                    sc.Parameters.AddWithValue("@numSolicitudCompra", NumSolicitudCompra);
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var anul = sc.ExecuteScalar();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool OrdenCompraDet(int Producto, int cantidad)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("[dbo].[InsertOrdenCompraDet]", cn);
+                    sc.Parameters.AddWithValue("@idProducto", Producto);
+                    sc.Parameters.AddWithValue("@cantidad", cantidad);
+
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var anul = sc.ExecuteScalar();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 
