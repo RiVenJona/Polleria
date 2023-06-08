@@ -41,10 +41,10 @@
                         <asp:Panel ID="Panel3" runat="server" CssClass="panelInterior">
                             <asp:GridView ID="GvCompra" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay datos disponibles" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
                                 <Columns>
-                                    <asp:BoundField DataField="desProducto" HeaderText="DESCRIPCIÓN" />
-                                    <asp:BoundField DataField="cantidadProducto" HeaderText="CANTIDAD" />
-                                    <asp:BoundField DataField="PrecioProducto" HeaderText="PRECIO UNIT." />
-                                    <asp:BoundField DataField="total" HeaderText="TOTAL" />
+                                    <asp:BoundField DataField="NumInsumo" HeaderText="ID INSUMO" />
+                                    <asp:BoundField DataField="DesIns" HeaderText="DESCRIPCIÓN" />
+                                    <asp:BoundField DataField="Unidad" HeaderText="UNIDAD" />
+                                    <asp:BoundField DataField="Cantidad" HeaderText="CANT. SOLICITADA" />
                                 </Columns>
                                 <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                                 <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
