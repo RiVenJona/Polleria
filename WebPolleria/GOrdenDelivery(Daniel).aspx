@@ -37,11 +37,29 @@
             <SortedDescendingHeaderStyle BackColor="#575357" />
         </asp:GridView>
     </fieldset>
-        <div class="Modal-Container">
+        <div class="Modal-Container" id="productos" runat="server">
             <div class="Modal" id="Modal" runat="server">
-
             </div>
         </div>
+    <style>
+        .Modal-Container{
+            position:relative;
+        }
+        .Modal{
+            background:red;
+            position:relative;
+
+        }
+        .panel {
+           background:rgb(150,150,0);
+           opacity:.5;
+           padding:5px;
+        }
+        .panel h5{
+            font-size:20px;
+            padding:0;
+        }
+    </style>
     <div class="containerText">
         <h5>Seleccionados:</h5>
         <asp:Label ID="txtSeleccionados" runat="server" Text="0" CssClass="txtCantidad"></asp:Label>
