@@ -92,6 +92,31 @@ namespace DA_
                 return ListaUsers;
             }
         }
+        public List<BE_CatalogoProductos> Productos(int produ)
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlDataAdapter dt = new SqlDataAdapter();
+                SqlCommand sc;
+                sc = new SqlCommand("[dbo].[Productos]", cn);
+                sc.Parameters.AddWithValue("@IdProducto", produ);
+                sc.CommandTimeout = 0;
+                sc.CommandType = CommandType.StoredProcedure;
+                rd = sc.ExecuteReader();
+                BE_CatalogoProductos usuarios;
+                List<BE_CatalogoProductos> ListaUsers = new List<BE_CatalogoProductos>();
+                while (rd.Read())
+                {
+                    usuarios = new BE_CatalogoProductos();
+                    usuarios.idProducto = int.Parse(rd["idProducto"].ToString());
+                    usuarios.desProducto = rd["desProducto"].ToString();
+                    ListaUsers.Add(usuarios);
+                }
+                return ListaUsers;
+            }
+        }
         public List<int> ListaMesasOcupadas(int user)
         {
             SqlDataReader rd = null;

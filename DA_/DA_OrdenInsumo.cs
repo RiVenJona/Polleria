@@ -181,5 +181,75 @@ namespace DA_
 
             }
         }
+        /*----------------------------------*/
+        public bool GenerarSolicitudInsumo(DateTime FechaProgramada,int Trabajador)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("[dbo].[InsertSolicitudInsumo1]", cn);
+                    sc.Parameters.AddWithValue("@FechaProgramada", FechaProgramada);
+                    sc.Parameters.AddWithValue("@Tabajador", Trabajador);
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var anul = sc.ExecuteScalar();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool GenerarSolicitudInsumoDia(int Dia)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("[dbo].[InsertSolicitudInsumoDia]", cn);
+                    sc.Parameters.AddWithValue("@DIA", Dia);
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var anul = sc.ExecuteScalar();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool GenerarSolicitudInsumoDiaDet(int Dia,int Producto,int Cantidad)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("[dbo].[InsertSolicitudInsumoDiaDet]", cn);
+                    sc.Parameters.AddWithValue("@Dia", Dia);
+                    sc.Parameters.AddWithValue("@Producto", Producto);
+                    sc.Parameters.AddWithValue("@Cantidad", Cantidad);
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var anul = sc.ExecuteScalar();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

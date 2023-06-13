@@ -8,92 +8,355 @@
             <asp:Label ID="Label4" runat="server" Text="Solicitud de Insumos" Font-Bold="True" Font-Size="Larger"></asp:Label>
         </div>
     </section>
-    <div id="General" class="General">
-        <br />
+    <div class="General">
     <div>
-    <asp:Label ID="Label1" runat="server" style="position:relative; float: left; top: 0px; left: 0px;margin-left:20px;" Text="Fecha: " class="Fuente1"></asp:Label>
+    <asp:Label ID="Label1" runat="server" style="position:relative; float: left; top: 0px; left: 0px;margin-left:20px;" Text="Fecha de solicitud: " class="Fuente1"></asp:Label>
     <asp:TextBox ID="TxtFecha" TextMode="Date"  style="position:relative; float: left; top: 0px; left: 0px;margin-left:10px;" runat="server"></asp:TextBox>
 
     <asp:TextBox ID="TxtEAlmacen" style="position:relative; float: right; top: 0px; left: 0px; margin-left:10px;margin-right:20px;" runat="server"></asp:TextBox>
     <asp:Label ID="Label2" runat="server"  style="position:relative; float: right; top: 0px; left: 0px;" Text="Encargado de Almacen: " class="Fuente1"></asp:Label> 
     </div>
     <br />
-    <fieldset >
-            <legend class="Fuente1"> Busqueda</legend>
-    <div class="Contenedor">
-        <div class="columna">
-   
-         <fieldset >
-            <legend class="Fuente1">Buscar Insumo</legend>
-            <div>
-                <asp:Label ID="Label3" runat="server" CssClass="Fuente1" Text="Descripcion"></asp:Label>
-                <asp:DropDownList ID="DpInsumos" runat="server" style="margin-left: 18px" Width="135px" Height="25px">
-                    <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
+    <div class="tab-buttons">
+        <asp:LinkButton CssClass="tab-button" runat="server" ID="BtnTab1" Text="LUNES" OnClick="BtnTab_Click" CommandArgument="0" />
+        <asp:LinkButton CssClass="tab-button" runat="server" ID="BtnTab2" Text="MARTES" OnClick="BtnTab_Click" CommandArgument="1" />
+        <asp:LinkButton CssClass="tab-button" runat="server" ID="BtnTab3" Text="MIERCOLES" OnClick="BtnTab_Click" CommandArgument="2" />
+        <asp:LinkButton CssClass="tab-button" runat="server" ID="BtnTab4" Text="JUEVES" OnClick="BtnTab_Click" CommandArgument="3" />
+        <asp:LinkButton CssClass="tab-button" runat="server" ID="BtnTab5" Text="VIERNES" OnClick="BtnTab_Click" CommandArgument="4" />
+        <asp:LinkButton CssClass="tab-button" runat="server" ID="BtnTab6" Text="SABADO" OnClick="BtnTab_Click" CommandArgument="5" />
+        <asp:LinkButton CssClass="tab-button" runat="server" ID="BtnTab7" Text="DOMINGO" OnClick="BtnTab_Click" CommandArgument="6" />
+    </div>
+     <asp:MultiView runat="server" ID="MultiViewTabs">
+     <asp:View runat="server" ID="ViewTab1">
+         <div class="Contenedor">
+         <div>
+         <asp:Label ID="Label3" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
+         <asp:DropDownList ID="Dp1" runat="server" style="margin-left: 18px">
+              <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
                 <asp:ListItem Text="1 POLLO A LA BRASA" Value="1"></asp:ListItem>
                 <asp:ListItem Text="1/2 POLLO A LA BRASA" Value="2"></asp:ListItem>
                 <asp:ListItem Text="1/4 POLLO A LA BRASA" Value="3"></asp:ListItem>
                 <asp:ListItem Text="1/8 POLLO A LA BRASA" Value="4"></asp:ListItem>
                 <asp:ListItem Text="INKA KOLA 1LT" Value="5"></asp:ListItem>
                 <asp:ListItem Text="INKA KOLA 3LT" Value="6"></asp:ListItem>
-                </asp:DropDownList>
-                <asp:Button ID="BtnAñadir" runat="server" Text="Añadir" style="margin-left: 27px; width: 55px;" OnClick="BtnAñadir_Click"  />
-            </div>
-        </fieldset>
-        </div>
-        <div class="columna">
-           <asp:Button ID="BtnPlanificacion" runat="server" CssClass="BotonPla" Text="Cargar Planificacion" OnClick="BtnPlanificacion_Click" Height="66px" Width="165px" style="margin-left: 50px"/>
-        </div>
-    </div>
-    <br />
-    <br />
-    <div class="Detalle">
-        <fieldset style="width: 675px">
-            <legend class="Fuente1">Lista de Insumos</legend>
-            <div style="width: 658px">
-             <asp:GridView HorizontalAlign="Center" ID="GvOrden" runat="server" ShowHeaderWhenEmpty="True" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" AutoGenerateColumns="False" OnRowCommand="EliminarFila" OnSelectedIndexChanged="GvOrden_SelectedIndexChanged" >
-            <Columns>
-                <asp:BoundField  DataField="NumInsumo" HeaderText="ID"/>
-                <asp:BoundField  DataField="Categoria" HeaderText="CATEGORÍA" />
-                <asp:BoundField  DataField="DesIns" HeaderText="DESCRIPCIÓN" />
-                <asp:BoundField  DataField="Cantidad" HeaderText="STOCK ACTUAL" />
-                <asp:BoundField  DataField="StockMax" HeaderText="PLANIFICADO" />
-                <asp:TemplateField HeaderText="PENDIENTE">
-                    <ItemTemplate>
-                        <%# Convert.ToInt32(Eval("StockMax")) - Convert.ToInt32(Eval("Cantidad")) %>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField  DataField="Unidad" HeaderText="UNIDAD" />
-                
-                <asp:TemplateField HeaderText="ACCION" ItemStyle-HorizontalAlign="Center">
-                  <ItemTemplate>
-                      <asp:Button runat="server" ID="btnEliminar" CssClass="Boton" Width="25px" Height="25px" Text="x" CommandName="ELIMINAR" CommandArgument="<%# Container.DataItemIndex %> "/>
-                  </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
+         </asp:DropDownList>
+         <asp:Button ID="BtnAgregar1" runat="server" style="margin-left: 18px" Text="Agregar" OnClick="BtnAgregar1_Click"/>
+         <br />
+         <asp:Label ID="Label5" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
+         <asp:TextBox ID="txtCantidad1" runat="server"></asp:TextBox>
+          </div>
+             <br />
+         <div>
+         <asp:GridView ID="Grv1" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
+             <Columns>
+                 <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="desProducto" HeaderText="Descripcion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="cantidadProducto" HeaderText="Planificacion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:TemplateField HeaderText="Eliminar" ItemStyle-HorizontalAlign="Center">
+                     <ItemTemplate>
+                         <asp:Button ID="btnEliminar" runat="server" CommandArgument="<%# Container.DataItemIndex %> " CommandName="ELIMINAR" CssClass="Boton" Height="25px" Text="x" Width="25px" />
+                     </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" />
+                 </asp:TemplateField>
+             </Columns>
+             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+             <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+             <SelectedRowStyle BackColor="#738A9C" ForeColor="White" Font-Bold="True" />
+             <SortedAscendingCellStyle BackColor="#FFF1D4" />
+             <SortedAscendingHeaderStyle BackColor="#B95C30" />
+             <SortedDescendingCellStyle BackColor="#F1E5CE" />
+             <SortedDescendingHeaderStyle BackColor="#93451F" />
+         </asp:GridView>
+             </div>
+         </div>
+     </asp:View>
 
-            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#FFF1D4" />
-            <SortedAscendingHeaderStyle BackColor="#B95C30" />
-            <SortedDescendingCellStyle BackColor="#F1E5CE" />
-            <SortedDescendingHeaderStyle BackColor="#93451F" />
-        </asp:GridView>   
+     <asp:View runat="server" ID="ViewTab2">
+<div class="Contenedor">
+         <div>
+         <asp:Label ID="Label6" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
+         <asp:DropDownList ID="Dp2" runat="server" style="margin-left: 18px">
+              <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
+                <asp:ListItem Text="1 POLLO A LA BRASA" Value="1"></asp:ListItem>
+                <asp:ListItem Text="1/2 POLLO A LA BRASA" Value="2"></asp:ListItem>
+                <asp:ListItem Text="1/4 POLLO A LA BRASA" Value="3"></asp:ListItem>
+                <asp:ListItem Text="1/8 POLLO A LA BRASA" Value="4"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 1LT" Value="5"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 3LT" Value="6"></asp:ListItem>
+         </asp:DropDownList>
+         <asp:Button ID="BtnAgregar2" runat="server" style="margin-left: 18px" Text="Agregar" OnClick="BtnAgregar2_Click"/>
+         <br />
+         <asp:Label ID="Label7" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
+         <asp:TextBox ID="TxtCantidad2" runat="server"></asp:TextBox>
+          </div>
+             <br />
+         <div>
+         <asp:GridView ID="Grv2" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
+             <Columns>
+                 <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="desProducto" HeaderText="Descripcion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="cantidadProducto" HeaderText="Planificacion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:TemplateField HeaderText="Eliminar" ItemStyle-HorizontalAlign="Center">
+                     <ItemTemplate>
+                         <asp:Button ID="btnEliminar" runat="server" CommandArgument="<%# Container.DataItemIndex %> " CommandName="ELIMINAR" CssClass="Boton" Height="25px" Text="x" Width="25px" />
+                     </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" />
+                 </asp:TemplateField>
+             </Columns>
+             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+             <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+             <SelectedRowStyle BackColor="#738A9C" ForeColor="White" Font-Bold="True" />
+             <SortedAscendingCellStyle BackColor="#FFF1D4" />
+             <SortedAscendingHeaderStyle BackColor="#B95C30" />
+             <SortedDescendingCellStyle BackColor="#F1E5CE" />
+             <SortedDescendingHeaderStyle BackColor="#93451F" />
+         </asp:GridView>
+             </div>
+         </div>
+     </asp:View>
+
+     <asp:View runat="server" ID="ViewTab3">
+         <div class="Contenedor">
+         <div>
+         <asp:Label ID="Label8" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
+         <asp:DropDownList ID="Dp3" runat="server" style="margin-left: 18px">
+              <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
+                <asp:ListItem Text="1 POLLO A LA BRASA" Value="1"></asp:ListItem>
+                <asp:ListItem Text="1/2 POLLO A LA BRASA" Value="2"></asp:ListItem>
+                <asp:ListItem Text="1/4 POLLO A LA BRASA" Value="3"></asp:ListItem>
+                <asp:ListItem Text="1/8 POLLO A LA BRASA" Value="4"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 1LT" Value="5"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 3LT" Value="6"></asp:ListItem>
+         </asp:DropDownList>
+         <asp:Button ID="BtnAgregar3" runat="server" style="margin-left: 18px" Text="Agregar" OnClick="BtnAgregar3_Click"/>
+         <br />
+         <asp:Label ID="Label9" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
+         <asp:TextBox ID="TxtCantidad3" runat="server"></asp:TextBox>
+          </div>
+             <br />
+         <div>
+         <asp:GridView ID="Grv3" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
+             <Columns>
+                 <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="desProducto" HeaderText="Descripcion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="cantidadProducto" HeaderText="Planificacion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:TemplateField HeaderText="Eliminar" ItemStyle-HorizontalAlign="Center">
+                     <ItemTemplate>
+                         <asp:Button ID="btnEliminar" runat="server" CommandArgument="<%# Container.DataItemIndex %> " CommandName="ELIMINAR" CssClass="Boton" Height="25px" Text="x" Width="25px" />
+                     </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" />
+                 </asp:TemplateField>
+             </Columns>
+             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+             <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+             <SelectedRowStyle BackColor="#738A9C" ForeColor="White" Font-Bold="True" />
+             <SortedAscendingCellStyle BackColor="#FFF1D4" />
+             <SortedAscendingHeaderStyle BackColor="#B95C30" />
+             <SortedDescendingCellStyle BackColor="#F1E5CE" />
+             <SortedDescendingHeaderStyle BackColor="#93451F" />
+         </asp:GridView>
+             </div>
+         </div>
+     </asp:View>
+
+     <asp:View runat="server" ID="ViewTab4">
+         <div class="Contenedor">
+         <div>
+         <asp:Label ID="Label10" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
+         <asp:DropDownList ID="Dp4" runat="server" style="margin-left: 18px">
+              <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
+                <asp:ListItem Text="1 POLLO A LA BRASA" Value="1"></asp:ListItem>
+                <asp:ListItem Text="1/2 POLLO A LA BRASA" Value="2"></asp:ListItem>
+                <asp:ListItem Text="1/4 POLLO A LA BRASA" Value="3"></asp:ListItem>
+                <asp:ListItem Text="1/8 POLLO A LA BRASA" Value="4"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 1LT" Value="5"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 3LT" Value="6"></asp:ListItem>
+         </asp:DropDownList>
+         <asp:Button ID="BtnAgregar4" runat="server" style="margin-left: 18px" Text="Agregar" OnClick="BtnAgregar4_Click"/>
+         <br />
+         <asp:Label ID="Label11" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
+         <asp:TextBox ID="TxtCantidad4" runat="server"></asp:TextBox>
+          </div>
+             <br />
+         <div>
+         <asp:GridView ID="Grv4" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
+             <Columns>
+                 <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="desProducto" HeaderText="Descripcion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="cantidadProducto" HeaderText="Planificacion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:TemplateField HeaderText="Eliminar" ItemStyle-HorizontalAlign="Center">
+                     <ItemTemplate>
+                         <asp:Button ID="btnEliminar" runat="server" CommandArgument="<%# Container.DataItemIndex %> " CommandName="ELIMINAR" CssClass="Boton" Height="25px" Text="x" Width="25px" />
+                     </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" />
+                 </asp:TemplateField>
+             </Columns>
+             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+             <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+             <SelectedRowStyle BackColor="#738A9C" ForeColor="White" Font-Bold="True" />
+             <SortedAscendingCellStyle BackColor="#FFF1D4" />
+             <SortedAscendingHeaderStyle BackColor="#B95C30" />
+             <SortedDescendingCellStyle BackColor="#F1E5CE" />
+             <SortedDescendingHeaderStyle BackColor="#93451F" />
+         </asp:GridView>
+             </div>
+         </div>
+     </asp:View>
+
+     <asp:View runat="server" ID="ViewTab5">
+<div class="Contenedor">
+         <div>
+         <asp:Label ID="Label12" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
+         <asp:DropDownList ID="Dp5" runat="server" style="margin-left: 18px">
+              <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
+                <asp:ListItem Text="1 POLLO A LA BRASA" Value="1"></asp:ListItem>
+                <asp:ListItem Text="1/2 POLLO A LA BRASA" Value="2"></asp:ListItem>
+                <asp:ListItem Text="1/4 POLLO A LA BRASA" Value="3"></asp:ListItem>
+                <asp:ListItem Text="1/8 POLLO A LA BRASA" Value="4"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 1LT" Value="5"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 3LT" Value="6"></asp:ListItem>
+         </asp:DropDownList>
+         <asp:Button ID="BtnAgregar5" runat="server" style="margin-left: 18px" Text="Agregar" OnClick="BtnAgregar5_Click"/>
+         <br />
+         <asp:Label ID="Label13" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
+         <asp:TextBox ID="TxtCantidad5" runat="server"></asp:TextBox>
+          </div>
+             <br />
+         <div>
+         <asp:GridView ID="Grv5" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
+             <Columns>
+                 <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="desProducto" HeaderText="Descripcion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="cantidadProducto" HeaderText="Planificacion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:TemplateField HeaderText="Eliminar" ItemStyle-HorizontalAlign="Center">
+                     <ItemTemplate>
+                         <asp:Button ID="btnEliminar" runat="server" CommandArgument="<%# Container.DataItemIndex %> " CommandName="ELIMINAR" CssClass="Boton" Height="25px" Text="x" Width="25px" />
+                     </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" />
+                 </asp:TemplateField>
+             </Columns>
+             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+             <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+             <SelectedRowStyle BackColor="#738A9C" ForeColor="White" Font-Bold="True" />
+             <SortedAscendingCellStyle BackColor="#FFF1D4" />
+             <SortedAscendingHeaderStyle BackColor="#B95C30" />
+             <SortedDescendingCellStyle BackColor="#F1E5CE" />
+             <SortedDescendingHeaderStyle BackColor="#93451F" />
+         </asp:GridView>
+             </div>
+         </div>
+     </asp:View>
+
+     <asp:View runat="server" ID="ViewTab6">
+         <div class="Contenedor">
+         <div>
+         <asp:Label ID="Label14" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
+         <asp:DropDownList ID="Dp6" runat="server" style="margin-left: 18px">
+              <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
+                <asp:ListItem Text="1 POLLO A LA BRASA" Value="1"></asp:ListItem>
+                <asp:ListItem Text="1/2 POLLO A LA BRASA" Value="2"></asp:ListItem>
+                <asp:ListItem Text="1/4 POLLO A LA BRASA" Value="3"></asp:ListItem>
+                <asp:ListItem Text="1/8 POLLO A LA BRASA" Value="4"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 1LT" Value="5"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 3LT" Value="6"></asp:ListItem>
+         </asp:DropDownList>
+         <asp:Button ID="BtnAgregar6" runat="server" style="margin-left: 18px" Text="Agregar" OnClick="BtnAgregar6_Click"/>
+         <br />
+         <asp:Label ID="Label15" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
+         <asp:TextBox ID="TxtCantidad6" runat="server"></asp:TextBox>
+          </div>
+             <br />
+         <div>
+         <asp:GridView ID="Grv6" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
+             <Columns>
+                 <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="desProducto" HeaderText="Descripcion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="cantidadProducto" HeaderText="Planificacion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:TemplateField HeaderText="Eliminar" ItemStyle-HorizontalAlign="Center">
+                     <ItemTemplate>
+                         <asp:Button ID="btnEliminar" runat="server" CommandArgument="<%# Container.DataItemIndex %> " CommandName="ELIMINAR" CssClass="Boton" Height="25px" Text="x" Width="25px" />
+                     </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" />
+                 </asp:TemplateField>
+             </Columns>
+             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+             <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+             <SelectedRowStyle BackColor="#738A9C" ForeColor="White" Font-Bold="True" />
+             <SortedAscendingCellStyle BackColor="#FFF1D4" />
+             <SortedAscendingHeaderStyle BackColor="#B95C30" />
+             <SortedDescendingCellStyle BackColor="#F1E5CE" />
+             <SortedDescendingHeaderStyle BackColor="#93451F" />
+         </asp:GridView>
+             </div>
+         </div>
+     </asp:View>
+
+     <asp:View runat="server" ID="ViewTab7">
+         <div class="Contenedor">
+         <div>
+         <asp:Label ID="Label16" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
+         <asp:DropDownList ID="Dp7" runat="server" style="margin-left: 18px">
+              <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
+                <asp:ListItem Text="1 POLLO A LA BRASA" Value="1"></asp:ListItem>
+                <asp:ListItem Text="1/2 POLLO A LA BRASA" Value="2"></asp:ListItem>
+                <asp:ListItem Text="1/4 POLLO A LA BRASA" Value="3"></asp:ListItem>
+                <asp:ListItem Text="1/8 POLLO A LA BRASA" Value="4"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 1LT" Value="5"></asp:ListItem>
+                <asp:ListItem Text="INKA KOLA 3LT" Value="6"></asp:ListItem>
+         </asp:DropDownList>
+         <asp:Button ID="BtnAgregar7" runat="server" style="margin-left: 18px" Text="Agregar" OnClick="BtnAgregar7_Click"/>
+         <br />
+         <asp:Label ID="Label17" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
+         <asp:TextBox ID="TxtCantidad7" runat="server"></asp:TextBox>
+          </div>
+             <br />
+         <div>
+         <asp:GridView ID="Grv7" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
+             <Columns>
+                 <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="desProducto" HeaderText="Descripcion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:BoundField DataField="cantidadProducto" HeaderText="Planificacion" ItemStyle-HorizontalAlign="Center" />
+                 <asp:TemplateField HeaderText="Eliminar" ItemStyle-HorizontalAlign="Center">
+                     <ItemTemplate>
+                         <asp:Button ID="btnEliminar" runat="server" CommandArgument="<%# Container.DataItemIndex %> " CommandName="ELIMINAR" CssClass="Boton" Height="25px" Text="x" Width="25px" />
+                     </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" />
+                 </asp:TemplateField>
+             </Columns>
+             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+             <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+             <SelectedRowStyle BackColor="#738A9C" ForeColor="White" Font-Bold="True" />
+             <SortedAscendingCellStyle BackColor="#FFF1D4" />
+             <SortedAscendingHeaderStyle BackColor="#B95C30" />
+             <SortedDescendingCellStyle BackColor="#F1E5CE" />
+             <SortedDescendingHeaderStyle BackColor="#93451F" />
+         </asp:GridView>
+             </div>
+         </div>
+     </asp:View>
+     </asp:MultiView>
+    <br />
+
+        <div class="Contenedor">
+        <div id="Botones">
+    <asp:Button ID="BtnSalir" runat="server" Text="Salir" OnClick="BtnSalir_Click" />
+    <asp:Button ID="BtnGenerar" runat="server" style="margin-left: 18px" Text="Generar" OnClick="BtnGenerar_Click"/>
             </div>
-        </fieldset>
-         </div>
+            </div>
         <br />
-            <br />
-        <div class="Botones">
-                <asp:Button ID="btnSalir" runat="server" Text="Salir" OnClick="btnSalir_Click" style="height: 26px" />
-            <asp:Button ID="btnGenerar" runat="server" Text="Generar" OnClick="btnGenerar_Click" style="margin-left:50px"/>
-           
-                <br />
-           
-         </div>
-    </fieldset> 
-        <br />
-    </div >
+    </div>
 </asp:Content>

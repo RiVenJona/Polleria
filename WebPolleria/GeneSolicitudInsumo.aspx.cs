@@ -14,73 +14,286 @@ namespace WebPolleria
 {
     public partial class GeneOrdenCompra : System.Web.UI.Page
     {
-        BL_Insumo IN;
-        BL_Trabajador TR;
-        List<BE_Insumo> listaFilas = new List<BE_Insumo>();
+        List<BE_CatalogoProductos> listaFilas = new List<BE_CatalogoProductos>();
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (!Page.IsPostBack)
             {
-
-                TR = new BL_Trabajador();
-                TxtFecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                BL_Trabajador TR = new BL_Trabajador();
                 TxtEAlmacen.Text = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
-                TxtEAlmacen.Enabled = false;
-
                 if (ViewState["listaFilas"] == null)
                 {
-                    ViewState["listaFilas"] = new List<BE_Insumo>();
+                    ViewState["listaFilas"] = new List<BE_CatalogoProductos>();
                 }
-                GvOrden.DataSource = (List<BE_Insumo>)ViewState["listaFilas"];
-                GvOrden.DataBind();
+                Grv1.DataSource = (List<BE_CatalogoProductos>)ViewState["listaFilas"];
+                Grv1.DataBind();
+
+                if (ViewState["listaFilas1"] == null)
+                {
+                    ViewState["listaFilas1"] = new List<BE_CatalogoProductos>();
+                }
+                Grv2.DataSource = (List<BE_CatalogoProductos>)ViewState["listaFilas1"];
+                Grv2.DataBind();
+
+                if (ViewState["listaFilas2"] == null)
+                {
+                    ViewState["listaFilas2"] = new List<BE_CatalogoProductos>();
+                }
+                Grv3.DataSource = (List<BE_CatalogoProductos>)ViewState["listaFilas2"];
+                Grv3.DataBind();
+
+                if (ViewState["listaFilas3"] == null)
+                {
+                    ViewState["listaFilas3"] = new List<BE_CatalogoProductos>();
+                }
+                Grv4.DataSource = (List<BE_CatalogoProductos>)ViewState["listaFilas3"];
+                Grv4.DataBind();
+
+                if (ViewState["listaFilas4"] == null)
+                {
+                    ViewState["listaFilas4"] = new List<BE_CatalogoProductos>();
+                }
+                Grv5.DataSource = (List<BE_CatalogoProductos>)ViewState["listaFilas4"];
+                Grv5.DataBind();
+
+                if (ViewState["listaFilas5"] == null)
+                {
+                    ViewState["listaFilas5"] = new List<BE_CatalogoProductos>();
+                }
+                Grv6.DataSource = (List<BE_CatalogoProductos>)ViewState["listaFilas5"];
+                Grv6.DataBind();
+
+                if (ViewState["listaFilas6"] == null)
+                {
+                    ViewState["listaFilas6"] = new List<BE_CatalogoProductos>();
+                }
+                Grv7.DataSource = (List<BE_CatalogoProductos>)ViewState["listaFilas6"];
+                Grv7.DataBind();
             }
-            else
+
+        }
+        protected void Limpiar()
+        {
+            txtCantidad1.Text = string.Empty;
+            TxtCantidad2.Text = string.Empty;
+            TxtCantidad3.Text = string.Empty;
+            TxtCantidad4.Text = string.Empty;
+            TxtCantidad5.Text = string.Empty;
+            TxtCantidad6.Text = string.Empty;
+            TxtCantidad7.Text = string.Empty;
+        }
+        protected string ObtenerUsuario()
+        {
+            string LogedUser = Session["usuario"].ToString();
+            return LogedUser;
+        }
+        protected void BtnTab_Click(object sender, EventArgs e)
+        {
+            // Obtener el botón de pestaña que se hizo clic
+            LinkButton clickedButton = (LinkButton)sender;
+
+            // Desactivar todos los botones de pestaña
+            BtnTab1.CssClass = "tab-button";
+            BtnTab2.CssClass = "tab-button";
+            BtnTab3.CssClass = "tab-button";
+            BtnTab4.CssClass = "tab-button";
+            BtnTab5.CssClass = "tab-button";
+            BtnTab6.CssClass = "tab-button";
+            BtnTab7.CssClass = "tab-button";
+
+            // Activar el botón de pestaña clicado
+            clickedButton.CssClass = "tab-button active";
+
+            // Obtener el índice de la vista asociada al botón de pestaña clicado
+            int viewIndex = int.Parse(clickedButton.CommandArgument);
+
+            // Mostrar la vista correspondiente en el MultiView
+            MultiViewTabs.ActiveViewIndex = viewIndex;
+        }
+
+        protected void BtnAgregar1_Click(object sender, EventArgs e)
+        {
+            List<BE_CatalogoProductos> listaFilas = (List<BE_CatalogoProductos>)ViewState["listaFilas"];
+            BE_CatalogoProductos NI = new BE_CatalogoProductos();
+            NI.idProducto = int.Parse(Dp1.SelectedValue);
+            NI.desProducto = Dp1.SelectedItem.Text;
+            NI.cantidadProducto = int.Parse(txtCantidad1.Text);
+            bool filaRepetida = false;
+            foreach (BE_CatalogoProductos fila in listaFilas)
             {
-                listaFilas = (List<BE_Insumo>)ViewState["listaFilas"];
+                if (fila.idProducto == NI.idProducto)
+                {
+                    filaRepetida = true;
+                    break;
+                }
             }
+            if (!filaRepetida)
+            {
+                listaFilas.Add(NI);
+                ViewState["listaFilas"] = listaFilas;
 
+                Grv1.DataSource = listaFilas;
+                Grv1.DataBind();
+            }
+            Limpiar();
         }
-        protected void Llenar_Productos()
+        protected void BtnAgregar2_Click(object sender, EventArgs e)
         {
-            List<BE_CatalogoProductos> productos = new List<BE_CatalogoProductos>();
-            BL_Insumo m = new BL_Insumo();
-            productos = m.ListaProdCata();
-            DpInsumos.DataSource = productos;
-            DpInsumos.DataTextField = "desProducto";
-            DpInsumos.DataValueField = "idProducto";
-            DpInsumos.DataBind();
-            DpInsumos.Items.Insert(0, new System.Web.UI.WebControls.ListItem("[Seleccione un Insumo]", "0"));
-        }
-        protected void Llenar_Insumos()
-        {
-            List<BE_Insumo> Insumos = new List<BE_Insumo>();
-            BL_OrdenCompra m = new BL_OrdenCompra();
-            Insumos = m.ListaInsumos();
-            DpInsumos.DataSource = Insumos;
-            DpInsumos.DataTextField = "DesIns";
-            DpInsumos.DataValueField = "DesIns";
-            DpInsumos.DataBind();
-            DpInsumos.Items.Insert(0, new System.Web.UI.WebControls.ListItem("[Seleccione un Insumo]", "0"));
-        }
-        protected void Llenar_Insumos_NoMin()
-        {
-            List<BE_Insumo> Insumos = new List<BE_Insumo>();
-            BL_OrdenCompra m = new BL_OrdenCompra();
-            Insumos = m.ListaInsumosNoMin();
-            DpInsumos.DataSource = Insumos;
-            DpInsumos.DataTextField = "DesIns";
-            DpInsumos.DataValueField = "DesIns";
-            DpInsumos.DataBind();
-            DpInsumos.Items.Insert(0, new System.Web.UI.WebControls.ListItem("[Seleccione un Insumo]", "0"));
-        }
-        protected void CargarTabla()
-        {
-            IN = new BL_Insumo();
-            GvOrden.DataSource = IN.InsumosCatMin();
-            GvOrden.DataBind();
-        }
+            List<BE_CatalogoProductos> listaFilas1 = (List<BE_CatalogoProductos>)ViewState["listaFilas1"];
+            BE_CatalogoProductos NI = new BE_CatalogoProductos();
+            NI.idProducto = int.Parse(Dp2.SelectedValue);
+            NI.desProducto = Dp2.SelectedItem.Text;
+            NI.cantidadProducto = int.Parse(TxtCantidad2.Text);
+            bool filaRepetida1 = false;
+            foreach (BE_CatalogoProductos fila1 in listaFilas1)
+            {
+                if (fila1.idProducto == NI.idProducto)
+                {
+                    filaRepetida1 = true;
+                    break;
+                }
+            }
+            if (!filaRepetida1)
+            {
+                listaFilas1.Add(NI);
+                ViewState["listaFilas1"] = listaFilas1;
 
+                Grv2.DataSource = listaFilas1;
+                Grv2.DataBind();
+            }
+            Limpiar();
+        }
+        protected void BtnAgregar3_Click(object sender, EventArgs e)
+        {
+            List<BE_CatalogoProductos> listaFilas2 = (List<BE_CatalogoProductos>)ViewState["listaFilas2"];
+            BE_CatalogoProductos NI = new BE_CatalogoProductos();
+            NI.idProducto = int.Parse(Dp3.SelectedValue);
+            NI.desProducto = Dp3.SelectedItem.Text;
+            NI.cantidadProducto = int.Parse(TxtCantidad3.Text);
+            bool filaRepetida2 = false;
+            foreach (BE_CatalogoProductos fila2 in listaFilas2)
+            {
+                if (fila2.idProducto == NI.idProducto)
+                {
+                    filaRepetida2 = true;
+                    break;
+                }
+            }
+            if (!filaRepetida2)
+            {
+                listaFilas2.Add(NI);
+                ViewState["listaFilas2"] = listaFilas2;
+
+                Grv3.DataSource = listaFilas2;
+                Grv3.DataBind();
+            }
+            Limpiar();
+        }
+        protected void BtnAgregar4_Click(object sender, EventArgs e)
+        {
+            List<BE_CatalogoProductos> listaFilas3 = (List<BE_CatalogoProductos>)ViewState["listaFilas3"];
+            BE_CatalogoProductos NI = new BE_CatalogoProductos();
+            NI.idProducto = int.Parse(Dp4.SelectedValue);
+            NI.desProducto = Dp4.SelectedItem.Text;
+            NI.cantidadProducto = int.Parse(TxtCantidad4.Text);
+            bool filaRepetida3 = false;
+            foreach (BE_CatalogoProductos fila3 in listaFilas3)
+            {
+                if (fila3.idProducto == NI.idProducto)
+                {
+                    filaRepetida3 = true;
+                    break;
+                }
+            }
+            if (!filaRepetida3)
+            {
+                listaFilas3.Add(NI);
+                ViewState["listaFilas3"] = listaFilas3;
+
+                Grv4.DataSource = listaFilas3;
+                Grv4.DataBind();
+            }
+            Limpiar();
+        }
+        protected void BtnAgregar5_Click(object sender, EventArgs e)
+        {
+            List<BE_CatalogoProductos> listaFilas4 = (List<BE_CatalogoProductos>)ViewState["listaFilas4"];
+            BE_CatalogoProductos NI = new BE_CatalogoProductos();
+            NI.idProducto = int.Parse(Dp5.SelectedValue);
+            NI.desProducto = Dp5.SelectedItem.Text;
+            NI.cantidadProducto = int.Parse(TxtCantidad5.Text);
+            bool filaRepetida4 = false;
+            foreach (BE_CatalogoProductos fila4 in listaFilas4)
+            {
+                if (fila4.idProducto == NI.idProducto)
+                {
+                    filaRepetida4 = true;
+                    break;
+                }
+            }
+            if (!filaRepetida4)
+            {
+                listaFilas4.Add(NI);
+                ViewState["listaFilas4"] = listaFilas4;
+
+                Grv5.DataSource = listaFilas4;
+                Grv5.DataBind();
+            }
+            Limpiar();
+        }
+        protected void BtnAgregar6_Click(object sender, EventArgs e)
+        {
+            List<BE_CatalogoProductos> listaFilas5 = (List<BE_CatalogoProductos>)ViewState["listaFilas5"];
+            BE_CatalogoProductos NI = new BE_CatalogoProductos();
+            NI.idProducto = int.Parse(Dp6.SelectedValue);
+            NI.desProducto = Dp6.SelectedItem.Text;
+            NI.cantidadProducto = int.Parse(TxtCantidad6.Text);
+            bool filaRepetida5 = false;
+            foreach (BE_CatalogoProductos fila5 in listaFilas5)
+            {
+                if (fila5.idProducto == NI.idProducto)
+                {
+                    filaRepetida5 = true;
+                    break;
+                }
+            }
+            if (!filaRepetida5)
+            {
+                listaFilas5.Add(NI);
+                ViewState["listaFilas5"] = listaFilas5;
+
+                Grv6.DataSource = listaFilas5;
+                Grv6.DataBind();
+            }
+            Limpiar();
+        }
+        protected void BtnAgregar7_Click(object sender, EventArgs e)
+        {
+            List<BE_CatalogoProductos> listaFilas6 = (List<BE_CatalogoProductos>)ViewState["listaFilas6"];
+            BE_CatalogoProductos NI = new BE_CatalogoProductos();
+            NI.idProducto = int.Parse(Dp7.SelectedValue);
+            NI.desProducto = Dp7.SelectedItem.Text;
+            NI.cantidadProducto = int.Parse(TxtCantidad7.Text);
+            bool filaRepetida6 = false;
+            foreach (BE_CatalogoProductos fila6 in listaFilas6)
+            {
+                if (fila6.idProducto == NI.idProducto)
+                {
+                    filaRepetida6 = true;
+                    break;
+                }
+            }
+            if (!filaRepetida6)
+            {
+                listaFilas6.Add(NI);
+                ViewState["listaFilas6"] = listaFilas6;
+
+                Grv7.DataSource = listaFilas6;
+                Grv7.DataBind();
+            }
+            Limpiar();
+        }
         public void Message(string str)
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -92,95 +305,105 @@ namespace WebPolleria
             stringBuilder.Append("</script>");
             this.ClientScript.RegisterClientScriptBlock(this.GetType(), "Alerta", stringBuilder.ToString());
         }
-
-        protected void BtnPlanificacion_Click(object sender, EventArgs e)
-        {
-            CargarTabla();
-        }
-
-        protected void btnSalir_Click(object sender, EventArgs e)
+        protected void BtnSalir_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/MainMenu.aspx", true);
         }
-        protected void EliminarFila(object sender, GridViewCommandEventArgs e)
+
+        protected void BtnGenerar_Click(object sender, EventArgs e)
         {
-            int index = int.Parse((sender as Button).CommandArgument);
-            GvOrden.DeleteRow(index);
-            GvOrden.DataBind();
-        }
-        protected string ObtenerUsuario()
-        {
-            string LogedUser = Session["usuario"].ToString();
-            return LogedUser;
-        }
-        protected void btnGenerar_Click(object sender, EventArgs e)
-        {
-            BL_OrdenCompra OC = new BL_OrdenCompra();
             BL_Trabajador TR = new BL_Trabajador();
-            BL_Insumo IN = new BL_Insumo();
+            BL_OrdenInsumo OI = new BL_OrdenInsumo();
             int Trabajador = TR.BuscarIdTrabajador(ObtenerUsuario()); ;
-            if (OC.SolicitudInsumo(Trabajador))
+            DateTime FechaProgramada = DateTime.Parse(TxtFecha.Text);
+            if (OI.GenerarSolicitudInsumo(FechaProgramada, Trabajador))
             {
 
             }
-
-            for (int i = 0; i < GvOrden.Rows.Count; i++)
+            for (int i = 1; i <= 7; i++)
+            { 
+            if (OI.GenerarSolicitudInsumoDia(i))
             {
-                GridViewRow row = GvOrden.Rows[i];
-                int idProducto = IN.BuscarIdInsumoxNumInsumo(row.Cells[0].Text);
-                int Cantidad = int.Parse(row.Cells[4].Text) - int.Parse(row.Cells[3].Text);
 
-                if (OC.DetalleSolicitudInsumo(idProducto, Cantidad))
+            }
+            }
+                for (int i = 0; i < Grv1.Rows.Count; i++)
+                {
+                    GridViewRow row = Grv1.Rows[i];
+                    int idProducto = int.Parse(row.Cells[0].Text);
+                    int Cantidad = int.Parse(row.Cells[2].Text);
+
+                    if (OI.GenerarSolicitudInsumoDiaDet(1,idProducto, Cantidad))
+                    {
+                    }
+                }
+
+            for (int i = 0; i < Grv2.Rows.Count; i++)
+            {
+                GridViewRow row1 = Grv2.Rows[i];
+                int idProducto1 = int.Parse(row1.Cells[0].Text);
+                int Cantidad1 = int.Parse(row1.Cells[2].Text);
+
+                if (OI.GenerarSolicitudInsumoDiaDet(2, idProducto1, Cantidad1))
                 {
                 }
             }
-            Message("Se genero la solicitud de insumos correctamente");
-        }
-        private GridView FindGridView(Control control)
-        {
-            if (control is GridView gridView)
-            {
-                return gridView;
-            }
 
-            foreach (Control childControl in control.Controls)
+            for (int i = 0; i < Grv3.Rows.Count; i++)
             {
-                GridView foundGridView = FindGridView(childControl);
-                if (foundGridView != null)
+                GridViewRow row2 = Grv3.Rows[i];
+                int idProducto2 = int.Parse(row2.Cells[0].Text);
+                int Cantidad2 = int.Parse(row2.Cells[2].Text);
+
+                if (OI.GenerarSolicitudInsumoDiaDet(3, idProducto2, Cantidad2))
                 {
-                    return foundGridView;
                 }
             }
 
-            return null;
-        }
-        protected void BtnAñadir_Click(object sender, EventArgs e)
-        {
-            try
+            for (int i = 0; i < Grv4.Rows.Count; i++)
             {
-                BL_OrdenCompra OC = new BL_OrdenCompra();
-                int IdProducto = int.Parse(DpInsumos.SelectedValue);
-                if (IdProducto == 0)
+                GridViewRow row3 = Grv4.Rows[i];
+                int idProducto3 = int.Parse(row3.Cells[0].Text);
+                int Cantidad3 = int.Parse(row3.Cells[2].Text);
+
+                if (OI.GenerarSolicitudInsumoDiaDet(4, idProducto3, Cantidad3))
                 {
-                    Message("No se selecciono producto");
-                }
-                else
-                {
-                    GvOrden.DataSource = OC.AñadirInsumo(IdProducto);
-                    GvOrden.DataBind();
                 }
             }
-            catch (Exception ex)
+
+            for (int i = 0; i < Grv5.Rows.Count; i++)
             {
-                Message("Error al cargar los datos en el GridView: " + ex);
+                GridViewRow row4 = Grv5.Rows[i];
+                int idProducto4 = int.Parse(row4.Cells[0].Text);
+                int Cantidad4 = int.Parse(row4.Cells[2].Text);
+
+                if (OI.GenerarSolicitudInsumoDiaDet(5, idProducto4, Cantidad4))
+                {
+                }
             }
 
-        }
-    
+            for (int i = 0; i < Grv6.Rows.Count; i++)
+            {
+                GridViewRow row5 = Grv6.Rows[i];
+                int idProducto5 = int.Parse(row5.Cells[0].Text);
+                int Cantidad5 = int.Parse(row5.Cells[2].Text);
 
-    protected void GvOrden_SelectedIndexChanged(object sender, EventArgs e)
-        {
+                if (OI.GenerarSolicitudInsumoDiaDet(6, idProducto5, Cantidad5))
+                {
+                }
+            }
 
+            for (int i = 0; i < Grv7.Rows.Count; i++)
+            {
+                GridViewRow row6 = Grv7.Rows[i];
+                int idProducto6 = int.Parse(row6.Cells[0].Text);
+                int Cantidad6 = int.Parse(row6.Cells[2].Text);
+
+                if (OI.GenerarSolicitudInsumoDiaDet(7, idProducto6, Cantidad6))
+                {
+                }
+            }
+               Message("Se genero la solicitud de insumos correctamente")
         }
     }
 }

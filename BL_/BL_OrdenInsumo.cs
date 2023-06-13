@@ -43,5 +43,18 @@ namespace BL_
         {
             return dA_OrdenInsumo.CerrarSolicitudInsumo(a);
         }
+        /*---------------------------*/
+        public bool GenerarSolicitudInsumo(DateTime a,int b)
+        {
+            return dA_OrdenInsumo.GenerarSolicitudInsumo(a,b);
+        }
+        public bool GenerarSolicitudInsumoDia(int a)
+        {
+            return dA_OrdenInsumo.GenerarSolicitudInsumoDia(a);
+        }
+        public bool GenerarSolicitudInsumoDiaDet(int a,int b,int c)
+        {
+            return dA_OrdenInsumo.GenerarSolicitudInsumoDiaDet(a,b,c);
+        }
     }
 }
