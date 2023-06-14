@@ -403,7 +403,7 @@ namespace WebPolleria
                 {
                 }
             }
-               Message("Se genero la solicitud de insumos correctamente")
+            Message("Se genero la solicitud de insumos correctamente");
         }
     }
 }

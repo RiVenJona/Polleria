@@ -111,8 +111,15 @@ namespace DA_
                     opd.numOrdenPedidoDeli = rd["NumDelivery"].ToString();
                     opd.total = double.Parse(rd["total"].ToString());
                     opd.vuelto = double.Parse(rd["vuelto"].ToString());
-                    opd.recaudacion = double.Parse(rd["recaudacion"].ToString());
                     opd.estado = rd["DescEstado"].ToString();
+                    if (opd.estado == "ENTREGADO")
+                    {
+                        opd.recaudacion = double.Parse(rd["recaudacion"].ToString());
+                    } else
+                    {
+                        opd.recaudacion = opd.vuelto;
+                    }
+
                     ListaOrdenesXDelivery.Add(opd);
                 }
                 return ListaOrdenesXDelivery;

@@ -135,7 +135,7 @@ namespace DA_
             }
         }
 
-        public int UltimoDelivery()
+        public int UltimoDelivery(int a)
         {
             int valor = 0;
             SqlDataReader rd = null;
@@ -143,6 +143,7 @@ namespace DA_
             {
                 cn.Open();
                 SqlCommand cmd = new SqlCommand("SP_UltimoDelivery", cn);
+                cmd.Parameters.AddWithValue("@user", a);
                 cmd.CommandTimeout = 0;
                 cmd.CommandType = CommandType.StoredProcedure;
                 rd = cmd.ExecuteReader();

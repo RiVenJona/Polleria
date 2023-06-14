@@ -33,6 +33,28 @@ namespace DA_
 
             return valor;
         }
+        public int BuscarIdUsuario(String n)
+        {
+            int valor = 0;
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("SP_BuscarIdUsuario", cn);
+                cmd.Parameters.AddWithValue("@Usuario", n);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    valor = int.Parse(rd["UserId"].ToString());
+                }
+                rd.Close();
+            }
+
+            return valor;
+        }
         public int BuscarIdCliente(String n)
         {
             int valor = 0;

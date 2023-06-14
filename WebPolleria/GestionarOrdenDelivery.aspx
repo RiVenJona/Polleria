@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="GestionarOrdenDelivery.aspx.cs" Inherits="WebPolleria.WebForm4" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="GestionarOrdenDelivery.aspx.cs" Inherits="WebPolleria.WebForm4" MaintainScrollPositionOnPostback="true"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -40,7 +40,7 @@
             <asp:Label CssClass="label" Style="margin-left:60px;" ID="Label3" runat="server" Text="ID Orden Pedido:" ></asp:Label>
             <asp:TextBox CssClass="txtbox" ID="txtNroOP" runat="server" Enabled="false"></asp:TextBox>
             <asp:DropDownList ID="ddlEstado" runat="server" AutoPostBack="true" Style="margin-left:30px;">
-                <asp:ListItem Selected="True" Text="POR ENTREGAR" Value="16"></asp:ListItem>
+                <asp:ListItem Selected="True" Text="-SELECCIONAR-" Value="0"></asp:ListItem>
                 <asp:ListItem Text="ENTREGADO" Value="17"></asp:ListItem>
                 <asp:ListItem Text="NO ENTREGADO" Value="18"></asp:ListItem>
                 <asp:ListItem Text="CANCELADO" Value="12"></asp:ListItem>
@@ -75,7 +75,7 @@
             <asp:TextBox ID="txtRecaudacion" CssClass="txtbox" runat="server" Enabled="false"></asp:TextBox>
             </div>
         </asp:Panel>
-        <asp:Button CssClass="button" Style="background-color: #FF0000; position: absolute; float: left; margin-left: 100px" ID="Button3" runat="server" Text="SALIR" />
+        <asp:Button CssClass="button" Style="background-color: #FF0000; position: absolute; float: left; margin-left: 100px" ID="btnSalir" runat="server" Text="SALIR" OnClick="btnSalir_Click"/>
                     <br />
     </div>
 </asp:Content>

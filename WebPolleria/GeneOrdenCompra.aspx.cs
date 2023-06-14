@@ -62,7 +62,7 @@ namespace WebPolleria
             BL_OrdenCompra OC = new BL_OrdenCompra();
             BL_Trabajador TR = new BL_Trabajador();
             BL_Insumo IN = new BL_Insumo();
-            int Trabajador = TR.BuscarIdTrabajador(ObtenerUsuario()); ;
+            int Trabajador = TR.BuscarIdTrabajador(ObtenerUsuario());
             int z = 0;
             GridViewRow row1 = GvSolicitudes.Rows[z];
             string numSoli = row1.Cells[0].Text;

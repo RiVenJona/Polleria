@@ -33,9 +33,9 @@ namespace BL_
         {
             return daGOPD.RegistrarDetalleGOPD(iddelivery);
         }
-        public int UltimoDelivery()
+        public int UltimoDelivery(int a)
         {
-            return daGOPD.UltimoDelivery();
+            return daGOPD.UltimoDelivery(a);
         }
         public List<TicketDetalle> ListaTickets(string iddelivery)
         {

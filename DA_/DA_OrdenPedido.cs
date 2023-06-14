@@ -110,7 +110,7 @@ namespace DA_
             {
                 
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("select IdDelivery, NumDelivery from OrdenPedidoDelivery", cn);
+                SqlCommand cmd = new SqlCommand("select IdDelivery, NumDelivery from OrdenPedidoDelivery where Estado=13", cn);
                 cmd.CommandTimeout = 0;
                 cmd.CommandType = CommandType.Text;
                 rd = cmd.ExecuteReader();

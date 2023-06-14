@@ -80,7 +80,8 @@ namespace WebPolleria
 
                 }
             }
-            
+            Response.Redirect("PrepararPedido.aspx");
+
         }
 
         public void Message(string str)

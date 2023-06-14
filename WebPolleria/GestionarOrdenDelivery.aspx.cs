@@ -20,13 +20,19 @@ namespace WebPolleria
                 
             }
         }
-
+        protected int ObtenerUsuario()
+        {
+            BL_Trabajador TR = new BL_Trabajador();
+            int idtra = TR.BuscarIdUsuario(Session["usuario"].ToString());
+            return idtra;
+        }
         protected void Cargar()
         {
             BL_OrdenPedidoDelivery OPD = new BL_OrdenPedidoDelivery();
             BL_GenerarOrdenPedidoDelivery GOPD = new BL_GenerarOrdenPedidoDelivery();
+            int user = ObtenerUsuario();
             
-            string ultimo = GOPD.UltimoDelivery().ToString(); 
+            string ultimo = GOPD.UltimoDelivery(user).ToString(); 
             if (ultimo == "0")
             {
                 txtOD.Text = "Sin asignar";
@@ -72,6 +78,11 @@ namespace WebPolleria
             {
                 Message("ESTADO DE DELIVERY CAMBIADO");
             }
+            Response.Redirect("GestionarOrdenDelivery.aspx");
+        }
+        protected void btnSalir_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MainMenu.aspx");
         }
         protected void GvOrdenesDel_SelectedIndexChanged(object sender, EventArgs e)
         {
