@@ -126,5 +126,30 @@ namespace DA_
 
             }
         }
+        public List<BE_OrdenPedidoDelivery> ListaOrdenesDevueltos()
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("SP_ListaPedidosDevueltos", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                BE_OrdenPedidoDelivery opd;
+                List<BE_OrdenPedidoDelivery> ListaOrdenesDevueltos = new List<BE_OrdenPedidoDelivery>();
+                while (rd.Read())
+                {
+                    opd = new BE_OrdenPedidoDelivery();
+                    opd.numOrdenPedidoDeli = rd["NumDelivery"].ToString();
+                    opd.fechaPreparacion = rd["fechaPreparacion"].ToString();
+                    opd.estado = rd["DescEstado"].ToString();
+                    ListaOrdenesDevueltos.Add(opd);
+                }
+                return ListaOrdenesDevueltos;
+
+            }
+        }
     }
 }

@@ -36,5 +36,9 @@ namespace BL_
         {
             return dA_OrdenPedidoDelivery.ListaOrdenesPedido2XDeliveryID(a);
         } 
+        public List<BE_OrdenPedidoDelivery> ListaOrdenesDevueltos()
+        {
+            return dA_OrdenPedidoDelivery.ListaOrdenesDevueltos();
+        } 
     }
 }

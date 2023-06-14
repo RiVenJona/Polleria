@@ -19,6 +19,10 @@ namespace BL_
         {
             return dA_Catalogo.ListaProductos(a);
         }
+        public List<BE_CatalogoProductos> ListaDevoluciones(string a)
+        {
+            return dA_Catalogo.ListaDevoluciones(a);
+        }
         public List<BE_CatalogoProductos> Productos(int a)
         {
             return dA_Catalogo.Productos(a);

@@ -16,6 +16,7 @@ namespace WebPolleria
                 this.txtRol.Value = Session["RolUser"].ToString();
                 if (Session["RolUser"].ToString() == "Recepcionista")
                 {
+                    aDevolDel.Style.Add("display", "none");
                     aGenOrdenSalida.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
                     aPreparar.Style.Add("display", "none");
@@ -45,6 +46,7 @@ namespace WebPolleria
                 }
                 else if (Session["RolUser"].ToString() == "Mozo")
                 {
+                    aDevolDel.Style.Add("display", "none");
                     aGenOrdenSalida.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
                     aPreparar.Style.Add("display", "none");
@@ -61,6 +63,7 @@ namespace WebPolleria
                 }
                 else if (Session["RolUser"].ToString() == "Cajero")
                 {
+                    aDevolDel.Style.Add("display", "none");
                     aGestOrdenDeli.Style.Add("display", "none");
                     aGenOrdenSalida.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
@@ -77,6 +80,7 @@ namespace WebPolleria
                 }
                 else if (Session["RolUser"].ToString() == "Chef")
                 {
+                    aDevolDel.Style.Add("display", "none");
                     aGenOrdenSalida.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");
@@ -93,6 +97,7 @@ namespace WebPolleria
                 }
                 else if (Session["RolUser"].ToString() == "Cliente")
                 {
+                    aDevolDel.Style.Add("display", "none");
                     aGenOrdenSalida.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
                     //aGenOrden.Style.Add("display", "none");
@@ -109,6 +114,7 @@ namespace WebPolleria
                 }
                 else if (Session["RolUser"].ToString() == "Encargado de Almacen")
                 {
+                    aDevolDel.Style.Add("display", "none");
                     aDelivery.Style.Add("display", "none");
                     //aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
@@ -124,6 +130,7 @@ namespace WebPolleria
                 }
                 else if (Session["RolUser"].ToString() == "Repartidor")
                 {
+                    aDevolDel.Style.Add("display", "none");
                     aGenOrdenSalida.Style.Add("display", "none");
                     aDatosInsumo.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
@@ -140,7 +147,7 @@ namespace WebPolleria
                 }
                 else if (Session["RolUser"].ToString() == "Encargado Delivery")
                 {
-
+                    aDevolDel.Style.Add("display", "none");
                     aGenOrdenSalida.Style.Add("display", "none");
                     aGestOrdenDeli.Style.Add("display", "none");
                     aDatosInsumo.Style.Add("display", "none");
