@@ -51,6 +51,7 @@
     <Compile Include="BE_OrdenPedidoDelivery.cs" />
     <Compile Include="BE_OrdenReserva.cs" />
     <Compile Include="BE_Persona.cs" />
+    <Compile Include="BE_PlatosDevueltos.cs" />
     <Compile Include="BE_Trabajador.cs" />
     <Compile Include="BE_Usuario.cs" />
     <Compile Include="BE_CDP.cs" />

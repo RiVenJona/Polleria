@@ -140,6 +140,7 @@
     <Content Include="CobrarOrdenPedido.aspx" />
     <Content Include="PrepararPedido.aspx" />
     <Content Include="GestionarOrdenDelivery.aspx" />
+    <Content Include="DevolucionDelivery.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgregarInsumos.aspx.cs">
@@ -294,6 +295,13 @@
     </Compile>
     <Compile Include="GestionarOrdenDelivery.aspx.designer.cs">
       <DependentUpon>GestionarOrdenDelivery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DevolucionDelivery.aspx.cs">
+      <DependentUpon>DevolucionDelivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevolucionDelivery.aspx.designer.cs">
+      <DependentUpon>DevolucionDelivery.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -17,6 +17,8 @@ namespace BE_
         public string cliente { get; set; }
         public string direccion { get; set; }
 
+        public string fechaPreparacion { get; set; }
+
 
 
     }

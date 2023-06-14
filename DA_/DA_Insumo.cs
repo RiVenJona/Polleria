@@ -228,7 +228,7 @@ namespace DA_
 
             }
         }
-
+        
         public int BuscarIdInsumoxNumInsumo(String n)
         {
             int valor = 0;

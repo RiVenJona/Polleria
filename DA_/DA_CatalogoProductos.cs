@@ -92,6 +92,32 @@ namespace DA_
                 return ListaUsers;
             }
         }
+        public List<BE_CatalogoProductos> ListaDevoluciones(string id)
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+                cn.Open();
+                SqlDataAdapter dt = new SqlDataAdapter();
+                SqlCommand sc;
+                sc = new SqlCommand("SP_ListaDevoluciones", cn);
+                sc.Parameters.AddWithValue("@NumDelivery", id);
+                sc.CommandTimeout = 0;
+                sc.CommandType = CommandType.StoredProcedure;
+                rd = sc.ExecuteReader();
+                BE_CatalogoProductos i;
+                List<BE_CatalogoProductos> ListaDevoluciones = new List<BE_CatalogoProductos>();
+                while (rd.Read())
+                {
+                    i = new BE_CatalogoProductos();
+                    i.idProducto = int.Parse(rd["idProducto"].ToString());
+                    i.desProducto = rd["desProducto"].ToString();
+                    i.cantidadProducto = int.Parse(rd["cantidad"].ToString());
+                    ListaDevoluciones.Add(i);
+                }
+                return ListaDevoluciones;
+            }
+        }
         public List<BE_CatalogoProductos> Productos(int produ)
         {
             SqlDataReader rd = null;

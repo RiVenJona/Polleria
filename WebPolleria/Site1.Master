@@ -29,7 +29,8 @@
                 </div>
             <div>
             <nav>
-                  <a href="~/GeneOrdenCompra.aspx" id="aGenOrdenCompra" runat="server">Generar O. Compra</a>
+                <a href="~/GeneOrdenCompra.aspx" id="aGenOrdenCompra" runat="server">Generar O. Compra</a>
+                <a href="~/DevolucionDelivery.aspx" id="aDevolDel" runat="server">Liberar Devoluciones</a>
                 <a href="~/GenOrdenSalida.aspx" id="aGenOrdenSalida" runat="server">Generar O. Salida</a>
                 <a href="~/AgregarInsumos.aspx" id="aDatosInsumo" runat="server">Datos Insumo</a>
                 <a href="~/GeneSolicitudInsumo.aspx" id="aSolicitudInsumo" runat="server">Solicitud Insumo</a>
