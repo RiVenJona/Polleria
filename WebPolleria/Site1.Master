@@ -30,6 +30,7 @@
             <div>
             <nav>
                 <a href="~/GeneOrdenCompra.aspx" id="aGenOrdenCompra" runat="server">Generar O. Compra</a>
+                <a href="ConciliacionDePagoDelivery.aspx" id="aConciliacion" runat="server">Conciliacion Delivery</a>
                 <a href="~/DevolucionDelivery.aspx" id="aDevolDel" runat="server">Liberar Devoluciones</a>
                 <a href="~/GenOrdenSalida.aspx" id="aGenOrdenSalida" runat="server">Generar O. Salida</a>
                 <a href="~/AgregarInsumos.aspx" id="aDatosInsumo" runat="server">Datos Insumo</a>

@@ -20,7 +20,6 @@ namespace WebPolleria
                     aGenOrdenSalida.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
                     aPreparar.Style.Add("display", "none");
-                    //aGenOrden.Style.Add("display", "none");
                     aOrdenPedido.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");
                     aDelivery.Style.Add("display", "none");
@@ -28,6 +27,7 @@ namespace WebPolleria
                     dOrdenDelivery.Style.Add("display", "none");
                     aGestOrdenDeli.Style.Add("display", "none");
                     aGenOrdenCompra.Style.Add("display", "none");
+                    aConciliacion.Style.Add("display", "none");
                 }
                 else if (Session["RolUser"].ToString() == "Jefe de Cocina")
                 {
@@ -43,6 +43,7 @@ namespace WebPolleria
                     aDatosInsumo.Style.Add("display", "none");
                     aGestOrdenDeli.Style.Add("display", "none");
                     aGenOrdenCompra.Style.Add("display", "none");
+                    aConciliacion.Style.Add("display", "none");
                 }
                 else if (Session["RolUser"].ToString() == "Mozo")
                 {
@@ -50,7 +51,6 @@ namespace WebPolleria
                     aGenOrdenSalida.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
                     aPreparar.Style.Add("display", "none");
-                    //aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
                     aRecepcion.Style.Add("display", "none");
@@ -60,6 +60,7 @@ namespace WebPolleria
                     dOrdenDelivery.Style.Add("display", "none");
                     aGestOrdenDeli.Style.Add("display", "none");
                     aGenOrdenCompra.Style.Add("display", "none");
+                    aConciliacion.Style.Add("display", "none");
                 }
                 else if (Session["RolUser"].ToString() == "Cajero")
                 {
@@ -68,7 +69,6 @@ namespace WebPolleria
                     aGenOrdenSalida.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
                     aPreparar.Style.Add("display", "none");
-                    //aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
                     aRecepcion.Style.Add("display", "none");
@@ -81,10 +81,10 @@ namespace WebPolleria
                 else if (Session["RolUser"].ToString() == "Chef")
                 {
                     aDevolDel.Style.Add("display", "none");
+                    aConciliacion.Style.Add("display", "none");
                     aGenOrdenSalida.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");
-                    //aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
                     aRecepcion.Style.Add("display", "none");
@@ -98,9 +98,9 @@ namespace WebPolleria
                 else if (Session["RolUser"].ToString() == "Cliente")
                 {
                     aDevolDel.Style.Add("display", "none");
+                    aConciliacion.Style.Add("display", "none");
                     aGenOrdenSalida.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
-                    //aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");
@@ -115,8 +115,8 @@ namespace WebPolleria
                 else if (Session["RolUser"].ToString() == "Encargado de Almacen")
                 {
                     aDevolDel.Style.Add("display", "none");
+                    aConciliacion.Style.Add("display", "none");
                     aDelivery.Style.Add("display", "none");
-                    //aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");
@@ -132,11 +132,11 @@ namespace WebPolleria
                 {
                     aDevolDel.Style.Add("display", "none");
                     aGenOrdenSalida.Style.Add("display", "none");
+                    aConciliacion.Style.Add("display", "none");
                     aDatosInsumo.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
                     aPreparar.Style.Add("display", "none");
                     aDelivery.Style.Add("display", "none");
-                    //aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");
@@ -149,12 +149,12 @@ namespace WebPolleria
                 {
                     aDevolDel.Style.Add("display", "none");
                     aGenOrdenSalida.Style.Add("display", "none");
+                    aConciliacion.Style.Add("display", "none");
                     aGestOrdenDeli.Style.Add("display", "none");
                     aDatosInsumo.Style.Add("display", "none");
                     aSolicitudInsumo.Style.Add("display", "none");
                     aPreparar.Style.Add("display", "none");
                     aDelivery.Style.Add("display", "none");
-                    //aGenOrden.Style.Add("display", "none");
                     aRegistrar.Style.Add("display", "none");
                     aAnular.Style.Add("display", "none");
                     aCobrarOrden.Style.Add("display", "none");

@@ -271,3 +271,16 @@ D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\BL_\obj\Debug\BL_.csproj.
 D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\BL_\obj\Debug\BL_.csproj.CopyComplete
 D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\BL_\obj\Debug\BL_.dll
 D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\BL_\obj\Debug\BL_.pdb
+D:\IMPLEMENTACION ANAL\Polleria\BL_\bin\Debug\BL_.dll
+D:\IMPLEMENTACION ANAL\Polleria\BL_\bin\Debug\BL_.pdb
+D:\IMPLEMENTACION ANAL\Polleria\BL_\bin\Debug\BE_.dll
+D:\IMPLEMENTACION ANAL\Polleria\BL_\bin\Debug\DA_.dll
+D:\IMPLEMENTACION ANAL\Polleria\BL_\bin\Debug\Util_.dll
+D:\IMPLEMENTACION ANAL\Polleria\BL_\bin\Debug\BE_.pdb
+D:\IMPLEMENTACION ANAL\Polleria\BL_\bin\Debug\DA_.pdb
+D:\IMPLEMENTACION ANAL\Polleria\BL_\bin\Debug\Util_.pdb
+D:\IMPLEMENTACION ANAL\Polleria\BL_\obj\Debug\BL_.csproj.AssemblyReference.cache
+D:\IMPLEMENTACION ANAL\Polleria\BL_\obj\Debug\BL_.csproj.CoreCompileInputs.cache
+D:\IMPLEMENTACION ANAL\Polleria\BL_\obj\Debug\BL_.csproj.CopyComplete
+D:\IMPLEMENTACION ANAL\Polleria\BL_\obj\Debug\BL_.dll
+D:\IMPLEMENTACION ANAL\Polleria\BL_\obj\Debug\BL_.pdb

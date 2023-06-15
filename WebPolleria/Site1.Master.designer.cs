@@ -42,6 +42,15 @@ namespace WebPolleria
         protected global::System.Web.UI.HtmlControls.HtmlAnchor aGenOrdenCompra;
 
         /// <summary>
+        /// Control aConciliacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor aConciliacion;
+
+        /// <summary>
         /// Control aDevolDel.
         /// </summary>
         /// <remarks>

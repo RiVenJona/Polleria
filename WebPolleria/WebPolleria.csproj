@@ -82,7 +82,9 @@
     <Content Include="AgregarInsumos.aspx" />
     <Content Include="AnularReserva.aspx" />
     <Content Include="CambiarPass.aspx" />
+    <Content Include="ConciliacionDePagoDelivery.aspx" />
     <Content Include="estilos\CobrarOrdenPedido.css" />
+    <Content Include="estilos\Conciliacion.css" />
     <Content Include="estilos\DatosInsumos.css" />
     <Content Include="estilos\GenOrdenCompra.css" />
     <Content Include="estilos\GenSoliInsumo.css" />
@@ -163,6 +165,13 @@
     </Compile>
     <Compile Include="CambiarPass.aspx.designer.cs">
       <DependentUpon>CambiarPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConciliacionDePagoDelivery.aspx.cs">
+      <DependentUpon>ConciliacionDePagoDelivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConciliacionDePagoDelivery.aspx.designer.cs">
+      <DependentUpon>ConciliacionDePagoDelivery.aspx</DependentUpon>
     </Compile>
     <Compile Include="GeneOrdenCompra.aspx.cs">
       <DependentUpon>GeneOrdenCompra.aspx</DependentUpon>

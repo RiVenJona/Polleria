@@ -112,3 +112,9 @@ D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\BE_\obj\Debug\BE_.csproj.
 D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
 D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\BE_\obj\Debug\BE_.dll
 D:\IMPLEMENTACION - 1304\IMPLEMENTACION 01-06\Polleria\BE_\obj\Debug\BE_.pdb
+D:\IMPLEMENTACION ANAL\Polleria\BE_\bin\Debug\BE_.dll
+D:\IMPLEMENTACION ANAL\Polleria\BE_\bin\Debug\BE_.pdb
+D:\IMPLEMENTACION ANAL\Polleria\BE_\obj\Debug\BE_.csproj.AssemblyReference.cache
+D:\IMPLEMENTACION ANAL\Polleria\BE_\obj\Debug\BE_.csproj.CoreCompileInputs.cache
+D:\IMPLEMENTACION ANAL\Polleria\BE_\obj\Debug\BE_.dll
+D:\IMPLEMENTACION ANAL\Polleria\BE_\obj\Debug\BE_.pdb
