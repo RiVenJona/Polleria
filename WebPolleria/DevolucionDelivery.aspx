@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<link rel="stylesheet" type="text/css" href="/estilos/GestionarOrdenDelivery.css" />
+    <link rel="stylesheet" type="text/css" href="/estilos/GestionarOrdenDelivery.css" />
     <div class="page-container">
     <br />
     <h3>PEDIDOS DELIVERY DEVUELTOS:</h3>
