@@ -84,6 +84,19 @@ namespace DA_
                 return -1;
             }
         }
+        public string SolicitudActual()
+        {
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                
+            {
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("select top 1 NumSolInsumo from SolInsumo order by 1 desc", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.Text;
+                string valor = cmd.ExecuteScalar().ToString();
+                return valor;
+            }
+        }
         public List<BE_Insumo> ListaInsumoOC(string id)
         {
             SqlDataReader rd = null;
@@ -202,7 +215,7 @@ namespace DA_
 
             }
         }
-        /*----------------------------------*/
+        
         public bool GenerarSolicitudInsumo(DateTime FechaProgramada,int Trabajador)
         {
             try

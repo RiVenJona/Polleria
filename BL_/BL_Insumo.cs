@@ -35,6 +35,10 @@ namespace BL_
         {
             return dA_Insumo.ListaProdCata();
         }
+        public List<BE_Insumo> ListaSolicitudHoy()
+        {
+            return dA_Insumo.ListaSolicitudHoy();
+        }
         public List<BE_Insumo> ListaInsumosxNombre(String n)
         {
             return dA_Insumo.ListaInsumosxNombre(n);

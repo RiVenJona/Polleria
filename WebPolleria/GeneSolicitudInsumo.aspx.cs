@@ -28,6 +28,7 @@ namespace WebPolleria
             {
 
             }
+
             if (!Page.IsPostBack)
             {
                 BL_Trabajador TR = new BL_Trabajador();
@@ -331,22 +332,22 @@ namespace WebPolleria
 
             }
             for (int i = 1; i <= 7; i++)
-            { 
-            if (OI.GenerarSolicitudInsumoDia(i))
             {
-
-            }
-            }
-                for (int i = 0; i < Grv1.Rows.Count; i++)
+                if (OI.GenerarSolicitudInsumoDia(i))
                 {
-                    GridViewRow row = Grv1.Rows[i];
-                    int idProducto = int.Parse(row.Cells[0].Text);
-                    int Cantidad = int.Parse(row.Cells[2].Text);
 
-                    if (OI.GenerarSolicitudInsumoDiaDet(1,idProducto, Cantidad))
-                    {
-                    }
                 }
+            }
+            for (int i = 0; i < Grv1.Rows.Count; i++)
+            {
+                GridViewRow row = Grv1.Rows[i];
+                int idProducto = int.Parse(row.Cells[0].Text);
+                int Cantidad = int.Parse(row.Cells[2].Text);
+
+                if (OI.GenerarSolicitudInsumoDiaDet(2, idProducto, Cantidad))
+                {
+                }
+            }
 
             for (int i = 0; i < Grv2.Rows.Count; i++)
             {
@@ -354,7 +355,7 @@ namespace WebPolleria
                 int idProducto1 = int.Parse(row1.Cells[0].Text);
                 int Cantidad1 = int.Parse(row1.Cells[2].Text);
 
-                if (OI.GenerarSolicitudInsumoDiaDet(2, idProducto1, Cantidad1))
+                if (OI.GenerarSolicitudInsumoDiaDet(3, idProducto1, Cantidad1))
                 {
                 }
             }
@@ -365,7 +366,7 @@ namespace WebPolleria
                 int idProducto2 = int.Parse(row2.Cells[0].Text);
                 int Cantidad2 = int.Parse(row2.Cells[2].Text);
 
-                if (OI.GenerarSolicitudInsumoDiaDet(3, idProducto2, Cantidad2))
+                if (OI.GenerarSolicitudInsumoDiaDet(4, idProducto2, Cantidad2))
                 {
                 }
             }
@@ -376,7 +377,7 @@ namespace WebPolleria
                 int idProducto3 = int.Parse(row3.Cells[0].Text);
                 int Cantidad3 = int.Parse(row3.Cells[2].Text);
 
-                if (OI.GenerarSolicitudInsumoDiaDet(4, idProducto3, Cantidad3))
+                if (OI.GenerarSolicitudInsumoDiaDet(5, idProducto3, Cantidad3))
                 {
                 }
             }
@@ -387,7 +388,7 @@ namespace WebPolleria
                 int idProducto4 = int.Parse(row4.Cells[0].Text);
                 int Cantidad4 = int.Parse(row4.Cells[2].Text);
 
-                if (OI.GenerarSolicitudInsumoDiaDet(5, idProducto4, Cantidad4))
+                if (OI.GenerarSolicitudInsumoDiaDet(6, idProducto4, Cantidad4))
                 {
                 }
             }
@@ -398,7 +399,7 @@ namespace WebPolleria
                 int idProducto5 = int.Parse(row5.Cells[0].Text);
                 int Cantidad5 = int.Parse(row5.Cells[2].Text);
 
-                if (OI.GenerarSolicitudInsumoDiaDet(6, idProducto5, Cantidad5))
+                if (OI.GenerarSolicitudInsumoDiaDet(7, idProducto5, Cantidad5))
                 {
                 }
             }
@@ -409,7 +410,7 @@ namespace WebPolleria
                 int idProducto6 = int.Parse(row6.Cells[0].Text);
                 int Cantidad6 = int.Parse(row6.Cells[2].Text);
 
-                if (OI.GenerarSolicitudInsumoDiaDet(7, idProducto6, Cantidad6))
+                if (OI.GenerarSolicitudInsumoDiaDet(1, idProducto6, Cantidad6))
                 {
                 }
             }

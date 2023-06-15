@@ -60,6 +60,10 @@ namespace BL_
         {
             return dA_OrdenInsumo.ValidacionInsumo();
         }
+        public string SolicitudActual()
+        {
+            return dA_OrdenInsumo.SolicitudActual();
+        }
         public bool CancelarSoliInsumo()
         {
             return dA_OrdenInsumo.CancelarSoliInsumo();

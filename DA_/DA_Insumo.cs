@@ -12,6 +12,32 @@ namespace DA_
 {
     public class DA_Insumo
     {
+        public List<BE_Insumo> ListaSolicitudHoy()
+        {
+            SqlDataReader rd = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+            {
+
+                cn.Open();
+                SqlCommand cmd = new SqlCommand("SP_ListaSolicitudHoy", cn);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                rd = cmd.ExecuteReader();
+                BE_Insumo op;
+                List<BE_Insumo> listaSolicitudHoy = new List<BE_Insumo>();
+                while (rd.Read())
+                {
+                    op = new BE_Insumo();
+                    op.IdInsumo = int.Parse(rd["IdInsumo"].ToString());
+                    op.DesIns = rd["DesIns"].ToString();
+                    op.Unidad = rd["unidad"].ToString();
+                    op.Cantidad = int.Parse(rd["cantidad"].ToString());
+                    listaSolicitudHoy.Add(op);
+                }
+                return listaSolicitudHoy;
+
+            }
+        }
         public string NumActualOrdenInsumo()
         {
             string valor = "";
