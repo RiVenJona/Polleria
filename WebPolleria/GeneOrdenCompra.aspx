@@ -8,12 +8,20 @@
         <div class="tituloCus">
             <asp:Label ID="Label4" runat="server" Text="Orden de Compra" Font-Bold="True" Font-Size="Larger"></asp:Label>
         </div>
+        <div>
+    <asp:Label ID="Label1" runat="server" style="position:relative; float: left; top: 0px; left: 0px;margin-left:20px;" Text="Fecha: " class="Fuente1"></asp:Label>
+    <asp:TextBox ID="TxtFecha" TextMode="Date"  style="position:relative; float: left; top: 0px; left: 0px;margin-left:10px;" runat="server"></asp:TextBox>
+    
+    <asp:TextBox ID="TxtEAlmacen" style="position:relative; float: right; top: 0px; left: 0px; margin-left:10px;margin-right:20px;" runat="server"></asp:TextBox>
+    <asp:Label ID="Label2" runat="server"  style="position:relative; float: right; top: 0px; left: 0px;" Text="Encargado de Almacen: " class="Fuente1"></asp:Label> 
+    </div>
         <div id="Solicitudes" runat="server">
+        <br />
             <h3 class="Seccion">Solicitudes</h3>
            <asp:GridView ID="GvSolicitudes" runat="server" AutoGenerateColumns="False" HorizontalAlign="Center" EmptyDataText="No hay solicitudes disponibles" OnSelectedIndexChanged="GvSolicitudes_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
     <AlternatingRowStyle BackColor="White" />
     <Columns>
-        <asp:BoundField DataField="numOrdenSalida" HeaderText="Id Solicitud" ItemStyle-HorizontalAlign="Center" />
+        <asp:BoundField DataField="NumSolInsumo" HeaderText="Id Solicitud" ItemStyle-HorizontalAlign="Center" />
         <asp:BoundField DataField="FechaSolicitudes" HeaderText="Fecha" ItemStyle-HorizontalAlign="Center" />
         <asp:CommandField HeaderText="SELECCIONAR" SelectText="SELECCIONAR" ShowSelectButton="True" ItemStyle-HorizontalAlign="Center" />
     </Columns>
@@ -36,9 +44,10 @@
                 <AlternatingRowStyle BackColor="PaleGoldenrod" />
                 <Columns>
                                     <asp:BoundField DataField="NumInsumo" HeaderText="ID INSUMO"  ItemStyle-HorizontalAlign="Center"/>
+                                    <asp:BoundField DataField="Categoria" HeaderText="CATEGORIA"  ItemStyle-HorizontalAlign="Center"/>
                                     <asp:BoundField DataField="DesIns" HeaderText="DESCRIPCIÓN"  ItemStyle-HorizontalAlign="Center"/>
-                                    <asp:BoundField DataField="Unidad" HeaderText="UNIDAD" ItemStyle-HorizontalAlign="Center" />
                                     <asp:BoundField DataField="Cantidad" HeaderText="CANT. SOLICITADA" ItemStyle-HorizontalAlign="Center" />
+                                    <asp:BoundField DataField="Unidad" HeaderText="UNIDAD" ItemStyle-HorizontalAlign="Center" />
                                 </Columns>
                 <FooterStyle BackColor="Tan" />
                 <HeaderStyle BackColor="Tan" Font-Bold="True" />

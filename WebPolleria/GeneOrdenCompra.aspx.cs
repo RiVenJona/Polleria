@@ -15,6 +15,8 @@ namespace WebPolleria
         {
             if (!Page.IsPostBack)
             {
+                BL_Trabajador TR = new BL_Trabajador();
+                TxtEAlmacen.Text = TR.BuscarNombreTrabajador(Session["usuario"].ToString());
                 CargarSolis();
             }
         }

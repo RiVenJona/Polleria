@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="GeneSolicitudInsumo.aspx.cs" Inherits="WebPolleria.GeneOrdenCompra" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        #Mensage {
+            width: 358px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" type="text/css" href="/estilos/GenSoliInsumo.css" />
@@ -9,12 +14,13 @@
         </div>
     </section>
     <div class="General">
+        <div id="Planificacion" runat="server">
     <div>
     <asp:Label ID="Label1" runat="server" style="position:relative; float: left; top: 0px; left: 0px;margin-left:20px;" Text="Fecha de solicitud: " class="Fuente1"></asp:Label>
     <asp:TextBox ID="TxtFecha" TextMode="Date"  style="position:relative; float: left; top: 0px; left: 0px;margin-left:10px;" runat="server"></asp:TextBox>
-
+    
     <asp:TextBox ID="TxtEAlmacen" style="position:relative; float: right; top: 0px; left: 0px; margin-left:10px;margin-right:20px;" runat="server"></asp:TextBox>
-    <asp:Label ID="Label2" runat="server"  style="position:relative; float: right; top: 0px; left: 0px;" Text="Encargado de Almacen: " class="Fuente1"></asp:Label> 
+    <asp:Label ID="Label2" runat="server" CssClass="Fuente1"  style="position:relative; float: right; top: 0px; left: 0px;" Text="Jefe de Cocina: " class="Fuente1"></asp:Label> 
     </div>
     <br />
     <div class="tab-buttons">
@@ -30,6 +36,8 @@
      <asp:View runat="server" ID="ViewTab1">
          <div class="Contenedor">
          <div>
+         <fieldset>
+             <legend class="Fuente1">Agregar Platos</legend>
          <asp:Label ID="Label3" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
          <asp:DropDownList ID="Dp1" runat="server" style="margin-left: 18px">
               <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
@@ -44,9 +52,12 @@
          <br />
          <asp:Label ID="Label5" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
          <asp:TextBox ID="txtCantidad1" runat="server"></asp:TextBox>
-          </div>
+           </fieldset>
+             </div>
              <br />
          <div>
+         <fieldset>
+             <legend class="Fuente1">Lista de Planificacion</legend>
          <asp:GridView ID="Grv1" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
              <Columns>
                  <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
@@ -69,6 +80,7 @@
              <SortedDescendingCellStyle BackColor="#F1E5CE" />
              <SortedDescendingHeaderStyle BackColor="#93451F" />
          </asp:GridView>
+             </fieldset>
              </div>
          </div>
      </asp:View>
@@ -76,6 +88,8 @@
      <asp:View runat="server" ID="ViewTab2">
 <div class="Contenedor">
          <div>
+             <fieldset>
+             <legend class="Fuente1">Agregar Platos</legend>
          <asp:Label ID="Label6" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
          <asp:DropDownList ID="Dp2" runat="server" style="margin-left: 18px">
               <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
@@ -90,9 +104,12 @@
          <br />
          <asp:Label ID="Label7" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
          <asp:TextBox ID="TxtCantidad2" runat="server"></asp:TextBox>
+                 </fieldset>
           </div>
              <br />
          <div>
+             <fieldset>
+             <legend class="Fuente1">Lista de Planificacion</legend>
          <asp:GridView ID="Grv2" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
              <Columns>
                  <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
@@ -115,6 +132,7 @@
              <SortedDescendingCellStyle BackColor="#F1E5CE" />
              <SortedDescendingHeaderStyle BackColor="#93451F" />
          </asp:GridView>
+                 </fieldset>
              </div>
          </div>
      </asp:View>
@@ -122,6 +140,8 @@
      <asp:View runat="server" ID="ViewTab3">
          <div class="Contenedor">
          <div>
+             <fieldset>
+             <legend class="Fuente1">Agregar Platos</legend>
          <asp:Label ID="Label8" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
          <asp:DropDownList ID="Dp3" runat="server" style="margin-left: 18px">
               <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
@@ -136,9 +156,12 @@
          <br />
          <asp:Label ID="Label9" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
          <asp:TextBox ID="TxtCantidad3" runat="server"></asp:TextBox>
+                 </fieldset>
           </div>
              <br />
          <div>
+             <fieldset>
+             <legend class="Fuente1">Lista de Planificacion</legend>
          <asp:GridView ID="Grv3" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
              <Columns>
                  <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
@@ -161,6 +184,7 @@
              <SortedDescendingCellStyle BackColor="#F1E5CE" />
              <SortedDescendingHeaderStyle BackColor="#93451F" />
          </asp:GridView>
+                 </fieldset>
              </div>
          </div>
      </asp:View>
@@ -168,6 +192,8 @@
      <asp:View runat="server" ID="ViewTab4">
          <div class="Contenedor">
          <div>
+             <fieldset>
+             <legend class="Fuente1">Agregar Platos</legend>
          <asp:Label ID="Label10" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
          <asp:DropDownList ID="Dp4" runat="server" style="margin-left: 18px">
               <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
@@ -182,9 +208,12 @@
          <br />
          <asp:Label ID="Label11" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
          <asp:TextBox ID="TxtCantidad4" runat="server"></asp:TextBox>
+                 </fieldset>
           </div>
              <br />
          <div>
+             <fieldset>
+             <legend class="Fuente1">Lista de Planificacion</legend>
          <asp:GridView ID="Grv4" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
              <Columns>
                  <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
@@ -207,6 +236,7 @@
              <SortedDescendingCellStyle BackColor="#F1E5CE" />
              <SortedDescendingHeaderStyle BackColor="#93451F" />
          </asp:GridView>
+                 </fieldset>
              </div>
          </div>
      </asp:View>
@@ -214,6 +244,8 @@
      <asp:View runat="server" ID="ViewTab5">
 <div class="Contenedor">
          <div>
+             <fieldset>
+             <legend class="Fuente1">Agregar Platos</legend>
          <asp:Label ID="Label12" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
          <asp:DropDownList ID="Dp5" runat="server" style="margin-left: 18px">
               <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
@@ -228,9 +260,12 @@
          <br />
          <asp:Label ID="Label13" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
          <asp:TextBox ID="TxtCantidad5" runat="server"></asp:TextBox>
+                 </fieldset>
           </div>
              <br />
          <div>
+             <fieldset>
+             <legend class="Fuente1">Lista de Planificacion</legend>
          <asp:GridView ID="Grv5" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
              <Columns>
                  <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
@@ -253,6 +288,7 @@
              <SortedDescendingCellStyle BackColor="#F1E5CE" />
              <SortedDescendingHeaderStyle BackColor="#93451F" />
          </asp:GridView>
+                 </fieldset>
              </div>
          </div>
      </asp:View>
@@ -260,6 +296,8 @@
      <asp:View runat="server" ID="ViewTab6">
          <div class="Contenedor">
          <div>
+             <fieldset>
+             <legend class="Fuente1">Agregar Platos</legend>
          <asp:Label ID="Label14" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
          <asp:DropDownList ID="Dp6" runat="server" style="margin-left: 18px">
               <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
@@ -274,9 +312,12 @@
          <br />
          <asp:Label ID="Label15" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
          <asp:TextBox ID="TxtCantidad6" runat="server"></asp:TextBox>
+                 </fieldset>
           </div>
              <br />
          <div>
+             <fieldset>
+             <legend class="Fuente1">Lista de Planificacion</legend>
          <asp:GridView ID="Grv6" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
              <Columns>
                  <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
@@ -299,6 +340,7 @@
              <SortedDescendingCellStyle BackColor="#F1E5CE" />
              <SortedDescendingHeaderStyle BackColor="#93451F" />
          </asp:GridView>
+                 </fieldset>
              </div>
          </div>
      </asp:View>
@@ -306,6 +348,8 @@
      <asp:View runat="server" ID="ViewTab7">
          <div class="Contenedor">
          <div>
+             <fieldset>
+             <legend class="Fuente1">Agregar Platos</legend>
          <asp:Label ID="Label16" runat="server" style="margin-left: 18px" class="Fuente1" Text="Productos de la carta:"></asp:Label>
          <asp:DropDownList ID="Dp7" runat="server" style="margin-left: 18px">
               <asp:ListItem Selected="True" Text="SELECCIONAR PRODUCTO" Value="0"></asp:ListItem>
@@ -320,9 +364,12 @@
          <br />
          <asp:Label ID="Label17" runat="server" style="margin-left: 18px" class="Fuente1" Text="Cantidad Planeada:"></asp:Label>
          <asp:TextBox ID="TxtCantidad7" runat="server"></asp:TextBox>
+                 </fieldset>
           </div>
              <br />
          <div>
+             <fieldset>
+             <legend class="Fuente1">Lista de Planificacion</legend>
          <asp:GridView ID="Grv7" runat="server" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="3" BorderStyle="None" CellSpacing="2">
              <Columns>
                  <asp:BoundField DataField="idProducto" HeaderText="NumProducto" ItemStyle-HorizontalAlign="Center" />
@@ -345,6 +392,7 @@
              <SortedDescendingCellStyle BackColor="#F1E5CE" />
              <SortedDescendingHeaderStyle BackColor="#93451F" />
          </asp:GridView>
+                 </fieldset>
              </div>
          </div>
      </asp:View>
@@ -353,10 +401,24 @@
 
         <div class="Contenedor">
         <div id="Botones">
-    <asp:Button ID="BtnSalir" runat="server" Text="Salir" OnClick="BtnSalir_Click" />
+    <asp:Button ID="BtnSalir" runat="server" Text="Salir" OnClick="BtnSalir_Click" style="height: 26px" />
     <asp:Button ID="BtnGenerar" runat="server" style="margin-left: 18px" Text="Generar" OnClick="BtnGenerar_Click"/>
             </div>
             </div>
         <br />
+        </div>
+    </div>
+    <div class="Contenedor">
+    <div class="Contenedor1">
+    <div id="Mensage" runat="server">
+        <h4>¿Quisiera cancelar la solicitud ya generada?</h4>
+        <div class="Contenedor">
+        <div>
+        <asp:Button ID="BtnSalir1" runat="server" Text="Salir" OnClick="BtnSalir1_Click" />
+        <asp:Button ID="BtnCancelar" runat="server" Text="Cancelar" style="margin-left: 18px" OnClick="BtnCancelar_Click"/>
+            </div>
+            </div>
+        </div>
+        </div>
     </div>
 </asp:Content>

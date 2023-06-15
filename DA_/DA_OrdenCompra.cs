@@ -139,7 +139,7 @@ namespace DA_
             {
 
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("select numSolicitudCompra,CONVERT(varchar,GETDATE(),23) as FechaSolicitudes from SolicitudCompra where idEstado=9", cn);
+                SqlCommand cmd = new SqlCommand("Select NumSolInsumo,FechaSoli from SolInsumo where EstadoSoli=9", cn);
                 cmd.CommandTimeout = 0;
                 cmd.CommandType = CommandType.Text;
                 rd = cmd.ExecuteReader();
@@ -148,8 +148,8 @@ namespace DA_
                 while (rd.Read())
                 {
                     op = new BE_OrdenCompra();
-                    op.numOrdenSalida = rd["numSolicitudCompra"].ToString();
-                    op.FechaSolicitudes = rd["FechaSolicitudes"].ToString();
+                    op.NumSolInsumo = rd["NumSolInsumo"].ToString();
+                    op.FechaSolicitudes = rd["FechaSoli"].ToString();
                     ListaSolicitudes.Add(op);
                 }
                 return ListaSolicitudes;

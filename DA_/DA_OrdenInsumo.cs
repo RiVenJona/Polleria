@@ -63,7 +63,27 @@ namespace DA_
                 return ListaInsumosDispo;
             }
         }
-
+        public int ValidacionInsumo()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlCommand cmd = new SqlCommand("[dbo].[ValidacionSolInsu]", cn);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    var val = cmd.ExecuteScalar();
+                    if (int.Parse(val.ToString()) != 0)
+                    { return int.Parse(val.ToString()); }
+                    else { return 0; }
+                }
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
         public List<BE_Insumo> ListaInsumoOC(string id)
         {
             SqlDataReader rd = null;
@@ -82,9 +102,10 @@ namespace DA_
                 {
                     op = new BE_Insumo();
                     op.NumInsumo = rd["NumInsumo"].ToString();
+                    op.Categoria= rd["DesCateg"].ToString();
                     op.DesIns = rd["DesIns"].ToString();
+                    op.Cantidad = int.Parse(rd["CanTidad Requerida"].ToString());
                     op.Unidad = rd["Unidad"].ToString();
-                    op.Cantidad = int.Parse(rd["cantidad"].ToString());
                     ListaInsumosSalida.Add(op);
                 }
                 return ListaInsumosSalida;
@@ -240,6 +261,27 @@ namespace DA_
                     sc.Parameters.AddWithValue("@Dia", Dia);
                     sc.Parameters.AddWithValue("@Producto", Producto);
                     sc.Parameters.AddWithValue("@Cantidad", Cantidad);
+                    sc.CommandTimeout = 0;
+                    sc.CommandType = CommandType.StoredProcedure;
+                    var anul = sc.ExecuteScalar();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool CancelarSoliInsumo()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(Conexion.Obtener()))
+                {
+                    cn.Open();
+                    SqlDataAdapter dt = new SqlDataAdapter();
+                    SqlCommand sc;
+                    sc = new SqlCommand("[dbo].[CancelarSoli]", cn);
                     sc.CommandTimeout = 0;
                     sc.CommandType = CommandType.StoredProcedure;
                     var anul = sc.ExecuteScalar();

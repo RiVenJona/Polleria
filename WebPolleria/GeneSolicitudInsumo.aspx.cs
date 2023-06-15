@@ -17,7 +17,17 @@ namespace WebPolleria
         List<BE_CatalogoProductos> listaFilas = new List<BE_CatalogoProductos>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            BL_OrdenInsumo OI = new BL_OrdenInsumo();
+            Mensage.Visible = false;
+            if (OI.ValidacionInsumo() != 0)
+            {
+                Mensage.Visible = true;
+                Planificacion.Visible = false;
+            }
+            else
+            {
 
+            }
             if (!Page.IsPostBack)
             {
                 BL_Trabajador TR = new BL_Trabajador();
@@ -404,6 +414,23 @@ namespace WebPolleria
                 }
             }
             Message("Se genero la solicitud de insumos correctamente");
+        }
+
+        protected void BtnSalir1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/MainMenu.aspx", true);
+        }
+
+        protected void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            BL_OrdenInsumo OI = new BL_OrdenInsumo();
+            if (OI.CancelarSoliInsumo())
+            {
+
+            }
+            Message("Se cancelo la solicitud correctamente");
+            Mensage.Visible = false;
+            Planificacion.Visible = true;
         }
     }
 }

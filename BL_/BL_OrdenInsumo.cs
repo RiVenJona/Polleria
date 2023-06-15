@@ -56,5 +56,13 @@ namespace BL_
         {
             return dA_OrdenInsumo.GenerarSolicitudInsumoDiaDet(a,b,c);
         }
+        public int ValidacionInsumo()
+        {
+            return dA_OrdenInsumo.ValidacionInsumo();
+        }
+        public bool CancelarSoliInsumo()
+        {
+            return dA_OrdenInsumo.CancelarSoliInsumo();
+        }
     }
 }

@@ -6,6 +6,11 @@
     margin: 10px 0;
 }
 
+.Fuente1 {
+    font-weight: bold;
+    color: white;
+}
+
 .Seccion {
     color: white;
     display: flex;
