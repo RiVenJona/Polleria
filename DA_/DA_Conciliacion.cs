@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Util_;
+using System.Security.Cryptography;
 
 namespace DA_
 {
@@ -67,6 +68,14 @@ namespace DA_
                     beOP.vuelto = double.Parse(reader["Vuelto"].ToString());
                     beOP.recaudacion = double.Parse(reader["Recaudacion"].ToString());
                     beOP.estadoPedido = reader["DescEstado"].ToString();
+                    if (beOP.estadoPedido == "ENTREGADO")
+                    {
+                        beOP.recaudacion = double.Parse(reader["Recaudacion"].ToString());
+                    }
+                    else
+                    {
+                        beOP.recaudacion = beOP.vuelto;
+                    }
                     ListDetalles.Add(beOP);
                 }
                 return ListDetalles;

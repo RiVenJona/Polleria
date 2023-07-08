@@ -6,11 +6,12 @@
     background-position: center center;
     padding: 10px;
     border-radius: 15px;
-    margin:10px;
+    margin: 10px;
 }
-h4{
-    padding:15px;
-    margin:0;
+
+h4 {
+    padding: 15px;
+    margin: 0;
 }
 
 button {
@@ -22,52 +23,59 @@ button {
     border: .2px solid black;
     margin-bottom: 10px;
 }
-.btnRefresh{
-    height:35px;
-    border-radius:15px;
-    font-size:18px;
-    border:none;
+
+.btnRefresh {
+    height: 35px;
+    border-radius: 15px;
+    font-size: 18px;
+    border: none;
 }
-.btnAsignar{
-    border:none;
-    padding:6px;
-    border-radius:15px;
+
+.btnAsignar {
+    border: none;
+    padding: 6px;
+    border-radius: 15px;
 }
-.btnAsignar:hover{
-    background:grey;
-}
-.btnRefresh:hover{
-    background:grey;
+
+    .btnAsignar:hover {
+        background: grey;
+    }
+
+.btnRefresh:hover {
+    background: grey;
 }
 
 .containerText {
     background: #ff00003b;
     display: inline-flex;
-    flex-direction:row;
+    flex-direction: row;
     border-radius: 15px;
-    width:16vw;
-    height:10vh;
-    align-items:center;
+    width: 16vw;
+    height: 10vh;
+    align-items: center;
 }
+
 .txtCantidad {
     color: white;
     font-family: 'Open Sans', sans-serif;
-    font-size:1.5em;
-    font-weight:bold;
+    font-size: 1.5em;
+    font-weight: bold;
 }
-.btnTablaPedido{
-    border:none;
-    border-radius:15;
+
+.btnTablaPedido {
+    border: none;
+    border-radius: 15;
 }
-.containerText h5{
-    padding:10px;
-    margin:0px;
+
+.containerText h5 {
+    padding: 10px;
+    margin: 0px;
 }
 
 h5 {
     font-size: 1.5em;
     padding: 5px 10px;
-    color:white;
+    color: white;
 }
 
 fieldset {
@@ -76,6 +84,7 @@ fieldset {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius:16px;
 }
 
 legend {
@@ -88,7 +97,7 @@ legend {
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    color:white;
+    color: white;
 }
 
 table {
@@ -107,15 +116,14 @@ table, th, td {
     display: flex;
     justify-content: space-around;
     padding: 0;
-
-    align-items:center;
-    background:rgba(255,255,255,.3);
-    border-radius:15px;
+    align-items: center;
+    background: rgba(255,255,255,.3);
+    border-radius: 15px;
 }
 
 .Titulo {
     font-size: 2em;
-    color:white;
+    color: white;
 }
 
 button i {
@@ -131,9 +139,9 @@ button i {
     color: rgb(0, 255, 0);
 }
 
-.Modal-Container{
-    position:absolute;
-    margin:100px;
+.Modal-Container {
+    position: absolute;
+    margin: 100px;
 }
 
 @media (max-width:500px) {

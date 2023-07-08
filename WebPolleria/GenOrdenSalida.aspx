@@ -29,6 +29,6 @@
             </asp:Panel>
         </asp:Panel>
     <asp:Button CssClass="button" Style="background-color: #FF0000; position: absolute; float: left; margin-left: 44px;margin-top: 10px;" ID="btnSalir" runat="server" Text="SALIR" OnClick="btnSalir_Click"/>
-    <asp:Button CssClass="button" style="background-color: #4CAF50; position:relative; float: right; margin-right: 44px; margin-top: 10px; top: 0px; left: 0px;" ID="btnGenerar" runat="server" Text="GENERAR" OnClick="btnGenerar_Click"/>
+    <asp:Button CssClass="button" style="background-color: #4CAF50; position:relative; float: right; margin-right: 44px; margin-top: 10px; top: 0px; left: 0px;" ID="btnGenerar" runat="server" Text="EGRESAR" OnClick="btnGenerar_Click"/>
     </div>
 </asp:Content>

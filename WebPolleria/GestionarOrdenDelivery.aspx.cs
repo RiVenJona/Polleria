@@ -56,16 +56,16 @@ namespace WebPolleria
 
         }
 
-        protected double RecaudacionTotal()
-        {
-            double totRecaudacion = 0;
-            for (int i = 0; i < GvOrdenes.Rows.Count; i++)
+            protected double RecaudacionTotal()
             {
-                GridViewRow row = GvOrdenes.Rows[i];
-                totRecaudacion = totRecaudacion + double.Parse(row.Cells[3].Text);
+                double totRecaudacion = 0;
+                for (int i = 0; i < GvOrdenes.Rows.Count; i++)
+                {
+                    GridViewRow row = GvOrdenes.Rows[i];
+                    totRecaudacion = totRecaudacion + double.Parse(row.Cells[3].Text);
+                }
+                return totRecaudacion;
             }
-            return totRecaudacion;
-        }
 
         protected void RblEstado_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ConciliacionDePagoDelivery.aspx.cs" Inherits="WebPolleria.ConciliacionDePagoDelivery" %>
+﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ConciliacionDePagoDelivery.aspx.cs" Inherits="WebPolleria.ConciliacionDePagoDelivery" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="estilos/Conciliacion.css">
 </asp:Content>
@@ -8,7 +8,7 @@
             <h3>Conciliacion de Pago Delivery</h3>
             <div class="datosCajera">
                 <p>Cajera</p>
-                <input type="text" placeholder="Nombre Cajera" disabled="disabled">
+                <input type="text" placeholder="Nombre Cajera" disabled="disabled" id="Nombre" runat="server">
             </div>
         </section>
         <section class="ListaRepartidores">
@@ -44,7 +44,7 @@
         <section class="Cash">
             <div class="cashDatos">
                 <p>Monto Recibido</p>
-            <input type="text" placeholder="Aqui Dinero" disabled="disabled">
+            <input type="text" placeholder="Aqui Dinero" disabled="disabled" id="monto" runat="server">
             </div>
         </section>
         <section class="actionBtn">

@@ -8,8 +8,8 @@
         <h3>VER ESTADO DE PEDIDOS:</h3>
         <asp:Panel ID="Panel6" runat="server" CssClass="panelExterior2">
             <asp:DropDownList ID="ddlTipo" runat="server" AutoPostBack="true">
-                <asp:ListItem Text="PRESENCIAL" Value="1" Selected="True" />
-                <asp:ListItem Text="DELIVERY" Value="2" />
+                <asp:ListItem Text="PRESENCIAL" Value="1" />
+                <asp:ListItem Text="DELIVERY" Value="2" Selected="True" />
             </asp:DropDownList>
             <asp:Panel ID="Panel7" runat="server" CssClass="panelInterior" Width="1100px">
                 <asp:GridView ID="GvEsperando" runat="server" AutoGenerateColumns="False" EmptyDataText="No hay datos disponibles" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GvEsperando_SelectedIndexChanged">

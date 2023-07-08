@@ -1,4 +1,4 @@
-﻿using BL_;
+﻿    using BL_;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +12,13 @@ namespace WebPolleria
     public partial class ConciliacionDePagoDelivery : System.Web.UI.Page
     {
         BL_Conciliacion bl_Conciliacion = null;
+        BL_Trabajador bl_Trabajador = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.MaintainScrollPositionOnPostBack = true;
             LlenarTabla1();
+            bl_Trabajador=new BL_Trabajador();
+            Nombre.Value= bl_Trabajador.BuscarNombreTrabajador(Session["usuario"].ToString());
         }
 
         protected void LlenarTabla1()
@@ -35,6 +38,7 @@ namespace WebPolleria
             GridViewRow selectedRow = gvRepatidores.SelectedRow;
             string codigo = selectedRow.Cells[0].Text;
             LlenarTabla2(codigo);
+            monto.Value= ""+RecaudacionTotal();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -66,6 +70,16 @@ namespace WebPolleria
             stringBuilder.Append("')};");
             stringBuilder.Append("</script>");
             this.ClientScript.RegisterClientScriptBlock(this.GetType(), "Alerta", stringBuilder.ToString());
+        }
+        protected double RecaudacionTotal()
+        {
+            double totRecaudacion = 0;
+            for (int i = 0; i < gvDetalle.Rows.Count; i++)
+            {
+                GridViewRow row = gvDetalle.Rows[i];
+                totRecaudacion = totRecaudacion + double.Parse(row.Cells[3].Text);
+            }
+            return totRecaudacion;
         }
     }
 }

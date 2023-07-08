@@ -240,3 +240,14 @@ D:\IMPLEMENTACION ANAL\Polleria\DA_\obj\Debug\DA_.csproj.CoreCompileInputs.cache
 D:\IMPLEMENTACION ANAL\Polleria\DA_\obj\Debug\DA_.csproj.CopyComplete
 D:\IMPLEMENTACION ANAL\Polleria\DA_\obj\Debug\DA_.dll
 D:\IMPLEMENTACION ANAL\Polleria\DA_\obj\Debug\DA_.pdb
+D:\TERCER PARCIAL IMPLEMENTACION\Polleria\DA_\bin\Debug\DA_.dll
+D:\TERCER PARCIAL IMPLEMENTACION\Polleria\DA_\bin\Debug\DA_.pdb
+D:\TERCER PARCIAL IMPLEMENTACION\Polleria\DA_\bin\Debug\BE_.dll
+D:\TERCER PARCIAL IMPLEMENTACION\Polleria\DA_\bin\Debug\Util_.dll
+D:\TERCER PARCIAL IMPLEMENTACION\Polleria\DA_\bin\Debug\BE_.pdb
+D:\TERCER PARCIAL IMPLEMENTACION\Polleria\DA_\bin\Debug\Util_.pdb
+D:\TERCER PARCIAL IMPLEMENTACION\Polleria\DA_\obj\Debug\DA_.csproj.AssemblyReference.cache
+D:\TERCER PARCIAL IMPLEMENTACION\Polleria\DA_\obj\Debug\DA_.csproj.CoreCompileInputs.cache
+D:\TERCER PARCIAL IMPLEMENTACION\Polleria\DA_\obj\Debug\DA_.csproj.CopyComplete
+D:\TERCER PARCIAL IMPLEMENTACION\Polleria\DA_\obj\Debug\DA_.dll
+D:\TERCER PARCIAL IMPLEMENTACION\Polleria\DA_\obj\Debug\DA_.pdb

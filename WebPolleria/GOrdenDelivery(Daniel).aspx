@@ -44,16 +44,18 @@
     <style>
         .Modal-Container{
             position:relative;
-        }
+            margin:30px 60px;
+            }
         .Modal{
-            background:red;
             position:relative;
 
         }
         .panel {
-           background:rgb(150,150,0);
-           opacity:.5;
-           padding:5px;
+            background:#493e3e79;
+           padding:10px;
+           
+           border-radius:15px;
+           box-shadow:2px 2px 8px 8px lightblue;
         }
         .panel h5{
             font-size:20px;
